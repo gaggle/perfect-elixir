@@ -1,64 +1,20 @@
-# The configurations that used for the recording, feel free to edit them
 config:
-
-  # Specify a command to be executed
-  # like `/bin/bash -l`, `ls`, or any other commands
-  # the default is bash for Linux
-  # or powershell.exe for Windows
   command: /bin/zsh
-
-  # Specify the current working directory path
-  # the default is the current working directory path
   cwd: /Users/cloud
-
-  # Export additional ENV variables
   env:
     recording: true
-
-  # Explicitly set the number of columns
-  # or use `auto` to take the current
-  # number of columns of your shell
   cols: 80
-
-  # Explicitly set the number of rows
-  # or use `auto` to take the current
-  # number of rows of your shell
   rows: 20
-
-  # Amount of times to repeat GIF
-  # If value is -1, play once
-  # If value is 0, loop indefinitely
-  # If value is a positive number, loop n times
   repeat: -1
-
-  # Quality
-  # 1 - 100
   quality: 100
-
-  # Delay between frames in ms
-  # If the value is `auto` use the actual recording delays
   frameDelay: auto
-
-  # Maximum delay between frames in ms
-  # Ignored if the `frameDelay` isn't set to `auto`
-  # Set to `auto` to prevent limiting the max idle time
   maxIdleTime: 2000
-
-  # The surrounding frame box
-  # The `type` can be null, window, floating, or solid`
-  # To hide the title use the value null
-  # Don't forget to add a backgroundColor style with a null as type
   frameBox:
     type: null
     title: null
     style:
       backgroundColor: black
       padding: 12px
-
-  # Add a watermark image to the rendered gif
-  # You need to specify an absolute path for
-  # the image on your machine or a URL, and you can also
-  # add your own CSS styles
   watermark:
     imagePath: null
     style:
@@ -67,53 +23,36 @@ config:
       bottom: 15px
       width: 100px
       opacity: 0.9
-
-  # Cursor style can be one of
-  # `block`, `underline`, or `bar`
   cursorStyle: block
-
-  # Font family
-  # You can use any font that is installed on your machine
-  # in CSS-like syntax
-  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
-
-  # The size of the font
+  fontFamily: Monaco, Lucida Console, Ubuntu Mono, Monospace
   fontSize: 12
-
-  # The height of lines
   lineHeight: 1
-
-  # The spacing between letters
   letterSpacing: 0
-
-  # Theme
   theme:
-    background: "transparent"
-    foreground: "#afafaf"
-    cursor: "#c7c7c7"
-    black: "#232628"
-    red: "#fc4384"
-    green: "#b3e33b"
-    yellow: "#ffa727"
-    blue: "#75dff2"
-    magenta: "#ae89fe"
-    cyan: "#708387"
-    white: "#d5d5d0"
-    brightBlack: "#626566"
-    brightRed: "#ff7fac"
-    brightGreen: "#c8ed71"
-    brightYellow: "#ebdf86"
-    brightBlue: "#75dff2"
-    brightMagenta: "#ae89fe"
-    brightCyan: "#b1c6ca"
-    brightWhite: "#f9f9f4"
-
-# Records, feel free to edit them
+    background: transparent
+    foreground: '#afafaf'
+    cursor: '#c7c7c7'
+    black: '#232628'
+    red: '#fc4384'
+    green: '#b3e33b'
+    yellow: '#ffa727'
+    blue: '#75dff2'
+    magenta: '#ae89fe'
+    cyan: '#708387'
+    white: '#d5d5d0'
+    brightBlack: '#626566'
+    brightRed: '#ff7fac'
+    brightGreen: '#c8ed71'
+    brightYellow: '#ebdf86'
+    brightBlue: '#75dff2'
+    brightMagenta: '#ae89fe'
+    brightCyan: '#b1c6ca'
+    brightWhite: '#f9f9f4'
 records:
   - delay: 1
     content: " \r\n"
   - delay: 50
-    content: "$ "
+    content: '$ '
   - delay: 800
     content: "asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git\r\n"
   - delay: 788
@@ -231,7 +170,7 @@ records:
   - delay: 95
     content: i
   - delay: 82
-    content: n
+    content: 'n'
   - delay: 64
     content: s
   - delay: 95
@@ -337,9 +276,7 @@ records:
   - delay: 169
     content: "checking for gawk... no\r\nchecking for mawk... no\r\nchecking for nawk... no\r\nchecking for awk... awk\r\n"
   - delay: 154
-    content: >-
-      checking whether gcc supports -Wdeclaration-after-statement, for
-      CFLAGS...
+    content: checking whether gcc supports -Wdeclaration-after-statement, for CFLAGS...
   - delay: 78
     content: "yes\r\nchecking whether gcc supports -Werror=vla, for CFLAGS... "
   - delay: 81
@@ -1327,159 +1264,159 @@ records:
   - delay: 127
     content: "==>\e[0m \e[1mPouring m4--1.4.19.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 94
-    content: "\U0001F37A  /usr/local/Cellar/m4/1.4.19: 13 files, 739.9KB\r\n==>\e[0m \e[1mInstalling autoconf\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/m4/1.4.19: 13 files, 739.9KB\r\n==>\e[0m \e[1mInstalling autoconf\e[0m\r\n"
   - delay: 82
     content: "==>\e[0m \e[1mPouring autoconf--2.72.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 202
-    content: "\U0001F37A  /usr/local/Cellar/autoconf/2.72: 71 files, 3.6MB\r\n==>\e[0m \e[1mRunning `brew cleanup autoconf`...\e[0m\r\nDisable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.\r\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\r\n"
+    content: "🍺  /usr/local/Cellar/autoconf/2.72: 71 files, 3.6MB\r\n==>\e[0m \e[1mRunning `brew cleanup autoconf`...\e[0m\r\nDisable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.\r\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\r\n"
   - delay: 88
     content: "==>\e[0m \e[1mPouring openssl@1.1--1.1.1w.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 8842
     content: "==>\e[0m \e[1mCaveats\e[0m\r\nA CA file has been bootstrapped using certificates from the system\r\nkeychain. To add additional certificates, place .pem files in\r\n  /usr/local/etc/openssl@1.1/certs\r\n\r\nand run\r\n  /usr/local/opt/openssl@1.1/bin/c_rehash\r\n\r\nopenssl@1.1 is keg-only, which means it was not symlinked into /usr/local,\r\nbecause this is an alternate version of another formula.\r\n\r\nIf you need to have openssl@1.1 first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/openssl@1.1/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find openssl@1.1 you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/openssl@1.1/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/openssl@1.1/include\"\r\n==>\e[0m \e[1mSummary\e[0m\r\n"
   - delay: 235
-    content: "\U0001F37A  /usr/local/Cellar/openssl@1.1/1.1.1w: 8,101 files, 18.5MB\r\n==>\e[0m \e[1mRunning `brew cleanup openssl@1.1`...\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/openssl@1.1/1.1.1w: 8,101 files, 18.5MB\r\n==>\e[0m \e[1mRunning `brew cleanup openssl@1.1`...\e[0m\r\n"
   - delay: 42
     content: "==>\e[0m \e[1mInstalling dependencies for libxslt: libgpg-error, libgcrypt, readline and libxml2\e[0m\r\n==>\e[0m \e[1mInstalling libxslt dependency: libgpg-error\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgpg-error/manifests/1.47\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/98f5d26e0bbc42377eac3ea624367f84264ea91bb4ca8c4e7cc6fa402bb3d3d5--libgpg-error-1.47.bottle_manifest.json\r\n"
   - delay: 89
     content: "==>\e[0m \e[1mPouring libgpg-error--1.47.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 328
-    content: "\U0001F37A  /usr/local/Cellar/libgpg-error/1.47: 49 files, 1.6MB\r\n==>\e[0m \e[1mInstalling libxslt dependency: libgcrypt\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgcrypt/manifests/1.10.3\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/51a9d782e7010eccf6d60ff8e69c811398480eb544aec8866787a22cda36fccd--libgcrypt-1.10.3.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libgpg-error/1.47: 49 files, 1.6MB\r\n==>\e[0m \e[1mInstalling libxslt dependency: libgcrypt\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgcrypt/manifests/1.10.3\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/51a9d782e7010eccf6d60ff8e69c811398480eb544aec8866787a22cda36fccd--libgcrypt-1.10.3.bottle_manifest.json\r\n"
   - delay: 89
     content: "==>\e[0m \e[1mPouring libgcrypt--1.10.3.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 240
-    content: "\U0001F37A  /usr/local/Cellar/libgcrypt/1.10.3: 23 files, 3.3MB\r\n==>\e[0m \e[1mInstalling libxslt dependency: readline\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/14125f7fa4b49853f76160b864f58379d90e52833ffeb8bd0643609bcd7f02a7--readline-8.2.7.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libgcrypt/1.10.3: 23 files, 3.3MB\r\n==>\e[0m \e[1mInstalling libxslt dependency: readline\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/14125f7fa4b49853f76160b864f58379d90e52833ffeb8bd0643609bcd7f02a7--readline-8.2.7.bottle_manifest.json\r\n"
   - delay: 78
     content: "==>\e[0m \e[1mPouring readline--8.2.7.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 221
-    content: "\U0001F37A  /usr/local/Cellar/readline/8.2.7: 50 files, 1.7MB\r\n==>\e[0m \e[1mInstalling libxslt dependency: libxml2\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxml2/manifests/2.12.3\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d6a349f3e21644b8beff45b69fb7720a7b4194dafd5acb9c2355e0150063e4e1--libxml2-2.12.3.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/readline/8.2.7: 50 files, 1.7MB\r\n==>\e[0m \e[1mInstalling libxslt dependency: libxml2\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxml2/manifests/2.12.3\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d6a349f3e21644b8beff45b69fb7720a7b4194dafd5acb9c2355e0150063e4e1--libxml2-2.12.3.bottle_manifest.json\r\n"
   - delay: 91
     content: "==>\e[0m \e[1mPouring libxml2--2.12.3.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 568
-    content: "\U0001F37A  /usr/local/Cellar/libxml2/2.12.3: 204 files, 6.2MB\r\n==>\e[0m \e[1mInstalling libxslt\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/libxml2/2.12.3: 204 files, 6.2MB\r\n==>\e[0m \e[1mInstalling libxslt\e[0m\r\n"
   - delay: 81
     content: "==>\e[0m \e[1mPouring libxslt--1.1.39.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 351
-    content: "==>\e[0m \e[1mCaveats\e[0m\r\nTo allow the nokogiri gem to link against this libxslt run:\r\n  gem install nokogiri -- --with-xslt-dir=/usr/local/opt/libxslt\r\n\r\nlibxslt is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have libxslt first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/libxslt/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find libxslt you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/libxslt/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/libxslt/include\"\r\n==>\e[0m \e[1mSummary\e[0m\r\n\U0001F37A  /usr/local/Cellar/libxslt/1.1.39: 100 files, 1.2MB\r\n==>\e[0m \e[1mRunning `brew cleanup libxslt`...\e[0m\r\n"
+    content: "==>\e[0m \e[1mCaveats\e[0m\r\nTo allow the nokogiri gem to link against this libxslt run:\r\n  gem install nokogiri -- --with-xslt-dir=/usr/local/opt/libxslt\r\n\r\nlibxslt is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have libxslt first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/libxslt/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find libxslt you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/libxslt/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/libxslt/include\"\r\n==>\e[0m \e[1mSummary\e[0m\r\n🍺  /usr/local/Cellar/libxslt/1.1.39: 100 files, 1.2MB\r\n==>\e[0m \e[1mRunning `brew cleanup libxslt`...\e[0m\r\n"
   - delay: 106
     content: "==>\e[0m \e[1mInstalling dependencies for fop: giflib, libpng, freetype, fontconfig, glib, xorgproto, libxau, libxdmcp, libxcb, libx11, libxext, libxrender, lzo, pixman, cairo, graphite2, harfbuzz, jpeg-turbo, libtiff, little-cms2 and openjdk\e[0m\r\n==>\e[0m \e[1mInstalling fop dependency: giflib\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/giflib/manifests/5.2.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/51910e68b838a5c62c91c9352172d516e77a3c3c1a59a2cebaffc3f64f46adf4--giflib-5.2.1.bottle_manifest.json\r\n"
   - delay: 87
     content: "==>\e[0m \e[1mPouring giflib--5.2.1.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 150
-    content: "\U0001F37A  /usr/local/Cellar/giflib/5.2.1: 19 files, 518.5KB\r\n==>\e[0m \e[1mInstalling fop dependency: libpng\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.40\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d2caacc64e32be045b902fa78d2bb4aea7fba8f088cef85cd34b1beab15b755a--libpng-1.6.40.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/giflib/5.2.1: 19 files, 518.5KB\r\n==>\e[0m \e[1mInstalling fop dependency: libpng\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.40\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d2caacc64e32be045b902fa78d2bb4aea7fba8f088cef85cd34b1beab15b755a--libpng-1.6.40.bottle_manifest.json\r\n"
   - delay: 83
     content: "==>\e[0m \e[1mPouring libpng--1.6.40.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 215
-    content: "\U0001F37A  /usr/local/Cellar/libpng/1.6.40: 27 files, 1.3MB\r\n==>\e[0m \e[1mInstalling fop dependency: freetype\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/freetype/manifests/2.13.2-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8d6ca45fa8766fb544a5e6dbc76f0a68568656ab4fe1e837704491bb24e3035d--freetype-2.13.2-1.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libpng/1.6.40: 27 files, 1.3MB\r\n==>\e[0m \e[1mInstalling fop dependency: freetype\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/freetype/manifests/2.13.2-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8d6ca45fa8766fb544a5e6dbc76f0a68568656ab4fe1e837704491bb24e3035d--freetype-2.13.2-1.bottle_manifest.json\r\n"
   - delay: 89
     content: "==>\e[0m \e[1mPouring freetype--2.13.2.sonoma.bottle.1.tar.gz\e[0m\r\n"
   - delay: 227
-    content: "\U0001F37A  /usr/local/Cellar/freetype/2.13.2: 67 files, 2.5MB\r\n==>\e[0m \e[1mInstalling fop dependency: fontconfig\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/fontconfig/manifests/2.15.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/33d176010dc9a105404ed23b6c0f8b853bf3a2df2e274876d412d7229a643320--fontconfig-2.15.0.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/freetype/2.13.2: 67 files, 2.5MB\r\n==>\e[0m \e[1mInstalling fop dependency: fontconfig\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/fontconfig/manifests/2.15.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/33d176010dc9a105404ed23b6c0f8b853bf3a2df2e274876d412d7229a643320--fontconfig-2.15.0.bottle_manifest.json\r\n"
   - delay: 92
     content: "==>\e[0m \e[1mPouring fontconfig--2.15.0.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 2571
     content: "==>\e[0m \e[1mRegenerating font cache, this may take a while\e[0m\r\n==>\e[0m \e[1m/usr/local/Cellar/fontconfig/2.15.0/bin/fc-cache -frv\e[0m\r\n"
   - delay: 4185
-    content: "\U0001F37A  /usr/local/Cellar/fontconfig/2.15.0: 90 files, 2.2MB\r\n==>\e[0m \e[1mInstalling fop dependency: glib\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/glib/manifests/2.78.3\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/33691fa3f0682c43459117cdc029ecef157fab4e7f1c8bdac19e861665ffc1db--glib-2.78.3.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/fontconfig/2.15.0: 90 files, 2.2MB\r\n==>\e[0m \e[1mInstalling fop dependency: glib\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/glib/manifests/2.78.3\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/33691fa3f0682c43459117cdc029ecef157fab4e7f1c8bdac19e861665ffc1db--glib-2.78.3.bottle_manifest.json\r\n"
   - delay: 109
     content: "==>\e[0m \e[1mPouring glib--2.78.3.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 3815
-    content: "\U0001F37A  /usr/local/Cellar/glib/2.78.3: 456 files, 21.3MB\r\n==>\e[0m \e[1mInstalling fop dependency: xorgproto\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xorgproto/manifests/2023.2\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8740825bd79ba6441c86fb430f955cb3d08f4693dd2947fe877c11c7c8122343--xorgproto-2023.2.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/glib/2.78.3: 456 files, 21.3MB\r\n==>\e[0m \e[1mInstalling fop dependency: xorgproto\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xorgproto/manifests/2023.2\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8740825bd79ba6441c86fb430f955cb3d08f4693dd2947fe877c11c7c8122343--xorgproto-2023.2.bottle_manifest.json\r\n"
   - delay: 103
     content: "==>\e[0m \e[1mPouring xorgproto--2023.2.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 393
-    content: "\U0001F37A  /usr/local/Cellar/xorgproto/2023.2: 267 files, 3.9MB\r\n==>\e[0m \e[1mInstalling fop dependency: libxau\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxau/manifests/1.0.11\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/7faff26297b2e07682655beaa529cff7b3de0ad1abc013863ca3d03602b79ee7--libxau-1.0.11.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/xorgproto/2023.2: 267 files, 3.9MB\r\n==>\e[0m \e[1mInstalling fop dependency: libxau\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxau/manifests/1.0.11\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/7faff26297b2e07682655beaa529cff7b3de0ad1abc013863ca3d03602b79ee7--libxau-1.0.11.bottle_manifest.json\r\n"
   - delay: 101
     content: "==>\e[0m \e[1mPouring libxau--1.0.11.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 225
-    content: "\U0001F37A  /usr/local/Cellar/libxau/1.0.11: 21 files, 105.5KB\r\n==>\e[0m \e[1mInstalling fop dependency: libxdmcp\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxdmcp/manifests/1.1.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/1af80edced252b5f690f78a3805b785cbf689dc947cd5f45dced60c97640a9c9--libxdmcp-1.1.4.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libxau/1.0.11: 21 files, 105.5KB\r\n==>\e[0m \e[1mInstalling fop dependency: libxdmcp\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxdmcp/manifests/1.1.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/1af80edced252b5f690f78a3805b785cbf689dc947cd5f45dced60c97640a9c9--libxdmcp-1.1.4.bottle_manifest.json\r\n"
   - delay: 98
     content: "==>\e[0m \e[1mPouring libxdmcp--1.1.4.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 155
-    content: "\U0001F37A  /usr/local/Cellar/libxdmcp/1.1.4: 11 files, 113.7KB\r\n==>\e[0m \e[1mInstalling fop dependency: libxcb\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxcb/manifests/1.16-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/9f2d408e88eb406c55d255e0e7c935c12ec3588a121c969d42635346d8ab3497--libxcb-1.16-1.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libxdmcp/1.1.4: 11 files, 113.7KB\r\n==>\e[0m \e[1mInstalling fop dependency: libxcb\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxcb/manifests/1.16-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/9f2d408e88eb406c55d255e0e7c935c12ec3588a121c969d42635346d8ab3497--libxcb-1.16-1.bottle_manifest.json\r\n"
   - delay: 114
     content: "==>\e[0m \e[1mPouring libxcb--1.16.sonoma.bottle.1.tar.gz\e[0m\r\n"
   - delay: 5071
-    content: "\U0001F37A  /usr/local/Cellar/libxcb/1.16: 2,491 files, 7MB\r\n==>\e[0m \e[1mInstalling fop dependency: libx11\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libx11/manifests/1.8.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/4d15c929e0532c9a908dcb7d562929ecc5dd3a0a0cd4c19cf50683c06282fd7f--libx11-1.8.7.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libxcb/1.16: 2,491 files, 7MB\r\n==>\e[0m \e[1mInstalling fop dependency: libx11\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libx11/manifests/1.8.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/4d15c929e0532c9a908dcb7d562929ecc5dd3a0a0cd4c19cf50683c06282fd7f--libx11-1.8.7.bottle_manifest.json\r\n"
   - delay: 123
     content: "==>\e[0m \e[1mPouring libx11--1.8.7.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 1995
-    content: "\U0001F37A  /usr/local/Cellar/libx11/1.8.7: 1,042 files, 6.9MB\r\n==>\e[0m \e[1mInstalling fop dependency: libxext\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxext/manifests/1.3.5\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/36b14aebd45b8fbf0f965d846bbc5126adbe882c0775c9936edb0432b347b9a1--libxext-1.3.5.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libx11/1.8.7: 1,042 files, 6.9MB\r\n==>\e[0m \e[1mInstalling fop dependency: libxext\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxext/manifests/1.3.5\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/36b14aebd45b8fbf0f965d846bbc5126adbe882c0775c9936edb0432b347b9a1--libxext-1.3.5.bottle_manifest.json\r\n"
   - delay: 125
     content: "==>\e[0m \e[1mPouring libxext--1.3.5.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 264
-    content: "\U0001F37A  /usr/local/Cellar/libxext/1.3.5: 87 files, 427.4KB\r\n==>\e[0m \e[1mInstalling fop dependency: libxrender\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxrender/manifests/0.9.11\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/134c11be8346a1b116e04983c2da6366f29c4f4c2abc17604dcdb80d0475ae9d--libxrender-0.9.11.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libxext/1.3.5: 87 files, 427.4KB\r\n==>\e[0m \e[1mInstalling fop dependency: libxrender\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxrender/manifests/0.9.11\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/134c11be8346a1b116e04983c2da6366f29c4f4c2abc17604dcdb80d0475ae9d--libxrender-0.9.11.bottle_manifest.json\r\n"
   - delay: 125
     content: "==>\e[0m \e[1mPouring libxrender--0.9.11.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 158
-    content: "\U0001F37A  /usr/local/Cellar/libxrender/0.9.11: 12 files, 198.0KB\r\n==>\e[0m \e[1mInstalling fop dependency: lzo\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lzo/manifests/2.10\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d4aa5b0c239912c53bc857d1012c6b7feb4acb509618f5e100f95bf8521f08e7--lzo-2.10.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libxrender/0.9.11: 12 files, 198.0KB\r\n==>\e[0m \e[1mInstalling fop dependency: lzo\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lzo/manifests/2.10\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d4aa5b0c239912c53bc857d1012c6b7feb4acb509618f5e100f95bf8521f08e7--lzo-2.10.bottle_manifest.json\r\n"
   - delay: 95
     content: "==>\e[0m \e[1mPouring lzo--2.10.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 178
-    content: "\U0001F37A  /usr/local/Cellar/lzo/2.10: 31 files, 555.7KB\r\n==>\e[0m \e[1mInstalling fop dependency: pixman\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pixman/manifests/0.42.2-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/2b0d8f2c63712ce503fa54309b732051a7ca5cd31bd561aa4aaba331bf26bcef--pixman-0.42.2-1.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/lzo/2.10: 31 files, 555.7KB\r\n==>\e[0m \e[1mInstalling fop dependency: pixman\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pixman/manifests/0.42.2-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/2b0d8f2c63712ce503fa54309b732051a7ca5cd31bd561aa4aaba331bf26bcef--pixman-0.42.2-1.bottle_manifest.json\r\n"
   - delay: 94
     content: "==>\e[0m \e[1mPouring pixman--0.42.2.sonoma.bottle.1.tar.gz\e[0m\r\n"
   - delay: 165
-    content: "\U0001F37A  /usr/local/Cellar/pixman/0.42.2: 11 files, 1.4MB\r\n==>\e[0m \e[1mInstalling fop dependency: cairo\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/cairo/manifests/1.18.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/1b8b7f19e38cb0e029497dfe0ad3f3557f605025c5575bdfe86c17b889c6e6d1--cairo-1.18.0.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/pixman/0.42.2: 11 files, 1.4MB\r\n==>\e[0m \e[1mInstalling fop dependency: cairo\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/cairo/manifests/1.18.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/1b8b7f19e38cb0e029497dfe0ad3f3557f605025c5575bdfe86c17b889c6e6d1--cairo-1.18.0.bottle_manifest.json\r\n"
   - delay: 189
     content: "==>\e[0m \e[1mPouring cairo--1.18.0.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 534
-    content: "\U0001F37A  /usr/local/Cellar/cairo/1.18.0: 52 files, 2.1MB\r\n==>\e[0m \e[1mInstalling fop dependency: graphite2\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/graphite2/manifests/1.3.14\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/bbb4dd2ef1846301d1eb08053e19e11ca9c780f93f4d3b2d638fd94a9bf54a0c--graphite2-1.3.14.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/cairo/1.18.0: 52 files, 2.1MB\r\n==>\e[0m \e[1mInstalling fop dependency: graphite2\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/graphite2/manifests/1.3.14\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/bbb4dd2ef1846301d1eb08053e19e11ca9c780f93f4d3b2d638fd94a9bf54a0c--graphite2-1.3.14.bottle_manifest.json\r\n"
   - delay: 95
     content: "==>\e[0m \e[1mPouring graphite2--1.3.14.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 213
-    content: "\U0001F37A  /usr/local/Cellar/graphite2/1.3.14: 18 files, 261.0KB\r\n==>\e[0m \e[1mInstalling fop dependency: harfbuzz\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/harfbuzz/manifests/8.3.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8fccd91a473694ef9d916ce061ae69cb18243bdab491757fae06fed911dd5b63--harfbuzz-8.3.0.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/graphite2/1.3.14: 18 files, 261.0KB\r\n==>\e[0m \e[1mInstalling fop dependency: harfbuzz\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/harfbuzz/manifests/8.3.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8fccd91a473694ef9d916ce061ae69cb18243bdab491757fae06fed911dd5b63--harfbuzz-8.3.0.bottle_manifest.json\r\n"
   - delay: 207
     content: "==>\e[0m \e[1mPouring harfbuzz--8.3.0.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 745
-    content: "\U0001F37A  /usr/local/Cellar/harfbuzz/8.3.0: 76 files, 9.8MB\r\n==>\e[0m \e[1mInstalling fop dependency: jpeg-turbo\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/325e745bcb7840d6a83df7bfcafaa4dbc30b29140f252fb82b7714493df29d6d--jpeg-turbo-3.0.0.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/harfbuzz/8.3.0: 76 files, 9.8MB\r\n==>\e[0m \e[1mInstalling fop dependency: jpeg-turbo\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/325e745bcb7840d6a83df7bfcafaa4dbc30b29140f252fb82b7714493df29d6d--jpeg-turbo-3.0.0.bottle_manifest.json\r\n"
   - delay: 98
     content: "==>\e[0m \e[1mPouring jpeg-turbo--3.0.0.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 285
-    content: "\U0001F37A  /usr/local/Cellar/jpeg-turbo/3.0.0: 44 files, 4.8MB\r\n==>\e[0m \e[1mInstalling fop dependency: libtiff\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/manifests/4.6.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/9c8455a2f6bcea7bf3e3461218fba309141b0b0553b6e1afc5fe64e63caccff3--libtiff-4.6.0.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/jpeg-turbo/3.0.0: 44 files, 4.8MB\r\n==>\e[0m \e[1mInstalling fop dependency: libtiff\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/manifests/4.6.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/9c8455a2f6bcea7bf3e3461218fba309141b0b0553b6e1afc5fe64e63caccff3--libtiff-4.6.0.bottle_manifest.json\r\n"
   - delay: 121
     content: "==>\e[0m \e[1mPouring libtiff--4.6.0.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 990
-    content: "\U0001F37A  /usr/local/Cellar/libtiff/4.6.0: 414 files, 6.6MB\r\n==>\e[0m \e[1mInstalling fop dependency: little-cms2\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/little-cms2/manifests/2.16\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/c4e2b31b0daade62da1f3c2e57d69f74987bac35310011b87220145fa60b3558--little-cms2-2.16.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/libtiff/4.6.0: 414 files, 6.6MB\r\n==>\e[0m \e[1mInstalling fop dependency: little-cms2\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/little-cms2/manifests/2.16\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/c4e2b31b0daade62da1f3c2e57d69f74987bac35310011b87220145fa60b3558--little-cms2-2.16.bottle_manifest.json\r\n"
   - delay: 119
     content: "==>\e[0m \e[1mPouring little-cms2--2.16.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 422
-    content: "\U0001F37A  /usr/local/Cellar/little-cms2/2.16: 22 files, 1.3MB\r\n==>\e[0m \e[1mInstalling fop dependency: openjdk\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openjdk/manifests/21.0.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/bb8a78296beb0d39c64166622e2df1a553bdf78572bac0ce95765a7007a46b8a--openjdk-21.0.1.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/little-cms2/2.16: 22 files, 1.3MB\r\n==>\e[0m \e[1mInstalling fop dependency: openjdk\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openjdk/manifests/21.0.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/bb8a78296beb0d39c64166622e2df1a553bdf78572bac0ce95765a7007a46b8a--openjdk-21.0.1.bottle_manifest.json\r\n"
   - delay: 248
     content: "==>\e[0m \e[1mPouring openjdk--21.0.1.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 9919
-    content: "\U0001F37A  /usr/local/Cellar/openjdk/21.0.1: 600 files, 331.4MB\r\n==>\e[0m \e[1mInstalling fop\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/openjdk/21.0.1: 600 files, 331.4MB\r\n==>\e[0m \e[1mInstalling fop\e[0m\r\n"
   - delay: 107
     content: "==>\e[0m \e[1mPouring fop--2.9.all.bottle.tar.gz\e[0m\r\n"
   - delay: 5285
-    content: "\U0001F37A  /usr/local/Cellar/fop/2.9: 4,046 files, 102.0MB\r\n==>\e[0m \e[1mRunning `brew cleanup fop`...\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/fop/2.9: 4,046 files, 102.0MB\r\n==>\e[0m \e[1mRunning `brew cleanup fop`...\e[0m\r\n"
   - delay: 59
     content: "==>\e[0m \e[1mInstalling dependencies for gcc: isl, mpfr and libmpc\e[0m\r\n==>\e[0m \e[1mInstalling gcc dependency: isl\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/isl/manifests/0.26\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/ec0bbec77171645273dd59a9ccfdf290deccd999b3ca2082e0478d282b777ec0--isl-0.26.bottle_manifest.json\r\n"
   - delay: 113
     content: "==>\e[0m \e[1mPouring isl--0.26.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 263
-    content: "\U0001F37A  /usr/local/Cellar/isl/0.26: 73 files, 7.6MB\r\n==>\e[0m \e[1mInstalling gcc dependency: mpfr\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/mpfr/manifests/4.2.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/a2a3424f4974f6febfa0334a93f35f508eaef3f4ad04320f73d9498302295635--mpfr-4.2.1.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/isl/0.26: 73 files, 7.6MB\r\n==>\e[0m \e[1mInstalling gcc dependency: mpfr\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/mpfr/manifests/4.2.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/a2a3424f4974f6febfa0334a93f35f508eaef3f4ad04320f73d9498302295635--mpfr-4.2.1.bottle_manifest.json\r\n"
   - delay: 108
     content: "==>\e[0m \e[1mPouring mpfr--4.2.1.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 235
-    content: "\U0001F37A  /usr/local/Cellar/mpfr/4.2.1: 30 files, 3.1MB\r\n==>\e[0m \e[1mInstalling gcc dependency: libmpc\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libmpc/manifests/1.3.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/fdfa98e0f8bb3ce075cb32776ac2345aa2f89252706c162aecfc841085fa76be--libmpc-1.3.1.bottle_manifest.json\r\n"
+    content: "🍺  /usr/local/Cellar/mpfr/4.2.1: 30 files, 3.1MB\r\n==>\e[0m \e[1mInstalling gcc dependency: libmpc\e[0m\r\n==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libmpc/manifests/1.3.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/fdfa98e0f8bb3ce075cb32776ac2345aa2f89252706c162aecfc841085fa76be--libmpc-1.3.1.bottle_manifest.json\r\n"
   - delay: 113
     content: "==>\e[0m \e[1mPouring libmpc--1.3.1.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 200
-    content: "\U0001F37A  /usr/local/Cellar/libmpc/1.3.1: 12 files, 497.8KB\r\n==>\e[0m \e[1mInstalling gcc\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/libmpc/1.3.1: 12 files, 497.8KB\r\n==>\e[0m \e[1mInstalling gcc\e[0m\r\n"
   - delay: 98
     content: "==>\e[0m \e[1mPouring gcc--13.2.0.sonoma.bottle.2.tar.gz\e[0m\r\n"
   - delay: 11379
-    content: "\U0001F37A  /usr/local/Cellar/gcc/13.2.0: 1,590 files, 401.9MB\r\n==>\e[0m \e[1mRunning `brew cleanup gcc`...\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/gcc/13.2.0: 1,590 files, 401.9MB\r\n==>\e[0m \e[1mRunning `brew cleanup gcc`...\e[0m\r\n"
   - delay: 13
     content: "==>\e[0m \e[1mRunning `brew cleanup readline`...\e[0m\r\n"
   - delay: 114
     content: "==>\e[0m \e[1mPouring zlib--1.3.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 166
-    content: "==>\e[0m \e[1mCaveats\e[0m\r\nzlib is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nFor compilers to find zlib you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/zlib/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/zlib/include\"\r\n==>\e[0m \e[1mSummary\e[0m\r\n\U0001F37A  /usr/local/Cellar/zlib/1.3: 13 files, 409.6KB\r\n==>\e[0m \e[1mRunning `brew cleanup zlib`...\e[0m\r\n"
+    content: "==>\e[0m \e[1mCaveats\e[0m\r\nzlib is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nFor compilers to find zlib you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/zlib/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/zlib/include\"\r\n==>\e[0m \e[1mSummary\e[0m\r\n🍺  /usr/local/Cellar/zlib/1.3: 13 files, 409.6KB\r\n==>\e[0m \e[1mRunning `brew cleanup zlib`...\e[0m\r\n"
   - delay: 110
     content: "==>\e[0m \e[1mPouring ossp-uuid--1.6.2_2.sonoma.bottle.tar.gz\e[0m\r\n"
   - delay: 231
-    content: "\U0001F37A  /usr/local/Cellar/ossp-uuid/1.6.2_2: 18 files, 255.2KB\r\n==>\e[0m \e[1mRunning `brew cleanup ossp-uuid`...\e[0m\r\n"
+    content: "🍺  /usr/local/Cellar/ossp-uuid/1.6.2_2: 18 files, 255.2KB\r\n==>\e[0m \e[1mRunning `brew cleanup ossp-uuid`...\e[0m\r\n"
   - delay: 1309
     content: "==>\e[0m \e[1mCaveats\e[0m\r\n==>\e[0m \e[1mopenssl@1.1\e[0m\r\nA CA file has been bootstrapped using certificates from the system\r\nkeychain. To add additional certificates, place .pem files in\r\n  /usr/local/etc/openssl@1.1/certs\r\n\r\nand run\r\n  /usr/local/opt/openssl@1.1/bin/c_rehash\r\n\r\nopenssl@1.1 is keg-only, which means it was not symlinked into /usr/local,\r\nbecause this is an alternate version of another formula.\r\n\r\nIf you need to have openssl@1.1 first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/openssl@1.1/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find openssl@1.1 you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/openssl@1.1/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/openssl@1.1/include\"\r\n==>\e[0m \e[1mlibxslt\e[0m\r\nTo allow the nokogiri gem to link against this libxslt run:\r\n  gem install nokogiri -- --with-xslt-dir=/usr/local/opt/libxslt\r\n\r\nlibxslt is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have libxslt first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/libxslt/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find libxslt you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/libxslt/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/libxslt/include\"\r\n==>\e[0m \e[1mzlib\e[0m\r\nzlib is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nFor compilers to find zlib you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/zlib/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/zlib/include\"\r\n"
   - delay: 62
@@ -1545,9 +1482,7 @@ records:
   - delay: 170
     content: "checking for gawk... no\r\nchecking for mawk... no\r\nchecking for nawk... no\r\nchecking for awk... awk\r\n"
   - delay: 152
-    content: >-
-      checking whether gcc supports -Wdeclaration-after-statement, for
-      CFLAGS...
+    content: checking whether gcc supports -Wdeclaration-after-statement, for CFLAGS...
   - delay: 80
     content: "yes\r\nchecking whether gcc supports -Werror=vla, for CFLAGS... "
   - delay: 84
@@ -1775,9 +1710,7 @@ records:
   - delay: 166
     content: "checking for gawk... no\r\nchecking for mawk... no\r\nchecking for nawk... no\r\nchecking for awk... awk\r\n"
   - delay: 73
-    content: >-
-      checking whether gcc supports -Wdeclaration-after-statement, for
-      CFLAGS...
+    content: checking whether gcc supports -Wdeclaration-after-statement, for CFLAGS...
   - delay: 79
     content: "yes\r\nchecking whether gcc supports -Werror=vla, for CFLAGS... "
   - delay: 79
@@ -2007,9 +1940,7 @@ records:
   - delay: 178
     content: "checking for gawk... no\r\nchecking for mawk... no\r\nchecking for nawk... no\r\nchecking for awk... awk\r\n"
   - delay: 30
-    content: >-
-      checking whether gcc supports -Wdeclaration-after-statement, for
-      CFLAGS...
+    content: checking whether gcc supports -Wdeclaration-after-statement, for CFLAGS...
   - delay: 83
     content: "yes\r\nchecking whether gcc supports -Werror=vla, for CFLAGS... "
   - delay: 87
@@ -8369,4 +8300,4 @@ records:
   - delay: 1978
     content: "\e[1m\e[7m%\e[1m\e[0m                                                                               \r \r\r\e[0m\e[J$ \e[K\e[?2004h"
   - delay: 10000
-    content: " "
+    content: ' '
