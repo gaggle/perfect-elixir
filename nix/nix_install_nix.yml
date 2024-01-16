@@ -1,0 +1,836 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Volumes/gaggle/Projects/perfect-elixir
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: -1
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 358
+    content: "\r\nThe default interactive shell is now zsh.\r\nTo update your account to use zsh, please run `chsh -s /bin/zsh`.\r\nFor more details, please visit https://support.apple.com/kb/HT208050.\r\n\e[?1034hmacos-14:perfect-elixir cloud$ "
+  - delay: 11788
+    content: P
+  - delay: 863
+    content: S
+  - delay: 480
+    content: '1'
+  - delay: 385
+    content: '='
+  - delay: 528
+    content: '"'
+  - delay: 353
+    content: $
+  - delay: 397
+    content: ' '
+  - delay: 210
+    content: '"'
+  - delay: 335
+    content: "\r\n$ "
+  - delay: 96058
+    content: "\r\n$ "
+  - delay: 502
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 83
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 86
+    content: "\r\n$ "
+  - delay: 82
+    content: "\r\n$ "
+  - delay: 88
+    content: "\r\n$ "
+  - delay: 82
+    content: "\r\n$ "
+  - delay: 83
+    content: "\r\n$ "
+  - delay: 83
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 82
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 83
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 83
+    content: "\r\n$ "
+  - delay: 87
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 83
+    content: "\r\n$ "
+  - delay: 82
+    content: "\r\n$ "
+  - delay: 86
+    content: "\r\n$ "
+  - delay: 79
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 82
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 85
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 86
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 84
+    content: "\r\n$ "
+  - delay: 86
+    content: "\r\n$ "
+  - delay: 83
+    content: "\r\n$ "
+  - delay: 5642
+    content: 'sh <(curl -L https://nixos.org/nix/install) --daemon'
+  - delay: 867
+    content: "\r\n"
+  - delay: 17
+    content: "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0"
+  - delay: 263
+    content: "\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n"
+  - delay: 83
+    content: "\r100  4052  100  4052    0     0  11682      0 --:--:-- --:--:-- --:--:-- 11682\r\n"
+  - delay: 24
+    content: "downloading Nix 2.19.2 binary tarball for x86_64-darwin from 'https://releases.nixos.org/nix/nix-2.19.2/nix-2.19.2-x86_64-darwin.tar.xz' to '/var/folders/3v/4n2xz3rn45b743l29l5_dkfh0000gn/T/nix-binary-tarball-unpack.XXXXXXXXXX.6CT2v4lrgP'...\r\n"
+  - delay: 15
+    content: "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0"
+  - delay: 193
+    content: "\r 14 26.3M   14 3988k    0     0  20.1M      0  0:00:01 --:--:--  0:00:01 20.0M"
+  - delay: 564
+    content: "\r100 26.3M  100 26.3M    0     0  34.7M      0 --:--:-- --:--:-- --:--:-- 34.7M\r\n"
+  - delay: 3387
+    content: "\e[1;31mSwitching to the Multi-user Installer\e[0m\r\n"
+  - delay: 125
+    content: "\e[32mWelcome to the Multi-User Nix Installation\r\n\e[0m"
+  - delay: 5
+    content: "\r\nThis installation tool will set up your computer with the Nix package\r\nmanager. This will happen in a few stages:\r\n\r\n1. Make sure your computer doesn't already have Nix. If it does, I\r\n   will show you instructions on how to clean up your old install.\r\n\r\n2. Show you what I am going to install and where. Then I will ask\r\n   if you are ready to continue.\r\n\r\n3. Create the system users \e[34m(uids [301..332])\e[0m and groups \e[34m(gid 30000)\e[0m\r\n   that the Nix daemon uses to run builds.\r\n\r\n4. Perform the basic installation of the Nix files daemon.\r\n\r\n5. Configure your shell to import special Nix Profile files, so you\r\n   can use Nix.\r\n\r\n6. Start the Nix daemon.\r\n\r\n\e[32m\e[4;32mWould you like to see a more detailed list of what I will do?\r\n\e[0m[y/n] "
+  - delay: 5443
+    content: 'n'
+  - delay: 1623
+    content: "\r\n\r\n"
+  - delay: 7
+    content: "\r\n\e[34m---- let's talk about sudo -----------------------------------------------------\r\n\e[0mThis script is going to call sudo a lot. Every time I do, it'll\r\noutput exactly what it'll do, and why.\r\n\r\nJust like this:\r\n"
+  - delay: 5
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo echo\r\n\r\nto demonstrate how our sudo prompts look\r\n\r\n"
+  - delay: 5
+    content: "\r\nThis might look scary, but everything can be undone by running just a\r\nfew commands. I used to ask you to confirm each time sudo ran, but it\r\nwas too many times. Instead, I'll just ask you this one time:\r\n\r\n\e[32m\e[4;32mCan I use sudo?\r\n\e[0m[y/n] "
+  - delay: 6265
+    content: 'y'
+  - delay: 490
+    content: "\r\n\r\n\e[32mYay! Thanks! Let's get going!\r\n\e[0m\r\n\e[32m~~> Fixing any leftover Nix volume state\r\n\e[0m"
+  - delay: 5
+    content: "Before I try to install, I'll check for any existing Nix volume config\r\nand ask for your permission to remove it (so that the installer can\r\nstart fresh). I'll also ask for permission to fix any issues I spot.\r\n"
+  - delay: 38
+    content: "\r\n\e[32m~~> Checking for artifacts of previous installs\r\n\e[0m"
+  - delay: 5
+    content: "Before I try to install, I'll check for signs Nix already is or has\r\nbeen installed on this system.\r\n"
+  - delay: 9
+    content: "\r\n\e[34m---- Nix config report ---------------------------------------------------------\r\n\e[0m\e[1m        Temp Dir\e[0m:\t/var/folders/3v/4n2xz3rn45b743l29l5_dkfh0000gn/T/tmp.HYCXOM5qBG\r\n\e[1m        Nix Root\e[0m:\t/nix\r\n\e[1m     Build Users\e[0m:\t32\r\n\e[1m  Build Group ID\e[0m:\t30000\r\n\e[1mBuild Group Name\e[0m:\tnixbld\r\n\r\n\e[4;34mbuild users:\r\n\e[0m\e[1m    Username\e[0m:\tUID\r\n"
+  - delay: 10
+    content: "\e[1m     _nixbld1\e[0m:\t301\r\n"
+  - delay: 8
+    content: "\e[1m     _nixbld2\e[0m:\t302\r\n\e[1m     _nixbld3\e[0m:\t303\r\n\e[1m     _nixbld4\e[0m:\t304\r\n"
+  - delay: 6
+    content: "\e[1m     _nixbld5\e[0m:\t305\r\n\e[1m     _nixbld6\e[0m:\t306\r\n\e[1m     _nixbld7\e[0m:\t307\r\n"
+  - delay: 5
+    content: "\e[1m     _nixbld8\e[0m:\t308\r\n\e[1m     _nixbld9\e[0m:\t309\r\n\e[1m     _nixbld10\e[0m:\t310\r\n\e[1m     _nixbld11\e[0m:\t311\r\n\e[1m     _nixbld12\e[0m:\t312\r\n\e[1m     _nixbld13\e[0m:\t313\r\n\e[1m     _nixbld14\e[0m:\t314\r\n\e[1m     _nixbld15\e[0m:\t315\r\n\e[1m     _nixbld16\e[0m:\t316\r\n\e[1m     _nixbld17\e[0m:\t317\r\n\e[1m     _nixbld18\e[0m:\t318\r\n\e[1m     _nixbld19\e[0m:\t319\r\n\e[1m     _nixbld20\e[0m:\t320\r\n"
+  - delay: 5
+    content: "\e[1m     _nixbld21\e[0m:\t321\r\n\e[1m     _nixbld22\e[0m:\t322\r\n"
+  - delay: 10
+    content: "\e[1m     _nixbld23\e[0m:\t323\r\n\e[1m     _nixbld24\e[0m:\t324\r\n\e[1m     _nixbld25\e[0m:\t325\r\n\e[1m     _nixbld26\e[0m:\t326\r\n\e[1m     _nixbld27\e[0m:\t327\r\n\e[1m     _nixbld28\e[0m:\t328\r\n\e[1m     _nixbld29\e[0m:\t329\r\n\e[1m     _nixbld30\e[0m:\t330\r\n\e[1m     _nixbld31\e[0m:\t331\r\n\e[1m     _nixbld32\e[0m:\t332\r\n\r\n\e[32m\e[4;32mReady to continue?\r\n\e[0m[y/n] "
+  - delay: 1775
+    content: 'y'
+  - delay: 512
+    content: "\r\n\r\n"
+  - delay: 6
+    content: "\r\n\e[34m---- Preparing a Nix volume ----------------------------------------------------\r\n\e[0m"
+  - delay: 5
+    content: "    Nix traditionally stores its data in the root directory /nix, but\r\n    macOS now (starting in 10.15 Catalina) has a read-only root directory.\r\n    To support Nix, I will create a volume and configure macOS to mount it\r\n    at /nix.\r\n\r\n\e[32m~~> Configuring /etc/synthetic.conf to make a mount-point at /nix\r\n\e[0m"
+  - delay: 6
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/ex -u NONE -n /etc/synthetic.conf\r\n\r\nto add Nix to /etc/synthetic.conf\r\n\r\n"
+  - delay: 99
+    content: 'Password:'
+  - delay: 8051
+    content: "\r\n"
+  - delay: 241
+    content: "\r\n\e[32m~~> Creating a Nix volume\r\n\e[0m"
+  - delay: 7
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/diskutil apfs addVolume disk1 APFS Nix Store -nomount\r\n\r\nto create a new APFS volume 'Nix Store' on disk1\r\n\r\n"
+  - delay: 642
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/diskutil unmount force disk1s7\r\n\r\nto ensure the Nix volume is not mounted\r\n\r\n"
+  - delay: 73
+    content: "disk1s7 was already unmounted\r\n"
+  - delay: 21
+    content: "\r\n\e[32m~~> Configuring /etc/fstab to specify volume mount options\r\n\e[0m"
+  - delay: 36
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/vifs\r\n\r\nto add nix to fstab\r\n\r\n"
+  - delay: 281
+    content: "\r\n\e[32m~~> Configuring LaunchDaemon to mount 'Nix Store'\r\n\e[0m"
+  - delay: 12
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/ex -u NONE -n /Library/LaunchDaemons/org.nixos.darwin-store.plist\r\n\r\nto install the Nix volume mounter\r\n\r\n"
+  - delay: 75
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.darwin-store.plist\r\n\r\nto launch the Nix volume mounter\r\n\r\n"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo launchctl kickstart -k system/org.nixos.darwin-store\r\n\r\nto launch the Nix volume mounter\r\n\r\n"
+  - delay: 10568
+    content: "\r\n\e[32m~~> Setting up the build group nixbld\r\n\e[0m"
+  - delay: 35
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o create -r Nix build group for nix-daemon -i 30000 nixbld\r\n\r\nCreate the Nix build group, nixbld\r\n\r\n"
+  - delay: 67
+    content: "\e[1m            Created\e[0m:\tYes\r\n"
+  - delay: 9
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld1\r\n\e[0m"
+  - delay: 22
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld1 UniqueID 301\r\n\r\nCreating the Nix build user (#1), _nixbld1\r\n\r\n"
+  - delay: 135
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld1 IsHidden 1\r\n\r\nin order to make _nixbld1 a hidden user\r\n\r\n"
+  - delay: 110
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 30
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld1 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld1 a safe home directory\r\n\r\n"
+  - delay: 89
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld1 RealName Nix build user 1\r\n\r\nin order to give _nixbld1 a useful note\r\n\r\n"
+  - delay: 87
+    content: "\e[1m              Note\e[0m:\tNix build user 1\r\n"
+  - delay: 32
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld1 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld1 a safe shell\r\n\r\n"
+  - delay: 84
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 35
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld1 nixbld\r\n\r\nAdd _nixbld1 to the nixbld group\r\n\r\n"
+  - delay: 51
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 32
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld1 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 111
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 11
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld2\r\n\e[0m"
+  - delay: 43
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld2 UniqueID 302\r\n\r\nCreating the Nix build user (#2), _nixbld2\r\n\r\n"
+  - delay: 112
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 32
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld2 IsHidden 1\r\n\r\nin order to make _nixbld2 a hidden user\r\n\r\n"
+  - delay: 103
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 27
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld2 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld2 a safe home directory\r\n\r\n"
+  - delay: 92
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld2 RealName Nix build user 2\r\n\r\nin order to give _nixbld2 a useful note\r\n\r\n"
+  - delay: 88
+    content: "\e[1m              Note\e[0m:\tNix build user 2\r\n"
+  - delay: 33
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld2 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld2 a safe shell\r\n\r\n"
+  - delay: 96
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 33
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld2 nixbld\r\n\r\nAdd _nixbld2 to the nixbld group\r\n\r\n"
+  - delay: 47
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 30
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld2 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 104
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n\r\n\e[32m~~> Setting up the build user _nixbld3\r\n\e[0m"
+  - delay: 26
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld3 UniqueID 303\r\n\r\nCreating the Nix build user (#3), _nixbld3\r\n\r\n"
+  - delay: 99
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 37
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld3 IsHidden 1\r\n\r\nin order to make _nixbld3 a hidden user\r\n\r\n"
+  - delay: 90
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 27
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld3 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld3 a safe home directory\r\n\r\n"
+  - delay: 85
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 50
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld3 RealName Nix build user 3\r\n\r\nin order to give _nixbld3 a useful note\r\n\r\n"
+  - delay: 80
+    content: "\e[1m              Note\e[0m:\tNix build user 3\r\n"
+  - delay: 32
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld3 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld3 a safe shell\r\n\r\n"
+  - delay: 85
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 32
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld3 nixbld\r\n\r\nAdd _nixbld3 to the nixbld group\r\n\r\n"
+  - delay: 49
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 29
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld3 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 103
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 6
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld4\r\n\e[0m"
+  - delay: 24
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld4 UniqueID 304\r\n\r\nCreating the Nix build user (#4), _nixbld4\r\n\r\n"
+  - delay: 96
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld4 IsHidden 1\r\n\r\nin order to make _nixbld4 a hidden user\r\n\r\n"
+  - delay: 86
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 30
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld4 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld4 a safe home directory\r\n\r\n"
+  - delay: 86
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 36
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld4 RealName Nix build user 4\r\n\r\nin order to give _nixbld4 a useful note\r\n\r\n"
+  - delay: 87
+    content: "\e[1m              Note\e[0m:\tNix build user 4\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld4 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld4 a safe shell\r\n\r\n"
+  - delay: 84
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 41
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld4 nixbld\r\n\r\nAdd _nixbld4 to the nixbld group\r\n\r\n"
+  - delay: 46
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 36
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld4 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 100
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n\r\n\e[32m~~> Setting up the build user _nixbld5\r\n\e[0m"
+  - delay: 33
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld5 UniqueID 305\r\n\r\nCreating the Nix build user (#5), _nixbld5\r\n\r\n"
+  - delay: 88
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 33
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld5 IsHidden 1\r\n\r\nin order to make _nixbld5 a hidden user\r\n\r\n"
+  - delay: 89
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 29
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld5 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld5 a safe home directory\r\n\r\n"
+  - delay: 82
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 48
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld5 RealName Nix build user 5\r\n\r\nin order to give _nixbld5 a useful note\r\n\r\n"
+  - delay: 79
+    content: "\e[1m              Note\e[0m:\tNix build user 5\r\n"
+  - delay: 38
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld5 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld5 a safe shell\r\n\r\n"
+  - delay: 94
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 41
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld5 nixbld\r\n\r\nAdd _nixbld5 to the nixbld group\r\n\r\n"
+  - delay: 62
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 52
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld5 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 103
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 14
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld6\r\n\e[0m"
+  - delay: 37
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld6 UniqueID 306\r\n\r\nCreating the Nix build user (#6), _nixbld6\r\n\r\n"
+  - delay: 111
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 36
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld6 IsHidden 1\r\n\r\nin order to make _nixbld6 a hidden user\r\n\r\n"
+  - delay: 97
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 32
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld6 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld6 a safe home directory\r\n\r\n"
+  - delay: 94
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 39
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld6 RealName Nix build user 6\r\n\r\nin order to give _nixbld6 a useful note\r\n\r\n"
+  - delay: 94
+    content: "\e[1m              Note\e[0m:\tNix build user 6\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld6 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld6 a safe shell\r\n\r\n"
+  - delay: 95
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 36
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld6 nixbld\r\n\r\nAdd _nixbld6 to the nixbld group\r\n\r\n"
+  - delay: 60
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 39
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld6 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 104
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 6
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld7\r\n\e[0m"
+  - delay: 38
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld7 UniqueID 307\r\n\r\nCreating the Nix build user (#7), _nixbld7\r\n\r\n"
+  - delay: 105
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 44
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld7 IsHidden 1\r\n\r\nin order to make _nixbld7 a hidden user\r\n\r\n"
+  - delay: 101
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld7 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld7 a safe home directory\r\n\r\n"
+  - delay: 97
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld7 RealName Nix build user 7\r\n\r\nin order to give _nixbld7 a useful note\r\n\r\n"
+  - delay: 104
+    content: "\e[1m              Note\e[0m:\tNix build user 7\r\n"
+  - delay: 39
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld7 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld7 a safe shell\r\n\r\n"
+  - delay: 98
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 37
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld7 nixbld\r\n\r\nAdd _nixbld7 to the nixbld group\r\n\r\n"
+  - delay: 63
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 46
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld7 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 106
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 7
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld8\r\n\e[0m"
+  - delay: 38
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld8 UniqueID 308\r\n\r\nCreating the Nix build user (#8), _nixbld8\r\n\r\n"
+  - delay: 104
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 42
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld8 IsHidden 1\r\n\r\nin order to make _nixbld8 a hidden user\r\n\r\n"
+  - delay: 126
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 37
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld8 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld8 a safe home directory\r\n\r\n"
+  - delay: 109
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 39
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld8 RealName Nix build user 8\r\n\r\nin order to give _nixbld8 a useful note\r\n\r\n"
+  - delay: 99
+    content: "\e[1m              Note\e[0m:\tNix build user 8\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld8 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld8 a safe shell\r\n\r\n"
+  - delay: 104
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld8 nixbld\r\n\r\nAdd _nixbld8 to the nixbld group\r\n\r\n"
+  - delay: 60
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 44
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld8 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 117
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 11
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld9\r\n\e[0m"
+  - delay: 38
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld9 UniqueID 309\r\n\r\nCreating the Nix build user (#9), _nixbld9\r\n\r\n"
+  - delay: 103
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 42
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld9 IsHidden 1\r\n\r\nin order to make _nixbld9 a hidden user\r\n\r\n"
+  - delay: 100
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 39
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld9 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld9 a safe home directory\r\n\r\n"
+  - delay: 94
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 48
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld9 RealName Nix build user 9\r\n\r\nin order to give _nixbld9 a useful note\r\n\r\n"
+  - delay: 105
+    content: "\e[1m              Note\e[0m:\tNix build user 9\r\n"
+  - delay: 44
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld9 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld9 a safe shell\r\n\r\n"
+  - delay: 99
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 48
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld9 nixbld\r\n\r\nAdd _nixbld9 to the nixbld group\r\n\r\n"
+  - delay: 55
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 39
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld9 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 117
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 11
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld10\r\n\e[0m"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld10 UniqueID 310\r\n\r\nCreating the Nix build user (#10), _nixbld10\r\n\r\n"
+  - delay: 105
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 43
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld10 IsHidden 1\r\n\r\nin order to make _nixbld10 a hidden user\r\n\r\n"
+  - delay: 104
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 47
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld10 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld10 a safe home directory\r\n\r\n"
+  - delay: 98
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 47
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld10 RealName Nix build user 10\r\n\r\nin order to give _nixbld10 a useful note\r\n\r\n"
+  - delay: 100
+    content: "\e[1m              Note\e[0m:\tNix build user 10\r\n"
+  - delay: 41
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld10 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld10 a safe shell\r\n\r\n"
+  - delay: 87
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 48
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld10 nixbld\r\n\r\nAdd _nixbld10 to the nixbld group\r\n\r\n"
+  - delay: 64
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 50
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld10 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 96
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 5
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld11\r\n\e[0m"
+  - delay: 41
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld11 UniqueID 311\r\n\r\nCreating the Nix build user (#11), _nixbld11\r\n\r\n"
+  - delay: 96
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 58
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld11 IsHidden 1\r\n\r\nin order to make _nixbld11 a hidden user\r\n\r\n"
+  - delay: 115
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 39
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld11 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld11 a safe home directory\r\n\r\n"
+  - delay: 98
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 49
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld11 RealName Nix build user 11\r\n\r\nin order to give _nixbld11 a useful note\r\n\r\n"
+  - delay: 94
+    content: "\e[1m              Note\e[0m:\tNix build user 11\r\n"
+  - delay: 44
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld11 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld11 a safe shell\r\n\r\n"
+  - delay: 101
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 47
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld11 nixbld\r\n\r\nAdd _nixbld11 to the nixbld group\r\n\r\n"
+  - delay: 65
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 53
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld11 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 103
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 7
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld12\r\n\e[0m"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld12 UniqueID 312\r\n\r\nCreating the Nix build user (#12), _nixbld12\r\n\r\n"
+  - delay: 100
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 50
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld12 IsHidden 1\r\n\r\nin order to make _nixbld12 a hidden user\r\n\r\n"
+  - delay: 110
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 38
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld12 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld12 a safe home directory\r\n\r\n"
+  - delay: 102
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 47
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld12 RealName Nix build user 12\r\n\r\nin order to give _nixbld12 a useful note\r\n\r\n"
+  - delay: 103
+    content: "\e[1m              Note\e[0m:\tNix build user 12\r\n"
+  - delay: 48
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld12 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld12 a safe shell\r\n\r\n"
+  - delay: 103
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 43
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld12 nixbld\r\n\r\nAdd _nixbld12 to the nixbld group\r\n\r\n"
+  - delay: 68
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 60
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld12 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 97
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 15
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld13\r\n\e[0m"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld13 UniqueID 313\r\n\r\nCreating the Nix build user (#13), _nixbld13\r\n\r\n"
+  - delay: 126
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 62
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld13 IsHidden 1\r\n\r\nin order to make _nixbld13 a hidden user\r\n\r\n"
+  - delay: 101
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 34
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld13 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld13 a safe home directory\r\n\r\n"
+  - delay: 100
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 46
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld13 RealName Nix build user 13\r\n\r\nin order to give _nixbld13 a useful note\r\n\r\n"
+  - delay: 102
+    content: "\e[1m              Note\e[0m:\tNix build user 13\r\n"
+  - delay: 52
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld13 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld13 a safe shell\r\n\r\n"
+  - delay: 100
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 54
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld13 nixbld\r\n\r\nAdd _nixbld13 to the nixbld group\r\n\r\n"
+  - delay: 65
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 49
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld13 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 100
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 8
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld14\r\n\e[0m"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld14 UniqueID 314\r\n\r\nCreating the Nix build user (#14), _nixbld14\r\n\r\n"
+  - delay: 110
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 41
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld14 IsHidden 1\r\n\r\nin order to make _nixbld14 a hidden user\r\n\r\n"
+  - delay: 116
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 40
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld14 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld14 a safe home directory\r\n\r\n"
+  - delay: 104
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 47
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld14 RealName Nix build user 14\r\n\r\nin order to give _nixbld14 a useful note\r\n\r\n"
+  - delay: 102
+    content: "\e[1m              Note\e[0m:\tNix build user 14\r\n"
+  - delay: 49
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld14 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld14 a safe shell\r\n\r\n"
+  - delay: 91
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 47
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld14 nixbld\r\n\r\nAdd _nixbld14 to the nixbld group\r\n\r\n"
+  - delay: 64
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 50
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld14 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 93
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 12
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld15\r\n\e[0m"
+  - delay: 46
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld15 UniqueID 315\r\n\r\nCreating the Nix build user (#15), _nixbld15\r\n\r\n"
+  - delay: 113
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 54
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld15 IsHidden 1\r\n\r\nin order to make _nixbld15 a hidden user\r\n\r\n"
+  - delay: 112
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 46
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld15 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld15 a safe home directory\r\n\r\n"
+  - delay: 109
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 51
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld15 RealName Nix build user 15\r\n\r\nin order to give _nixbld15 a useful note\r\n\r\n"
+  - delay: 103
+    content: "\e[1m              Note\e[0m:\tNix build user 15\r\n"
+  - delay: 48
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld15 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld15 a safe shell\r\n\r\n"
+  - delay: 101
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 47
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld15 nixbld\r\n\r\nAdd _nixbld15 to the nixbld group\r\n\r\n"
+  - delay: 143
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 60
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld15 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 117
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 6
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld16\r\n\e[0m"
+  - delay: 27
+    content: ^C
+  - delay: 8
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . create /Users/_nixbld16 UniqueID 316\r\n\r\nCreating the Nix build user (#16), _nixbld16\r\n\r\n"
+  - delay: 117
+    content: "\e[1m           Created\e[0m:\tYes\r\n"
+  - delay: 60
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld16 IsHidden 1\r\n\r\nin order to make _nixbld16 a hidden user\r\n\r\n"
+  - delay: 117
+    content: "\e[1m            Hidden\e[0m:\tYes\r\n"
+  - delay: 49
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld16 NFSHomeDirectory /var/empty\r\n\r\nin order to give _nixbld16 a safe home directory\r\n\r\n"
+  - delay: 150
+    content: "\e[1m    Home Directory\e[0m:\t/var/empty\r\n"
+  - delay: 61
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld16 RealName Nix build user 16\r\n\r\nin order to give _nixbld16 a useful note\r\n\r\n"
+  - delay: 100
+    content: "\e[1m              Note\e[0m:\tNix build user 16\r\n"
+  - delay: 38
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld16 UserShell /sbin/nologin\r\n\r\nin order to give _nixbld16 a safe shell\r\n\r\n"
+  - delay: 110
+    content: "\e[1m   Logins Disabled\e[0m:\tYes\r\n"
+  - delay: 58
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/sbin/dseditgroup -o edit -t user -a _nixbld16 nixbld\r\n\r\nAdd _nixbld16 to the nixbld group\r\n\r\n"
+  - delay: 74
+    content: "\e[1m  Member of nixbld\e[0m:\tYes\r\n"
+  - delay: 55
+    content: "\r\n\e[34m---- sudo execution ------------------------------------------------------------\r\n\e[0mI am executing:\r\n\r\n    $ sudo /usr/bin/dscl . -create /Users/_nixbld16 PrimaryGroupID 30000\r\n\r\nto let the nix daemon use this user for builds (this might seem redundant, but there are two concepts of group membership)\r\n\r\n"
+  - delay: 132
+    content: "\e[1m    PrimaryGroupID\e[0m:\t30000\r\n"
+  - delay: 11
+    content: "\r\n\e[32m~~> Setting up the build user _nixbld17\r\n\e[0m"
+  - delay: 25
+    content: ^C
+  - delay: 18
+    content: "\r\n\e[34m---- oh no! --------------------------------------------------------------------\r\n\e[0m\e[31m"
+  - delay: 7
+    content: "Oh no, something went wrong. If you can take all the output and open\r\nan issue, we'd love to fix the problem so nobody else has this issue.\r\n\r\n:(\r\n\e[0m\r\n\e[31mWe'd love to help if you need it.\r\n\r\nYou can open an issue at\r\nhttps://github.com/NixOS/nix/issues/new?labels=installer&template=installer.md\r\n\r\nOr get in touch with the community: https://nixos.org/community\r\n\e[0m"
+  - delay: 310
+    content: ^C
+  - delay: 191
+    content: ^C
+  - delay: 27
+    content: '$ '
+  - delay: 3979
+    content: "\r\n$ "
+  - delay: 5424
+    content: "\r\n$ "
+  - delay: 853
+    content: e
+  - delay: 177
+    content: x
+  - delay: 81
+    content: i
+  - delay: 111
+    content: t
+  - delay: 80
+    content: "\r\nlogout\r\n"
