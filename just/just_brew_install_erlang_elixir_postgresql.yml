@@ -1,0 +1,786 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud/perfect-elixir
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 79
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 0
+    content: "\r\n"
+  - delay: 100
+    content: "$ "
+  - delay: 3000
+    content: "brew install erlang elixir postgresql@15"
+  - delay: 493
+    content: "\e[?2004l\r\r\n"
+  - delay: 1436
+    content: "\e[34m==>\e[0m \e[1mDownloading https://formulae.brew.sh/api/formula.jws.json\e[0m\r\n"
+  - delay: 153
+    content: "\r\n"
+  - delay: 1245
+    content: "\e[34m==>\e[0m \e[1mDownloading https://formulae.brew.sh/api/cask.jws.json\e[0m\r\n"
+  - delay: 129
+    content: "\r\n"
+  - delay: 1106
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/erlang/manifests/26.2.1\e[0m\r\n"
+  - delay: 388
+    content: "\r#####################                                                     30.2%"
+  - delay: 24
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 101
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for erlang: \e[32mm4\e[39m, \e[32mlibtool\e[39m, \e[32munixodbc\e[39m, \e[32mjpeg-turbo\e[39m, \e[32mlibpng\e[39m, \e[32mxz\e[39m, \e[32mlz4\e[39m, \e[32mzstd\e[39m, \e[32mlibtiff\e[39m, \e[32mpcre2\e[39m and \e[32mwxwidgets\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/m4/manifests/1.4.19\e[0m\r\n"
+  - delay: 357
+    content: "\r######################################################################## 100.0%\r\n\e[32m==>\e[0m \e[1mFetching \e[32mm4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/m4/blobs/sha256:8434a67a438383\e[0m\r\n"
+  - delay: 327
+    content: "#=#=#                                                                         \r"
+  - delay: 176
+    content: "\r                                                                           0.5%"
+  - delay: 41
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtool/manifests/2.4.7-1\e[0m\r\n"
+  - delay: 377
+    content: "\r############################################                              61.4%\r######################################################################## 100.0%\r\n"
+  - delay: 6
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibtool\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtool/blobs/sha256:47676ae50\e[0m\r\n"
+  - delay: 296
+    content: "#=#=#                                                                         \r"
+  - delay: 140
+    content: "\r                                                                           0.3%"
+  - delay: 100
+    content: "\r#################################################################         91.3%"
+  - delay: 6
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 11
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/unixodbc/manifests/2.3.12\e[0m\r\n"
+  - delay: 342
+    content: "\r##############                                                            19.8%\r######################################################################## 100.0%\r\n"
+  - delay: 12
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32munixodbc\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/unixodbc/blobs/sha256:626e4160\e[0m\r\n"
+  - delay: 317
+    content: "#=#=#                                                                         \r"
+  - delay: 140
+    content: "\r                                                                           0.5%"
+  - delay: 91
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.1\e[0m\r\n"
+  - delay: 346
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mjpeg-turbo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/blobs/sha256:7794d8\e[0m\r\n"
+  - delay: 328
+    content: "#=#=#                                                                         \r"
+  - delay: 137
+    content: "\r                                                                           0.5%"
+  - delay: 99
+    content: "\r###################################################                       71.7%"
+  - delay: 32
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 15
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.40\e[0m\r\n"
+  - delay: 411
+    content: "\r#######                                                                    9.9%\r######################################################################## 100.0%\r\n"
+  - delay: 6
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibpng\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/blobs/sha256:2178ff2980\e[0m\r\n"
+  - delay: 294
+    content: "#=#=#                                                                         \r"
+  - delay: 152
+    content: "\r                                                                           0.9%"
+  - delay: 84
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xz/manifests/5.4.5\e[0m\r\n"
+  - delay: 334
+    content: "\r######################################################################## 100.0%\r\n\e[32m==>\e[0m \e[1mFetching \e[32mxz\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:bdd5146737d8a8\e[0m\r\n"
+  - delay: 293
+    content: "#=#=#                                                                         \r"
+  - delay: 167
+    content: "\r                                                                           0.4%"
+  - delay: 110
+    content: "\r####################################################################      94.6%\r######################################################################## 100.0%\r\n"
+  - delay: 9
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lz4/manifests/1.9.4\e[0m\r\n"
+  - delay: 342
+    content: "\r####################################                                      50.2%\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlz4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lz4/blobs/sha256:2bad368b2869d\e[0m\r\n"
+  - delay: 338
+    content: "#=#=#                                                                         \r"
+  - delay: 139
+    content: "\r                                                                           1.0%"
+  - delay: 42
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zstd/manifests/1.5.5-1\e[0m\r\n"
+  - delay: 384
+    content: "\r######                                                                     9.1%\r######################################################################## 100.0%\r\n"
+  - delay: 14
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mzstd\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zstd/blobs/sha256:2137fe12a266\e[0m\r\n"
+  - delay: 305
+    content: "#=#=#                                                                         \r"
+  - delay: 142
+    content: "\r#                                                                          1.8%"
+  - delay: 100
+    content: "\r##########################################                                58.6%"
+  - delay: 41
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 12
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/manifests/4.6.0\e[0m\r\n"
+  - delay: 381
+    content: "\r#############################################                             63.1%\r######################################################################## 100.0%\r\n"
+  - delay: 20
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibtiff\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/blobs/sha256:a89a26710\e[0m\r\n"
+  - delay: 356
+    content: "#=#=#                                                                         \r"
+  - delay: 144
+    content: "\r                                                                           0.3%"
+  - delay: 99
+    content: "\r##############################################                            64.6%"
+  - delay: 47
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 19
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pcre2/manifests/10.42\e[0m\r\n"
+  - delay: 400
+    content: "\r#################################                                         46.6%\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mpcre2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pcre2/blobs/sha256:c090875eb7e\e[0m\r\n"
+  - delay: 328
+    content: "#=#=#                                                                         \r"
+  - delay: 138
+    content: "\r                                                                           0.8%"
+  - delay: 99
+    content: "\r######################                                                    30.7%"
+  - delay: 100
+    content: "\r#######################################################                   77.0%"
+  - delay: 41
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 20
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/wxwidgets/manifests/3.2.4\e[0m\r\n"
+  - delay: 399
+    content: "\r###                                                                        4.5%"
+  - delay: 24
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 41
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mwxwidgets\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/wxwidgets/blobs/sha256:52f4930\e[0m\r\n"
+  - delay: 325
+    content: "#=#=#                                                                         \r"
+  - delay: 193
+    content: "\r                                                                           0.0%"
+  - delay: 101
+    content: "\r#########                                                                 12.9%"
+  - delay: 100
+    content: "\r###################                                                       27.2%"
+  - delay: 101
+    content: "\r#############################                                             41.1%"
+  - delay: 100
+    content: "\r#######################################                                   54.7%"
+  - delay: 100
+    content: "\r################################################                          66.8%"
+  - delay: 101
+    content: "\r########################################################                  77.9%"
+  - delay: 100
+    content: "\r################################################################          89.8%"
+  - delay: 80
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 67
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32merlang\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/erlang/blobs/sha256:4961117dde\e[0m\r\n"
+  - delay: 319
+    content: "#=#=#                                                                         \r"
+  - delay: 215
+    content: "\r                                                                           0.0%"
+  - delay: 100
+    content: "\r                                                                           0.8%"
+  - delay: 100
+    content: "\r#                                                                          2.0%"
+  - delay: 101
+    content: "\r##                                                                         3.0%"
+  - delay: 100
+    content: "\r###                                                                        4.2%"
+  - delay: 99
+    content: "\r###                                                                        5.1%"
+  - delay: 100
+    content: "\r####                                                                       5.9%"
+  - delay: 100
+    content: "\r####                                                                       6.7%"
+  - delay: 101
+    content: "\r#####                                                                      7.6%"
+  - delay: 100
+    content: "\r######                                                                     8.4%"
+  - delay: 100
+    content: "\r######                                                                     9.3%"
+  - delay: 100
+    content: "\r#######                                                                   10.1%"
+  - delay: 101
+    content: "\r#######                                                                   10.9%"
+  - delay: 100
+    content: "\r########                                                                  11.8%"
+  - delay: 100
+    content: "\r#########                                                                 12.7%"
+  - delay: 99
+    content: "\r#########                                                                 13.6%"
+  - delay: 100
+    content: "\r##########                                                                14.5%"
+  - delay: 100
+    content: "\r###########                                                               15.4%"
+  - delay: 101
+    content: "\r###########                                                               16.1%"
+  - delay: 100
+    content: "\r############                                                              16.9%"
+  - delay: 101
+    content: "\r############                                                              17.8%"
+  - delay: 100
+    content: "\r#############                                                             18.5%"
+  - delay: 100
+    content: "\r#############                                                             19.2%"
+  - delay: 100
+    content: "\r##############                                                            20.0%"
+  - delay: 101
+    content: "\r##############                                                            20.8%"
+  - delay: 99
+    content: "\r###############                                                           21.5%"
+  - delay: 100
+    content: "\r###############                                                           22.2%"
+  - delay: 101
+    content: "\r################                                                          22.9%"
+  - delay: 100
+    content: "\r#################                                                         23.7%"
+  - delay: 100
+    content: "\r#################                                                         24.4%"
+  - delay: 100
+    content: "\r##################                                                        25.1%"
+  - delay: 100
+    content: "\r##################                                                        25.8%"
+  - delay: 100
+    content: "\r###################                                                       26.5%"
+  - delay: 100
+    content: "\r###################                                                       27.1%"
+  - delay: 101
+    content: "\r####################                                                      27.8%"
+  - delay: 99
+    content: "\r####################                                                      28.5%"
+  - delay: 100
+    content: "\r#####################                                                     29.3%"
+  - delay: 100
+    content: "\r#####################                                                     29.9%"
+  - delay: 101
+    content: "\r#####################                                                     30.5%"
+  - delay: 100
+    content: "\r######################                                                    31.1%"
+  - delay: 100
+    content: "\r######################                                                    31.8%"
+  - delay: 100
+    content: "\r#######################                                                   32.5%"
+  - delay: 100
+    content: "\r#######################                                                   33.2%"
+  - delay: 101
+    content: "\r########################                                                  33.9%"
+  - delay: 100
+    content: "\r########################                                                  34.6%"
+  - delay: 99
+    content: "\r#########################                                                 35.3%"
+  - delay: 101
+    content: "\r#########################                                                 36.0%"
+  - delay: 100
+    content: "\r##########################                                                36.7%"
+  - delay: 100
+    content: "\r##########################                                                37.4%"
+  - delay: 101
+    content: "\r###########################                                               38.1%"
+  - delay: 101
+    content: "\r############################                                              38.9%"
+  - delay: 100
+    content: "\r############################                                              39.6%"
+  - delay: 100
+    content: "\r#############################                                             40.3%"
+  - delay: 100
+    content: "\r#############################                                             41.1%"
+  - delay: 100
+    content: "\r##############################                                            41.9%"
+  - delay: 100
+    content: "\r##############################                                            42.7%"
+  - delay: 100
+    content: "\r###############################                                           43.4%"
+  - delay: 100
+    content: "\r###############################                                           44.2%"
+  - delay: 100
+    content: "\r################################                                          45.0%"
+  - delay: 101
+    content: "\r################################                                          45.8%"
+  - delay: 100
+    content: "\r#################################                                         46.5%"
+  - delay: 100
+    content: "\r##################################                                        47.3%"
+  - delay: 101
+    content: "\r##################################                                        48.1%"
+  - delay: 100
+    content: "\r###################################                                       48.8%"
+  - delay: 100
+    content: "\r###################################                                       49.6%"
+  - delay: 99
+    content: "\r####################################                                      50.4%"
+  - delay: 100
+    content: "\r####################################                                      51.1%"
+  - delay: 101
+    content: "\r#####################################                                     51.8%"
+  - delay: 100
+    content: "\r#####################################                                     52.4%"
+  - delay: 100
+    content: "\r######################################                                    53.2%"
+  - delay: 100
+    content: "\r######################################                                    54.0%"
+  - delay: 100
+    content: "\r#######################################                                   54.7%"
+  - delay: 101
+    content: "\r#######################################                                   55.5%"
+  - delay: 100
+    content: "\r########################################                                  56.2%"
+  - delay: 99
+    content: "\r#########################################                                 57.0%"
+  - delay: 100
+    content: "\r#########################################                                 57.8%"
+  - delay: 101
+    content: "\r##########################################                                58.6%"
+  - delay: 100
+    content: "\r##########################################                                59.3%"
+  - delay: 100
+    content: "\r###########################################                               60.1%"
+  - delay: 100
+    content: "\r###########################################                               60.7%"
+  - delay: 101
+    content: "\r############################################                              61.5%"
+  - delay: 102
+    content: "\r############################################                              62.1%"
+  - delay: 100
+    content: "\r#############################################                             62.9%"
+  - delay: 100
+    content: "\r#############################################                             63.6%"
+  - delay: 99
+    content: "\r##############################################                            64.2%"
+  - delay: 100
+    content: "\r##############################################                            65.0%"
+  - delay: 101
+    content: "\r###############################################                           65.7%"
+  - delay: 100
+    content: "\r###############################################                           66.5%"
+  - delay: 100
+    content: "\r################################################                          67.2%"
+  - delay: 100
+    content: "\r################################################                          68.0%"
+  - delay: 100
+    content: "\r#################################################                         68.8%"
+  - delay: 100
+    content: "\r##################################################                        69.5%"
+  - delay: 101
+    content: "\r##################################################                        70.2%"
+  - delay: 100
+    content: "\r###################################################                       70.9%"
+  - delay: 99
+    content: "\r###################################################                       71.6%"
+  - delay: 100
+    content: "\r###################################################                       72.2%"
+  - delay: 101
+    content: "\r####################################################                      73.0%"
+  - delay: 100
+    content: "\r#####################################################                     73.7%"
+  - delay: 100
+    content: "\r#####################################################                     74.3%"
+  - delay: 100
+    content: "\r#####################################################                     75.0%"
+  - delay: 100
+    content: "\r######################################################                    75.7%"
+  - delay: 100
+    content: "\r#######################################################                   76.5%"
+  - delay: 100
+    content: "\r#######################################################                   77.2%"
+  - delay: 100
+    content: "\r########################################################                  77.9%"
+  - delay: 100
+    content: "\r########################################################                  78.6%"
+  - delay: 100
+    content: "\r#########################################################                 79.4%"
+  - delay: 100
+    content: "\r#########################################################                 80.2%"
+  - delay: 100
+    content: "\r##########################################################                81.0%"
+  - delay: 100
+    content: "\r##########################################################                81.7%"
+  - delay: 100
+    content: "\r###########################################################               82.5%"
+  - delay: 101
+    content: "\r###########################################################               83.3%"
+  - delay: 100
+    content: "\r############################################################              84.1%"
+  - delay: 100
+    content: "\r#############################################################             84.9%"
+  - delay: 100
+    content: "\r#############################################################             85.7%"
+  - delay: 99
+    content: "\r##############################################################            86.4%"
+  - delay: 101
+    content: "\r##############################################################            87.2%"
+  - delay: 100
+    content: "\r###############################################################           88.1%"
+  - delay: 101
+    content: "\r###############################################################           88.9%"
+  - delay: 100
+    content: "\r################################################################          89.5%"
+  - delay: 100
+    content: "\r################################################################          90.1%"
+  - delay: 100
+    content: "\r#################################################################         90.8%"
+  - delay: 101
+    content: "\r#################################################################         91.6%"
+  - delay: 100
+    content: "\r##################################################################        92.4%"
+  - delay: 100
+    content: "\r###################################################################       93.1%"
+  - delay: 99
+    content: "\r###################################################################       93.8%"
+  - delay: 100
+    content: "\r####################################################################      94.5%"
+  - delay: 100
+    content: "\r####################################################################      95.3%"
+  - delay: 101
+    content: "\r#####################################################################     96.0%"
+  - delay: 100
+    content: "\r#####################################################################     96.7%"
+  - delay: 100
+    content: "\r######################################################################    97.3%"
+  - delay: 101
+    content: "\r######################################################################    98.0%"
+  - delay: 100
+    content: "\r#######################################################################   98.8%"
+  - delay: 100
+    content: "\r#######################################################################   99.6%"
+  - delay: 54
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 636
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/elixir/manifests/1.16.0\e[0m\r\n"
+  - delay: 190
+    content: "#=#=#                                                                         \r"
+  - delay: 295
+    content: "\r#################################                                         46.9%"
+  - delay: 97
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 91
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32melixir\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/elixir/blobs/sha256:42280acfcc\e[0m\r\n"
+  - delay: 336
+    content: "#=#=#                                                                         \r"
+  - delay: 203
+    content: "\r                                                                           0.0%"
+  - delay: 100
+    content: "\r############                                                              17.5%"
+  - delay: 100
+    content: "\r###########################                                               38.7%"
+  - delay: 100
+    content: "\r########################################                                  56.8%"
+  - delay: 157
+    content: "\r#####################################################                     73.7%"
+  - delay: 100
+    content: "\r################################################################          89.2%"
+  - delay: 62
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 47
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/postgresql/15/manifests/15.5_3\e[0m\r\n"
+  - delay: 376
+    content: "\r#######                                                                   10.9%"
+  - delay: 90
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 44
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for postgresql@15: \e[32mgettext\e[39m, \e[32mkrb5\e[39m and \e[32mreadline\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gettext/manifests/0.22.4\e[0m\r\n"
+  - delay: 399
+    content: "\r#############################################                             62.7%\r######################################################################## 100.0%\r\n\e[32m==>\e[0m \e[1mFetching \e[32mgettext\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gettext/blobs/sha256:a43af8b39\e[0m\r\n"
+  - delay: 324
+    content: "#=#=#                                                                         \r"
+  - delay: 135
+    content: "\r                                                                           0.2%"
+  - delay: 101
+    content: "\r#####                                                                      7.3%"
+  - delay: 100
+    content: "\r#############                                                             18.1%"
+  - delay: 99
+    content: "\r#####################                                                     29.4%"
+  - delay: 101
+    content: "\r#############################                                             40.8%"
+  - delay: 100
+    content: "\r#####################################                                     52.1%"
+  - delay: 100
+    content: "\r#############################################                             63.0%"
+  - delay: 100
+    content: "\r####################################################                      72.3%"
+  - delay: 100
+    content: "\r##########################################################                81.1%"
+  - delay: 100
+    content: "\r################################################################          90.0%"
+  - delay: 101
+    content: "\r#######################################################################   99.0%"
+  - delay: 10
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 86
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/krb5/manifests/1.21.2\e[0m\r\n"
+  - delay: 358
+    content: "\r###########                                                               15.8%"
+  - delay: 78
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 16
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mkrb5\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/krb5/blobs/sha256:20a39d385f0c\e[0m\r\n"
+  - delay: 299
+    content: "#=#=#                                                                         \r"
+  - delay: 139
+    content: "\r                                                                           0.2%"
+  - delay: 100
+    content: "\r################################################                          67.5%"
+  - delay: 30
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 17
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7\e[0m\r\n"
+  - delay: 480
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mreadline\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:e1e1f92f\e[0m\r\n"
+  - delay: 205
+    content: "#=#=#                                                                         \r"
+  - delay: 173
+    content: "##O#-#                                                                        \r"
+  - delay: 138
+    content: "\r                                                                           0.5%"
+  - delay: 70
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 7
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mpostgresql@15\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/postgresql/15/blobs/sha256:a8d\e[0m\r\n"
+  - delay: 328
+    content: "#=#=#                                                                         \r"
+  - delay: 142
+    content: "\r                                                                           0.0%"
+  - delay: 100
+    content: "\r####                                                                       5.6%"
+  - delay: 101
+    content: "\r########                                                                  12.4%"
+  - delay: 100
+    content: "\r#############                                                             18.6%"
+  - delay: 100
+    content: "\r#################                                                         24.3%"
+  - delay: 101
+    content: "\r#####################                                                     29.5%"
+  - delay: 99
+    content: "\r########################                                                  34.2%"
+  - delay: 100
+    content: "\r############################                                              39.1%"
+  - delay: 101
+    content: "\r###############################                                           44.2%"
+  - delay: 100
+    content: "\r###################################                                       48.8%"
+  - delay: 100
+    content: "\r######################################                                    53.0%"
+  - delay: 101
+    content: "\r#########################################                                 58.2%"
+  - delay: 100
+    content: "\r#############################################                             62.9%"
+  - delay: 101
+    content: "\r################################################                          67.6%"
+  - delay: 99
+    content: "\r####################################################                      72.8%"
+  - delay: 100
+    content: "\r########################################################                  78.0%"
+  - delay: 99
+    content: "\r###########################################################               82.9%"
+  - delay: 101
+    content: "\r###############################################################           88.3%"
+  - delay: 100
+    content: "\r###################################################################       94.4%"
+  - delay: 100
+    content: "\r#######################################################################   99.5%"
+  - delay: 13
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 165
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for erlang: \e[32mm4\e[39m, \e[32mlibtool\e[39m, \e[32munixodbc\e[39m, \e[32mjpeg-turbo\e[39m, \e[32mlibpng\e[39m, \e[32mxz\e[39m, \e[32mlz4\e[39m, \e[32mzstd\e[39m, \e[32mlibtiff\e[39m, \e[32mpcre2\e[39m and \e[32mwxwidgets\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mm4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/m4/manifests/1.4.19\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/5b2a7f715487b7377e409e8ca58569040cd89f33859f691210c58d94410fd33b--m4-1.4.19.bottle_manifest.json\r\n"
+  - delay: 263
+    content: "\e[34m==>\e[0m \e[1mPouring m4--1.4.19.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 114
+    content: "\U0001F37A  /usr/local/Cellar/m4/1.4.19: 13 files, 739.9KB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mlibtool\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtool/manifests/2.4.7-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/606e79b61b857bc4e83f71abf7afa8e087c4ad71539989e7066a4055439bf129--libtool-2.4.7-1.bottle_manifest.json\r\n"
+  - delay: 146
+    content: "\e[34m==>\e[0m \e[1mPouring libtool--2.4.7.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 367
+    content: "\U0001F37A  /usr/local/Cellar/libtool/2.4.7: 75 files, 3.8MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32munixodbc\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/unixodbc/manifests/2.3.12\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/f0a48ea379f8e4acc3dc9d88ec4ce4e354b4437d2104efee3399b892b79d55ac--unixodbc-2.3.12.bottle_manifest.json\r\n"
+  - delay: 144
+    content: "\e[34m==>\e[0m \e[1mPouring unixodbc--2.3.12.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 681
+    content: "\U0001F37A  /usr/local/Cellar/unixodbc/2.3.12: 47 files, 2.1MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mjpeg-turbo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/abe7baf77a474e831f940214d72e8d72182373e6ea726884670f2d90f47525a7--jpeg-turbo-3.0.1.bottle_manifest.json\r\n"
+  - delay: 144
+    content: "\e[34m==>\e[0m \e[1mPouring jpeg-turbo--3.0.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 383
+    content: "\U0001F37A  /usr/local/Cellar/jpeg-turbo/3.0.1: 44 files, 4.8MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mlibpng\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.40\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d2caacc64e32be045b902fa78d2bb4aea7fba8f088cef85cd34b1beab15b755a--libpng-1.6.40.bottle_manifest.json\r\n"
+  - delay: 152
+    content: "\e[34m==>\e[0m \e[1mPouring libpng--1.6.40.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 258
+    content: "\U0001F37A  /usr/local/Cellar/libpng/1.6.40: 27 files, 1.3MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mxz\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xz/manifests/5.4.5\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/4e81fda476fb634a7e1ac650019bfe768a65d6c387015992df4cd75adf9b3fce--xz-5.4.5.bottle_manifest.json\r\n"
+  - delay: 134
+    content: "\e[34m==>\e[0m \e[1mPouring xz--5.4.5.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 614
+    content: "\U0001F37A  /usr/local/Cellar/xz/5.4.5: 163 files, 2.6MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mlz4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lz4/manifests/1.9.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/379e59b981667f9585b33a2ff318769d8edca3ce6fd2e9a67ed291ae3e0cc872--lz4-1.9.4.bottle_manifest.json\r\n"
+  - delay: 134
+    content: "\e[34m==>\e[0m \e[1mPouring lz4--1.9.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 199
+    content: "\U0001F37A  /usr/local/Cellar/lz4/1.9.4: 22 files, 656.5KB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mzstd\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zstd/manifests/1.5.5-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/fc13698599720a53800064b40cddd854399651cf8760d9b0e46092f2e8da701a--zstd-1.5.5-1.bottle_manifest.json\r\n"
+  - delay: 150
+    content: "\e[34m==>\e[0m \e[1mPouring zstd--1.5.5.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 300
+    content: "\U0001F37A  /usr/local/Cellar/zstd/1.5.5: 31 files, 2.3MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mlibtiff\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/manifests/4.6.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/9c8455a2f6bcea7bf3e3461218fba309141b0b0553b6e1afc5fe64e63caccff3--libtiff-4.6.0.bottle_manifest.json\r\n"
+  - delay: 160
+    content: "\e[34m==>\e[0m \e[1mPouring libtiff--4.6.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 1221
+    content: "\U0001F37A  /usr/local/Cellar/libtiff/4.6.0: 414 files, 6.6MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mpcre2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pcre2/manifests/10.42\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/6a53794fcaabc5cc5e05b19c02ca9c4c5f2cb9a4d65a5790a6841146465b040f--pcre2-10.42.bottle_manifest.json\r\n"
+  - delay: 118
+    content: "\e[34m==>\e[0m \e[1mPouring pcre2--10.42.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 869
+    content: "\U0001F37A  /usr/local/Cellar/pcre2/10.42: 230 files, 6.3MB\r\n\e[32m==>\e[0m \e[1mInstalling erlang dependency: \e[32mwxwidgets\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/wxwidgets/manifests/3.2.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/331a4f827ded4a89c8ca9d9c1ed8472a7aeda024433c81b127c080a320f4abf4--wxwidgets-3.2.4.bottle_manifest.json\r\n"
+  - delay: 190
+    content: "\e[34m==>\e[0m \e[1mPouring wxwidgets--3.2.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 3049
+    content: "\U0001F37A  /usr/local/Cellar/wxwidgets/3.2.4: 834 files, 25.3MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32merlang\e[39m\e[0m\r\n"
+  - delay: 130
+    content: "\e[34m==>\e[0m \e[1mPouring erlang--26.2.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 15199
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nMan pages can be found in:\r\n  /usr/local/opt/erlang/lib/erlang/man\r\n\r\nAccess them with `erl -man`, or add this directory to MANPATH.\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 285
+    content: "\U0001F37A  /usr/local/Cellar/erlang/26.2.1: 7,946 files, 493.6MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup erlang`...\e[0m\r\nDisable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.\r\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\r\n"
+  - delay: 214
+    content: "\e[34m==>\e[0m \e[1mPouring elixir--1.16.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 723
+    content: "\U0001F37A  /usr/local/Cellar/elixir/1.16.0: 447 files, 7.2MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup elixir`...\e[0m\r\n"
+  - delay: 64
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for postgresql@15: \e[32mgettext\e[39m, \e[32mkrb5\e[39m and \e[32mreadline\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling postgresql@15 dependency: \e[32mgettext\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gettext/manifests/0.22.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/3ceb9457127eaa7378dd80ed256098ffb391e2350069becb25cfe2a14f0b7d6d--gettext-0.22.4.bottle_manifest.json\r\n"
+  - delay: 116
+    content: "\e[34m==>\e[0m \e[1mPouring gettext--0.22.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 4876
+    content: "\U0001F37A  /usr/local/Cellar/gettext/0.22.4: 2,042 files, 23.7MB\r\n\e[32m==>\e[0m \e[1mInstalling postgresql@15 dependency: \e[32mkrb5\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/krb5/manifests/1.21.2\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/1dac813e15dc58f7f64511565951ee43912a4a82b355448e23600e07b1b7107c--krb5-1.21.2.bottle_manifest.json\r\n"
+  - delay: 116
+    content: "\e[34m==>\e[0m \e[1mPouring krb5--1.21.2.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 2233
+    content: "\U0001F37A  /usr/local/Cellar/krb5/1.21.2: 162 files, 4.9MB\r\n\e[32m==>\e[0m \e[1mInstalling postgresql@15 dependency: \e[32mreadline\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/14125f7fa4b49853f76160b864f58379d90e52833ffeb8bd0643609bcd7f02a7--readline-8.2.7.bottle_manifest.json\r\n"
+  - delay: 110
+    content: "\e[34m==>\e[0m \e[1mPouring readline--8.2.7.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 260
+    content: "\U0001F37A  /usr/local/Cellar/readline/8.2.7: 50 files, 1.7MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mpostgresql@15\e[39m\e[0m\r\n"
+  - delay: 110
+    content: "\e[34m==>\e[0m \e[1mPouring postgresql@15--15.5_3.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 10238
+    content: "\e[34m==>\e[0m \e[1m/usr/local/Cellar/postgresql@15/15.5_3/bin/initdb --locale=C -E UTF-8 /usr/\e[0m\r\n"
+  - delay: 3398
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nThis formula has created a default database cluster with:\r\n  initdb --locale=C -E UTF-8 /usr/local/var/postgresql@15\r\nFor more details, read:\r\n  https://www.postgresql.org/docs/15/app-initdb.html\r\n\r\npostgresql@15 is keg-only, which means it was not symlinked into /usr/local,\r\nbecause this is an alternate version of another formula.\r\n\r\nIf you need to have postgresql@15 first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/postgresql@15/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find postgresql@15 you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/postgresql@15/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/postgresql@15/include\"\r\n\r\nTo start postgresql@15 now and restart at login:\r\n  brew services start postgresql@15\r\nOr, if you don't want/need a background service you can just run:\r\n  LC_ALL=\"C\" /usr/local/opt/postgresql@15/bin/postgres -D /usr/local/var/postgresql@15\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 131
+    content: "\U0001F37A  /usr/local/Cellar/postgresql@15/15.5_3: 3,700 files, 62MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup postgresql@15`...\e[0m\r\n"
+  - delay: 1384
+    content: "\e[32m==>\e[0m \e[1mCaveats\e[0m\r\n\e[34m==>\e[0m \e[1merlang\e[0m\r\nMan pages can be found in:\r\n  /usr/local/opt/erlang/lib/erlang/man\r\n\r\nAccess them with `erl -man`, or add this directory to MANPATH.\r\n\e[34m==>\e[0m \e[1mpostgresql@15\e[0m\r\n"
+  - delay: 37
+    content: "This formula has created a default database cluster with:\r\n  initdb --locale=C -E UTF-8 /usr/local/var/postgresql@15\r\nFor more details, read:\r\n  https://www.postgresql.org/docs/15/app-initdb.html\r\n\r\npostgresql@15 is keg-only, which means it was not symlinked into /usr/local,\r\nbecause this is an alternate version of another formula.\r\n\r\nIf you need to have postgresql@15 first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/postgresql@15/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find postgresql@15 you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/postgresql@15/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/postgresql@15/include\"\r\n\r\nTo start postgresql@15 now and restart at login:\r\n  brew services start postgresql@15\r\nOr, if you don't want/need a background service you can just run:\r\n  LC_ALL=\"C\" /usr/local/opt/postgresql@15/bin/postgres -D /usr/local/var/postgresql@15\r\n"
+  - delay: 58
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[?2004l\r\r\n"

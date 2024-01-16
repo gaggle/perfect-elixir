@@ -1,0 +1,176 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud/perfect-elixir
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 79
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 0
+    content: "\r\n"
+  - delay: 100
+    content: "$ "
+  - delay: 3000
+    content: "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\r\n"
+  - delay: 100
+    content: "\r\n"
+  - delay: 149
+    content: "\e[1;34m==>\e[1;39m Checking for `sudo` access (which may request your password)...\e[0m\r\n"
+  - delay: 41
+    content: 'Password:'
+  - delay: 2272
+    content: "\r\n"
+  - delay: 182
+    content: "\e[1;34m==>\e[1;39m This script will install:\e[0m\r\n/usr/local/bin/brew\r\n/usr/local/share/doc/homebrew\r\n/usr/local/share/man/man1/brew.1\r\n/usr/local/share/zsh/site-functions/_brew\r\n/usr/local/etc/bash_completion.d/brew\r\n/usr/local/Homebrew\r\n"
+  - delay: 11
+    content: "\a\r\nPress \e[1;39mRETURN\e[0m/\e[1;39mENTER\e[0m to continue or any other key to abort:\r\n"
+  - delay: 2150
+    content: "\e[1;34m==>\e[1;39m /usr/bin/sudo /usr/sbin/chown -R cloud:admin /usr/local/Homebrew\e[0m\r\n"
+  - delay: 423
+    content: "\e[1;34m==>\e[1;39m Downloading and installing Homebrew...\e[0m\r\n"
+  - delay: 846
+    content: "remote: Enumerating objects: 728, done.\e[K\r\nremote: Counting objects:   0% (1/728)\e[K\rremote: Counting objects:   1% (8/728)\e[K\rremote: Counting objects:   2% (15/728)\e[K\rremote: Counting objects:   3% (22/728)\e[K\rremote: Counting objects:   4% (30/728)\e[K\rremote: Counting objects:   5% (37/728)\e[K\rremote: Counting objects:   6% (44/728)\e[K\rremote: Counting objects:   7% (51/728)\e[K\rremote: Counting objects:   8% (59/728)\e[K\rremote: Counting objects:   9% (66/728)\e[K\rremote: Counting objects:  10% (73/728)\e[K\rremote: Counting objects:  11% (81/728)\e[K\rremote: Counting objects:  12% (88/728)\e[K\rremote: Counting objects:  13% (95/728)\e[K\rremote: Counting objects:  14% (102/728)\e[K\rremote: Counting objects:  15% (110/728)\e[K\rremote: Counting objects:  16% (117/728)\e[K\rremote: Counting objects:  17% (124/728)\e[K\rremote: Counting objects:  18% (132/728)\e[K\rremote: Counting objects:  19% (139/728)\e[K\rremote: Counting objects:  20% (146/728)\e[K\rremote: Counting objects:  21% (153/728)\e[K\rremote: Counting objects:  22% (161/728)\e[K\rremote: Counting objects:  23% (168/728)\e[K\rremote: Counting objects:  24% (175/728)\e[K\rremote: Counting objects:  25% (182/728)\e[K\rremote: Counting objects:  26% (190/728)\e[K\rremote: Counting objects:  27% (197/728)\e[K\rremote: Counting objects:  28% (204/728)\e[K\rremote: Counting objects:  29% (212/728)\e[K\rremote: Counting objects:  30% (219/728)\e[K\rremote: Counting objects:  31% (226/728)\e[K\rremote: Counting objects:  32% (233/728)\e[K\rremote: Counting objects:  33% (241/728)\e[K\rremote: Counting objects:  34% (248/728)\e[K\rremote: Counting objects:  35% (255/728)\e[K\rremote: Counting objects:  36% (263/728)\e[K\rremote: Counting objects:  37% (270/728)\e[K\rremote: Counting objects:  38% (277/728)\e[K\rremote: Counting objects:  39% (284/728)\e[K\rremote: Counting objects:  40% (292/728)\e[K\rremote: Counting objects:  41% (299/728)\e[K\rremote: Counting objects:  42% (306/728)\e[K\rremote: Counting objects:  43% (314/728)\e[K\rremote: Counting objects:  44% (321/728)\e[K\rremote: Counting objects:  45% (328/728)\e[K\rremote: Counting objects:  46% (335/728)\e[K\rremote: Counting objects:  47% (343/728)\e[K\rremote: Counting objects:  48% (350/728)\e[K\rremote: Counting objects:  49% (357/728)\e[K\rremote: Counting objects:  50% (364/728)\e[K\rremote: Counting objects:  51% (372/728)\e[K\rremote: Counting objects:  52% (379/728)\e[K\rremote: Counting objects:  53% (386/728)\e[K\rremote: Counting objects:  54% (394/728)\e[K\rremote: Counting objects:  55% (401/728)\e[K\rremote: Counting objects:  56% (408/728)\e[K\rremote: Counting objects:  57% (415/728)\e[K\rremote: Counting objects:  58% (423/728)\e[K\rremote: Counting objects:  59% (430/728)\e[K\rremote: Counting objects:  60% (437/728)\e[K\rremote: Counting objects:  61% (445/728)\e[K\rremote: Counting objects:  62% (452/728)\e[K\rremote: Counting objects:  63% (459/728)\e[K\rremote: Counting objects:  64% (466/728)\e[K\rremote: Counting objects:  65% (474/728)\e[K\rremote: Counting objects:  66% (481/728)\e[K\rremote: Counting objects:  67% (488/728)\e[K\rremote: Counting objects:  68% (496/728)\e[K\rremote: Counting objects:  69% (503/728)\e[K\rremote: Counting objects:  70% (510/728)\e[K\rremote: Counting objects:  71% (517/728)\e[K\rremote: Counting objects:  72% (525/728)\e[K\rremote: Counting objects:  73% (532/728)\e[K\rremote: Counting objects:  74% (539/728)\e[K\rremote: Counting objects:  75% (546/728)\e[K\rremote: Counting objects:  76% (554/728)\e[K\rremote: Counting objects:  77% (561/728)\e[K\rremote: Counting objects:  78% (568/728)\e[K\rremote: Counting objects:  79% (576/728)\e[K\rremote: Counting objects:  80% (583/728)\e[K\rremote: Counting objects:  81% (590/728)\e[K\rremote: Counting objects:  82% (597/728)\e[K\rremote: Counting objects:  83% (605/728)\e[K\rremote: Counting objects:  84% (612/728)\e[K\rremote: Counting objects:  85% (619/728)\e[K\rremote: Counting objects:  86% (627/728)\e[K\rremote: Counting objects:  87% (634/728)\e[K\rremote: Counting objects:  88% (641/728)\e[K\rremote: Counting objects:  89% (648/728)\e[K\rremote: Counting objects:  90% (656/728)\e[K\rremote: Counting objects:  91% (663/728)\e[K\rremote: Counting objects:  92% (670/728)\e[K\rremote: Counting objects:  93% (678/728)\e[K\rremote: Counting objects:  94% (685/728)\e[K\rremote: Counting objects:  95% (692/728)\e[K\rremote: Counting objects:  96% (699/728)\e[K\rremote: Counting objects:  97% (707/728)\e[K\rremote: Counting objects:  98% (714/728)\e[K\rremote: Counting objects:  99% (721/728)\e[K\rremote: Counting objects: 100% (728/728)\e[K\rremote: Counting objects: 100% (728/728), done.\e[K\r\nremote: Compressing objects:   0% (1/368)\e[K\r"
+  - delay: 59
+    content: "remote: Compressing objects:   1% (4/368)\e[K\rremote: Compressing objects:   2% (8/368)\e[K\rremote: Compressing objects:   3% (12/368)\e[K\rremote: Compressing objects:   4% (15/368)\e[K\rremote: Compressing objects:   5% (19/368)\e[K\rremote: Compressing objects:   6% (23/368)\e[K\rremote: Compressing objects:   7% (26/368)\e[K\rremote: Compressing objects:   8% (30/368)\e[K\rremote: Compressing objects:   9% (34/368)\e[K\rremote: Compressing objects:  10% (37/368)\e[K\rremote: Compressing objects:  11% (41/368)\e[K\rremote: Compressing objects:  12% (45/368)\e[K\rremote: Compressing objects:  13% (48/368)\e[K\rremote: Compressing objects:  14% (52/368)\e[K\rremote: Compressing objects:  15% (56/368)\e[K\rremote: Compressing objects:  16% (59/368)\e[K\rremote: Compressing objects:  17% (63/368)\e[K\rremote: Compressing objects:  18% (67/368)\e[K\rremote: Compressing objects:  19% (70/368)\e[K\rremote: Compressing objects:  20% (74/368)\e[K\rremote: Compressing objects:  21% (78/368)\e[K\rremote: Compressing objects:  22% (81/368)\e[K\rremote: Compressing objects:  23% (85/368)\e[K\rremote: Compressing objects:  24% (89/368)\e[K\rremote: Compressing objects:  25% (92/368)\e[K\rremote: Compressing objects:  26% (96/368)\e[K\rremote: Compressing objects:  27% (100/368)\e[K\rremote: Compressing objects:  28% (104/368)\e[K\rremote: Compressing objects:  29% (107/368)\e[K\rremote: Compressing objects:  30% (111/368)\e[K\rremote: Compressing objects:  31% (115/368)\e[K\rremote: Compressing objects:  32% (118/368)\e[K\rremote: Compressing objects:  33% (122/368)\e[K\rremote: Compressing objects:  34% (126/368)\e[K\rremote: Compressing objects:  35% (129/368)\e[K\rremote: Compressing objects:  36% (133/368)\e[K\rremote: Compressing objects:  37% (137/368)\e[K\rremote: Compressing objects:  38% (140/368)\e[K\rremote: Compressing objects:  39% (144/368)\e[K\rremote: Compressing objects:  40% (148/368)\e[K\rremote: Compressing objects:  41% (151/368)\e[K\rremote: Compressing objects:  42% (155/368)\e[K\rremote: Compressing objects:  43% (159/368)\e[K\rremote: Compressing objects:  44% (162/368)\e[K\rremote: Compressing objects:  45% (166/368)\e[K\rremote: Compressing objects:  46% (170/368)\e[K\rremote: Compressing objects:  47% (173/368)\e[K\rremote: Compressing objects:  48% (177/368)\e[K\rremote: Compressing objects:  49% (181/368)\e[K\rremote: Compressing objects:  50% (184/368)\e[K\rremote: Compressing objects:  51% (188/368)\e[K\rremote: Compressing objects:  52% (192/368)\e[K\rremote: Compressing objects:  53% (196/368)\e[K\rremote: Compressing objects:  54% (199/368)\e[K\rremote: Compressing objects:  55% (203/368)\e[K\rremote: Compressing objects:  56% (207/368)\e[K\rremote: Compressing objects:  57% (210/368)\e[K\rremote: Compressing objects:  58% (214/368)\e[K\rremote: Compressing objects:  59% (218/368)\e[K\rremote: Compressing objects:  60% (221/368)\e[K\rremote: Compressing objects:  61% (225/368)\e[K\rremote: Compressing objects:  62% (229/368)\e[K\rremote: Compressing objects:  63% (232/368)\e[K\rremote: Compressing objects:  64% (236/368)\e[K\rremote: Compressing objects:  65% (240/368)\e[K\rremote: Compressing objects:  66% (243/368)\e[K\rremote: Compressing objects:  67% (247/368)\e[K\rremote: Compressing objects:  68% (251/368)\e[K\rremote: Compressing objects:  69% (254/368)\e[K\rremote: Compressing objects:  70% (258/368)\e[K\rremote: Compressing objects:  71% (262/368)\e[K\rremote: Compressing objects:  72% (265/368)\e[K\rremote: Compressing objects:  73% (269/368)\e[K\rremote: Compressing objects:  74% (273/368)\e[K\rremote: Compressing objects:  75% (276/368)\e[K\rremote: Compressing objects:  76% (280/368)\e[K\rremote: Compressing objects:  77% (284/368)\e[K\rremote: Compressing objects:  78% (288/368)\e[K\rremote: Compressing objects:  79% (291/368)\e[K\rremote: Compressing objects:  80% (295/368)\e[K\rremote: Compressing objects:  81% (299/368)\e[K\rremote: Compressing objects:  82% (302/368)\e[K\rremote: Compressing objects:  83% (306/368)\e[K\rremote: Compressing objects:  84% (310/368)\e[K\rremote: Compressing objects:  85% (313/368)\e[K\rremote: Compressing objects:  86% (317/368)\e[K\rremote: Compressing objects:  87% (321/368)\e[K\rremote: Compressing objects:  88% (324/368)\e[K\rremote: Compressing objects:  89% (328/368)\e[K\rremote: Compressing objects:  90% (332/368)\e[K\rremote: Compressing objects:  91% (335/368)\e[K\rremote: Compressing objects:  92% (339/368)\e[K\rremote: Compressing objects:  93% (343/368)\e[K\rremote: Compressing objects:  94% (346/368)\e[K\rremote: Compressing objects:  95% (350/368)\e[K\rremote: Compressing objects:  96% (354/368)\e[K\rremote: Compressing objects:  97% (357/368)\e[K\rremote: Compressing objects:  98% (361/368)\e[K\rremote: Compressing objects:  99% (365/368)\e[K\rremote: Compressing objects: 100% (368/368)\e[K\rremote: Compressing objects: 100% (368/368), done.\e[K\r\n"
+  - delay: 11
+    content: "Receiving objects:   0% (1/728)\rReceiving objects:   1% (8/728)\rReceiving objects:   2% (15/728)\rReceiving objects:   3% (22/728)\rReceiving objects:   4% (30/728)\rReceiving objects:   5% (37/728)\rReceiving objects:   6% (44/728)\r"
+  - delay: 16
+    content: "Receiving objects:   7% (51/728)\rReceiving objects:   8% (59/728)\rReceiving objects:   9% (66/728)\rReceiving objects:  10% (73/728)\rReceiving objects:  11% (81/728)\rReceiving objects:  12% (88/728)\rReceiving objects:  13% (95/728)\rReceiving objects:  14% (102/728)\rReceiving objects:  15% (110/728)\rReceiving objects:  16% (117/728)\rReceiving objects:  17% (124/728)\rReceiving objects:  18% (132/728)\rReceiving objects:  19% (139/728)\rReceiving objects:  20% (146/728)\rReceiving objects:  21% (153/728)\rReceiving objects:  22% (161/728)\rReceiving objects:  23% (168/728)\rReceiving objects:  24% (175/728)\rReceiving objects:  25% (182/728)\rReceiving objects:  26% (190/728)\rReceiving objects:  27% (197/728)\rReceiving objects:  28% (204/728)\rReceiving objects:  29% (212/728)\rReceiving objects:  30% (219/728)\rReceiving objects:  31% (226/728)\rReceiving objects:  32% (233/728)\rReceiving objects:  33% (241/728)\rReceiving objects:  34% (248/728)\rReceiving objects:  35% (255/728)\rReceiving objects:  36% (263/728)\rReceiving objects:  37% (270/728)\rReceiving objects:  38% (277/728)\rReceiving objects:  39% (284/728)\rReceiving objects:  40% (292/728)\r"
+  - delay: 21
+    content: "Receiving objects:  41% (299/728)\rReceiving objects:  42% (306/728)\rReceiving objects:  43% (314/728)\rReceiving objects:  44% (321/728)\rReceiving objects:  45% (328/728)\rReceiving objects:  46% (335/728)\rReceiving objects:  47% (343/728)\rReceiving objects:  48% (350/728)\rReceiving objects:  49% (357/728)\rReceiving objects:  50% (364/728)\rReceiving objects:  51% (372/728)\rReceiving objects:  52% (379/728)\rReceiving objects:  53% (386/728)\rReceiving objects:  54% (394/728)\rReceiving objects:  55% (401/728)\rReceiving objects:  56% (408/728)\rReceiving objects:  57% (415/728)\rReceiving objects:  58% (423/728)\rReceiving objects:  59% (430/728)\rReceiving objects:  60% (437/728)\rReceiving objects:  61% (445/728)\rReceiving objects:  62% (452/728)\rReceiving objects:  63% (459/728)\rReceiving objects:  64% (466/728)\rReceiving objects:  65% (474/728)\rReceiving objects:  66% (481/728)\rReceiving objects:  67% (488/728)\rReceiving objects:  68% (496/728)\rReceiving objects:  69% (503/728)\rReceiving objects:  70% (510/728)\rReceiving objects:  71% (517/728)\rReceiving objects:  72% (525/728)\rReceiving objects:  73% (532/728)\rReceiving objects:  74% (539/728)\rReceiving objects:  75% (546/728)\rReceiving objects:  76% (554/728)\rReceiving objects:  77% (561/728)\rReceiving objects:  78% (568/728)\rReceiving objects:  79% (576/728)\rReceiving objects:  80% (583/728)\rReceiving objects:  81% (590/728)\rReceiving objects:  82% (597/728)\rReceiving objects:  83% (605/728)\rReceiving objects:  84% (612/728)\rReceiving objects:  85% (619/728)\rReceiving objects:  86% (627/728)\r"
+  - delay: 47
+    content: "Receiving objects:  87% (634/728)\rReceiving objects:  88% (641/728)\r"
+  - delay: 5
+    content: "Receiving objects:  89% (648/728)\rReceiving objects:  90% (656/728)\r"
+  - delay: 27
+    content: "Receiving objects:  91% (663/728)\rReceiving objects:  92% (670/728)\rReceiving objects:  93% (678/728)\rReceiving objects:  94% (685/728)\rReceiving objects:  95% (692/728)\r"
+  - delay: 5
+    content: "Receiving objects:  96% (699/728)\r"
+  - delay: 6
+    content: "Receiving objects:  97% (707/728)\rReceiving objects:  98% (714/728)\rReceiving objects:  99% (721/728)\rremote: Total 728 (delta 350), reused 689 (delta 322), pack-reused 0\e[K\r\nReceiving objects: 100% (728/728)\rReceiving objects: 100% (728/728), 828.31 KiB | 5.14 MiB/s, done.\r\nResolving deltas:   0% (0/350)\rResolving deltas:   1% (4/350)\rResolving deltas:   2% (7/350)\rResolving deltas:   3% (11/350)\rResolving deltas:   4% (14/350)\rResolving deltas:   5% (18/350)\rResolving deltas:   6% (21/350)\rResolving deltas:   7% (25/350)\rResolving deltas:   8% (28/350)\rResolving deltas:   9% (32/350)\rResolving deltas:  10% (35/350)\rResolving deltas:  11% (39/350)\rResolving deltas:  12% (42/350)\rResolving deltas:  13% (46/350)\rResolving deltas:  14% (49/350)\rResolving deltas:  15% (53/350)\rResolving deltas:  16% (57/350)\rResolving deltas:  17% (60/350)\rResolving deltas:  18% (63/350)\rResolving deltas:  19% (67/350)\rResolving deltas:  20% (70/350)\rResolving deltas:  21% (74/350)\rResolving deltas:  22% (77/350)\rResolving deltas:  23% (81/350)\rResolving deltas:  24% (84/350)\rResolving deltas:  25% (89/350)\rResolving deltas:  26% (91/350)\rResolving deltas:  27% (95/350)\rResolving deltas:  28% (98/350)\rResolving deltas:  29% (102/350)\rResolving deltas:  30% (105/350)\rResolving deltas:  31% (109/350)\rResolving deltas:  32% (112/350)\rResolving deltas:  33% (116/350)\rResolving deltas:  34% (119/350)\rResolving deltas:  35% (123/350)\rResolving deltas:  36% (126/350)\rResolving deltas:  37% (130/350)\rResolving deltas:  38% (133/350)\rResolving deltas:  39% (138/350)\rResolving deltas:  40% (140/350)\rResolving deltas:  41% (144/350)\rResolving deltas:  42% (147/350)\rResolving deltas:  43% (151/350)\rResolving deltas:  44% (154/350)\rResolving deltas:  45% (158/350)\rResolving deltas:  46% (161/350)\rResolving deltas:  47% (165/350)\rResolving deltas:  48% (168/350)\rResolving deltas:  49% (172/350)\rResolving deltas:  50% (175/350)\rResolving deltas:  51% (179/350)\rResolving deltas:  52% (182/350)\rResolving deltas:  53% (186/350)\rResolving deltas:  54% (189/350)\rResolving deltas:  55% (193/350)\rResolving deltas:  56% (196/350)\rResolving deltas:  57% (200/350)\rResolving deltas:  58% (203/350)\rResolving deltas:  59% (207/350)\rResolving deltas:  60% (211/350)\rResolving deltas:  61% (214/350)\rResolving deltas:  62% (217/350)\rResolving deltas:  63% (222/350)\rResolving deltas:  64% (224/350)\rResolving deltas:  65% (228/350)\rResolving deltas:  66% (231/350)\rResolving deltas:  67% (235/350)\rResolving deltas:  68% (238/350)\rResolving deltas:  69% (242/350)\rResolving deltas:  70% (245/350)\rResolving deltas:  71% (249/350)\rResolving deltas:  72% (252/350)\rResolving deltas:  73% (256/350)\rResolving deltas:  74% (259/350)\rResolving deltas:  75% (263/350)\rResolving deltas:  76% (266/350)\rResolving deltas:  77% (270/350)\rResolving deltas:  78% (273/350)\rResolving deltas:  79% (277/350)\rResolving deltas:  80% (280/350)\rResolving deltas:  81% (284/350)\rResolving deltas:  82% (287/350)\rResolving deltas:  83% (291/350)\rResolving deltas:  84% (294/350)\rResolving deltas:  85% (298/350)\rResolving deltas:  86% (301/350)\rResolving deltas:  87% (305/350)\rResolving deltas:  88% (308/350)\rResolving deltas:  89% (312/350)\rResolving deltas:  90% (315/350)\rResolving deltas:  91% (319/350)\rResolving deltas:  92% (322/350)\rResolving deltas:  93% (326/350)\rResolving deltas:  94% (329/350)\rResolving deltas:  95% (333/350)\rResolving deltas:  96% (336/350)\rResolving deltas:  97% (340/350)\rResolving deltas:  98% (343/350)\rResolving deltas:  99% (347/350)\rResolving deltas: 100% (350/350)\rResolving deltas: 100% (350/350), completed with 13 local objects.\r\n"
+  - delay: 62
+    content: "From https://github.com/Homebrew/brew\r\n   3821fab24..3ed42ac32  master               -> origin/master\r\n * [new branch]          slim-formula-json-v2 -> origin/slim-formula-json-v2\r\n"
+  - delay: 66
+    content: " * [new tag]             4.2.3                -> 4.2.3\r\n * [new tag]             4.2.4                -> 4.2.4\r\n"
+  - delay: 1299
+    content: "HEAD is now at 3ed42ac32 Merge pull request #16487 from Homebrew/dependabot/bundler/Library/Homebrew/tapioca-0.11.17\r\n"
+  - delay: 5030
+    content: "Updated 2 taps (homebrew/core and homebrew/cask).\r\n"
+  - delay: 216
+    content: "\e[1;34m==>\e[1;39m Installation successful!\e[0m\r\n\r\n\a\e[1;34m==>\e[1;39m Homebrew has enabled anonymous aggregate formulae and cask analytics.\e[0m\r\n"
+  - delay: 6
+    content: "\e[1;39mRead the analytics documentation (and how to opt-out) here:\r\n  \e[4;39mhttps://docs.brew.sh/Analytics\e[0m\r\nNo analytics data has been sent yet (nor will any be during this \e[1;39minstall\e[0m run).\r\n\r\n\e[1;34m==>\e[1;39m Homebrew is run entirely by unpaid volunteers. Please consider donating:\e[0m\r\n"
+  - delay: 5
+    content: "  \e[4;39mhttps://github.com/Homebrew/brew#donations\e[0m\r\n\r\n"
+  - delay: 37
+    content: "\e[1;34m==>\e[1;39m Next steps:\e[0m\r\n"
+  - delay: 12
+    content: "- Run \e[1;39mbrew help\e[0m to get started\r\n- Further documentation:\r\n    \e[4;39mhttps://docs.brew.sh\e[0m\r\n\r\n"
+  - delay: 12
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[?2004l\r\r\n"
