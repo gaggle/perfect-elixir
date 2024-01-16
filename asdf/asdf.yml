@@ -1,0 +1,156 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: -1
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 3004
+    content: "git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1"
+  - delay: 788
+    content: "\r\nmacos-14:~ cloud$ "
+  - delay: 4611
+    content: "git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch \r v0.13.1"
+  - delay: 4627
+    content: "\r\n"
+  - delay: 15
+    content: "Cloning into '/Users/cloud/.asdf'...\r\n"
+  - delay: 660
+    content: "remote: Enumerating objects: 8663, done.\e[K\r\nremote: Counting objects:   0% (1/576)\e[K\rremote: Counting objects:   1% (6/576)\e[K\rremote: Counting objects:   2% (12/576)\e[K\rremote: Counting objects:   3% (18/576)\e[K\rremote: Counting objects:   4% (24/576)\e[K\rremote: Counting objects:   5% (29/576)\e[K\rremote: Counting objects:   6% (35/576)\e[K\rremote: Counting objects:   7% (41/576)\e[K\rremote: Counting objects:   8% (47/576)\e[K\rremote: Counting objects:   9% (52/576)\e[K\rremote: Counting objects:  10% (58/576)\e[K\rremote: Counting objects:  11% (64/576)\e[K\rremote: Counting objects:  12% (70/576)\e[K\rremote: Counting objects:  13% (75/576)\e[K\rremote: Counting objects:  14% (81/576)\e[K\rremote: Counting objects:  15% (87/576)\e[K\rremote: Counting objects:  16% (93/576)\e[K\rremote: Counting objects:  17% (98/576)\e[K\rremote: Counting objects:  18% (104/576)\e[K\rremote: Counting objects:  19% (110/576)\e[K\rremote: Counting objects:  20% (116/576)\e[K\rremote: Counting objects:  21% (121/576)\e[K\rremote: Counting objects:  22% (127/576)\e[K\rremote: Counting objects:  23% (133/576)\e[K\rremote: Counting objects:  24% (139/576)\e[K\rremote: Counting objects:  25% (144/576)\e[K\rremote: Counting objects:  26% (150/576)\e[K\rremote: Counting objects:  27% (156/576)\e[K\rremote: Counting objects:  28% (162/576)\e[K\rremote: Counting objects:  29% (168/576)\e[K\rremote: Counting objects:  30% (173/576)\e[K\rremote: Counting objects:  31% (179/576)\e[K\rremote: Counting objects:  32% (185/576)\e[K\rremote: Counting objects:  33% (191/576)\e[K\rremote: Counting objects:  34% (196/576)\e[K\rremote: Counting objects:  35% (202/576)\e[K\rremote: Counting objects:  36% (208/576)\e[K\rremote: Counting objects:  37% (214/576)\e[K\rremote: Counting objects:  38% (219/576)\e[K\rremote: Counting objects:  39% (225/576)\e[K\rremote: Counting objects:  40% (231/576)\e[K\rremote: Counting objects:  41% (237/576)\e[K\rremote: Counting objects:  42% (242/576)\e[K\rremote: Counting objects:  43% (248/576)\e[K\rremote: Counting objects:  44% (254/576)\e[K\rremote: Counting objects:  45% (260/576)\e[K\rremote: Counting objects:  46% (265/576)\e[K\rremote: Counting objects:  47% (271/576)\e[K\rremote: Counting objects:  48% (277/576)\e[K\rremote: Counting objects:  49% (283/576)\e[K\rremote: Counting objects:  50% (288/576)\e[K\rremote: Counting objects:  51% (294/576)\e[K\rremote: Counting objects:  52% (300/576)\e[K\rremote: Counting objects:  53% (306/576)\e[K\rremote: Counting objects:  54% (312/576)\e[K\rremote: Counting objects:  55% (317/576)\e[K\rremote: Counting objects:  56% (323/576)\e[K\rremote: Counting objects:  57% (329/576)\e[K\rremote: Counting objects:  58% (335/576)\e[K\rremote: Counting objects:  59% (340/576)\e[K\rremote: Counting objects:  60% (346/576)\e[K\rremote: Counting objects:  61% (352/576)\e[K\rremote: Counting objects:  62% (358/576)\e[K\rremote: Counting objects:  63% (363/576)\e[K\rremote: Counting objects:  64% (369/576)\e[K\rremote: Counting objects:  65% (375/576)\e[K\rremote: Counting objects:  66% (381/576)\e[K\rremote: Counting objects:  67% (386/576)\e[K\rremote: Counting objects:  68% (392/576)\e[K\rremote: Counting objects:  69% (398/576)\e[K\rremote: Counting objects:  70% (404/576)\e[K\rremote: Counting objects:  71% (409/576)\e[K\rremote: Counting objects:  72% (415/576)\e[K\rremote: Counting objects:  73% (421/576)\e[K\rremote: Counting objects:  74% (427/576)\e[K\rremote: Counting objects:  75% (432/576)\e[K\rremote: Counting objects:  76% (438/576)\e[K\rremote: Counting objects:  77% (444/576)\e[K\rremote: Counting objects:  78% (450/576)\e[K\rremote: Counting objects:  79% (456/576)\e[K\rremote: Counting objects:  80% (461/576)\e[K\rremote: Counting objects:  81% (467/576)\e[K\rremote: Counting objects:  82% (473/576)\e[K\rremote: Counting objects:  83% (479/576)\e[K\rremote: Counting objects:  84% (484/576)\e[K\rremote: Counting objects:  85% (490/576)\e[K\rremote: Counting objects:  86% (496/576)\e[K\rremote: Counting objects:  87% (502/576)\e[K\rremote: Counting objects:  88% (507/576)\e[K\rremote: Counting objects:  89% (513/576)\e[K\r"
+  - delay: 76
+    content: "remote: Counting objects:  90% (519/576)\e[K\rremote: Counting objects:  91% (525/576)\e[K\rremote: Counting objects:  92% (530/576)\e[K\rremote: Counting objects:  93% (536/576)\e[K\rremote: Counting objects:  94% (542/576)\e[K\rremote: Counting objects:  95% (548/576)\e[K\rremote: Counting objects:  96% (553/576)\e[K\rremote: Counting objects:  97% (559/576)\e[K\rremote: Counting objects:  98% (565/576)\e[K\rremote: Counting objects:  99% (571/576)\e[K\rremote: Counting objects: 100% (576/576)\e[K\rremote: Counting objects: 100% (576/576), done.\e[K\r\nremote: Compressing objects:   0% (1/316)\e[K\rremote: Compressing objects:   1% (4/316)\e[K\rremote: Compressing objects:   2% (7/316)\e[K\rremote: Compressing objects:   3% (10/316)\e[K\rremote: Compressing objects:   4% (13/316)\e[K\rremote: Compressing objects:   5% (16/316)\e[K\rremote: Compressing objects:   6% (19/316)\e[K\rremote: Compressing objects:   7% (23/316)\e[K\rremote: Compressing objects:   8% (26/316)\e[K\rremote: Compressing objects:   9% (29/316)\e[K\rremote: Compressing objects:  10% (32/316)\e[K\rremote: Compressing objects:  11% (35/316)\e[K\rremote: Compressing objects:  12% (38/316)\e[K\rremote: Compressing objects:  13% (42/316)\e[K\r"
+  - delay: 21
+    content: "remote: Compressing objects:  14% (45/316)\e[K\rremote: Compressing objects:  15% (48/316)\e[K\rremote: Compressing objects:  16% (51/316)\e[K\rremote: Compressing objects:  17% (54/316)\e[K\rremote: Compressing objects:  18% (57/316)\e[K\rremote: Compressing objects:  19% (61/316)\e[K\rremote: Compressing objects:  20% (64/316)\e[K\rremote: Compressing objects:  21% (67/316)\e[K\rremote: Compressing objects:  22% (70/316)\e[K\rremote: Compressing objects:  23% (73/316)\e[K\rremote: Compressing objects:  24% (76/316)\e[K\rremote: Compressing objects:  25% (79/316)\e[K\rremote: Compressing objects:  26% (83/316)\e[K\rremote: Compressing objects:  27% (86/316)\e[K\rremote: Compressing objects:  28% (89/316)\e[K\rremote: Compressing objects:  29% (92/316)\e[K\rremote: Compressing objects:  30% (95/316)\e[K\rremote: Compressing objects:  31% (98/316)\e[K\rremote: Compressing objects:  32% (102/316)\e[K\rremote: Compressing objects:  33% (105/316)\e[K\rremote: Compressing objects:  34% (108/316)\e[K\rremote: Compressing objects:  35% (111/316)\e[K\rremote: Compressing objects:  36% (114/316)\e[K\rremote: Compressing objects:  37% (117/316)\e[K\rremote: Compressing objects:  38% (121/316)\e[K\rremote: Compressing objects:  39% (124/316)\e[K\rremote: Compressing objects:  40% (127/316)\e[K\rremote: Compressing objects:  41% (130/316)\e[K\rremote: Compressing objects:  42% (133/316)\e[K\rremote: Compressing objects:  43% (136/316)\e[K\rremote: Compressing objects:  44% (140/316)\e[K\rremote: Compressing objects:  45% (143/316)\e[K\rremote: Compressing objects:  46% (146/316)\e[K\rremote: Compressing objects:  47% (149/316)\e[K\rremote: Compressing objects:  48% (152/316)\e[K\rremote: Compressing objects:  49% (155/316)\e[K\rremote: Compressing objects:  50% (158/316)\e[K\rremote: Compressing objects:  51% (162/316)\e[K\rremote: Compressing objects:  52% (165/316)\e[K\rremote: Compressing objects:  53% (168/316)\e[K\rremote: Compressing objects:  54% (171/316)\e[K\rremote: Compressing objects:  55% (174/316)\e[K\rremote: Compressing objects:  56% (177/316)\e[K\rremote: Compressing objects:  57% (181/316)\e[K\rremote: Compressing objects:  58% (184/316)\e[K\rremote: Compressing objects:  59% (187/316)\e[K\rremote: Compressing objects:  60% (190/316)\e[K\rremote: Compressing objects:  61% (193/316)\e[K\rremote: Compressing objects:  62% (196/316)\e[K\rremote: Compressing objects:  63% (200/316)\e[K\rremote: Compressing objects:  64% (203/316)\e[K\rremote: Compressing objects:  65% (206/316)\e[K\rremote: Compressing objects:  66% (209/316)\e[K\rremote: Compressing objects:  67% (212/316)\e[K\rremote: Compressing objects:  68% (215/316)\e[K\rremote: Compressing objects:  69% (219/316)\e[K\rremote: Compressing objects:  70% (222/316)\e[K\rremote: Compressing objects:  71% (225/316)\e[K\rremote: Compressing objects:  72% (228/316)\e[K\rremote: Compressing objects:  73% (231/316)\e[K\rremote: Compressing objects:  74% (234/316)\e[K\rremote: Compressing objects:  75% (237/316)\e[K\rremote: Compressing objects:  76% (241/316)\e[K\rremote: Compressing objects:  77% (244/316)\e[K\rremote: Compressing objects:  78% (247/316)\e[K\rremote: Compressing objects:  79% (250/316)\e[K\rremote: Compressing objects:  80% (253/316)\e[K\rremote: Compressing objects:  81% (256/316)\e[K\rremote: Compressing objects:  82% (260/316)\e[K\rremote: Compressing objects:  83% (263/316)\e[K\rremote: Compressing objects:  84% (266/316)\e[K\rremote: Compressing objects:  85% (269/316)\e[K\rremote: Compressing objects:  86% (272/316)\e[K\rremote: Compressing objects:  87% (275/316)\e[K\rremote: Compressing objects:  88% (279/316)\e[K\rremote: Compressing objects:  89% (282/316)\e[K\rremote: Compressing objects:  90% (285/316)\e[K\rremote: Compressing objects:  91% (288/316)\e[K\rremote: Compressing objects:  92% (291/316)\e[K\rremote: Compressing objects:  93% (294/316)\e[K\rremote: Compressing objects:  94% (298/316)\e[K\rremote: Compressing objects:  95% (301/316)\e[K\rremote: Compressing objects:  96% (304/316)\e[K\rremote: Compressing objects:  97% (307/316)\e[K\rremote: Compressing objects:  98% (310/316)\e[K\rremote: Compressing objects:  99% (313/316)\e[K\rremote: Compressing objects: 100% (316/316)\e[K\rremote: Compressing objects: 100% (316/316), done.\e[K\r\nReceiving objects:   0% (1/8663)\r"
+  - delay: 36
+    content: "Receiving objects:   1% (87/8663)\r"
+  - delay: 20
+    content: "Receiving objects:   2% (174/8663)\r"
+  - delay: 5
+    content: "Receiving objects:   3% (260/8663)\rReceiving objects:   4% (347/8663)\r"
+  - delay: 13
+    content: "Receiving objects:   5% (434/8663)\rReceiving objects:   6% (520/8663)\rReceiving objects:   7% (607/8663)\rReceiving objects:   8% (694/8663)\rReceiving objects:   9% (780/8663)\rReceiving objects:  10% (867/8663)\r"
+  - delay: 13
+    content: "Receiving objects:  11% (953/8663)\rReceiving objects:  12% (1040/8663)\rReceiving objects:  13% (1127/8663)\rReceiving objects:  14% (1213/8663)\rReceiving objects:  15% (1300/8663)\rReceiving objects:  16% (1387/8663)\rReceiving objects:  17% (1473/8663)\rReceiving objects:  18% (1560/8663)\rReceiving objects:  19% (1646/8663)\rReceiving objects:  20% (1733/8663)\rReceiving objects:  21% (1820/8663)\rReceiving objects:  22% (1906/8663)\rReceiving objects:  23% (1993/8663)\r"
+  - delay: 6
+    content: "Receiving objects:  24% (2080/8663)\rReceiving objects:  25% (2166/8663)\rReceiving objects:  26% (2253/8663)\rReceiving objects:  27% (2340/8663)\rReceiving objects:  28% (2426/8663)\rReceiving objects:  29% (2513/8663)\rReceiving objects:  30% (2599/8663)\rReceiving objects:  31% (2686/8663)\rReceiving objects:  32% (2773/8663)\rReceiving objects:  33% (2859/8663)\rReceiving objects:  34% (2946/8663)\rReceiving objects:  35% (3033/8663)\rReceiving objects:  36% (3119/8663)\rReceiving objects:  37% (3206/8663)\rReceiving objects:  38% (3292/8663)\r"
+  - delay: 20
+    content: "Receiving objects:  39% (3379/8663)\rReceiving objects:  40% (3466/8663)\rReceiving objects:  41% (3552/8663)\rReceiving objects:  42% (3639/8663)\rReceiving objects:  43% (3726/8663)\rReceiving objects:  44% (3812/8663)\rReceiving objects:  45% (3899/8663)\rReceiving objects:  46% (3985/8663)\rReceiving objects:  47% (4072/8663)\rReceiving objects:  48% (4159/8663)\rReceiving objects:  49% (4245/8663)\rReceiving objects:  50% (4332/8663)\rReceiving objects:  51% (4419/8663)\rReceiving objects:  52% (4505/8663)\rReceiving objects:  53% (4592/8663)\rReceiving objects:  54% (4679/8663)\rReceiving objects:  55% (4765/8663)\rReceiving objects:  56% (4852/8663)\rReceiving objects:  57% (4938/8663)\rReceiving objects:  58% (5025/8663)\rReceiving objects:  59% (5112/8663)\rReceiving objects:  60% (5198/8663)\rReceiving objects:  61% (5285/8663)\rReceiving objects:  62% (5372/8663)\rReceiving objects:  63% (5458/8663)\rReceiving objects:  64% (5545/8663)\rReceiving objects:  65% (5631/8663)\rReceiving objects:  66% (5718/8663)\rReceiving objects:  67% (5805/8663)\rReceiving objects:  68% (5891/8663)\rReceiving objects:  69% (5978/8663)\rReceiving objects:  70% (6065/8663)\rReceiving objects:  71% (6151/8663)\rReceiving objects:  72% (6238/8663)\rReceiving objects:  73% (6324/8663)\rReceiving objects:  74% (6411/8663)\rReceiving objects:  75% (6498/8663)\rReceiving objects:  76% (6584/8663)\rReceiving objects:  77% (6671/8663)\rReceiving objects:  78% (6758/8663)\rReceiving objects:  79% (6844/8663)\rReceiving objects:  80% (6931/8663)\rReceiving objects:  81% (7018/8663)\rReceiving objects:  82% (7104/8663)\rReceiving objects:  83% (7191/8663)\rReceiving objects:  84% (7277/8663)\rReceiving objects:  85% (7364/8663)\rReceiving objects:  86% (7451/8663)\rReceiving objects:  87% (7537/8663)\rReceiving objects:  88% (7624/8663)\rReceiving objects:  89% (7711/8663)\rReceiving objects:  90% (7797/8663)\rReceiving objects:  91% (7884/8663)\rReceiving objects:  92% (7970/8663)\rReceiving objects:  93% (8057/8663)\rReceiving objects:  94% (8144/8663)\rReceiving objects:  95% (8230/8663)\rReceiving objects:  96% (8317/8663)\r"
+  - delay: 8
+    content: "Receiving objects:  97% (8404/8663)\rReceiving objects:  98% (8490/8663)\rReceiving objects:  99% (8577/8663)\r"
+  - delay: 7
+    content: "remote: Total 8663 (delta 289), reused 446 (delta 249), pack-reused 8087\e[K\r\nReceiving objects: 100% (8663/8663)\rReceiving objects: 100% (8663/8663), 2.86 MiB | 13.63 MiB/s, done.\r\nResolving deltas:   0% (0/5134)\rResolving deltas:   1% (52/5134)\rResolving deltas:   2% (103/5134)\rResolving deltas:   3% (155/5134)\rResolving deltas:   4% (206/5134)\rResolving deltas:   5% (257/5134)\rResolving deltas:   6% (309/5134)\r"
+  - delay: 5
+    content: "Resolving deltas:   7% (361/5134)\rResolving deltas:   8% (412/5134)\rResolving deltas:   9% (463/5134)\rResolving deltas:  10% (516/5134)\rResolving deltas:  11% (565/5134)\rResolving deltas:  12% (617/5134)\rResolving deltas:  13% (668/5134)\rResolving deltas:  14% (719/5134)\rResolving deltas:  15% (771/5134)\rResolving deltas:  16% (822/5134)\rResolving deltas:  17% (873/5134)\rResolving deltas:  18% (926/5134)\rResolving deltas:  19% (976/5134)\rResolving deltas:  20% (1027/5134)\rResolving deltas:  21% (1079/5134)\rResolving deltas:  22% (1130/5134)\rResolving deltas:  23% (1181/5134)\rResolving deltas:  24% (1233/5134)\rResolving deltas:  25% (1284/5134)\rResolving deltas:  26% (1335/5134)\rResolving deltas:  27% (1387/5134)\rResolving deltas:  28% (1438/5134)\rResolving deltas:  29% (1489/5134)\rResolving deltas:  30% (1541/5134)\rResolving deltas:  31% (1592/5134)\rResolving deltas:  32% (1644/5134)\rResolving deltas:  33% (1695/5134)\rResolving deltas:  34% (1746/5134)\rResolving deltas:  35% (1797/5134)\rResolving deltas:  36% (1849/5134)\rResolving deltas:  37% (1900/5134)\rResolving deltas:  38% (1951/5134)\rResolving deltas:  39% (2003/5134)\rResolving deltas:  40% (2054/5134)\rResolving deltas:  41% (2105/5134)\rResolving deltas:  42% (2157/5134)\rResolving deltas:  43% (2208/5134)\rResolving deltas:  44% (2259/5134)\rResolving deltas:  45% (2311/5134)\rResolving deltas:  46% (2363/5134)\rResolving deltas:  47% (2413/5134)\rResolving deltas:  48% (2465/5134)\rResolving deltas:  49% (2516/5134)\rResolving deltas:  50% (2567/5134)\rResolving deltas:  51% (2619/5134)\rResolving deltas:  52% (2670/5134)\rResolving deltas:  53% (2722/5134)\rResolving deltas:  54% (2774/5134)\rResolving deltas:  55% (2824/5134)\rResolving deltas:  56% (2876/5134)\rResolving deltas:  57% (2927/5134)\rResolving deltas:  58% (2978/5134)\rResolving deltas:  59% (3030/5134)\rResolving deltas:  60% (3081/5134)\rResolving deltas:  61% (3132/5134)\rResolving deltas:  62% (3184/5134)\rResolving deltas:  63% (3236/5134)\rResolving deltas:  64% (3286/5134)\rResolving deltas:  65% (3339/5134)\rResolving deltas:  66% (3390/5134)\rResolving deltas:  67% (3440/5134)\rResolving deltas:  68% (3492/5134)\rResolving deltas:  69% (3544/5134)\rResolving deltas:  70% (3594/5134)\rResolving deltas:  71% (3646/5134)\rResolving deltas:  72% (3697/5134)\rResolving deltas:  73% (3749/5134)\rResolving deltas:  74% (3800/5134)\rResolving deltas:  75% (3851/5134)\rResolving deltas:  76% (3903/5134)\rResolving deltas:  77% (3954/5134)\rResolving deltas:  78% (4005/5134)\rResolving deltas:  79% (4056/5134)\rResolving deltas:  80% (4109/5134)\rResolving deltas:  81% (4159/5134)\rResolving deltas:  82% (4210/5134)\rResolving deltas:  83% (4262/5134)\rResolving deltas:  84% (4314/5134)\rResolving deltas:  85% (4364/5134)\rResolving deltas:  86% (4416/5134)\rResolving deltas:  87% (4467/5134)\rResolving deltas:  88% (4518/5134)\rResolving deltas:  89% (4570/5134)\rResolving deltas:  90% (4621/5134)\rResolving deltas:  91% (4672/5134)\rResolving deltas:  92% (4724/5134)\rResolving deltas:  93% (4775/5134)\rResolving deltas:  94% (4826/5134)\rResolving deltas:  95% (4878/5134)\rResolving deltas:  96% (4929/5134)\rResolving deltas:  97% (4980/5134)\rResolving deltas:  98% (5032/5134)\rResolving deltas:  99% (5083/5134)\rResolving deltas: 100% (5134/5134)\rResolving deltas: 100% (5134/5134), done.\r\n"
+  - delay: 39
+    content: "Note: switching to '0586b37d03031ae8c3110ea2b51cacaad46c7cdc'.\r\n\r\nYou are in 'detached HEAD' state. You can look around, make experimental\r\nchanges and commit them, and you can discard any commits you make in this\r\nstate without impacting any branches by switching back to a branch.\r\n\r\nIf you want to create a new branch to retain commits you create, you may\r\ndo so (now or later) by using -c with the switch command. Example:\r\n\r\n  git switch -c <new-branch-name>\r\n\r\nOr undo this operation with:\r\n\r\n  git switch -\r\n\r\nTurn off this advice by setting config variable advice.detachedHead to false\r\n\r\n"
+  - delay: 56
+    content: 'macos-14:~ cloud$ '
+  - delay: 878
+    content: "echo '. \"$HOME/.asdf/asdf.sh”' >> ~/.zshrc\r\n"
+  - delay: 56
+    content: 'macos-14:~ cloud$ '

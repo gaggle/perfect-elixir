@@ -1,0 +1,163 @@
+config:
+  command: zsh
+  cwd: /Users/cloud/perfect-elixir
+  env:
+    recording: true
+  cols: 79
+  rows: 20
+  repeat: 0
+  quality: 100
+  frameDelay: auto
+  maxIdleTime: 2000
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  cursorStyle: block
+  fontFamily: Monaco, Lucida Console, Ubuntu Mono, Monospace
+  fontSize: 12
+  lineHeight: 1
+  letterSpacing: 0
+  theme:
+    background: transparent
+    foreground: '#afafaf'
+    cursor: '#c7c7c7'
+    black: '#232628'
+    red: '#fc4384'
+    green: '#b3e33b'
+    yellow: '#ffa727'
+    blue: '#75dff2'
+    magenta: '#ae89fe'
+    cyan: '#708387'
+    white: '#d5d5d0'
+    brightBlack: '#626566'
+    brightRed: '#ff7fac'
+    brightGreen: '#c8ed71'
+    brightYellow: '#ebdf86'
+    brightBlue: '#75dff2'
+    brightMagenta: '#ae89fe'
+    brightCyan: '#b1c6ca'
+    brightWhite: '#f9f9f4'
+records:
+  - delay: 0
+    content: "\r\n"
+  - delay: 100
+    content: '$ '
+  - delay: 3000
+    content: "\e[7masdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git\e[27m"
+  - delay: 1324
+    content: "\e[65D\e[27ma\e[27ms\e[27md\e[27mf\e[27m \e[27mp\e[27ml\e[27mu\e[27mg\e[27mi\e[27mn\e[27m \e[27ma\e[27md\e[27md\e[27m \e[27me\e[27mr\e[27ml\e[27ma\e[27mn\e[27mg\e[27m \e[27mh\e[27mt\e[27mt\e[27mp\e[27ms\e[27m:\e[27m/\e[27m/\e[27mg\e[27mi\e[27mt\e[27mh\e[27mu\e[27mb\e[27m.\e[27mc\e[27mo\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27mv\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27me\e[27mr\e[27ml\e[27ma\e[27mn\e[27mg\e[27m.\e[27mg\e[27mi\e[27mt\e[?2004l\r\r\n"
+  - delay: 1039
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 3000
+    content: "\e[7masdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git\e[27m"
+  - delay: 283
+    content: "\e[65D\e[27ma\e[27ms\e[27md\e[27mf\e[27m \e[27mp\e[27ml\e[27mu\e[27mg\e[27mi\e[27mn\e[27m-\e[27ma\e[27md\e[27md\e[27m \e[27me\e[27ml\e[27mi\e[27mx\e[27mi\e[27mr\e[27m \e[27mh\e[27mt\e[27mt\e[27mp\e[27ms\e[27m:\e[27m/\e[27m/\e[27mg\e[27mi\e[27mt\e[27mh\e[27mu\e[27mb\e[27m.\e[27mc\e[27mo\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27mv\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27me\e[27ml\e[27mi\e[27mx\e[27mi\e[27mr\e[27m.\e[27mg\e[27mi\e[27mt\e[?2004l\r\r\n"
+  - delay: 866
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 3000
+    content: "\e[7masdf plugin-add postgres\e[27m"
+  - delay: 427
+    content: "\e[24D\e[27ma\e[27ms\e[27md\e[27mf\e[27m \e[27mp\e[27ml\e[27mu\e[27mg\e[27mi\e[27mn\e[27m-\e[27ma\e[27md\e[27md\e[27m \e[27mp\e[27mo\e[27ms\e[27mt\e[27mg\e[27mr\e[27me\e[27ms\e[?2004l\r\r\n"
+  - delay: 78
+    content: initializing plugin repository...
+  - delay: 15
+    content: "Cloning into '/Users/cloud/.asdf/repository'...\r\n"
+  - delay: 589
+    content: "remote: Enumerating objects: 5705, done.\e[K\r\nremote: Counting objects:   0% (1/1475)\e[K\rremote: Counting objects:   1% (15/1475)\e[K\rremote: Counting objects:   2% (30/1475)\e[K\rremote: Counting objects:   3% (45/1475)\e[K\rremote: Counting objects:   4% (59/1475)\e[K\rremote: Counting objects:   5% (74/1475)\e[K\rremote: Counting objects:   6% (89/1475)\e[K\rremote: Counting objects:   7% (104/1475)\e[K\rremote: Counting objects:   8% (118/1475)\e[K\rremote: Counting objects:   9% (133/1475)\e[K\rremote: Counting objects:  10% (148/1475)\e[K\rremote: Counting objects:  11% (163/1475)\e[K\rremote: Counting objects:  12% (177/1475)\e[K\rremote: Counting objects:  13% (192/1475)\e[K\rremote: Counting objects:  14% (207/1475)\e[K\rremote: Counting objects:  15% (222/1475)\e[K\rremote: Counting objects:  16% (236/1475)\e[K\rremote: Counting objects:  17% (251/1475)\e[K\rremote: Counting objects:  18% (266/1475)\e[K\rremote: Counting objects:  19% (281/1475)\e[K\rremote: Counting objects:  20% (295/1475)\e[K\rremote: Counting objects:  21% (310/1475)\e[K\rremote: Counting objects:  22% (325/1475)\e[K\rremote: Counting objects:  23% (340/1475)\e[K\rremote: Counting objects:  24% (354/1475)\e[K\rremote: Counting objects:  25% (369/1475)\e[K\rremote: Counting objects:  26% (384/1475)\e[K\rremote: Counting objects:  27% (399/1475)\e[K\rremote: Counting objects:  28% (413/1475)\e[K\rremote: Counting objects:  29% (428/1475)\e[K\rremote: Counting objects:  30% (443/1475)\e[K\rremote: Counting objects:  31% (458/1475)\e[K\rremote: Counting objects:  32% (472/1475)\e[K\rremote: Counting objects:  33% (487/1475)\e[K\rremote: Counting objects:  34% (502/1475)\e[K\rremote: Counting objects:  35% (517/1475)\e[K\rremote: Counting objects:  36% (531/1475)\e[K\rremote: Counting objects:  37% (546/1475)\e[K\rremote: Counting objects:  38% (561/1475)\e[K\rremote: Counting objects:  39% (576/1475)\e[K\rremote: Counting objects:  40% (590/1475)\e[K\rremote: Counting objects:  41% (605/1475)\e[K\rremote: Counting objects:  42% (620/1475)\e[K\rremote: Counting objects:  43% (635/1475)\e[K\rremote: Counting objects:  44% (649/1475)\e[K\rremote: Counting objects:  45% (664/1475)\e[K\rremote: Counting objects:  46% (679/1475)\e[K\rremote: Counting objects:  47% (694/1475)\e[K\rremote: Counting objects:  48% (708/1475)\e[K\rremote: Counting objects:  49% (723/1475)\e[K\rremote: Counting objects:  50% (738/1475)\e[K\rremote: Counting objects:  51% (753/1475)\e[K\rremote: Counting objects:  52% (767/1475)\e[K\rremote: Counting objects:  53% (782/1475)\e[K\rremote: Counting objects:  54% (797/1475)\e[K\rremote: Counting objects:  55% (812/1475)\e[K\rremote: Counting objects:  56% (826/1475)\e[K\rremote: Counting objects:  57% (841/1475)\e[K\rremote: Counting objects:  58% (856/1475)\e[K\rremote: Counting objects:  59% (871/1475)\e[K\rremote: Counting objects:  60% (885/1475)\e[K\rremote: Counting objects:  61% (900/1475)\e[K\rremote: Counting objects:  62% (915/1475)\e[K\rremote: Counting objects:  63% (930/1475)\e[K\rremote: Counting objects:  64% (944/1475)\e[K\rremote: Counting objects:  65% (959/1475)\e[K\rremote: Counting objects:  66% (974/1475)\e[K\rremote: Counting objects:  67% (989/1475)\e[K\rremote: Counting objects:  68% (1003/1475)\e[K\rremote: Counting objects:  69% (1018/1475)\e[K\rremote: Counting objects:  70% (1033/1475)\e[K\rremote: Counting objects:  71% (1048/1475)\e[K\rremote: Counting objects:  72% (1062/1475)\e[K\rremote: Counting objects:  73% (1077/1475)\e[K\rremote: Counting objects:  74% (1092/1475)\e[K\r"
+  - delay: 12
+    content: "remote: Counting objects:  75% (1107/1475)\e[K\rremote: Counting objects:  76% (1121/1475)\e[K\rremote: Counting objects:  77% (1136/1475)\e[K\rremote: Counting objects:  78% (1151/1475)\e[K\rremote: Counting objects:  79% (1166/1475)\e[K\rremote: Counting objects:  80% (1180/1475)\e[K\rremote: Counting objects:  81% (1195/1475)\e[K\rremote: Counting objects:  82% (1210/1475)\e[K\rremote: Counting objects:  83% (1225/1475)\e[K\rremote: Counting objects:  84% (1239/1475)\e[K\rremote: Counting objects:  85% (1254/1475)\e[K\rremote: Counting objects:  86% (1269/1475)\e[K\rremote: Counting objects:  87% (1284/1475)\e[K\rremote: Counting objects:  88% (1298/1475)\e[K\rremote: Counting objects:  89% (1313/1475)\e[K\rremote: Counting objects:  90% (1328/1475)\e[K\rremote: Counting objects:  91% (1343/1475)\e[K\rremote: Counting objects:  92% (1357/1475)\e[K\rremote: Counting objects:  93% (1372/1475)\e[K\rremote: Counting objects:  94% (1387/1475)\e[K\rremote: Counting objects:  95% (1402/1475)\e[K\rremote: Counting objects:  96% (1416/1475)\e[K\rremote: Counting objects:  97% (1431/1475)\e[K\rremote: Counting objects:  98% (1446/1475)\e[K\rremote: Counting objects:  99% (1461/1475)\e[K\rremote: Counting objects: 100% (1475/1475)\e[K\rremote: Counting objects: 100% (1475/1475), done.\e[K\r\nremote: Compressing objects:   1% (1/71)\e[K\rremote: Compressing objects:   2% (2/71)\e[K\rremote: Compressing objects:   4% (3/71)\e[K\rremote: Compressing objects:   5% (4/71)\e[K\rremote: Compressing objects:   7% (5/71)\e[K\rremote: Compressing objects:   8% (6/71)\e[K\rremote: Compressing objects:   9% (7/71)\e[K\rremote: Compressing objects:  11% (8/71)\e[K\rremote: Compressing objects:  12% (9/71)\e[K\rremote: Compressing objects:  14% (10/71)\e[K\rremote: Compressing objects:  15% (11/71)\e[K\rremote: Compressing objects:  16% (12/71)\e[K\rremote: Compressing objects:  18% (13/71)\e[K\rremote: Compressing objects:  19% (14/71)\e[K\rremote: Compressing objects:  21% (15/71)\e[K\rremote: Compressing objects:  22% (16/71)\e[K\rremote: Compressing objects:  23% (17/71)\e[K\rremote: Compressing objects:  25% (18/71)\e[K\rremote: Compressing objects:  26% (19/71)\e[K\rremote: Compressing objects:  28% (20/71)\e[K\rremote: Compressing objects:  29% (21/71)\e[K\rremote: Compressing objects:  30% (22/71)\e[K\rremote: Compressing objects:  32% (23/71)\e[K\rremote: Compressing objects:  33% (24/71)\e[K\rremote: Compressing objects:  35% (25/71)\e[K\rremote: Compressing objects:  36% (26/71)\e[K\rremote: Compressing objects:  38% (27/71)\e[K\rremote: Compressing objects:  39% (28/71)\e[K\rremote: Compressing objects:  40% (29/71)\e[K\rremote: Compressing objects:  42% (30/71)\e[K\rremote: Compressing objects:  43% (31/71)\e[K\rremote: Compressing objects:  45% (32/71)\e[K\rremote: Compressing objects:  46% (33/71)\e[K\rremote: Compressing objects:  47% (34/71)\e[K\rremote: Compressing objects:  49% (35/71)\e[K\rremote: Compressing objects:  50% (36/71)\e[K\rremote: Compressing objects:  52% (37/71)\e[K\rremote: Compressing objects:  53% (38/71)\e[K\rremote: Compressing objects:  54% (39/71)\e[K\rremote: Compressing objects:  56% (40/71)\e[K\rremote: Compressing objects:  57% (41/71)\e[K\rremote: Compressing objects:  59% (42/71)\e[K\r"
+  - delay: 6
+    content: "remote: Compressing objects:  60% (43/71)\e[K\rremote: Compressing objects:  61% (44/71)\e[K\rremote: Compressing objects:  63% (45/71)\e[K\rremote: Compressing objects:  64% (46/71)\e[K\rremote: Compressing objects:  66% (47/71)\e[K\rremote: Compressing objects:  67% (48/71)\e[K\rremote: Compressing objects:  69% (49/71)\e[K\rremote: Compressing objects:  70% (50/71)\e[K\rremote: Compressing objects:  71% (51/71)\e[K\rremote: Compressing objects:  73% (52/71)\e[K\rremote: Compressing objects:  74% (53/71)\e[K\rremote: Compressing objects:  76% (54/71)\e[K\rremote: Compressing objects:  77% (55/71)\e[K\rremote: Compressing objects:  78% (56/71)\e[K\rremote: Compressing objects:  80% (57/71)\e[K\rremote: Compressing objects:  81% (58/71)\e[K\rremote: Compressing objects:  83% (59/71)\e[K\rremote: Compressing objects:  84% (60/71)\e[K\rremote: Compressing objects:  85% (61/71)\e[K\rremote: Compressing objects:  87% (62/71)\e[K\rremote: Compressing objects:  88% (63/71)\e[K\rremote: Compressing objects:  90% (64/71)\e[K\rremote: Compressing objects:  91% (65/71)\e[K\rremote: Compressing objects:  92% (66/71)\e[K\rremote: Compressing objects:  94% (67/71)\e[K\rremote: Compressing objects:  95% (68/71)\e[K\rremote: Compressing objects:  97% (69/71)\e[K\rremote: Compressing objects:  98% (70/71)\e[K\rremote: Compressing objects: 100% (71/71)\e[K\rremote: Compressing objects: 100% (71/71), done.\e[K\r\nReceiving objects:   0% (1/5705)\r"
+  - delay: 15
+    content: "Receiving objects:   1% (58/5705)\rReceiving objects:   2% (115/5705)\r"
+  - delay: 21
+    content: "Receiving objects:   3% (172/5705)\r"
+  - delay: 6
+    content: "Receiving objects:   4% (229/5705)\rReceiving objects:   5% (286/5705)\r"
+  - delay: 10
+    content: "Receiving objects:   6% (343/5705)\rReceiving objects:   7% (400/5705)\r"
+  - delay: 7
+    content: "Receiving objects:   8% (457/5705)\rReceiving objects:   9% (514/5705)\rReceiving objects:  10% (571/5705)\r"
+  - delay: 10
+    content: "Receiving objects:  11% (628/5705)\rReceiving objects:  12% (685/5705)\rReceiving objects:  13% (742/5705)\rReceiving objects:  14% (799/5705)\r"
+  - delay: 5
+    content: "Receiving objects:  15% (856/5705)\rReceiving objects:  16% (913/5705)\rReceiving objects:  17% (970/5705)\rReceiving objects:  18% (1027/5705)\rReceiving objects:  19% (1084/5705)\rReceiving objects:  20% (1141/5705)\rReceiving objects:  21% (1199/5705)\rReceiving objects:  22% (1256/5705)\rReceiving objects:  23% (1313/5705)\rReceiving objects:  24% (1370/5705)\rReceiving objects:  25% (1427/5705)\rReceiving objects:  26% (1484/5705)\rReceiving objects:  27% (1541/5705)\rReceiving objects:  28% (1598/5705)\rReceiving objects:  29% (1655/5705)\rReceiving objects:  30% (1712/5705)\rReceiving objects:  31% (1769/5705)\rReceiving objects:  32% (1826/5705)\rReceiving objects:  33% (1883/5705)\rReceiving objects:  34% (1940/5705)\rReceiving objects:  35% (1997/5705)\rReceiving objects:  36% (2054/5705)\rReceiving objects:  37% (2111/5705)\rReceiving objects:  38% (2168/5705)\rReceiving objects:  39% (2225/5705)\rReceiving objects:  40% (2282/5705)\rReceiving objects:  41% (2340/5705)\rReceiving objects:  42% (2397/5705)\rReceiving objects:  43% (2454/5705)\rReceiving objects:  44% (2511/5705)\rReceiving objects:  45% (2568/5705)\rReceiving objects:  46% (2625/5705)\rReceiving objects:  47% (2682/5705)\rReceiving objects:  48% (2739/5705)\rReceiving objects:  49% (2796/5705)\rReceiving objects:  50% (2853/5705)\rReceiving objects:  51% (2910/5705)\rReceiving objects:  52% (2967/5705)\rReceiving objects:  53% (3024/5705)\rReceiving objects:  54% (3081/5705)\rReceiving objects:  55% (3138/5705)\rReceiving objects:  56% (3195/5705)\rReceiving objects:  57% (3252/5705)\rReceiving objects:  58% (3309/5705)\rReceiving objects:  59% (3366/5705)\rReceiving objects:  60% (3423/5705)\rReceiving objects:  61% (3481/5705)\rReceiving objects:  62% (3538/5705)\rReceiving objects:  63% (3595/5705)\rReceiving objects:  64% (3652/5705)\rReceiving objects:  65% (3709/5705)\rReceiving objects:  66% (3766/5705)\rReceiving objects:  67% (3823/5705)\rReceiving objects:  68% (3880/5705)\rReceiving objects:  69% (3937/5705)\rReceiving objects:  70% (3994/5705)\rReceiving objects:  71% (4051/5705)\rReceiving objects:  72% (4108/5705)\rReceiving objects:  73% (4165/5705)\rReceiving objects:  74% (4222/5705)\rReceiving objects:  75% (4279/5705)\rReceiving objects:  76% (4336/5705)\rReceiving objects:  77% (4393/5705)\rReceiving objects:  78% (4450/5705)\rReceiving objects:  79% (4507/5705)\rReceiving objects:  80% (4564/5705)\rReceiving objects:  81% (4622/5705)\rReceiving objects:  82% (4679/5705)\rReceiving objects:  83% (4736/5705)\rReceiving objects:  84% (4793/5705)\rReceiving objects:  85% (4850/5705)\rReceiving objects:  86% (4907/5705)\rReceiving objects:  87% (4964/5705)\rReceiving objects:  88% (5021/5705)\rReceiving objects:  89% (5078/5705)\rReceiving objects:  90% (5135/5705)\rReceiving objects:  91% (5192/5705)\rReceiving objects:  92% (5249/5705)\rReceiving objects:  93% (5306/5705)\rReceiving objects:  94% (5363/5705)\rReceiving objects:  95% (5420/5705)\rReceiving objects:  96% (5477/5705)\rReceiving objects:  97% (5534/5705)\rReceiving objects:  98% (5591/5705)\rReceiving objects:  99% (5648/5705)\rremote: Total 5705 (delta 1424), reused 1445 (delta 1404), pack-reused 4230\e[K\r\nReceiving objects: 100% (5705/5705)\rReceiving objects: 100% (5705/5705), 1.29 MiB | 7.05 MiB/s, done.\r\nResolving deltas:   0% (0/3109)\rResolving deltas:   1% (32/3109)\rResolving deltas:   2% (63/3109)\rResolving deltas:   3% (94/3109)\r"
+  - delay: 11
+    content: "Resolving deltas:   4% (125/3109)\r"
+  - delay: 15
+    content: "Resolving deltas:   5% (156/3109)\r"
+  - delay: 9
+    content: "Resolving deltas:   6% (187/3109)\r"
+  - delay: 14
+    content: "Resolving deltas:   7% (218/3109)\r"
+  - delay: 10
+    content: "Resolving deltas:   8% (249/3109)\r"
+  - delay: 7
+    content: "Resolving deltas:   9% (280/3109)\rResolving deltas:  10% (311/3109)\rResolving deltas:  11% (342/3109)\rResolving deltas:  12% (374/3109)\rResolving deltas:  13% (405/3109)\rResolving deltas:  14% (436/3109)\rResolving deltas:  15% (467/3109)\rResolving deltas:  16% (498/3109)\rResolving deltas:  17% (529/3109)\rResolving deltas:  18% (560/3109)\rResolving deltas:  19% (591/3109)\rResolving deltas:  20% (622/3109)\rResolving deltas:  21% (653/3109)\rResolving deltas:  22% (684/3109)\rResolving deltas:  23% (716/3109)\rResolving deltas:  24% (747/3109)\rResolving deltas:  25% (778/3109)\rResolving deltas:  26% (809/3109)\rResolving deltas:  27% (840/3109)\rResolving deltas:  28% (871/3109)\r"
+  - delay: 6
+    content: "Resolving deltas:  29% (902/3109)\rResolving deltas:  30% (934/3109)\rResolving deltas:  31% (964/3109)\rResolving deltas:  32% (995/3109)\rResolving deltas:  33% (1026/3109)\rResolving deltas:  34% (1058/3109)\rResolving deltas:  35% (1089/3109)\rResolving deltas:  36% (1120/3109)\rResolving deltas:  37% (1151/3109)\rResolving deltas:  38% (1182/3109)\rResolving deltas:  39% (1213/3109)\rResolving deltas:  40% (1244/3109)\rResolving deltas:  41% (1275/3109)\rResolving deltas:  42% (1306/3109)\rResolving deltas:  43% (1337/3109)\rResolving deltas:  44% (1368/3109)\rResolving deltas:  45% (1400/3109)\rResolving deltas:  46% (1431/3109)\rResolving deltas:  47% (1462/3109)\rResolving deltas:  48% (1493/3109)\rResolving deltas:  49% (1524/3109)\rResolving deltas:  50% (1555/3109)\rResolving deltas:  51% (1586/3109)\rResolving deltas:  52% (1617/3109)\rResolving deltas:  53% (1649/3109)\rResolving deltas:  54% (1679/3109)\rResolving deltas:  55% (1710/3109)\rResolving deltas:  56% (1742/3109)\rResolving deltas:  57% (1773/3109)\rResolving deltas:  58% (1804/3109)\rResolving deltas:  59% (1836/3109)\rResolving deltas:  60% (1866/3109)\rResolving deltas:  61% (1897/3109)\r"
+  - delay: 5
+    content: "Resolving deltas:  62% (1928/3109)\rResolving deltas:  63% (1959/3109)\rResolving deltas:  64% (1990/3109)\rResolving deltas:  65% (2021/3109)\rResolving deltas:  66% (2052/3109)\rResolving deltas:  67% (2084/3109)\rResolving deltas:  68% (2115/3109)\rResolving deltas:  69% (2146/3109)\rResolving deltas:  70% (2177/3109)\rResolving deltas:  71% (2208/3109)\rResolving deltas:  72% (2240/3109)\rResolving deltas:  73% (2270/3109)\r"
+  - delay: 7
+    content: "Resolving deltas:  74% (2301/3109)\r"
+  - delay: 18
+    content: "Resolving deltas:  75% (2332/3109)\r"
+  - delay: 18
+    content: "Resolving deltas:  76% (2363/3109)\r"
+  - delay: 27
+    content: "Resolving deltas:  77% (2394/3109)\r"
+  - delay: 21
+    content: "Resolving deltas:  78% (2426/3109)\r"
+  - delay: 31
+    content: "Resolving deltas:  79% (2457/3109)\r"
+  - delay: 31
+    content: "Resolving deltas:  80% (2488/3109)\r"
+  - delay: 21
+    content: "Resolving deltas:  81% (2519/3109)\r"
+  - delay: 23
+    content: "Resolving deltas:  82% (2550/3109)\r"
+  - delay: 19
+    content: "Resolving deltas:  83% (2581/3109)\r"
+  - delay: 14
+    content: "Resolving deltas:  84% (2612/3109)\r"
+  - delay: 8
+    content: "Resolving deltas:  85% (2643/3109)\r"
+  - delay: 13
+    content: "Resolving deltas:  86% (2674/3109)\r"
+  - delay: 13
+    content: "Resolving deltas:  87% (2705/3109)\r"
+  - delay: 10
+    content: "Resolving deltas:  88% (2736/3109)\r"
+  - delay: 11
+    content: "Resolving deltas:  89% (2768/3109)\r"
+  - delay: 7
+    content: "Resolving deltas:  90% (2799/3109)\r"
+  - delay: 6
+    content: "Resolving deltas:  91% (2830/3109)\rResolving deltas:  92% (2861/3109)\rResolving deltas:  93% (2892/3109)\rResolving deltas:  94% (2923/3109)\rResolving deltas:  95% (2954/3109)\r"
+  - delay: 13
+    content: "Resolving deltas:  96% (2985/3109)\r"
+  - delay: 8
+    content: "Resolving deltas:  97% (3016/3109)\r"
+  - delay: 13
+    content: "Resolving deltas:  98% (3047/3109)\r"
+  - delay: 40
+    content: "Resolving deltas:  99% (3078/3109)\r"
+  - delay: 32
+    content: "Resolving deltas: 100% (3109/3109)\rResolving deltas: 100% (3109/3109), done.\r\n"
+  - delay: 225
+    content: "warning: the following paths have collided (e.g. case-sensitive paths\r\non a case-insensitive filesystem) and only one from the same\r\ncolliding group is in the working tree:\r\n\r\n  'plugins/luaJIT'\r\n  'plugins/luajit'\r\n  'plugins/R'\r\n  'plugins/r'\r\n"
+  - delay: 748
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[?2004l\r\r\n"

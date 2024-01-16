@@ -1,0 +1,4 @@
+erlang 26.2.1
+elixir 1.16.0
+postgres 15.5
+direnv 2.30.0

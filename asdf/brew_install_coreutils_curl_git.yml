@@ -1,0 +1,718 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Volumes/gaggle/Projects/perfect-elixir
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: -1
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 3000
+    content: brew install coreutils curl git
+  - delay: 1160
+    content: "\r\n"
+  - delay: 3463
+    content: "Running `brew update --auto-update`...\r\n"
+  - delay: 729
+    content: "\a"
+  - delay: 9
+    content: "\e[34m==>\e[0m \e[1mHomebrew collects anonymous analytics.\e[0m\r\n\e[1mRead the analytics documentation (and how to opt-out) here:\r\n  \e[4mhttps://docs.brew.sh/Analytics\e[24m\e[0m\r\nNo analytics have been recorded yet (nor will be during this `brew` run).\r\n\r\n"
+  - delay: 256
+    content: "\e[34m==>\e[0m \e[1mHomebrew is run entirely by unpaid volunteers. Please consider donating:\e[0m\r\n  \e[4mhttps://github.com/Homebrew/brew#donations\e[24m\r\n\r\n"
+  - delay: 1426
+    content: "\e[34m==>\e[0m \e[1mAuto-updated Homebrew!\e[0m\r\nUpdated 2 taps (homebrew/core and homebrew/cask).\r\n\e[34m==>\e[0m \e[1mNew Formulae\e[0m\r\ncsvlens             ncmdump             rathole             ruby@3.2\r\n\e[34m==>\e[0m \e[1mNew Casks\e[0m\r\naqua                       ia-presenter               markedit\r\nemby                       jyutping                   prettyclean\r\n"
+  - delay: 230
+    content: "\r\n"
+  - delay: 2512
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/coreutils/manifests/9.4\e[0m\r\n"
+  - delay: 156
+    content: "#=#=#                                                                          \r"
+  - delay: 155
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 32
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for coreutils: \e[32mgmp\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gmp/manifests/6.3.0\e[0m\r\n"
+  - delay: 356
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 9
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mgmp\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:e8410d92339535\e[0m\r\n"
+  - delay: 265
+    content: "#=#=#                                                                          \r"
+  - delay: 201
+    content: "\r                                                                            1.0%"
+  - delay: 135
+    content: "\r#########                                                                  13.2%"
+  - delay: 34
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 10
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mcoreutils\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/coreutils/blobs/sha256:c1be6214\e[0m\r\n"
+  - delay: 274
+    content: "#=#=#                                                                          \r"
+  - delay: 155
+    content: "\r                                                                            0.3%"
+  - delay: 107
+    content: "\r#######                                                                    10.3%"
+  - delay: 112
+    content: "\r##############                                                             20.2%"
+  - delay: 160
+    content: "\r#################                                                          24.6%"
+  - delay: 99
+    content: "\r##############################                                             41.4%"
+  - delay: 107
+    content: "\r##################################                                         47.5%"
+  - delay: 101
+    content: "\r#######################################                                    54.6%"
+  - delay: 100
+    content: "\r#############################################                              62.6%"
+  - delay: 106
+    content: "\r##################################################                         69.7%"
+  - delay: 202
+    content: "\r#######################################################                    76.0%"
+  - delay: 104
+    content: "\r#############################################################              83.6%"
+  - delay: 100
+    content: "\r####################################################################       93.9%"
+  - delay: 102
+    content: "\r########################################################################   99.4%"
+  - delay: 10
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 37
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/curl/manifests/8.5.0\e[0m\r\n"
+  - delay: 329
+    content: "\r##################################################                         68.6%"
+  - delay: 19
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 109
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for curl: \e[32mlibunistring\e[39m, \e[32mgettext\e[39m, \e[32mlibidn2\e[39m, \e[32mlibssh2\e[39m, \e[32mopenldap\e[39m, \e[32mrtmpdump\e[39m, \e[32mlz4\e[39m, \e[32mxz\e[39m and \e[32mzstd\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libunistring/manifests/1.1\e[0m\r\n"
+  - delay: 386
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibunistring\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libunistring/blobs/sha256:230df\e[0m\r\n"
+  - delay: 273
+    content: "#=#=#                                                                          \r"
+  - delay: 133
+    content: "\r                                                                            0.9%"
+  - delay: 67
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 14
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gettext/manifests/0.22.4\e[0m\r\n"
+  - delay: 339
+    content: "\r######################################################################### 100.0%\r\n\e[32m==>\e[0m \e[1mFetching \e[32mgettext\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gettext/blobs/sha256:a43af8b39c\e[0m\r\n"
+  - delay: 260
+    content: "#=#=#                                                                          \r"
+  - delay: 172
+    content: "\r                                                                            0.1%"
+  - delay: 101
+    content: "\r######                                                                      9.1%"
+  - delay: 100
+    content: "\r#############                                                              19.0%"
+  - delay: 101
+    content: "\r###################                                                        26.2%"
+  - delay: 100
+    content: "\r#########################                                                  35.6%"
+  - delay: 100
+    content: "\r################################                                           45.0%"
+  - delay: 204
+    content: "\r#####################################                                      52.0%"
+  - delay: 102
+    content: "\r#################################################                          67.5%"
+  - delay: 101
+    content: "\r##############################################################             85.0%"
+  - delay: 100
+    content: "\r######################################################################     97.1%"
+  - delay: 36
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 67
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libidn2/manifests/2.3.4_1-1\e[0m\r\n"
+  - delay: 325
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 10
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibidn2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:69b39ffdb1\e[0m\r\n"
+  - delay: 306
+    content: "#=#=#                                                                          \r"
+  - delay: 135
+    content: "\r###                                                                         4.6%"
+  - delay: 31
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 6
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libssh2/manifests/1.11.0_1\e[0m\r\n"
+  - delay: 328
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 13
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibssh2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libssh2/blobs/sha256:9a9673e144\e[0m\r\n"
+  - delay: 285
+    content: "#=#=#                                                                          \r"
+  - delay: 196
+    content: "\r##                                                                          3.9%"
+  - delay: 135
+    content: "\r######                                                                      9.2%"
+  - delay: 104
+    content: "\r############                                                               16.6%"
+  - delay: 126
+    content: "\r##################                                                         25.1%"
+  - delay: 114
+    content: "\r########################                                                   33.6%"
+  - delay: 109
+    content: "\r################################                                           44.4%"
+  - delay: 107
+    content: "\r####################################                                       50.5%"
+  - delay: 103
+    content: "\r###########################################                                59.0%"
+  - delay: 106
+    content: "\r#################################################                          67.5%"
+  - delay: 110
+    content: "\r#########################################################                  78.2%"
+  - delay: 103
+    content: "\r#############################################################              84.4%"
+  - delay: 100
+    content: "\r######################################################################     97.1%"
+  - delay: 27
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 9
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openldap/manifests/2.6.6-1\e[0m\r\n"
+  - delay: 324
+    content: "\r######################################                                     53.3%"
+  - delay: 18
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 12
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mopenldap\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openldap/blobs/sha256:534ee0d0d\e[0m\r\n"
+  - delay: 267
+    content: "#=#=#                                                                          \r"
+  - delay: 196
+    content: "\r                                                                            0.4%"
+  - delay: 105
+    content: "\r#                                                                           1.4%"
+  - delay: 148
+    content: "\r#                                                                           2.7%"
+  - delay: 153
+    content: "\r###                                                                         4.7%"
+  - delay: 137
+    content: "\r####                                                                        6.0%"
+  - delay: 102
+    content: "\r#####                                                                       7.1%"
+  - delay: 122
+    content: "\r######                                                                      8.7%"
+  - delay: 117
+    content: "\r#######                                                                    10.7%"
+  - delay: 118
+    content: "\r########                                                                   12.0%"
+  - delay: 119
+    content: "\r#########                                                                  13.6%"
+  - delay: 130
+    content: "\r###########                                                                15.3%"
+  - delay: 115
+    content: "\r############                                                               16.9%"
+  - delay: 118
+    content: "\r#############                                                              18.6%"
+  - delay: 112
+    content: "\r##############                                                             20.2%"
+  - delay: 109
+    content: "\r###############                                                            21.8%"
+  - delay: 102
+    content: "\r#################                                                          23.8%"
+  - delay: 108
+    content: "\r##################                                                         25.1%"
+  - delay: 116
+    content: "\r###################                                                        26.8%"
+  - delay: 114
+    content: "\r####################                                                       28.4%"
+  - delay: 108
+    content: "\r#####################                                                      30.0%"
+  - delay: 111
+    content: "\r#######################                                                    32.1%"
+  - delay: 113
+    content: "\r########################                                                   33.7%"
+  - delay: 109
+    content: "\r#########################                                                  35.4%"
+  - delay: 107
+    content: "\r###########################                                                37.0%"
+  - delay: 111
+    content: "\r############################                                               38.6%"
+  - delay: 103
+    content: "\r#############################                                              40.2%"
+  - delay: 204
+    content: "\r##############################                                             41.6%"
+  - delay: 109
+    content: "\r################################                                           44.6%"
+  - delay: 140
+    content: "\r#################################                                          46.2%"
+  - delay: 123
+    content: "\r##################################                                         47.8%"
+  - delay: 113
+    content: "\r###################################                                        49.3%"
+  - delay: 137
+    content: "\r#####################################                                      50.9%"
+  - delay: 121
+    content: "\r######################################                                     52.5%"
+  - delay: 121
+    content: "\r#######################################                                    54.2%"
+  - delay: 113
+    content: "\r########################################                                   55.8%"
+  - delay: 107
+    content: "\r#########################################                                  57.4%"
+  - delay: 112
+    content: "\r###########################################                                59.1%"
+  - delay: 114
+    content: "\r############################################                               60.7%"
+  - delay: 154
+    content: "\r############################################                               61.3%"
+  - delay: 100
+    content: "\r##############################################                             64.0%"
+  - delay: 145
+    content: "\r###############################################                            65.6%"
+  - delay: 135
+    content: "\r#################################################                          67.3%"
+  - delay: 135
+    content: "\r##################################################                         68.9%"
+  - delay: 150
+    content: "\r###################################################                        70.6%"
+  - delay: 120
+    content: "\r####################################################                       72.2%"
+  - delay: 137
+    content: "\r#####################################################                      73.8%"
+  - delay: 115
+    content: "\r#######################################################                    75.5%"
+  - delay: 130
+    content: "\r########################################################                   77.3%"
+  - delay: 131
+    content: "\r#########################################################                  78.9%"
+  - delay: 118
+    content: "\r##########################################################                 80.5%"
+  - delay: 261
+    content: "\r###########################################################                82.2%"
+  - delay: 130
+    content: "\r#############################################################              84.9%"
+  - delay: 126
+    content: "\r###############################################################            86.3%"
+  - delay: 135
+    content: "\r################################################################           88.0%"
+  - delay: 149
+    content: "\r#################################################################          89.6%"
+  - delay: 103
+    content: "\r##################################################################         90.7%"
+  - delay: 133
+    content: "\r###################################################################        92.3%"
+  - delay: 109
+    content: "\r####################################################################       93.8%"
+  - delay: 122
+    content: "\r#####################################################################      95.4%"
+  - delay: 122
+    content: "\r######################################################################     97.0%"
+  - delay: 118
+    content: "\r########################################################################   98.7%"
+  - delay: 103
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 22
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/rtmpdump/manifests/2.4-20151223\e[0m\r\n"
+  - delay: 382
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 12
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mrtmpdump\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/rtmpdump/blobs/sha256:5d0195612\e[0m\r\n"
+  - delay: 266
+    content: "#=#=#                                                                          \r"
+  - delay: 143
+    content: "\r######                                                                      9.6%"
+  - delay: 27
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 7
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lz4/manifests/1.9.4\e[0m\r\n"
+  - delay: 352
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlz4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lz4/blobs/sha256:2bad368b2869db\e[0m\r\n"
+  - delay: 261
+    content: "#=#=#                                                                          \r"
+  - delay: 177
+    content: "\r####                                                                        5.8%"
+  - delay: 31
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 6
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xz/manifests/5.4.5\e[0m\r\n"
+  - delay: 391
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 6
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mxz\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:bdd5146737d8a84\e[0m\r\n"
+  - delay: 268
+    content: "#=#=#                                                                          \r"
+  - delay: 196
+    content: "\r                                                                            0.2%"
+  - delay: 48
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 8
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zstd/manifests/1.5.5-1\e[0m\r\n"
+  - delay: 315
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 9
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mzstd\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zstd/blobs/sha256:2137fe12a2660\e[0m\r\n"
+  - delay: 306
+    content: "#=#=#                                                                          \r"
+  - delay: 222
+    content: "\r#                                                                           1.7%"
+  - delay: 115
+    content: "\r####                                                                        6.2%"
+  - delay: 168
+    content: "\r######                                                                      8.5%"
+  - delay: 102
+    content: "\r#############                                                              18.8%"
+  - delay: 146
+    content: "\r#################                                                          24.5%"
+  - delay: 131
+    content: "\r######################                                                     30.1%"
+  - delay: 133
+    content: "\r##########################                                                 35.8%"
+  - delay: 133
+    content: "\r##############################                                             41.5%"
+  - delay: 132
+    content: "\r##################################                                         47.2%"
+  - delay: 128
+    content: "\r######################################                                     52.8%"
+  - delay: 156
+    content: "\r########################################                                   55.8%"
+  - delay: 143
+    content: "\r##############################################                             64.2%"
+  - delay: 164
+    content: "\r##################################################                         69.8%"
+  - delay: 141
+    content: "\r#######################################################                    75.5%"
+  - delay: 104
+    content: "\r#########################################################                  79.3%"
+  - delay: 102
+    content: "\r############################################################               83.1%"
+  - delay: 117
+    content: "\r###############################################################            86.9%"
+  - delay: 149
+    content: "\r###################################################################        92.5%"
+  - delay: 135
+    content: "\r#######################################################################    98.2%"
+  - delay: 40
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 10
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mcurl\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/curl/blobs/sha256:47c7c2bacab6e\e[0m\r\n"
+  - delay: 271
+    content: "#=#=#                                                                          \r"
+  - delay: 446
+    content: "\r                                                                            0.8%"
+  - delay: 129
+    content: "\r####                                                                        5.8%"
+  - delay: 114
+    content: "\r#############                                                              18.6%"
+  - delay: 112
+    content: "\r###############################                                            43.3%"
+  - delay: 112
+    content: "\r###################################################################        91.8%"
+  - delay: 12
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 12
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/git/manifests/2.43.0\e[0m\r\n"
+  - delay: 320
+    content: "\r###################################################################        91.9%"
+  - delay: 84
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 12
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for git: \e[32mpcre2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pcre2/manifests/10.42\e[0m\r\n"
+  - delay: 386
+    content: "\r######################################################################### 100.0%\r\n\e[32m==>\e[0m \e[1mFetching \e[32mpcre2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pcre2/blobs/sha256:c090875eb7e3\e[0m\r\n"
+  - delay: 296
+    content: "#=#=#                                                                          \r"
+  - delay: 252
+    content: "\r                                                                            0.5%"
+  - delay: 116
+    content: "\r##                                                                          3.5%"
+  - delay: 111
+    content: "\r####                                                                        6.2%"
+  - delay: 111
+    content: "\r#######                                                                    10.1%"
+  - delay: 127
+    content: "\r##########                                                                 13.9%"
+  - delay: 111
+    content: "\r###########                                                                16.3%"
+  - delay: 136
+    content: "\r##############                                                             20.5%"
+  - delay: 113
+    content: "\r#################                                                          24.0%"
+  - delay: 120
+    content: "\r###################                                                        27.1%"
+  - delay: 119
+    content: "\r#######################                                                    31.7%"
+  - delay: 116
+    content: "\r#########################                                                  35.6%"
+  - delay: 118
+    content: "\r############################                                               39.5%"
+  - delay: 101
+    content: "\r###############################                                            42.6%"
+  - delay: 127
+    content: "\r#################################                                          46.4%"
+  - delay: 128
+    content: "\r####################################                                       50.3%"
+  - delay: 220
+    content: "\r######################################                                     53.4%"
+  - delay: 108
+    content: "\r##########################################                                 58.8%"
+  - delay: 131
+    content: "\r#############################################                              62.7%"
+  - delay: 124
+    content: "\r################################################                           65.8%"
+  - delay: 124
+    content: "\r##################################################                         68.9%"
+  - delay: 101
+    content: "\r###################################################                        71.2%"
+  - delay: 122
+    content: "\r#####################################################                      73.6%"
+  - delay: 109
+    content: "\r########################################################                   77.4%"
+  - delay: 109
+    content: "\r##########################################################                 80.5%"
+  - delay: 109
+    content: "\r#############################################################              83.6%"
+  - delay: 106
+    content: "\r###############################################################            86.4%"
+  - delay: 108
+    content: "\r#################################################################          89.8%"
+  - delay: 110
+    content: "\r###################################################################        92.9%"
+  - delay: 110
+    content: "\r#####################################################################      95.7%"
+  - delay: 119
+    content: "\r########################################################################   99.1%"
+  - delay: 14
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 21
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mgit\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/git/blobs/sha256:a846c778972729\e[0m\r\n"
+  - delay: 292
+    content: "#=#=#                                                                          \r"
+  - delay: 180
+    content: "\r                                                                            0.1%"
+  - delay: 99
+    content: "\r################                                                           22.1%"
+  - delay: 100
+    content: "\r#######################################                                    54.3%"
+  - delay: 100
+    content: "\r###########################################################                81.2%"
+  - delay: 70
+    content: "\r######################################################################### 100.0%\r\n"
+  - delay: 120
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for coreutils: \e[32mgmp\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling coreutils dependency: \e[32mgmp\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gmp/manifests/6.3.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/70a72a71216843d66a953c06ff6337445ce9bc94fae9f0e301e2f59005274a8e--gmp-6.3.0.bottle_manifest.json\r\n"
+  - delay: 151
+    content: "\e[34m==>\e[0m \e[1mPouring gmp--6.3.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 210
+    content: "\U0001F37A  /usr/local/Cellar/gmp/6.3.0: 21 files, 3.3MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mcoreutils\e[39m\e[0m\r\n"
+  - delay: 83
+    content: "\e[34m==>\e[0m \e[1mPouring coreutils--9.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 993
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nCommands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix \"g\".\r\nIf you need to use these commands with their normal names, you can add a \"gnubin\" directory to your PATH with:\r\n  PATH=\"/usr/local/opt/coreutils/libexec/gnubin:$PATH\"\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 17
+    content: "\U0001F37A  /usr/local/Cellar/coreutils/9.4: 476 files, 14.2MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup coreutils`...\e[0m\r\nDisable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.\r\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\r\n"
+  - delay: 47
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for curl: \e[32mlibunistring\e[39m, \e[32mgettext\e[39m, \e[32mlibidn2\e[39m, \e[32mlibssh2\e[39m, \e[32mopenldap\e[39m, \e[32mrtmpdump\e[39m, \e[32mlz4\e[39m, \e[32mxz\e[39m and \e[32mzstd\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mlibunistring\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libunistring/manifests/1.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/a34801f1ad5800ba51b2b3951d82a913ccf0641982f86b02df2f0aa182535055--libunistring-1.1.bottle_manifest.json\r\n"
+  - delay: 119
+    content: "\e[34m==>\e[0m \e[1mPouring libunistring--1.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 281
+    content: "\U0001F37A  /usr/local/Cellar/libunistring/1.1: 56 files, 5MB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mgettext\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gettext/manifests/0.22.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/3ceb9457127eaa7378dd80ed256098ffb391e2350069becb25cfe2a14f0b7d6d--gettext-0.22.4.bottle_manifest.json\r\n"
+  - delay: 103
+    content: "\e[34m==>\e[0m \e[1mPouring gettext--0.22.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 4742
+    content: "\U0001F37A  /usr/local/Cellar/gettext/0.22.4: 2,042 files, 23.7MB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mlibidn2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libidn2/manifests/2.3.4_1-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/03ad193177f4e7d05ee2ed19a455028cb5fbf7ea1a812d88f18f5e9e8b4a4d43--libidn2-2.3.4_1-1.bottle_manifest.json\r\n"
+  - delay: 125
+    content: "\e[34m==>\e[0m \e[1mPouring libidn2--2.3.4_1.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 433
+    content: "\U0001F37A  /usr/local/Cellar/libidn2/2.3.4_1: 79 files, 1003KB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mlibssh2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libssh2/manifests/1.11.0_1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/48ca0c7785b21630a4817c59b72205609ccb0575e7abc64d64af2e61a60b5b0a--libssh2-1.11.0_1.bottle_manifest.json\r\n"
+  - delay: 120
+    content: "\e[34m==>\e[0m \e[1mPouring libssh2--1.11.0_1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 598
+    content: "\U0001F37A  /usr/local/Cellar/libssh2/1.11.0_1: 197 files, 1.1MB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mopenldap\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openldap/manifests/2.6.6-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/aa39268f37bb289cff41c87cca7130a1b554acf967cfefbe34a04cf35dfdbd4d--openldap-2.6.6-1.bottle_manifest.json\r\n"
+  - delay: 119
+    content: "\e[34m==>\e[0m \e[1mPouring openldap--2.6.6.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 1220
+    content: "\U0001F37A  /usr/local/Cellar/openldap/2.6.6: 340 files, 7.5MB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mrtmpdump\e[39m\e[0m\r\n"
+  - delay: 5
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/rtmpdump/manifests/2.4-20151223\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/b40cb4d6b301aad8ce26f9deb74a74c0d98d1868d19881f9bff55b81d6f11e50--rtmpdump-2.4-20151223_3.bottle_manifest.json\r\n"
+  - delay: 133
+    content: "\e[34m==>\e[0m \e[1mPouring rtmpdump--2.4-20151223_3.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 387
+    content: "\U0001F37A  /usr/local/Cellar/rtmpdump/2.4-20151223_3: 20 files, 541.6KB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mlz4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lz4/manifests/1.9.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/379e59b981667f9585b33a2ff318769d8edca3ce6fd2e9a67ed291ae3e0cc872--lz4-1.9.4.bottle_manifest.json\r\n"
+  - delay: 124
+    content: "\e[34m==>\e[0m \e[1mPouring lz4--1.9.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 210
+    content: "\U0001F37A  /usr/local/Cellar/lz4/1.9.4: 22 files, 656.5KB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mxz\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xz/manifests/5.4.5\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/4e81fda476fb634a7e1ac650019bfe768a65d6c387015992df4cd75adf9b3fce--xz-5.4.5.bottle_manifest.json\r\n"
+  - delay: 118
+    content: "\e[34m==>\e[0m \e[1mPouring xz--5.4.5.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 531
+    content: "\U0001F37A  /usr/local/Cellar/xz/5.4.5: 163 files, 2.6MB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mzstd\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zstd/manifests/1.5.5-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/fc13698599720a53800064b40cddd854399651cf8760d9b0e46092f2e8da701a--zstd-1.5.5-1.bottle_manifest.json\r\n"
+  - delay: 121
+    content: "\e[34m==>\e[0m \e[1mPouring zstd--1.5.5.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 253
+    content: "\U0001F37A  /usr/local/Cellar/zstd/1.5.5: 31 files, 2.3MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mcurl\e[39m\e[0m\r\n"
+  - delay: 115
+    content: "\e[34m==>\e[0m \e[1mPouring curl--8.5.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 859
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\ncurl is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have curl first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/curl/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find curl you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/curl/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/curl/include\"\r\n\r\nzsh completions have been installed to:\r\n  /usr/local/opt/curl/share/zsh/site-functions\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 16
+    content: "\U0001F37A  /usr/local/Cellar/curl/8.5.0: 522 files, 4.4MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup curl`...\e[0m\r\n"
+  - delay: 14
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for git: \e[32mpcre2\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling git dependency: \e[32mpcre2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pcre2/manifests/10.42\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/6a53794fcaabc5cc5e05b19c02ca9c4c5f2cb9a4d65a5790a6841146465b040f--pcre2-10.42.bottle_manifest.json\r\n"
+  - delay: 116
+    content: "\e[34m==>\e[0m \e[1mPouring pcre2--10.42.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 718
+    content: "\U0001F37A  /usr/local/Cellar/pcre2/10.42: 230 files, 6.3MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mgit\e[39m\e[0m\r\n"
+  - delay: 111
+    content: "\e[34m==>\e[0m \e[1mPouring git--2.43.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 2933
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nThe Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.\r\nSubversion interoperability (git-svn) is now in the `git-svn` formula.\r\n\r\nzsh completions and functions have been installed to:\r\n  /usr/local/share/zsh/site-functions\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 52
+    content: "\U0001F37A  /usr/local/Cellar/git/2.43.0: 1,638 files, 49.9MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup git`...\e[0m\r\n"
+  - delay: 270
+    content: "\e[32m==>\e[0m \e[1mCaveats\e[0m\r\n\e[34m==>\e[0m \e[1mcoreutils\e[0m\r\nCommands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix \"g\".\r\nIf you need to use these commands with their normal names, you can add a \"gnubin\" directory to your PATH with:\r\n  PATH=\"/usr/local/opt/coreutils/libexec/gnubin:$PATH\"\r\n\e[34m==>\e[0m \e[1mcurl\e[0m\r\ncurl is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have curl first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/curl/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find curl you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/curl/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/curl/include\"\r\n\r\nzsh completions have been installed to:\r\n  /usr/local/opt/curl/share/zsh/site-functions\r\n\e[34m==>\e[0m \e[1mgit\e[0m\r\nThe Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.\r\nSubversion interoperability (git-svn) is now in the `git-svn` formula.\r\n\r\nzsh completions and functions have been installed to:\r\n  /usr/local/share/zsh/site-functions\r\n"
+  - delay: 45
+    content: '$ '
+  - delay: 7550
+    content: 'git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1'
+  - delay: 1242
+    content: "\r\n"
+  - delay: 339
+    content: "Cloning into '/Users/cloud/.asdf'...\r\n"
+  - delay: 697
+    content: "remote: Enumerating objects: 8797, done.\e[K\r\nremote: Counting objects:   0% (1/710)\e[K\rremote: Counting objects:   1% (8/710)\e[K\rremote: Counting objects:   2% (15/710)\e[K\rremote: Counting objects:   3% (22/710)\e[K\rremote: Counting objects:   4% (29/710)\e[K\rremote: Counting objects:   5% (36/710)\e[K\rremote: Counting objects:   6% (43/710)\e[K\rremote: Counting objects:   7% (50/710)\e[K\rremote: Counting objects:   8% (57/710)\e[K\rremote: Counting objects:   9% (64/710)\e[K\rremote: Counting objects:  10% (71/710)\e[K\rremote: Counting objects:  11% (79/710)\e[K\rremote: Counting objects:  12% (86/710)\e[K\rremote: Counting objects:  13% (93/710)\e[K\rremote: Counting objects:  14% (100/710)\e[K\rremote: Counting objects:  15% (107/710)\e[K\rremote: Counting objects:  16% (114/710)\e[K\rremote: Counting objects:  17% (121/710)\e[K\rremote: Counting objects:  18% (128/710)\e[K\rremote: Counting objects:  19% (135/710)\e[K\rremote: Counting objects:  20% (142/710)\e[K\rremote: Counting objects:  21% (150/710)\e[K\rremote: Counting objects:  22% (157/710)\e[K\rremote: Counting objects:  23% (164/710)\e[K\rremote: Counting objects:  24% (171/710)\e[K\rremote: Counting objects:  25% (178/710)\e[K\rremote: Counting objects:  26% (185/710)\e[K\rremote: Counting objects:  27% (192/710)\e[K\rremote: Counting objects:  28% (199/710)\e[K\rremote: Counting objects:  29% (206/710)\e[K\rremote: Counting objects:  30% (213/710)\e[K\rremote: Counting objects:  31% (221/710)\e[K\rremote: Counting objects:  32% (228/710)\e[K\rremote: Counting objects:  33% (235/710)\e[K\rremote: Counting objects:  34% (242/710)\e[K\rremote: Counting objects:  35% (249/710)\e[K\rremote: Counting objects:  36% (256/710)\e[K\rremote: Counting objects:  37% (263/710)\e[K\rremote: Counting objects:  38% (270/710)\e[K\rremote: Counting objects:  39% (277/710)\e[K\rremote: Counting objects:  40% (284/710)\e[K\rremote: Counting objects:  41% (292/710)\e[K\rremote: Counting objects:  42% (299/710)\e[K\rremote: Counting objects:  43% (306/710)\e[K\rremote: Counting objects:  44% (313/710)\e[K\rremote: Counting objects:  45% (320/710)\e[K\rremote: Counting objects:  46% (327/710)\e[K\rremote: Counting objects:  47% (334/710)\e[K\rremote: Counting objects:  48% (341/710)\e[K\rremote: Counting objects:  49% (348/710)\e[K\rremote: Counting objects:  50% (355/710)\e[K\rremote: Counting objects:  51% (363/710)\e[K\rremote: Counting objects:  52% (370/710)\e[K\rremote: Counting objects:  53% (377/710)\e[K\rremote: Counting objects:  54% (384/710)\e[K\rremote: Counting objects:  55% (391/710)\e[K\rremote: Counting objects:  56% (398/710)\e[K\rremote: Counting objects:  57% (405/710)\e[K\rremote: Counting objects:  58% (412/710)\e[K\rremote: Counting objects:  59% (419/710)\e[K\rremote: Counting objects:  60% (426/710)\e[K\rremote: Counting objects:  61% (434/710)\e[K\rremote: Counting objects:  62% (441/710)\e[K\rremote: Counting objects:  63% (448/710)\e[K\rremote: Counting objects:  64% (455/710)\e[K\rremote: Counting objects:  65% (462/710)\e[K\rremote: Counting objects:  66% (469/710)\e[K\r"
+  - delay: 63
+    content: "remote: Counting objects:  67% (476/710)\e[K\rremote: Counting objects:  68% (483/710)\e[K\rremote: Counting objects:  69% (490/710)\e[K\rremote: Counting objects:  70% (497/710)\e[K\rremote: Counting objects:  71% (505/710)\e[K\rremote: Counting objects:  72% (512/710)\e[K\rremote: Counting objects:  73% (519/710)\e[K\rremote: Counting objects:  74% (526/710)\e[K\rremote: Counting objects:  75% (533/710)\e[K\rremote: Counting objects:  76% (540/710)\e[K\rremote: Counting objects:  77% (547/710)\e[K\rremote: Counting objects:  78% (554/710)\e[K\rremote: Counting objects:  79% (561/710)\e[K\rremote: Counting objects:  80% (568/710)\e[K\rremote: Counting objects:  81% (576/710)\e[K\rremote: Counting objects:  82% (583/710)\e[K\rremote: Counting objects:  83% (590/710)\e[K\rremote: Counting objects:  84% (597/710)\e[K\rremote: Counting objects:  85% (604/710)\e[K\rremote: Counting objects:  86% (611/710)\e[K\rremote: Counting objects:  87% (618/710)\e[K\rremote: Counting objects:  88% (625/710)\e[K\rremote: Counting objects:  89% (632/710)\e[K\rremote: Counting objects:  90% (639/710)\e[K\rremote: Counting objects:  91% (647/710)\e[K\rremote: Counting objects:  92% (654/710)\e[K\rremote: Counting objects:  93% (661/710)\e[K\rremote: Counting objects:  94% (668/710)\e[K\rremote: Counting objects:  95% (675/710)\e[K\rremote: Counting objects:  96% (682/710)\e[K\rremote: Counting objects:  97% (689/710)\e[K\rremote: Counting objects:  98% (696/710)\e[K\rremote: Counting objects:  99% (703/710)\e[K\rremote: Counting objects: 100% (710/710)\e[K\rremote: Counting objects: 100% (710/710), done.\e[K\r\nremote: Compressing objects:   0% (1/406)\e[K\rremote: Compressing objects:   1% (5/406)\e[K\rremote: Compressing objects:   2% (9/406)\e[K\rremote: Compressing objects:   3% (13/406)\e[K\rremote: Compressing objects:   4% (17/406)\e[K\rremote: Compressing objects:   5% (21/406)\e[K\rremote: Compressing objects:   6% (25/406)\e[K\rremote: Compressing objects:   7% (29/406)\e[K\rremote: Compressing objects:   8% (33/406)\e[K\rremote: Compressing objects:   9% (37/406)\e[K\rremote: Compressing objects:  10% (41/406)\e[K\rremote: Compressing objects:  11% (45/406)\e[K\rremote: Compressing objects:  12% (49/406)\e[K\rremote: Compressing objects:  13% (53/406)\e[K\rremote: Compressing objects:  14% (57/406)\e[K\rremote: Compressing objects:  15% (61/406)\e[K\rremote: Compressing objects:  16% (65/406)\e[K\rremote: Compressing objects:  17% (70/406)\e[K\rremote: Compressing objects:  18% (74/406)\e[K\rremote: Compressing objects:  19% (78/406)\e[K\rremote: Compressing objects:  20% (82/406)\e[K\r"
+  - delay: 13
+    content: "remote: Compressing objects:  21% (86/406)\e[K\rremote: Compressing objects:  22% (90/406)\e[K\rremote: Compressing objects:  23% (94/406)\e[K\rremote: Compressing objects:  24% (98/406)\e[K\rremote: Compressing objects:  25% (102/406)\e[K\rremote: Compressing objects:  26% (106/406)\e[K\rremote: Compressing objects:  27% (110/406)\e[K\rremote: Compressing objects:  28% (114/406)\e[K\rremote: Compressing objects:  29% (118/406)\e[K\rremote: Compressing objects:  30% (122/406)\e[K\rremote: Compressing objects:  31% (126/406)\e[K\rremote: Compressing objects:  32% (130/406)\e[K\rremote: Compressing objects:  33% (134/406)\e[K\rremote: Compressing objects:  34% (139/406)\e[K\rremote: Compressing objects:  35% (143/406)\e[K\rremote: Compressing objects:  36% (147/406)\e[K\rremote: Compressing objects:  37% (151/406)\e[K\rremote: Compressing objects:  38% (155/406)\e[K\rremote: Compressing objects:  39% (159/406)\e[K\rremote: Compressing objects:  40% (163/406)\e[K\rremote: Compressing objects:  41% (167/406)\e[K\rremote: Compressing objects:  42% (171/406)\e[K\rremote: Compressing objects:  43% (175/406)\e[K\rremote: Compressing objects:  44% (179/406)\e[K\rremote: Compressing objects:  45% (183/406)\e[K\rremote: Compressing objects:  46% (187/406)\e[K\rremote: Compressing objects:  47% (191/406)\e[K\rremote: Compressing objects:  48% (195/406)\e[K\rremote: Compressing objects:  49% (199/406)\e[K\rremote: Compressing objects:  50% (203/406)\e[K\rremote: Compressing objects:  51% (208/406)\e[K\rremote: Compressing objects:  52% (212/406)\e[K\rremote: Compressing objects:  53% (216/406)\e[K\rremote: Compressing objects:  54% (220/406)\e[K\rremote: Compressing objects:  55% (224/406)\e[K\rremote: Compressing objects:  56% (228/406)\e[K\rremote: Compressing objects:  57% (232/406)\e[K\rremote: Compressing objects:  58% (236/406)\e[K\rremote: Compressing objects:  59% (240/406)\e[K\rremote: Compressing objects:  60% (244/406)\e[K\rremote: Compressing objects:  61% (248/406)\e[K\rremote: Compressing objects:  62% (252/406)\e[K\rremote: Compressing objects:  63% (256/406)\e[K\rremote: Compressing objects:  64% (260/406)\e[K\rremote: Compressing objects:  65% (264/406)\e[K\rremote: Compressing objects:  66% (268/406)\e[K\rremote: Compressing objects:  67% (273/406)\e[K\rremote: Compressing objects:  68% (277/406)\e[K\rremote: Compressing objects:  69% (281/406)\e[K\rremote: Compressing objects:  70% (285/406)\e[K\rremote: Compressing objects:  71% (289/406)\e[K\rremote: Compressing objects:  72% (293/406)\e[K\rremote: Compressing objects:  73% (297/406)\e[K\rremote: Compressing objects:  74% (301/406)\e[K\rremote: Compressing objects:  75% (305/406)\e[K\rremote: Compressing objects:  76% (309/406)\e[K\rremote: Compressing objects:  77% (313/406)\e[K\rremote: Compressing objects:  78% (317/406)\e[K\rremote: Compressing objects:  79% (321/406)\e[K\rremote: Compressing objects:  80% (325/406)\e[K\rremote: Compressing objects:  81% (329/406)\e[K\rremote: Compressing objects:  82% (333/406)\e[K\rremote: Compressing objects:  83% (337/406)\e[K\rremote: Compressing objects:  84% (342/406)\e[K\rremote: Compressing objects:  85% (346/406)\e[K\rremote: Compressing objects:  86% (350/406)\e[K\rremote: Compressing objects:  87% (354/406)\e[K\rremote: Compressing objects:  88% (358/406)\e[K\rremote: Compressing objects:  89% (362/406)\e[K\rremote: Compressing objects:  90% (366/406)\e[K\rremote: Compressing objects:  91% (370/406)\e[K\rremote: Compressing objects:  92% (374/406)\e[K\rremote: Compressing objects:  93% (378/406)\e[K\rremote: Compressing objects:  94% (382/406)\e[K\rremote: Compressing objects:  95% (386/406)\e[K\rremote: Compressing objects:  96% (390/406)\e[K\rremote: Compressing objects:  97% (394/406)\e[K\rremote: Compressing objects:  98% (398/406)\e[K\rremote: Compressing objects:  99% (402/406)\e[K\rremote: Compressing objects: 100% (406/406)\e[K\rremote: Compressing objects: 100% (406/406), done.\e[K\r\n"
+  - delay: 6
+    content: "Receiving objects:   0% (1/8797)\r"
+  - delay: 33
+    content: "Receiving objects:   1% (88/8797)\r"
+  - delay: 7
+    content: "Receiving objects:   2% (176/8797)\r"
+  - delay: 20
+    content: "Receiving objects:   3% (264/8797)\rReceiving objects:   4% (352/8797)\rReceiving objects:   5% (440/8797)\r"
+  - delay: 15
+    content: "Receiving objects:   6% (528/8797)\rReceiving objects:   7% (616/8797)\rReceiving objects:   8% (704/8797)\rReceiving objects:   9% (792/8797)\rReceiving objects:  10% (880/8797)\rReceiving objects:  11% (968/8797)\rReceiving objects:  12% (1056/8797)\r"
+  - delay: 14
+    content: "Receiving objects:  13% (1144/8797)\rReceiving objects:  14% (1232/8797)\rReceiving objects:  15% (1320/8797)\rReceiving objects:  16% (1408/8797)\rReceiving objects:  17% (1496/8797)\rReceiving objects:  18% (1584/8797)\rReceiving objects:  19% (1672/8797)\rReceiving objects:  20% (1760/8797)\rReceiving objects:  21% (1848/8797)\r"
+  - delay: 5
+    content: "Receiving objects:  22% (1936/8797)\rReceiving objects:  23% (2024/8797)\rReceiving objects:  24% (2112/8797)\rReceiving objects:  25% (2200/8797)\rReceiving objects:  26% (2288/8797)\r"
+  - delay: 6
+    content: "Receiving objects:  27% (2376/8797)\rReceiving objects:  28% (2464/8797)\rReceiving objects:  29% (2552/8797)\rReceiving objects:  30% (2640/8797)\rReceiving objects:  31% (2728/8797)\rReceiving objects:  32% (2816/8797)\rReceiving objects:  33% (2904/8797)\rReceiving objects:  34% (2991/8797)\rReceiving objects:  35% (3079/8797)\rReceiving objects:  36% (3167/8797)\rReceiving objects:  37% (3255/8797)\rReceiving objects:  38% (3343/8797)\rReceiving objects:  39% (3431/8797)\rReceiving objects:  40% (3519/8797)\rReceiving objects:  41% (3607/8797)\rReceiving objects:  42% (3695/8797)\rReceiving objects:  43% (3783/8797)\rReceiving objects:  44% (3871/8797)\rReceiving objects:  45% (3959/8797)\rReceiving objects:  46% (4047/8797)\rReceiving objects:  47% (4135/8797)\rReceiving objects:  48% (4223/8797)\rReceiving objects:  49% (4311/8797)\rReceiving objects:  50% (4399/8797)\rReceiving objects:  51% (4487/8797)\rReceiving objects:  52% (4575/8797)\rReceiving objects:  53% (4663/8797)\rReceiving objects:  54% (4751/8797)\rReceiving objects:  55% (4839/8797)\rReceiving objects:  56% (4927/8797)\rReceiving objects:  57% (5015/8797)\rReceiving objects:  58% (5103/8797)\rReceiving objects:  59% (5191/8797)\rReceiving objects:  60% (5279/8797)\rReceiving objects:  61% (5367/8797)\rReceiving objects:  62% (5455/8797)\rReceiving objects:  63% (5543/8797)\rReceiving objects:  64% (5631/8797)\rReceiving objects:  65% (5719/8797)\rReceiving objects:  66% (5807/8797)\rReceiving objects:  67% (5894/8797)\rReceiving objects:  68% (5982/8797)\rReceiving objects:  69% (6070/8797)\rReceiving objects:  70% (6158/8797)\rReceiving objects:  71% (6246/8797)\rReceiving objects:  72% (6334/8797)\rReceiving objects:  73% (6422/8797)\rReceiving objects:  74% (6510/8797)\rReceiving objects:  75% (6598/8797)\rReceiving objects:  76% (6686/8797)\rReceiving objects:  77% (6774/8797)\rReceiving objects:  78% (6862/8797)\rReceiving objects:  79% (6950/8797)\rReceiving objects:  80% (7038/8797)\rReceiving objects:  81% (7126/8797)\rReceiving objects:  82% (7214/8797)\rReceiving objects:  83% (7302/8797)\rReceiving objects:  84% (7390/8797)\rReceiving objects:  85% (7478/8797)\rReceiving objects:  86% (7566/8797)\rReceiving objects:  87% (7654/8797)\rReceiving objects:  88% (7742/8797)\rReceiving objects:  89% (7830/8797)\rReceiving objects:  90% (7918/8797)\rReceiving objects:  91% (8006/8797)\rReceiving objects:  92% (8094/8797)\rReceiving objects:  93% (8182/8797)\rReceiving objects:  94% (8270/8797)\rReceiving objects:  95% (8358/8797)\rReceiving objects:  96% (8446/8797)\r"
+  - delay: 5
+    content: "Receiving objects:  97% (8534/8797)\rReceiving objects:  98% (8622/8797)\r"
+  - delay: 13
+    content: "Receiving objects:  99% (8710/8797)\r"
+  - delay: 60
+    content: "remote: Total 8797 (delta 342), reused 572 (delta 286), pack-reused 8087\e[K\r\nReceiving objects: 100% (8797/8797)\rReceiving objects: 100% (8797/8797), 3.07 MiB | 12.08 MiB/s, done.\r\nResolving deltas:   0% (0/5184)\rResolving deltas:   1% (52/5184)\rResolving deltas:   2% (104/5184)\rResolving deltas:   3% (156/5184)\rResolving deltas:   4% (208/5184)\rResolving deltas:   5% (260/5184)\rResolving deltas:   6% (313/5184)\r"
+  - delay: 5
+    content: "Resolving deltas:   7% (363/5184)\rResolving deltas:   8% (415/5184)\rResolving deltas:   9% (467/5184)\rResolving deltas:  10% (519/5184)\rResolving deltas:  11% (571/5184)\rResolving deltas:  12% (623/5184)\rResolving deltas:  13% (674/5184)\rResolving deltas:  14% (727/5184)\rResolving deltas:  15% (778/5184)\rResolving deltas:  16% (830/5184)\rResolving deltas:  17% (882/5184)\rResolving deltas:  18% (934/5184)\rResolving deltas:  19% (985/5184)\rResolving deltas:  20% (1037/5184)\rResolving deltas:  21% (1089/5184)\rResolving deltas:  22% (1142/5184)\rResolving deltas:  23% (1193/5184)\rResolving deltas:  24% (1245/5184)\rResolving deltas:  25% (1296/5184)\rResolving deltas:  26% (1349/5184)\rResolving deltas:  27% (1400/5184)\rResolving deltas:  28% (1452/5184)\rResolving deltas:  29% (1504/5184)\rResolving deltas:  30% (1556/5184)\rResolving deltas:  31% (1608/5184)\rResolving deltas:  32% (1659/5184)\rResolving deltas:  33% (1711/5184)\rResolving deltas:  34% (1764/5184)\rResolving deltas:  35% (1815/5184)\rResolving deltas:  36% (1867/5184)\rResolving deltas:  37% (1919/5184)\rResolving deltas:  38% (1970/5184)\rResolving deltas:  39% (2022/5184)\rResolving deltas:  40% (2074/5184)\rResolving deltas:  41% (2126/5184)\rResolving deltas:  42% (2178/5184)\rResolving deltas:  43% (2230/5184)\rResolving deltas:  44% (2281/5184)\rResolving deltas:  45% (2333/5184)\rResolving deltas:  46% (2385/5184)\rResolving deltas:  47% (2438/5184)\rResolving deltas:  48% (2489/5184)\rResolving deltas:  49% (2541/5184)\rResolving deltas:  50% (2592/5184)\rResolving deltas:  51% (2644/5184)\rResolving deltas:  52% (2696/5184)\rResolving deltas:  53% (2748/5184)\rResolving deltas:  54% (2800/5184)\rResolving deltas:  55% (2852/5184)\rResolving deltas:  56% (2904/5184)\rResolving deltas:  57% (2955/5184)\rResolving deltas:  58% (3007/5184)\rResolving deltas:  59% (3059/5184)\rResolving deltas:  60% (3111/5184)\rResolving deltas:  61% (3163/5184)\rResolving deltas:  62% (3216/5184)\rResolving deltas:  63% (3267/5184)\rResolving deltas:  64% (3318/5184)\rResolving deltas:  65% (3370/5184)\rResolving deltas:  66% (3422/5184)\rResolving deltas:  67% (3474/5184)\rResolving deltas:  68% (3526/5184)\rResolving deltas:  69% (3577/5184)\rResolving deltas:  70% (3629/5184)\rResolving deltas:  71% (3682/5184)\rResolving deltas:  72% (3734/5184)\rResolving deltas:  73% (3785/5184)\rResolving deltas:  74% (3837/5184)\rResolving deltas:  75% (3888/5184)\rResolving deltas:  76% (3940/5184)\rResolving deltas:  77% (3992/5184)\rResolving deltas:  78% (4044/5184)\rResolving deltas:  79% (4096/5184)\rResolving deltas:  80% (4148/5184)\rResolving deltas:  81% (4200/5184)\rResolving deltas:  82% (4252/5184)\rResolving deltas:  83% (4305/5184)\rResolving deltas:  84% (4356/5184)\rResolving deltas:  85% (4407/5184)\rResolving deltas:  86% (4459/5184)\rResolving deltas:  87% (4511/5184)\rResolving deltas:  88% (4562/5184)\rResolving deltas:  89% (4614/5184)\rResolving deltas:  90% (4666/5184)\rResolving deltas:  91% (4719/5184)\rResolving deltas:  92% (4771/5184)\rResolving deltas:  93% (4824/5184)\rResolving deltas:  94% (4873/5184)\rResolving deltas:  95% (4925/5184)\rResolving deltas:  96% (4977/5184)\rResolving deltas:  97% (5029/5184)\rResolving deltas:  98% (5081/5184)\r"
+  - delay: 7
+    content: "Resolving deltas:  99% (5133/5184)\r"
+  - delay: 7
+    content: "Resolving deltas: 100% (5184/5184)\rResolving deltas: 100% (5184/5184), done.\r\n"
+  - delay: 53
+    content: "Note: switching to '0586b37d03031ae8c3110ea2b51cacaad46c7cdc'.\r\n\r\nYou are in 'detached HEAD' state. You can look around, make experimental\r\nchanges and commit them, and you can discard any commits you make in this\r\nstate without impacting any branches by switching back to a branch.\r\n\r\nIf you want to create a new branch to retain commits you create, you may\r\ndo so (now or later) by using -c with the switch command. Example:\r\n\r\n  git switch -c <new-branch-name>\r\n\r\nOr undo this operation with:\r\n\r\n  git switch -\r\n\r\nTurn off this advice by setting config variable advice.detachedHead to false\r\n\r\n"
+  - delay: 66
+    content: '$ '
+  - delay: 4253
+    content: echo '. "$HOME/.asdf/asdf.sh"' >> ~/.zshrc
+  - delay: 541
+    content: "\r\n$ "
+  - delay: 3000
+    content: ""
