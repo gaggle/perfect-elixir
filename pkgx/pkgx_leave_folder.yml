@@ -1,0 +1,179 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: /bin/zsh
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud/Projects/perfect-elixir
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 3000
+    content: c
+  - delay: 47
+    content: "\bcd"
+  - delay: 80
+    content: ' '
+  - delay: 96
+    content: .
+  - delay: 161
+    content: .
+  - delay: 719
+    content: "\e[?2004l\r\r\n\e[38;5;63menv\e[39m -erlang.org=26.2.1 -elixir-lang.org=1.16.0 -postgresql.org=15.2.0\r\n"
+  - delay: 1044
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 828
+    content: w
+  - delay: 15
+    content: "\bwh"
+  - delay: 98
+    content: i
+  - delay: 62
+    content: c
+  - delay: 113
+    content: h
+  - delay: 48
+    content: ' '
+  - delay: 399
+    content: e
+  - delay: 31
+    content: r
+  - delay: 49
+    content: l
+  - delay: 176
+    content: "\e[?2004l\r\r\nerl not found\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1375
+    content: c
+  - delay: 114
+    content: "\bcd"
+  - delay: 207
+    content: ' '
+  - delay: 1103
+    content: p
+  - delay: 64
+    content: e
+  - delay: 48
+    content: r
+  - delay: 177
+    content: "fect-elixir\e[1m/\e[0m"
+  - delay: 480
+    content: "\b\e[0m \b\e[?2004l\r\r\n"
+  - delay: 1027
+    content: "\e[1K\e[0Gresolving graph…"
+  - delay: 16
+    content: "\e[1K\e[0G"
+  - delay: 16
+    content: "\e[38;5;63menv\e[39m +erlang.org=26.2.1 +elixir-lang.org=1.16.0 +postgresql.org=15.2.0\r\n"
+  - delay: 5
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 839
+    content: w
+  - delay: 81
+    content: "\bwh"
+  - delay: 62
+    content: i
+  - delay: 112
+    content: c
+  - delay: 82
+    content: h
+  - delay: 81
+    content: ' '
+  - delay: 191
+    content: e
+  - delay: 96
+    content: r
+  - delay: 159
+    content: l
+  - delay: 193
+    content: "\e[?2004l\r\r\n/Users/cloud/.pkgx/erlang.org/v26.2.1/bin/erl\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 3000
+    content: "\e[?2004l\r\r\n"
