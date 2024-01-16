@@ -1,0 +1,1023 @@
+config:
+  command: zsh
+  cwd: /Users/cloud/perfect-elixir
+  env:
+    recording: true
+  cols: 79
+  rows: 20
+  repeat: 0
+  quality: 100
+  frameDelay: auto
+  maxIdleTime: 2000
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  cursorStyle: block
+  fontFamily: Monaco, Lucida Console, Ubuntu Mono, Monospace
+  fontSize: 12
+  lineHeight: 1
+  letterSpacing: 0
+  theme:
+    background: transparent
+    foreground: '#afafaf'
+    cursor: '#c7c7c7'
+    black: '#232628'
+    red: '#fc4384'
+    green: '#b3e33b'
+    yellow: '#ffa727'
+    blue: '#75dff2'
+    magenta: '#ae89fe'
+    cyan: '#708387'
+    white: '#d5d5d0'
+    brightBlack: '#626566'
+    brightRed: '#ff7fac'
+    brightGreen: '#c8ed71'
+    brightYellow: '#ebdf86'
+    brightBlue: '#75dff2'
+    brightMagenta: '#ae89fe'
+    brightCyan: '#b1c6ca'
+    brightWhite: '#f9f9f4'
+records:
+  - delay: 5
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[7mbrew install autoconf openssl@1.1 openssl libxslt fop gcc readline zlib curl \e[7mo\e[7mssp-uuid\e[27m\e[K"
+  - delay: 667
+    content: "\e[A\b\b\b\b\b\b\b\e[27mb\e[27mr\e[27me\e[27mw\e[27m \e[27mi\e[27mn\e[27ms\e[27mt\e[27ma\e[27ml\e[27ml\e[27m \e[27ma\e[27mu\e[27mt\e[27mo\e[27mc\e[27mo\e[27mn\e[27mf\e[27m \e[27mo\e[27mp\e[27me\e[27mn\e[27ms\e[27ms\e[27ml\e[27m@\e[27m1\e[27m.\e[27m1\e[27m \e[27mo\e[27mp\e[27me\e[27mn\e[27ms\e[27ms\e[27ml\e[27m \e[27ml\e[27mi\e[27mb\e[27mx\e[27ms\e[27ml\e[27mt\e[27m \e[27mf\e[27mo\e[27mp\e[27m \e[27mg\e[27mc\e[27mc\e[27m \e[27mr\e[27me\e[27ma\e[27md\e[27ml\e[27mi\e[27mn\e[27me\e[27m \e[27mz\e[27ml\e[27mi\e[27mb\e[27m \e[27mc\e[27mu\e[27mr\e[27ml\e[27m o\e[27ms\e[27ms\e[27mp\e[27m-\e[27mu\e[27mu\e[27mi\e[27md\e[?2004l\r\r\n"
+  - delay: 2183
+    content: "Running `brew update --auto-update`...\r\n"
+  - delay: 636
+    content: "\e[34m==>\e[0m \e[1mAuto-updated Homebrew!\e[0m\r\nUpdated 2 taps (homebrew/core and homebrew/cask).\r\n\e[34m==>\e[0m \e[1mNew Formulae\e[0m\r\nasmfmt              git-grab            libspelling         rsyncy\r\nautobrr             helm-docs           limesuite           scnlib\r\ncekit               icloudpd            magic-wormhole.rs   senpai\r\ndeadfinder          ignite              mtm                 sui\r\ndotslash            kin                 nowplaying-cli      terrapin-scanner\r\nflowpipe            kubetui             openjph             tfautomv\r\ng-ls                libnsgif            proto               tomlplusplus\r\n\e[34m==>\e[0m \e[1mNew Casks\e[0m\r\nbitbox              easydevo            lunarbar            theiaide\r\nbugdom2             elecom-mouse-util   lyricsfinder        ttu-base-suite\r\ncleanclip           freeshow            mumuplayer          upscayl\r\ncleanupbuddy        hancom-docs         nightshade\r\ndomzilla-caffeine   insomnium           nrfutil\r\n"
+  - delay: 192
+    content: "\r\nYou have \e[1m8\e[0m outdated formulae installed.\r\n\r\n"
+  - delay: 570
+    content: "openssl@3 3.2.0_1 is already installed but outdated (so it will be upgraded).\r\ncurl  is already installed but outdated (so it will be upgraded).\r\n"
+  - delay: 27
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/autoconf/manifests/2.72\e[0m\r\n"
+  - delay: 169
+    content: "#=#=#                                                                         \r"
+  - delay: 193
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 31
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for autoconf: \e[32mm4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/m4/manifests/1.4.19\e[0m\r\n"
+  - delay: 310
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mm4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/m4/blobs/sha256:8434a67a438383\e[0m\r\n"
+  - delay: 302
+    content: "#=#=#                                                                         \r"
+  - delay: 148
+    content: "\r##                                                                         4.1%"
+  - delay: 34
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mautoconf\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/autoconf/blobs/sha256:12368e33\e[0m\r\n"
+  - delay: 261
+    content: "#=#=#                                                                         \r"
+  - delay: 136
+    content: "\r#                                                                          1.4%"
+  - delay: 56
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[33mWarning:\e[0m openssl@1.1 has been deprecated because it is not supported upstream!\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openssl/1.1/manifests/1.1.1w\e[0m\r\n"
+  - delay: 382
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 12
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mopenssl@1.1\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openssl/1.1/blobs/sha256:0b560\e[0m\r\n"
+  - delay: 288
+    content: "#=#=#                                                                         \r"
+  - delay: 152
+    content: "\r                                                                           0.2%"
+  - delay: 100
+    content: "\r####################################                                      51.1%"
+  - delay: 49
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 42
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openssl/3/manifests/3.2.1\e[0m\r\n"
+  - delay: 301
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mopenssl@3\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openssl/3/blobs/sha256:81bf1c3\e[0m\r\n"
+  - delay: 261
+    content: "#=#=#                                                                         \r"
+  - delay: 138
+    content: "\r                                                                           0.1%"
+  - delay: 100
+    content: "\r#####################                                                     29.8%"
+  - delay: 99
+    content: "\r#################################################################         90.6%"
+  - delay: 16
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 68
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxslt/manifests/1.1.39\e[0m\r\n"
+  - delay: 321
+    content: "\r#######################################################################   98.8%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 48
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for libxslt: \e[32mlibgpg-error\e[39m, \e[32mlibgcrypt\e[39m, \e[32mreadline\e[39m and \e[32mlibxml2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgpg-error/manifests/1.47\e[0m\r\n"
+  - delay: 320
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibgpg-error\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgpg-error/blobs/sha256:bd83\e[0m\r\n"
+  - delay: 287
+    content: "#=#=#                                                                         \r"
+  - delay: 170
+    content: "\r##                                                                         3.0%"
+  - delay: 43
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgcrypt/manifests/1.10.3\e[0m\r\n"
+  - delay: 319
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 35
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibgcrypt\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgcrypt/blobs/sha256:b76b7d1\e[0m\r\n"
+  - delay: 261
+    content: "#=#=#                                                                         \r"
+  - delay: 149
+    content: "\r                                                                           0.5%"
+  - delay: 76
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 13
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7\e[0m\r\n"
+  - delay: 308
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 9
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mreadline\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:e1e1f92f\e[0m\r\n"
+  - delay: 319
+    content: "#=#=#                                                                         \r"
+  - delay: 156
+    content: "\r                                                                           1.2%"
+  - delay: 48
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 12
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxml2/manifests/2.12.5\e[0m\r\n"
+  - delay: 339
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 22
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibxml2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxml2/blobs/sha256:c3146cf97\e[0m\r\n"
+  - delay: 300
+    content: "#=#=#                                                                         \r"
+  - delay: 103
+    content: "\r##################################                                        47.9%"
+  - delay: 13
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 12
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibxslt\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxslt/blobs/sha256:9a4458989\e[0m\r\n"
+  - delay: 286
+    content: "#=#=#                                                                         \r"
+  - delay: 164
+    content: "\r#                                                                          2.5%"
+  - delay: 34
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 7
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/fop/manifests/2.9\e[0m\r\n"
+  - delay: 338
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 181
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for fop: \e[32mgiflib\e[39m, \e[32mlibpng\e[39m, \e[32mfreetype\e[39m, \e[32mfontconfig\e[39m, \e[32mglib\e[39m, \e[32mxorgproto\e[39m, \e[32mlibxau\e[39m, \e[32mlibxdmcp\e[39m, \e[32mlibxcb\e[39m, \e[32mlibx11\e[39m, \e[32mlibxext\e[39m, \e[32mlibxrender\e[39m, \e[32mlzo\e[39m, \e[32mpixman\e[39m, \e[32mcairo\e[39m, \e[32mgraphite2\e[39m, \e[32mharfbuzz\e[39m, \e[32mjpeg-turbo\e[39m, \e[32mlibtiff\e[39m, \e[32mlittle-cms2\e[39m and \e[32mopenjdk\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/giflib/manifests/5.2.1\e[0m\r\n"
+  - delay: 431
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mgiflib\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/giflib/blobs/sha256:84a39bf9c6\e[0m\r\n"
+  - delay: 307
+    content: "#=#=#                                                                         \r"
+  - delay: 131
+    content: "\r####                                                                       6.4%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 9
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.42\e[0m\r\n"
+  - delay: 394
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibpng\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/blobs/sha256:124970ed2c\e[0m\r\n"
+  - delay: 300
+    content: "#=#=#                                                                         \r"
+  - delay: 95
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 16
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/freetype/manifests/2.13.2-1\e[0m\r\n"
+  - delay: 347
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mfreetype\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/freetype/blobs/sha256:a8813d5f\e[0m\r\n"
+  - delay: 272
+    content: "#=#=#                                                                         \r"
+  - delay: 142
+    content: "\r#                                                                          1.7%"
+  - delay: 56
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 11
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/fontconfig/manifests/2.15.0\e[0m\r\n"
+  - delay: 350
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 11
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mfontconfig\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/fontconfig/blobs/sha256:bbf54f\e[0m\r\n"
+  - delay: 271
+    content: "#=#=#                                                                         \r"
+  - delay: 151
+    content: "\r#                                                                          2.4%"
+  - delay: 43
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/glib/manifests/2.78.4\e[0m\r\n"
+  - delay: 355
+    content: "\r###############################################################           88.7%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 29
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mglib\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/glib/blobs/sha256:fd936e04ae00\e[0m\r\n"
+  - delay: 311
+    content: "#=#=#                                                                         \r"
+  - delay: 100
+    content: "\r######                                                                     8.9%"
+  - delay: 99
+    content: "\r################################################################          89.8%"
+  - delay: 13
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 50
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xorgproto/manifests/2023.2\e[0m\r\n"
+  - delay: 335
+    content: "\r####################################################                      72.4%"
+  - delay: 16
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mxorgproto\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xorgproto/blobs/sha256:32a2526\e[0m\r\n"
+  - delay: 266
+    content: "#=#=#                                                                         \r"
+  - delay: 134
+    content: "\r#                                                                          1.8%"
+  - delay: 50
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 11
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxau/manifests/1.0.11\e[0m\r\n"
+  - delay: 399
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibxau\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxau/blobs/sha256:10a5ba27ae\e[0m\r\n"
+  - delay: 305
+    content: "#=#=#                                                                         \r"
+  - delay: 134
+    content: "\r#####################################                                     52.4%\r######################################################################## 100.0%\r\n"
+  - delay: 6
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxdmcp/manifests/1.1.4\e[0m\r\n"
+  - delay: 342
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibxdmcp\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxdmcp/blobs/sha256:81c4ce16\e[0m\r\n"
+  - delay: 265
+    content: "#=#=#                                                                         \r"
+  - delay: 134
+    content: "\r####################                                                      28.5%\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxcb/manifests/1.16-1\e[0m\r\n"
+  - delay: 310
+    content: "\r##########################################################                81.9%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 26
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibxcb\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxcb/blobs/sha256:0fe2f8cf12\e[0m\r\n"
+  - delay: 301
+    content: "#=#=#                                                                         \r"
+  - delay: 135
+    content: "\r                                                                           0.7%"
+  - delay: 100
+    content: "\r###########################################################               82.4%"
+  - delay: 15
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 12
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libx11/manifests/1.8.7\e[0m\r\n"
+  - delay: 301
+    content: "\r###################################################################       94.1%"
+  - delay: 17
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 29
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibx11\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libx11/blobs/sha256:be011cbeea\e[0m\r\n"
+  - delay: 294
+    content: "#=#=#                                                                         \r"
+  - delay: 138
+    content: "\r                                                                           0.7%"
+  - delay: 77
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 18
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxext/manifests/1.3.5\e[0m\r\n"
+  - delay: 308
+    content: "\r##############################################################            86.7%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 32
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibxext\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxext/blobs/sha256:a4623f19d\e[0m\r\n"
+  - delay: 284
+    content: "#=#=#                                                                         \r"
+  - delay: 137
+    content: "\r######                                                                     9.1%"
+  - delay: 17
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 7
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxrender/manifests/0.9.11\e[0m\r\n"
+  - delay: 380
+    content: "\r####################################################################      95.8%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 45
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibxrender\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxrender/blobs/sha256:f61874\e[0m\r\n"
+  - delay: 283
+    content: "#=#=#                                                                         \r"
+  - delay: 138
+    content: "\r##############                                                            20.8%"
+  - delay: 10
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 6
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lzo/manifests/2.10\e[0m\r\n"
+  - delay: 326
+    content: "\r######################################################################    98.2%"
+  - delay: 21
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlzo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lzo/blobs/sha256:11b8557744feb\e[0m\r\n"
+  - delay: 283
+    content: "#=#=#                                                                         \r"
+  - delay: 152
+    content: "\r#####                                                                      7.3%"
+  - delay: 26
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 7
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pixman/manifests/0.42.2-1\e[0m\r\n"
+  - delay: 344
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 6
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mpixman\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pixman/blobs/sha256:73469a943a\e[0m\r\n"
+  - delay: 270
+    content: "#=#=#                                                                         \r"
+  - delay: 138
+    content: "\r##                                                                         3.1%"
+  - delay: 45
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 9
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/cairo/manifests/1.18.0\e[0m\r\n"
+  - delay: 293
+    content: "\r########################################                                  56.1%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 67
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mcairo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/cairo/blobs/sha256:18232de7a18\e[0m\r\n"
+  - delay: 261
+    content: "#=#=#                                                                         \r"
+  - delay: 137
+    content: "\r                                                                           1.0%"
+  - delay: 55
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 10
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/graphite2/manifests/1.3.14\e[0m\r\n"
+  - delay: 324
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mgraphite2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/graphite2/blobs/sha256:afd3067\e[0m\r\n"
+  - delay: 256
+    content: "#=#=#                                                                         \r"
+  - delay: 153
+    content: "\r########                                                                  11.7%"
+  - delay: 17
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/harfbuzz/manifests/8.3.0\e[0m\r\n"
+  - delay: 380
+    content: "\r##################################                                        48.6%"
+  - delay: 90
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 89
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mharfbuzz\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/harfbuzz/blobs/sha256:1bf9b5df\e[0m\r\n"
+  - delay: 281
+    content: "#=#=#                                                                         \r"
+  - delay: 149
+    content: "\r                                                                           0.4%"
+  - delay: 93
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 21
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.1\e[0m\r\n"
+  - delay: 317
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 7
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mjpeg-turbo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/blobs/sha256:7794d8\e[0m\r\n"
+  - delay: 285
+    content: "#=#=#                                                                         \r"
+  - delay: 135
+    content: "\r                                                                           0.8%"
+  - delay: 68
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 13
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/manifests/4.6.0\e[0m\r\n"
+  - delay: 360
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 24
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibtiff\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/blobs/sha256:a89a26710\e[0m\r\n"
+  - delay: 281
+    content: "#=#=#                                                                         \r"
+  - delay: 144
+    content: "\r                                                                           0.4%"
+  - delay: 73
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 14
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/little-cms2/manifests/2.16\e[0m\r\n"
+  - delay: 304
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 26
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlittle-cms2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/little-cms2/blobs/sha256:46dd0\e[0m\r\n"
+  - delay: 280
+    content: "#=#=#                                                                         \r"
+  - delay: 143
+    content: "\r##                                                                         3.5%"
+  - delay: 104
+    content: "\r########################                                                  34.1%"
+  - delay: 88
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 9
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openjdk/manifests/21.0.2\e[0m\r\n"
+  - delay: 364
+    content: "\r#############################                                             41.1%"
+  - delay: 19
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 115
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mopenjdk\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openjdk/blobs/sha256:dae1cda0c\e[0m\r\n"
+  - delay: 285
+    content: "#=#=#                                                                         \r"
+  - delay: 100
+    content: "\r                                                                           0.3%"
+  - delay: 99
+    content: "\r##                                                                         3.1%"
+  - delay: 100
+    content: "\r####                                                                       6.1%"
+  - delay: 100
+    content: "\r######                                                                     9.0%"
+  - delay: 101
+    content: "\r########                                                                  11.8%"
+  - delay: 100
+    content: "\r##########                                                                14.8%"
+  - delay: 100
+    content: "\r############                                                              17.7%"
+  - delay: 100
+    content: "\r##############                                                            20.7%"
+  - delay: 100
+    content: "\r#################                                                         23.7%"
+  - delay: 100
+    content: "\r###################                                                       26.5%"
+  - delay: 100
+    content: "\r#####################                                                     29.5%"
+  - delay: 99
+    content: "\r#######################                                                   32.4%"
+  - delay: 100
+    content: "\r#########################                                                 35.3%"
+  - delay: 100
+    content: "\r###########################                                               38.2%"
+  - delay: 100
+    content: "\r#############################                                             41.1%"
+  - delay: 100
+    content: "\r###############################                                           44.0%"
+  - delay: 101
+    content: "\r#################################                                         46.9%"
+  - delay: 100
+    content: "\r###################################                                       49.8%"
+  - delay: 100
+    content: "\r#####################################                                     52.8%"
+  - delay: 100
+    content: "\r########################################                                  55.7%"
+  - delay: 100
+    content: "\r##########################################                                58.8%"
+  - delay: 99
+    content: "\r############################################                              61.7%"
+  - delay: 100
+    content: "\r##############################################                            64.7%"
+  - delay: 100
+    content: "\r################################################                          67.6%"
+  - delay: 101
+    content: "\r##################################################                        70.5%"
+  - delay: 100
+    content: "\r####################################################                      73.3%"
+  - delay: 100
+    content: "\r######################################################                    76.1%"
+  - delay: 100
+    content: "\r########################################################                  79.0%"
+  - delay: 100
+    content: "\r##########################################################                81.9%"
+  - delay: 100
+    content: "\r#############################################################             84.7%"
+  - delay: 100
+    content: "\r###############################################################           87.6%"
+  - delay: 99
+    content: "\r#################################################################         90.5%"
+  - delay: 100
+    content: "\r###################################################################       93.4%"
+  - delay: 101
+    content: "\r#####################################################################     96.3%"
+  - delay: 100
+    content: "\r#######################################################################   99.2%"
+  - delay: 27
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 513
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mfop\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/fop/blobs/sha256:1b6a33e57663c\e[0m\r\n"
+  - delay: 291
+    content: "#=#=#                                                                         \r"
+  - delay: 177
+    content: "\r                                                                           0.0%"
+  - delay: 101
+    content: "\r##########                                                                14.2%"
+  - delay: 100
+    content: "\r#########################                                                 35.7%"
+  - delay: 100
+    content: "\r########################################                                  56.3%"
+  - delay: 101
+    content: "\r#######################################################                   76.7%"
+  - delay: 101
+    content: "\r#####################################################################     97.1%"
+  - delay: 13
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 141
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gcc/manifests/13.2.0-2\e[0m\r\n"
+  - delay: 368
+    content: "\r###############################################################           88.8%"
+  - delay: 21
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 49
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for gcc: \e[32misl\e[39m, \e[32mmpfr\e[39m and \e[32mlibmpc\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/isl/manifests/0.26\e[0m\r\n"
+  - delay: 163
+    content: "#=#=#                                                                         \r"
+  - delay: 193
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 16
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32misl\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/isl/blobs/sha256:879bd3d644e9a\e[0m\r\n"
+  - delay: 273
+    content: "#=#=#                                                                         \r"
+  - delay: 132
+    content: "\r                                                                           0.6%"
+  - delay: 75
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 15
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/mpfr/manifests/4.2.1\e[0m\r\n"
+  - delay: 339
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 16
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mmpfr\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/mpfr/blobs/sha256:af35898aedfb\e[0m\r\n"
+  - delay: 279
+    content: "#=#=#                                                                         \r"
+  - delay: 136
+    content: "\r                                                                           1.0%"
+  - delay: 68
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 11
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libmpc/manifests/1.3.1\e[0m\r\n"
+  - delay: 303
+    content: "\r################                                                          22.3%"
+  - delay: 5
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 19
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibmpc\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libmpc/blobs/sha256:504c66775a\e[0m\r\n"
+  - delay: 300
+    content: "#=#=#                                                                         \r"
+  - delay: 162
+    content: "\r###                                                                        4.7%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mgcc\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/gcc/blobs/sha256:e93cce391ed5d\e[0m\r\n"
+  - delay: 276
+    content: "#=#=#                                                                         \r"
+  - delay: 152
+    content: "\r                                                                           0.0%"
+  - delay: 98
+    content: "\r#                                                                          2.5%"
+  - delay: 101
+    content: "\r####                                                                       6.6%"
+  - delay: 100
+    content: "\r#######                                                                    9.9%"
+  - delay: 100
+    content: "\r#########                                                                 13.3%"
+  - delay: 103
+    content: "\r###########                                                               16.4%"
+  - delay: 100
+    content: "\r##############                                                            20.0%"
+  - delay: 100
+    content: "\r################                                                          23.4%"
+  - delay: 100
+    content: "\r###################                                                       26.7%"
+  - delay: 100
+    content: "\r#####################                                                     29.9%"
+  - delay: 100
+    content: "\r#######################                                                   33.3%"
+  - delay: 100
+    content: "\r##########################                                                36.3%"
+  - delay: 100
+    content: "\r############################                                              39.8%"
+  - delay: 101
+    content: "\r##############################                                            43.0%"
+  - delay: 100
+    content: "\r################################                                          44.9%"
+  - delay: 100
+    content: "\r##################################                                        47.3%"
+  - delay: 101
+    content: "\r####################################                                      50.4%"
+  - delay: 100
+    content: "\r#####################################                                     52.2%"
+  - delay: 100
+    content: "\r#######################################                                   54.5%"
+  - delay: 100
+    content: "\r#######################################                                   54.9%"
+  - delay: 101
+    content: "\r#########################################                                 58.1%"
+  - delay: 114
+    content: "\r##########################################                                58.4%"
+  - delay: 101
+    content: "\r############################################                              61.4%"
+  - delay: 100
+    content: "\r#############################################                             62.6%"
+  - delay: 100
+    content: "\r#############################################                             63.8%"
+  - delay: 100
+    content: "\r##############################################                            65.1%"
+  - delay: 100
+    content: "\r###############################################                           66.4%"
+  - delay: 101
+    content: "\r################################################                          67.7%"
+  - delay: 100
+    content: "\r#################################################                         68.8%"
+  - delay: 103
+    content: "\r##################################################                        69.9%"
+  - delay: 108
+    content: "\r###################################################                       71.6%"
+  - delay: 103
+    content: "\r####################################################                      72.9%"
+  - delay: 100
+    content: "\r#####################################################                     74.4%"
+  - delay: 101
+    content: "\r######################################################                    75.8%"
+  - delay: 100
+    content: "\r#######################################################                   77.1%"
+  - delay: 101
+    content: "\r########################################################                  78.5%"
+  - delay: 100
+    content: "\r#########################################################                 79.8%"
+  - delay: 101
+    content: "\r##########################################################                81.2%"
+  - delay: 100
+    content: "\r###########################################################               82.5%"
+  - delay: 100
+    content: "\r############################################################              83.9%"
+  - delay: 101
+    content: "\r#############################################################             85.3%"
+  - delay: 99
+    content: "\r##############################################################            86.7%"
+  - delay: 101
+    content: "\r###############################################################           88.1%"
+  - delay: 100
+    content: "\r################################################################          89.5%"
+  - delay: 100
+    content: "\r#################################################################         90.9%"
+  - delay: 100
+    content: "\r##################################################################        92.3%"
+  - delay: 101
+    content: "\r###################################################################       93.7%"
+  - delay: 99
+    content: "\r####################################################################      95.1%"
+  - delay: 101
+    content: "\r#####################################################################     96.5%"
+  - delay: 100
+    content: "\r######################################################################    97.9%"
+  - delay: 100
+    content: "\r#######################################################################   99.4%"
+  - delay: 55
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 746
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/14125f7fa4b49853f76160b864f58379d90e52833ffeb8bd0643609bcd7f02a7--readline-8.2.7.bottle_manifest.json\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zlib/manifests/1.3.1\e[0m\r\n"
+  - delay: 361
+    content: "\r######################################################################## 100.0%\r\n\e[32m==>\e[0m \e[1mFetching \e[32mzlib\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/zlib/blobs/sha256:217f4245cd1d\e[0m\r\n"
+  - delay: 285
+    content: "#=#=#                                                                         \r"
+  - delay: 129
+    content: "\r##                                                                         3.5%"
+  - delay: 27
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 7
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/curl/manifests/8.6.0\e[0m\r\n"
+  - delay: 445
+    content: "#=#=#                                                                         \r"
+  - delay: 220
+    content: "\r##################                                                        26.2%"
+  - delay: 43
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 99
+    content: "\e[32m==>\e[0m \e[1mFetching dependencies for curl: \e[32mlibidn2\e[39m, \e[32mlibnghttp2\e[39m and \e[32mopenldap\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libidn2/manifests/2.3.7\e[0m\r\n"
+  - delay: 405
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 19
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibidn2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:32aec1906\e[0m\r\n"
+  - delay: 313
+    content: "#=#=#                                                                         \r"
+  - delay: 128
+    content: "\r#                                                                          1.6%"
+  - delay: 35
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 14
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libnghttp2/manifests/1.59.0\e[0m\r\n"
+  - delay: 371
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 9
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mlibnghttp2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libnghttp2/blobs/sha256:3a576c\e[0m\r\n"
+  - delay: 304
+    content: "#=#=#                                                                         \r"
+  - delay: 140
+    content: "\r##                                                                         3.1%"
+  - delay: 27
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 8
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openldap/manifests/2.6.7\e[0m\r\n"
+  - delay: 388
+    content: "\r######################################                                    53.4%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 15
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mopenldap\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openldap/blobs/sha256:93641ee7\e[0m\r\n"
+  - delay: 292
+    content: "#=#=#                                                                         \r"
+  - delay: 136
+    content: "\r                                                                           0.3%"
+  - delay: 100
+    content: "\r#################################################################         91.0%"
+  - delay: 5
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 36
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mcurl\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/curl/blobs/sha256:e0882b769166\e[0m\r\n"
+  - delay: 296
+    content: "#=#=#                                                                         \r"
+  - delay: 152
+    content: "\r                                                                           0.6%"
+  - delay: 84
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 13
+    content: "\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/ossp-uuid/manifests/1.6.2_2\e[0m\r\n"
+  - delay: 324
+    content: "\r######################################################################    97.3%"
+  - delay: 21
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mFetching \e[32mossp-uuid\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/ossp-uuid/blobs/sha256:f1055cb\e[0m\r\n"
+  - delay: 268
+    content: "#=#=#                                                                         \r"
+  - delay: 146
+    content: "\r##########                                                                15.1%"
+  - delay: 15
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 7
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for autoconf: \e[32mm4\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling autoconf dependency: \e[32mm4\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/m4/manifests/1.4.19\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/5b2a7f715487b7377e409e8ca58569040cd89f33859f691210c58d94410fd33b--m4-1.4.19.bottle_manifest.json\r\n"
+  - delay: 127
+    content: "\e[34m==>\e[0m \e[1mPouring m4--1.4.19.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 95
+    content: "🍺  /usr/local/Cellar/m4/1.4.19: 13 files, 739.9KB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mautoconf\e[39m\e[0m\r\n"
+  - delay: 78
+    content: "\e[34m==>\e[0m \e[1mPouring autoconf--2.72.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 211
+    content: "🍺  /usr/local/Cellar/autoconf/2.72: 71 files, 3.6MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup autoconf`...\e[0m\r\nDisable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.\r\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\r\n"
+  - delay: 91
+    content: "\e[34m==>\e[0m \e[1mPouring openssl@1.1--1.1.1w.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 2338
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nA CA file has been bootstrapped using certificates from the system\r\nkeychain. To add additional certificates, place .pem files in\r\n  /usr/local/etc/openssl@1.1/certs\r\n\r\nand run\r\n  /usr/local/opt/openssl@1.1/bin/c_rehash\r\n\r\nopenssl@1.1 is keg-only, which means it was not symlinked into /usr/local,\r\nbecause this is an alternate version of another formula.\r\n\r\nIf you need to have openssl@1.1 first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/openssl@1.1/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find openssl@1.1 you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/openssl@1.1/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/openssl@1.1/include\"\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 265
+    content: "🍺  /usr/local/Cellar/openssl@1.1/1.1.1w: 8,101 files, 18.5MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup openssl@1.1`...\e[0m\r\n"
+  - delay: 58
+    content: "\e[32m==>\e[0m \e[1mUpgrading \e[32mopenssl\e[39m\r\n  3.2.0_1 -> 3.2.1 \r\n\e[0m\r\n"
+  - delay: 831
+    content: "\e[34m==>\e[0m \e[1mPouring openssl@3--3.2.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 2613
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nA CA file has been bootstrapped using certificates from the system\r\nkeychain. To add additional certificates, place .pem files in\r\n  /usr/local/etc/openssl@3/certs\r\n\r\nand run\r\n  /usr/local/opt/openssl@3/bin/c_rehash\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 200
+    content: "🍺  /usr/local/Cellar/openssl@3/3.2.1: 6,874 files, 32.5MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup openssl@3`...\e[0m\r\n"
+  - delay: 374
+    content: "Removing: /usr/local/Cellar/openssl@3/3.2.0_1... (6,805 files, 32.4MB)\r\n"
+  - delay: 681
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/openssl@3--3.2.0_1... (8.6MB)\r\n"
+  - delay: 41
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for libxslt: \e[32mlibgpg-error\e[39m, \e[32mlibgcrypt\e[39m, \e[32mreadline\e[39m and \e[32mlibxml2\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling libxslt dependency: \e[32mlibgpg-error\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgpg-error/manifests/1.47\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/98f5d26e0bbc42377eac3ea624367f84264ea91bb4ca8c4e7cc6fa402bb3d3d5--libgpg-error-1.47.bottle_manifest.json\r\n"
+  - delay: 89
+    content: "\e[34m==>\e[0m \e[1mPouring libgpg-error--1.47.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 312
+    content: "🍺  /usr/local/Cellar/libgpg-error/1.47: 49 files, 1.6MB\r\n\e[32m==>\e[0m \e[1mInstalling libxslt dependency: \e[32mlibgcrypt\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libgcrypt/manifests/1.10.3\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/51a9d782e7010eccf6d60ff8e69c811398480eb544aec8866787a22cda36fccd--libgcrypt-1.10.3.bottle_manifest.json\r\n"
+  - delay: 81
+    content: "\e[34m==>\e[0m \e[1mPouring libgcrypt--1.10.3.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 241
+    content: "🍺  /usr/local/Cellar/libgcrypt/1.10.3: 23 files, 3.3MB\r\n\e[32m==>\e[0m \e[1mInstalling libxslt dependency: \e[32mreadline\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.2.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/14125f7fa4b49853f76160b864f58379d90e52833ffeb8bd0643609bcd7f02a7--readline-8.2.7.bottle_manifest.json\r\n"
+  - delay: 78
+    content: "\e[34m==>\e[0m \e[1mPouring readline--8.2.7.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 226
+    content: "🍺  /usr/local/Cellar/readline/8.2.7: 50 files, 1.7MB\r\n\e[32m==>\e[0m \e[1mInstalling libxslt dependency: \e[32mlibxml2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxml2/manifests/2.12.5\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/a7933d1346b9471328dfc1992b73ababf9663a0be23d21320c5c79ef8d8b9221--libxml2-2.12.5.bottle_manifest.json\r\n"
+  - delay: 87
+    content: "\e[34m==>\e[0m \e[1mPouring libxml2--2.12.5.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 569
+    content: "🍺  /usr/local/Cellar/libxml2/2.12.5: 204 files, 6.2MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mlibxslt\e[39m\e[0m\r\n"
+  - delay: 77
+    content: "\e[34m==>\e[0m \e[1mPouring libxslt--1.1.39.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 344
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nTo allow the nokogiri gem to link against this libxslt run:\r\n  gem install nokogiri -- --with-xslt-dir=/usr/local/opt/libxslt\r\n\r\nlibxslt is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have libxslt first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/libxslt/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find libxslt you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/libxslt/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/libxslt/include\"\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n🍺  /usr/local/Cellar/libxslt/1.1.39: 100 files, 1.2MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup libxslt`...\e[0m\r\n"
+  - delay: 116
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for fop: \e[32mgiflib\e[39m, \e[32mlibpng\e[39m, \e[32mfreetype\e[39m, \e[32mfontconfig\e[39m, \e[32mglib\e[39m, \e[32mxorgproto\e[39m, \e[32mlibxau\e[39m, \e[32mlibxdmcp\e[39m, \e[32mlibxcb\e[39m, \e[32mlibx11\e[39m, \e[32mlibxext\e[39m, \e[32mlibxrender\e[39m, \e[32mlzo\e[39m, \e[32mpixman\e[39m, \e[32mcairo\e[39m, \e[32mgraphite2\e[39m, \e[32mharfbuzz\e[39m, \e[32mjpeg-turbo\e[39m, \e[32mlibtiff\e[39m, \e[32mlittle-cms2\e[39m and \e[32mopenjdk\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mgiflib\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/giflib/manifests/5.2.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/51910e68b838a5c62c91c9352172d516e77a3c3c1a59a2cebaffc3f64f46adf4--giflib-5.2.1.bottle_manifest.json\r\n"
+  - delay: 84
+    content: "\e[34m==>\e[0m \e[1mPouring giflib--5.2.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 140
+    content: "🍺  /usr/local/Cellar/giflib/5.2.1: 19 files, 518.5KB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibpng\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libpng/manifests/1.6.42\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/25adb40509f2e0ba6f2c24e82e11e489f9ff8c96d072c1d6975c86d244d4e524--libpng-1.6.42.bottle_manifest.json\r\n"
+  - delay: 79
+    content: "\e[34m==>\e[0m \e[1mPouring libpng--1.6.42.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 199
+    content: "🍺  /usr/local/Cellar/libpng/1.6.42: 27 files, 1.3MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mfreetype\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/freetype/manifests/2.13.2-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8d6ca45fa8766fb544a5e6dbc76f0a68568656ab4fe1e837704491bb24e3035d--freetype-2.13.2-1.bottle_manifest.json\r\n"
+  - delay: 81
+    content: "\e[34m==>\e[0m \e[1mPouring freetype--2.13.2.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 228
+    content: "🍺  /usr/local/Cellar/freetype/2.13.2: 67 files, 2.5MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mfontconfig\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/fontconfig/manifests/2.15.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/33d176010dc9a105404ed23b6c0f8b853bf3a2df2e274876d412d7229a643320--fontconfig-2.15.0.bottle_manifest.json\r\n"
+  - delay: 91
+    content: "\e[34m==>\e[0m \e[1mPouring fontconfig--2.15.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 557
+    content: "\e[34m==>\e[0m \e[1mRegenerating font cache, this may take a while\e[0m\r\n\e[34m==>\e[0m \e[1m/usr/local/Cellar/fontconfig/2.15.0/bin/fc-cache -frv\e[0m\r\n"
+  - delay: 1045
+    content: "🍺  /usr/local/Cellar/fontconfig/2.15.0: 90 files, 2.2MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mglib\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/glib/manifests/2.78.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/aef5bf088596f6a37eb7ae224416357a2769019fea7a8a82896a6065e374f754--glib-2.78.4.bottle_manifest.json\r\n"
+  - delay: 106
+    content: "\e[34m==>\e[0m \e[1mPouring glib--2.78.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 889
+    content: "🍺  /usr/local/Cellar/glib/2.78.4: 456 files, 21.3MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mxorgproto\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/xorgproto/manifests/2023.2\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8740825bd79ba6441c86fb430f955cb3d08f4693dd2947fe877c11c7c8122343--xorgproto-2023.2.bottle_manifest.json\r\n"
+  - delay: 93
+    content: "\e[34m==>\e[0m \e[1mPouring xorgproto--2023.2.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 392
+    content: "🍺  /usr/local/Cellar/xorgproto/2023.2: 267 files, 3.9MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibxau\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxau/manifests/1.0.11\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/7faff26297b2e07682655beaa529cff7b3de0ad1abc013863ca3d03602b79ee7--libxau-1.0.11.bottle_manifest.json\r\n"
+  - delay: 90
+    content: "\e[34m==>\e[0m \e[1mPouring libxau--1.0.11.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 224
+    content: "🍺  /usr/local/Cellar/libxau/1.0.11: 21 files, 105.5KB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibxdmcp\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxdmcp/manifests/1.1.4\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/1af80edced252b5f690f78a3805b785cbf689dc947cd5f45dced60c97640a9c9--libxdmcp-1.1.4.bottle_manifest.json\r\n"
+  - delay: 95
+    content: "\e[34m==>\e[0m \e[1mPouring libxdmcp--1.1.4.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 138
+    content: "🍺  /usr/local/Cellar/libxdmcp/1.1.4: 11 files, 113.7KB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibxcb\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxcb/manifests/1.16-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/9f2d408e88eb406c55d255e0e7c935c12ec3588a121c969d42635346d8ab3497--libxcb-1.16-1.bottle_manifest.json\r\n"
+  - delay: 105
+    content: "\e[34m==>\e[0m \e[1mPouring libxcb--1.16.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 1265
+    content: "🍺  /usr/local/Cellar/libxcb/1.16: 2,491 files, 7MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibx11\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libx11/manifests/1.8.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/4d15c929e0532c9a908dcb7d562929ecc5dd3a0a0cd4c19cf50683c06282fd7f--libx11-1.8.7.bottle_manifest.json\r\n"
+  - delay: 116
+    content: "\e[34m==>\e[0m \e[1mPouring libx11--1.8.7.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 994
+    content: "🍺  /usr/local/Cellar/libx11/1.8.7: 1,042 files, 6.9MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibxext\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxext/manifests/1.3.5\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/36b14aebd45b8fbf0f965d846bbc5126adbe882c0775c9936edb0432b347b9a1--libxext-1.3.5.bottle_manifest.json\r\n"
+  - delay: 121
+    content: "\e[34m==>\e[0m \e[1mPouring libxext--1.3.5.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 253
+    content: "🍺  /usr/local/Cellar/libxext/1.3.5: 87 files, 427.4KB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibxrender\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libxrender/manifests/0.9.11\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/134c11be8346a1b116e04983c2da6366f29c4f4c2abc17604dcdb80d0475ae9d--libxrender-0.9.11.bottle_manifest.json\r\n"
+  - delay: 116
+    content: "\e[34m==>\e[0m \e[1mPouring libxrender--0.9.11.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 150
+    content: "🍺  /usr/local/Cellar/libxrender/0.9.11: 12 files, 198.0KB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlzo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/lzo/manifests/2.10\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d4aa5b0c239912c53bc857d1012c6b7feb4acb509618f5e100f95bf8521f08e7--lzo-2.10.bottle_manifest.json\r\n"
+  - delay: 89
+    content: "\e[34m==>\e[0m \e[1mPouring lzo--2.10.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 171
+    content: "🍺  /usr/local/Cellar/lzo/2.10: 31 files, 555.7KB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mpixman\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/pixman/manifests/0.42.2-1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/2b0d8f2c63712ce503fa54309b732051a7ca5cd31bd561aa4aaba331bf26bcef--pixman-0.42.2-1.bottle_manifest.json\r\n"
+  - delay: 85
+    content: "\e[34m==>\e[0m \e[1mPouring pixman--0.42.2.sonoma.bottle.1.tar.gz\e[0m\r\n"
+  - delay: 142
+    content: "🍺  /usr/local/Cellar/pixman/0.42.2: 11 files, 1.4MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mcairo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/cairo/manifests/1.18.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/1b8b7f19e38cb0e029497dfe0ad3f3557f605025c5575bdfe86c17b889c6e6d1--cairo-1.18.0.bottle_manifest.json\r\n"
+  - delay: 163
+    content: "\e[34m==>\e[0m \e[1mPouring cairo--1.18.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 714
+    content: "🍺  /usr/local/Cellar/cairo/1.18.0: 52 files, 2.1MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mgraphite2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/graphite2/manifests/1.3.14\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/bbb4dd2ef1846301d1eb08053e19e11ca9c780f93f4d3b2d638fd94a9bf54a0c--graphite2-1.3.14.bottle_manifest.json\r\n"
+  - delay: 125
+    content: "\e[34m==>\e[0m \e[1mPouring graphite2--1.3.14.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 192
+    content: "🍺  /usr/local/Cellar/graphite2/1.3.14: 18 files, 261.0KB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mharfbuzz\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/harfbuzz/manifests/8.3.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/8fccd91a473694ef9d916ce061ae69cb18243bdab491757fae06fed911dd5b63--harfbuzz-8.3.0.bottle_manifest.json\r\n"
+  - delay: 198
+    content: "\e[34m==>\e[0m \e[1mPouring harfbuzz--8.3.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 688
+    content: "🍺  /usr/local/Cellar/harfbuzz/8.3.0: 76 files, 9.8MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mjpeg-turbo\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-turbo/manifests/3.0.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/abe7baf77a474e831f940214d72e8d72182373e6ea726884670f2d90f47525a7--jpeg-turbo-3.0.1.bottle_manifest.json\r\n"
+  - delay: 86
+    content: "\e[34m==>\e[0m \e[1mPouring jpeg-turbo--3.0.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 273
+    content: "🍺  /usr/local/Cellar/jpeg-turbo/3.0.1: 44 files, 4.8MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlibtiff\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libtiff/manifests/4.6.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/9c8455a2f6bcea7bf3e3461218fba309141b0b0553b6e1afc5fe64e63caccff3--libtiff-4.6.0.bottle_manifest.json\r\n"
+  - delay: 101
+    content: "\e[34m==>\e[0m \e[1mPouring libtiff--4.6.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 969
+    content: "🍺  /usr/local/Cellar/libtiff/4.6.0: 414 files, 6.6MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mlittle-cms2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/little-cms2/manifests/2.16\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/c4e2b31b0daade62da1f3c2e57d69f74987bac35310011b87220145fa60b3558--little-cms2-2.16.bottle_manifest.json\r\n"
+  - delay: 106
+    content: "\e[34m==>\e[0m \e[1mPouring little-cms2--2.16.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 375
+    content: "🍺  /usr/local/Cellar/little-cms2/2.16: 22 files, 1.3MB\r\n\e[32m==>\e[0m \e[1mInstalling fop dependency: \e[32mopenjdk\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openjdk/manifests/21.0.2\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/d437bb150fa297f0ee7f7f26594cb0a1e7aec55a45ec6570ed8660a033b7c3f9--openjdk-21.0.2.bottle_manifest.json\r\n"
+  - delay: 245
+    content: "\e[34m==>\e[0m \e[1mPouring openjdk--21.0.2.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 2112
+    content: "🍺  /usr/local/Cellar/openjdk/21.0.2: 600 files, 331.5MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mfop\e[39m\e[0m\r\n"
+  - delay: 94
+    content: "\e[34m==>\e[0m \e[1mPouring fop--2.9.all.bottle.tar.gz\e[0m\r\n"
+  - delay: 1280
+    content: "🍺  /usr/local/Cellar/fop/2.9: 4,046 files, 102.0MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup fop`...\e[0m\r\n"
+  - delay: 59
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for gcc: \e[32misl\e[39m, \e[32mmpfr\e[39m and \e[32mlibmpc\e[39m\e[0m\r\n\e[32m==>\e[0m \e[1mInstalling gcc dependency: \e[32misl\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/isl/manifests/0.26\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/ec0bbec77171645273dd59a9ccfdf290deccd999b3ca2082e0478d282b777ec0--isl-0.26.bottle_manifest.json\r\n"
+  - delay: 100
+    content: "\e[34m==>\e[0m \e[1mPouring isl--0.26.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 259
+    content: "🍺  /usr/local/Cellar/isl/0.26: 73 files, 7.6MB\r\n\e[32m==>\e[0m \e[1mInstalling gcc dependency: \e[32mmpfr\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/mpfr/manifests/4.2.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/a2a3424f4974f6febfa0334a93f35f508eaef3f4ad04320f73d9498302295635--mpfr-4.2.1.bottle_manifest.json\r\n"
+  - delay: 96
+    content: "\e[34m==>\e[0m \e[1mPouring mpfr--4.2.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 213
+    content: "🍺  /usr/local/Cellar/mpfr/4.2.1: 30 files, 3.1MB\r\n\e[32m==>\e[0m \e[1mInstalling gcc dependency: \e[32mlibmpc\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libmpc/manifests/1.3.1\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/fdfa98e0f8bb3ce075cb32776ac2345aa2f89252706c162aecfc841085fa76be--libmpc-1.3.1.bottle_manifest.json\r\n"
+  - delay: 97
+    content: "\e[34m==>\e[0m \e[1mPouring libmpc--1.3.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 174
+    content: "🍺  /usr/local/Cellar/libmpc/1.3.1: 12 files, 497.8KB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mgcc\e[39m\e[0m\r\n"
+  - delay: 84
+    content: "\e[34m==>\e[0m \e[1mPouring gcc--13.2.0.sonoma.bottle.2.tar.gz\e[0m\r\n"
+  - delay: 2641
+    content: "🍺  /usr/local/Cellar/gcc/13.2.0: 1,590 files, 401.9MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup gcc`...\e[0m\r\n"
+  - delay: 15
+    content: "\e[34m==>\e[0m \e[1mRunning `brew cleanup readline`...\e[0m\r\n"
+  - delay: 105
+    content: "\e[34m==>\e[0m \e[1mPouring zlib--1.3.1.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 151
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\nzlib is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nFor compilers to find zlib you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/zlib/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/zlib/include\"\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n🍺  /usr/local/Cellar/zlib/1.3.1: 13 files, 410.2KB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup zlib`...\e[0m\r\n"
+  - delay: 62
+    content: "\e[32m==>\e[0m \e[1mInstalling dependencies for curl: \e[32mlibidn2\e[39m, \e[32mlibnghttp2\e[39m and \e[32mopenldap\e[39m\e[0m\r\n"
+  - delay: 59
+    content: "\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mlibidn2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libidn2/manifests/2.3.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/45d1d4d2930c4782bf53e761a1c0166cd8a40f4193ac8c44e86f0b6708e80354--libidn2-2.3.7.bottle_manifest.json\r\n"
+  - delay: 92
+    content: "\e[34m==>\e[0m \e[1mPouring libidn2--2.3.7.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 406
+    content: "🍺  /usr/local/Cellar/libidn2/2.3.7: 80 files, 1MB\r\n"
+  - delay: 5
+    content: "\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mlibnghttp2\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/libnghttp2/manifests/1.59.0\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/000fc33917deb23823dafe707ff27fc4698c9d0a10f26abbd121c5e3d9cd867a--libnghttp2-1.59.0.bottle_manifest.json\r\n"
+  - delay: 91
+    content: "\e[34m==>\e[0m \e[1mPouring libnghttp2--1.59.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 148
+    content: "🍺  /usr/local/Cellar/libnghttp2/1.59.0: 13 files, 747.0KB\r\n\e[32m==>\e[0m \e[1mInstalling curl dependency: \e[32mopenldap\e[39m\e[0m\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/openldap/manifests/2.6.7\e[0m\r\nAlready downloaded: /Users/cloud/Library/Caches/Homebrew/downloads/e87d8ed2b5650e16104d32d46c66a2385b30073d8fc68d969c74d1caaf8b6d75--openldap-2.6.7.bottle_manifest.json\r\n"
+  - delay: 93
+    content: "\e[34m==>\e[0m \e[1mPouring openldap--2.6.7.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 573
+    content: "🍺  /usr/local/Cellar/openldap/2.6.7: 340 files, 7.5MB\r\n\e[32m==>\e[0m \e[1mInstalling \e[32mcurl\e[39m\e[0m\r\n"
+  - delay: 96
+    content: "\e[34m==>\e[0m \e[1mPouring curl--8.6.0.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 871
+    content: "\e[34m==>\e[0m \e[1mCaveats\e[0m\r\ncurl is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have curl first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/curl/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find curl you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/curl/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/curl/include\"\r\n\r\nzsh completions have been installed to:\r\n  /usr/local/opt/curl/share/zsh/site-functions\r\n\e[34m==>\e[0m \e[1mSummary\e[0m\r\n"
+  - delay: 13
+    content: "🍺  /usr/local/Cellar/curl/8.6.0: 525 files, 4.0MB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup curl`...\e[0m\r\n"
+  - delay: 28
+    content: "Removing: /usr/local/Cellar/curl/8.5.0... (522 files, 4.4MB)\r\n"
+  - delay: 82
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/curl--8.5.0... (1.3MB)\r\n"
+  - delay: 108
+    content: "\e[34m==>\e[0m \e[1mPouring ossp-uuid--1.6.2_2.sonoma.bottle.tar.gz\e[0m\r\n"
+  - delay: 222
+    content: "🍺  /usr/local/Cellar/ossp-uuid/1.6.2_2: 18 files, 255.2KB\r\n\e[34m==>\e[0m \e[1mRunning `brew cleanup ossp-uuid`...\e[0m\r\n"
+  - delay: 863
+    content: "\e[34m==>\e[0m \e[1mUpgrading 1 dependent of upgraded formulae:\e[0m\r\nDisable this behaviour by setting HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK.\r\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\r\nnode 21.5.0 -> 21.6.1\r\n\e[34m==>\e[0m \e[1mDownloading https://ghcr.io/v2/homebrew/core/node/manifests/21.6.1\e[0m\r\n"
+  - delay: 200
+    content: "#=#=#                                                                         \r"
+  - delay: 189
+    content: "\r###############################################                           65.3%"
+  - delay: 20
+    content: "\r######################################################################## 100.0%\r\n"
+  - delay: 121
+    content: "\e[32m==>\e[0m \e[1mChecking for dependents of upgraded formulae...\e[0m\r\n"
+  - delay: 809
+    content: "\e[34m==>\e[0m \e[1mNo broken dependents found!\e[0m\r\n\e[32m==>\e[0m \e[1m`brew cleanup` has not been run in the last 30 days, running now...\e[0m\r\nDisable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.\r\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\r\n"
+  - delay: 18
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/c-ares--1.25.0... (297.3KB)\r\n"
+  - delay: 91
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/git--2.43.0... (18.2MB)\r\n"
+  - delay: 88
+    content: "Removing: /usr/local/Cellar/libidn2/2.3.4_1... (79 files, 1003KB)\r\n"
+  - delay: 25
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/libidn2--2.3.4_1... (321.8KB)\r\n"
+  - delay: 18
+    content: "Removing: /usr/local/Cellar/libnghttp2/1.58.0... (13 files, 722KB)\r\n"
+  - delay: 10
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/libnghttp2--1.58.0... (214.7KB)\r\n"
+  - delay: 148
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/node--21.5.0... (15.7MB)\r\n"
+  - delay: 37
+    content: "Removing: /usr/local/Cellar/openldap/2.6.6... (340 files, 7.5MB)\r\n"
+  - delay: 57
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/openldap--2.6.6... (2.9MB)\r\n"
+  - delay: 165
+    content: "Removing: /Users/cloud/Library/Caches/Homebrew/Cask/warp--0.2024.01.02.08.02.stable_02.stable_02... (68.9MB)\r\n"
+  - delay: 7
+    content: "Removing: /Users/cloud/Library/Logs/Homebrew/openssl@3... (64B)\r\nRemoving: /Users/cloud/Library/Logs/Homebrew/ca-certificates... (64B)\r\nRemoving: /Users/cloud/Library/Logs/Homebrew/node... (64B)\r\n"
+  - delay: 616
+    content: "Pruned 0 symbolic links and 61 directories from /usr/local\r\n"
+  - delay: 213
+    content: "\e[32m==>\e[0m \e[1mCaveats\e[0m\r\n\e[34m==>\e[0m \e[1mopenssl@1.1\e[0m\r\nA CA file has been bootstrapped using certificates from the system\r\nkeychain. To add additional certificates, place .pem files in\r\n  /usr/local/etc/openssl@1.1/certs\r\n\r\nand run\r\n  /usr/local/opt/openssl@1.1/bin/c_rehash\r\n\r\nopenssl@1.1 is keg-only, which means it was not symlinked into /usr/local,\r\nbecause this is an alternate version of another formula.\r\n\r\nIf you need to have openssl@1.1 first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/openssl@1.1/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find openssl@1.1 you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/openssl@1.1/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/openssl@1.1/include\"\r\n\e[34m==>\e[0m \e[1mopenssl@3\e[0m\r\nA CA file has been bootstrapped using certificates from the system\r\nkeychain. To add additional certificates, place .pem files in\r\n  /usr/local/etc/openssl@3/certs\r\n\r\nand run\r\n  /usr/local/opt/openssl@3/bin/c_rehash\r\n\e[34m==>\e[0m \e[1mlibxslt\e[0m\r\nTo allow the nokogiri gem to link against this libxslt run:\r\n  gem install nokogiri -- --with-xslt-dir=/usr/local/opt/libxslt\r\n\r\nlibxslt is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have libxslt first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/libxslt/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find libxslt you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/libxslt/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/libxslt/include\"\r\n\e[34m==>\e[0m \e[1mzlib\e[0m\r\nzlib is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nFor compilers to find zlib you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/zlib/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/zlib/include\"\r\n\e[34m==>\e[0m \e[1mcurl\e[0m\r\ncurl is keg-only, which means it was not symlinked into /usr/local,\r\nbecause macOS already provides this software and installing another version in\r\nparallel can cause all kinds of trouble.\r\n\r\nIf you need to have curl first in your PATH, run:\r\n  echo 'export PATH=\"/usr/local/opt/curl/bin:$PATH\"' >> ~/.zshrc\r\n\r\nFor compilers to find curl you may need to set:\r\n  export LDFLAGS=\"-L/usr/local/opt/curl/lib\"\r\n  export CPPFLAGS=\"-I/usr/local/opt/curl/include\"\r\n\r\nzsh completions have been installed to:\r\n  /usr/local/opt/curl/share/zsh/site-functions\r\n"
+  - delay: 71
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 5600
+    content: "\e[7mecho 'export KERL_CONFIGURE_OPTIONS=\"--without-javac --with-ssl=$(brew --pref\e[7mi\e[7mx openssl@1.1)\"' >> ~/.zshrc\e[27m\e[K"
+  - delay: 723
+    content: "\e[A\e[27D\e[27me\e[27mc\e[27mh\e[27mo\e[27m \e[27m'\e[27me\e[27mx\e[27mp\e[27mo\e[27mr\e[27mt\e[27m \e[27mK\e[27mE\e[27mR\e[27mL\e[27m_\e[27mC\e[27mO\e[27mN\e[27mF\e[27mI\e[27mG\e[27mU\e[27mR\e[27mE\e[27m_\e[27mO\e[27mP\e[27mT\e[27mI\e[27mO\e[27mN\e[27mS\e[27m=\e[27m\"\e[27m-\e[27m-\e[27mw\e[27mi\e[27mt\e[27mh\e[27mo\e[27mu\e[27mt\e[27m-\e[27mj\e[27ma\e[27mv\e[27ma\e[27mc\e[27m \e[27m-\e[27m-\e[27mw\e[27mi\e[27mt\e[27mh\e[27m-\e[27ms\e[27ms\e[27ml\e[27m=\e[27m$\e[27m(\e[27mb\e[27mr\e[27me\e[27mw\e[27m \e[27m-\e[27m-\e[27mp\e[27mr\e[27me\e[27mfi\e[27mx\e[27m \e[27mo\e[27mp\e[27me\e[27mn\e[27ms\e[27ms\e[27ml\e[27m@\e[27m1\e[27m.\e[27m1\e[27m)\e[27m\"\e[27m'\e[27m \e[27m>\e[27m>\e[27m \e[27m~\e[27m/\e[27m.\e[27mz\e[27ms\e[27mh\e[27mr\e[27mc\e[?2004l\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[?2004l\r\r\n"

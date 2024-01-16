@@ -1,0 +1,289 @@
+config:
+  command: zsh
+  cwd: /Users/cloud/perfect-elixir
+  env:
+    recording: true
+  cols: 79
+  rows: 20
+  repeat: 0
+  quality: 100
+  frameDelay: auto
+  maxIdleTime: 2000
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  cursorStyle: block
+  fontFamily: Monaco, Lucida Console, Ubuntu Mono, Monospace
+  fontSize: 12
+  lineHeight: 1
+  letterSpacing: 0
+  theme:
+    background: transparent
+    foreground: '#afafaf'
+    cursor: '#c7c7c7'
+    black: '#232628'
+    red: '#fc4384'
+    green: '#b3e33b'
+    yellow: '#ffa727'
+    blue: '#75dff2'
+    magenta: '#ae89fe'
+    cyan: '#708387'
+    white: '#d5d5d0'
+    brightBlack: '#626566'
+    brightRed: '#ff7fac'
+    brightGreen: '#c8ed71'
+    brightYellow: '#ebdf86'
+    brightBlue: '#75dff2'
+    brightMagenta: '#ae89fe'
+    brightCyan: '#b1c6ca'
+    brightWhite: '#f9f9f4'
+records:
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 3000
+    content: v
+  - delay: 71
+    content: "\bvi"
+  - delay: 81
+    content: m
+  - delay: 79
+    content: ' '
+  - delay: 111
+    content: .
+  - delay: 78
+    content: t
+  - delay: 96
+    content: o
+  - delay: 97
+    content: o
+  - delay: 92
+    content: "l-versions\e[1m \e[0m"
+  - delay: 377
+    content: "\b\e[0m \b\e[?2004l\r\r\n"
+  - delay: 39
+    content: "\e[?1049h\e[>4;2m\e[?1h\e=\e[?2004h\e[?1004h\e[1;20r\e[?12h\e[?12l\e[22;2t\e[22;1t\e[27m\e[23m\e[29m\e[m\e[H\e[2J\e[?25l\e[20;1H\".tool-versions\" 4L, 56B\e[2;1H▽\e[6n\e[2;1H  \e[3;1H\ePzz\e\\\e[0%m\e[6n\e[3;1H           \e[1;1H\e[>c\e]10;?\a\e]11;?\a\e[1;1Herlang 26.2.1\r\nelixir 1.16.0\e[2;14H\e[K\e[3;1Hpostgres 15.5\e[3;14H\e[K\e[4;1Hdirenv 2.30.0\r\n\e[94m~                                                                              \e[6;1H~                                                                              \e[7;1H~                                                                              \e[8;1H~                                                                              \e[9;1H~                                                                              \e[10;1H~                                                                              \e[11;1H~                                                                              \e[12;1H~                                                                              \e[13;1H~                                                                              \e[14;1H~                                                                              \e[15;1H~                                                                              \e[16;1H~                                                                              \e[17;1H~                                                                              \e[18;1H~                                                                              \e[19;1H~                                                                              \e[1;1H\e[?25h\e[?4m\e[?12$p\e[27m\e[23m\e[29m\e[m\e[H\e[2J\e[?25l\e[1;1Herlang 26.2.1\r\nelixir 1.16.0\r\npostgres 15.5\r\ndirenv 2.30.0\r\n\e[94m~                                                                              \e[6;1H~                                                                              \e[7;1H~                                                                              \e[8;1H~                                                                              \e[9;1H~                                                                              \e[10;1H~                                                                              \e[11;1H~                                                                              \e[12;1H~                                                                              \e[13;1H~                                                                              \e[14;1H~                                                                              \e[15;1H~                                                                              \e[16;1H~                                                                              \e[17;1H~                                                                              \e[18;1H~                                                                              \e[19;1H~                                                                              \e[m\e[20;1H\".tool-versions\" 4L, 56B\e[1;1H\e[?25h"
+  - delay: 5
+    content: e
+  - delay: 5
+    content: r
+  - delay: 5
+    content: l
+  - delay: 5
+    content: a
+  - delay: 5
+    content: 'n'
+  - delay: 5
+    content: g
+  - delay: 5
+    content: ' '
+  - delay: 5
+    content: '2'
+  - delay: 5
+    content: '6'
+  - delay: 5
+    content: .
+  - delay: 5
+    content: '2'
+  - delay: 312
+    content: .
+  - delay: 169
+    content: "\e[?25l2\b\e[?25h"
+  - delay: 628
+    content: "\a\e[?25l\e[20;1H\e[K\e[20;1H:\e[?25h"
+  - delay: 122
+    content: w
+  - delay: 15
+    content: q
+  - delay: 460
+    content: "\r\e[?25l\e[?2004l\e[>4;m\".tool-versions\""
+  - delay: 11
+    content: " 4L, 56B written\r\e[23;2t\e[23;1t\r\r\n\e[?1004l\e[?2004l\e[?1l\e>\e[?1049l\e[?25h\e[>4;m\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 10
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 181
+    content: "c\bcd"
+  - delay: 232
+    content: ' '
+  - delay: 78
+    content: .
+  - delay: 112
+    content: .
+  - delay: 111
+    content: "\e[?2004l\r\r\n"
+  - delay: 10
+    content: "direnv: unloading\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 614
+    content: c
+  - delay: 98
+    content: "\bcd"
+  - delay: 78
+    content: ' '
+  - delay: 278
+    content: p
+  - delay: 81
+    content: e
+  - delay: 66
+    content: r
+  - delay: 179
+    content: "fect-elixir\e[1m/\e[0m"
+  - delay: 369
+    content: "\b\e[0m \b\e[?2004l\r\r\n"
+  - delay: 45
+    content: "direnv: loading ~/perfect-elixir/.envrc\r\ndirenv: using asdf\r\n"
+  - delay: 77
+    content: "direnv: Creating env file /Users/cloud/.cache/asdf-direnv/env/296711122-3070246356-4104689224-2460104860\r\n"
+  - delay: 251
+    content: "\e[31mdirenv: erlang 26.2.2 not installed. Run 'asdf direnv install' to install.\e(B\e[m\r\ndirenv: referenced  does not exist\r\n"
+  - delay: 12
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 10
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 85
+    content: a
+  - delay: 48
+    content: "\bas"
+  - delay: 63
+    content: d
+  - delay: 113
+    content: f
+  - delay: 90
+    content: ' '
+  - delay: 78
+    content: d
+  - delay: 82
+    content: i
+  - delay: 79
+    content: r
+  - delay: 90
+    content: e
+  - delay: 80
+    content: 'n'
+  - delay: 79
+    content: v
+  - delay: 64
+    content: ' '
+  - delay: 78
+    content: i
+  - delay: 33
+    content: 'n'
+  - delay: 64
+    content: s
+  - delay: 96
+    content: t
+  - delay: 79
+    content: a
+  - delay: 31
+    content: l
+  - delay: 91
+    content: l
+  - delay: 90
+    content: "\e[?2004l\r\r\n"
+  - delay: 591
+    content: "\e[31masdf_26.2.2 is not a kerl-managed Erlang/OTP installation\e(B\e[m\r\n"
+  - delay: 51
+    content: "\e[31mNo build named asdf_26.2.2\e(B\e[m\r\n"
+  - delay: 585
+    content: "\e[34mDownloading 26.2.2 to /Users/cloud/.asdf/downloads/erlang/26.2.2...\e(B\e[m\r\n"
+  - delay: 14
+    content: "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0"
+  - delay: 79
+    content: "\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n"
+  - delay: 512
+    content: "\r  3  101M    3 4062k    0     0  5009k      0  0:00:20 --:--:--  0:00:20 5009k"
+  - delay: 90
+    content: "\r 14  101M   14 14.8M    0     0  8417k      0  0:00:12  0:00:01  0:00:11 10.9M"
+  - delay: 90
+    content: "\r 24  101M   24 24.8M    0     0  9050k      0  0:00:11  0:00:02  0:00:09 10.4M"
+  - delay: 90
+    content: "\r 35  101M   35 35.5M    0     0  9551k      0  0:00:10  0:00:03  0:00:07 10.5M"
+  - delay: 90
+    content: "\r 45  101M   45 45.5M    0     0  9696k      0  0:00:10  0:00:04  0:00:06 10.3M"
+  - delay: 90
+    content: "\r 55  101M   55 56.0M    0     0  9882k      0  0:00:10  0:00:05  0:00:05 10.4M"
+  - delay: 90
+    content: "\r 66  101M   66 66.7M    0     0   9.8M      0  0:00:10  0:00:06  0:00:04 10.3M"
+  - delay: 90
+    content: "\r 77  101M   77 78.1M    0     0  10.0M      0  0:00:10  0:00:07  0:00:03 10.6M"
+  - delay: 90
+    content: "\r 88  101M   88 89.1M    0     0  10.1M      0  0:00:09  0:00:08  0:00:01 10.7M"
+  - delay: 90
+    content: "\r 98  101M   98 99.8M    0     0  10.1M      0  0:00:09  0:00:09 --:--:-- 10.8M"
+  - delay: 81
+    content: "\r100  101M  100  101M    0     0  10.1M      0  0:00:09  0:00:09 --:--:-- 10.9M\r\n"
+  - delay: 29
+    content: "\e[34mExtracting source code\e(B\e[m\r\n"
+  - delay: 1046
+    content: "\e[34mBuilding Erlang/OTP 26.2.2 (asdf_26.2.2), please wait...\e(B\e[m\r\n"
+  - delay: 3308
+    content: "APPLICATIONS DISABLED (See: /Users/cloud/.asdf/plugins/erlang/kerl-home/builds/asdf_26.2.2/otp_build_26.2.2.log)\r\n * jinterface     : Java compiler disabled by user\r\n * odbc           : ODBC library - link check failed\r\n\r\n"
+  - delay: 9
+    content: "APPLICATIONS INFORMATION (See: /Users/cloud/.asdf/plugins/erlang/kerl-home/builds/asdf_26.2.2/otp_build_26.2.2.log)\r\n * wx             : wxWidgets was not compiled with --enable-webview or wxWebView developer package is not installed, wxWebView will NOT be available\r\n *         wxWidgets must be installed on your system.\r\n *         Please check that wx-config is in path, the directory\r\n *         where wxWidgets libraries are installed (returned by\r\n *         'wx-config --libs' or 'wx-config --static --libs' command)\r\n *         is in LD_LIBRARY_PATH or equivalent variable and\r\n *         wxWidgets version is 3.0.2 or above.\r\n\r\n"
+  - delay: 5184
+    content: "\e[32mErlang/OTP 26.2.2 (asdf_26.2.2) has been successfully built\e(B\e[m\r\n"
+  - delay: 2137
+    content: "\e[34mCleaning up compilation products for asdf_26.2.2\e(B\e[m\r\n"
+  - delay: 104
+    content: "\e[34mCleaned up compilation products for asdf_26.2.2 under /Users/cloud/.asdf/plugins/erlang/kerl-home/builds\e(B\e[m\r\n"
+  - delay: 694
+    content: "elixir 1.16.0 is already installed\r\n"
+  - delay: 73
+    content: "direnv: loading ~/.asdf/plugins/elixir/bin/exec-env\r\n"
+  - delay: 70
+    content: "postgres 15.5 is already installed\r\n"
+  - delay: 54
+    content: "direnv: loading ~/.asdf/plugins/postgres/bin/exec-env\r\n"
+  - delay: 80
+    content: "direnv 2.30.0 is already installed\r\n"
+  - delay: 47
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 47
+    content: "direnv: loading ~/perfect-elixir/.envrc\r\ndirenv: using asdf\r\n"
+  - delay: 83
+    content: "direnv: Creating env file /Users/cloud/.cache/asdf-direnv/env/296711122-3070246356-1241289663-2460104860\r\n"
+  - delay: 281
+    content: "direnv: loading ~/.cache/asdf-direnv/env/296711122-3070246356-1241289663-2460104860\r\ndirenv: using asdf direnv 2.30.0\r\n"
+  - delay: 14
+    content: "direnv: using asdf postgres 15.5\r\n"
+  - delay: 22
+    content: "direnv: loading ~/.asdf/plugins/postgres/bin/exec-env\r\ndirenv: using asdf elixir 1.16.0\r\n"
+  - delay: 33
+    content: "direnv: loading ~/.asdf/plugins/elixir/bin/exec-env\r\ndirenv: using asdf erlang 26.2.2\r\n"
+  - delay: 19
+    content: "direnv: export +LD_LIBRARY_PATH +MIX_ARCHIVES +MIX_HOME +PGDATA ~PATH\r\n\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1141
+    content: w
+  - delay: 100
+    content: "\bwh"
+  - delay: 48
+    content: i
+  - delay: 81
+    content: c
+  - delay: 78
+    content: h
+  - delay: 31
+    content: ' '
+  - delay: 123
+    content: e
+  - delay: 82
+    content: r
+  - delay: 95
+    content: l
+  - delay: 73
+    content: "\e[?2004l\r\r\n/Users/cloud/.asdf/installs/erlang/26.2.2/bin/erl\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 11
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[?2004l\r\r\n"

@@ -53,21 +53,21 @@ records:
     content: "\r\n"
   - delay: 100
     content: '$ '
-  - delay: 3000
+  - delay: 2000
     content: "\e[7masdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git\e[27m"
-  - delay: 1324
+  - delay: 200
     content: "\e[65D\e[27ma\e[27ms\e[27md\e[27mf\e[27m \e[27mp\e[27ml\e[27mu\e[27mg\e[27mi\e[27mn\e[27m \e[27ma\e[27md\e[27md\e[27m \e[27me\e[27mr\e[27ml\e[27ma\e[27mn\e[27mg\e[27m \e[27mh\e[27mt\e[27mt\e[27mp\e[27ms\e[27m:\e[27m/\e[27m/\e[27mg\e[27mi\e[27mt\e[27mh\e[27mu\e[27mb\e[27m.\e[27mc\e[27mo\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27mv\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27me\e[27mr\e[27ml\e[27ma\e[27mn\e[27mg\e[27m.\e[27mg\e[27mi\e[27mt\e[?2004l\r\r\n"
-  - delay: 1039
+  - delay: 800
     content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 3000
+  - delay: 1500
     content: "\e[7masdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git\e[27m"
-  - delay: 283
+  - delay: 200
     content: "\e[65D\e[27ma\e[27ms\e[27md\e[27mf\e[27m \e[27mp\e[27ml\e[27mu\e[27mg\e[27mi\e[27mn\e[27m-\e[27ma\e[27md\e[27md\e[27m \e[27me\e[27ml\e[27mi\e[27mx\e[27mi\e[27mr\e[27m \e[27mh\e[27mt\e[27mt\e[27mp\e[27ms\e[27m:\e[27m/\e[27m/\e[27mg\e[27mi\e[27mt\e[27mh\e[27mu\e[27mb\e[27m.\e[27mc\e[27mo\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27mv\e[27mm\e[27m/\e[27ma\e[27ms\e[27md\e[27mf\e[27m-\e[27me\e[27ml\e[27mi\e[27mx\e[27mi\e[27mr\e[27m.\e[27mg\e[27mi\e[27mt\e[?2004l\r\r\n"
-  - delay: 866
+  - delay: 800
     content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 3000
+  - delay: 1500
     content: "\e[7masdf plugin-add postgres\e[27m"
-  - delay: 427
+  - delay: 200
     content: "\e[24D\e[27ma\e[27ms\e[27md\e[27mf\e[27m \e[27mp\e[27ml\e[27mu\e[27mg\e[27mi\e[27mn\e[27m-\e[27ma\e[27md\e[27md\e[27m \e[27mp\e[27mo\e[27ms\e[27mt\e[27mg\e[27mr\e[27me\e[27ms\e[?2004l\r\r\n"
   - delay: 78
     content: initializing plugin repository...
