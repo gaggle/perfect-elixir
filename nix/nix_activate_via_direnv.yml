@@ -1,0 +1,159 @@
+config:
+  command: zsh
+  cwd: /Users/cloud/perfect-elixir
+  env:
+    recording: true
+  cols: 79
+  rows: 20
+  repeat: 0
+  quality: 100
+  frameDelay: auto
+  maxIdleTime: 2000
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  cursorStyle: block
+  fontFamily: Monaco, Lucida Console, Ubuntu Mono, Monospace
+  fontSize: 12
+  lineHeight: 1
+  letterSpacing: 0
+  theme:
+    background: transparent
+    foreground: '#afafaf'
+    cursor: '#c7c7c7'
+    black: '#232628'
+    red: '#fc4384'
+    green: '#b3e33b'
+    yellow: '#ffa727'
+    blue: '#75dff2'
+    magenta: '#ae89fe'
+    cyan: '#708387'
+    white: '#d5d5d0'
+    brightBlack: '#626566'
+    brightRed: '#ff7fac'
+    brightGreen: '#c8ed71'
+    brightYellow: '#ebdf86'
+    brightBlue: '#75dff2'
+    brightMagenta: '#ae89fe'
+    brightCyan: '#b1c6ca'
+    brightWhite: '#f9f9f4'
+records:
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 2800
+    content: "\e[7mecho \"use flake\" > .envrc\e[27m"
+  - delay: 372
+    content: "\e[25D\e[27me\e[27mc\e[27mh\e[27mo\e[27m \e[27m\"\e[27mu\e[27ms\e[27me\e[27m \e[27mf\e[27ml\e[27ma\e[27mk\e[27me\e[27m\"\e[27m \e[27m>\e[27m \e[27m.\e[27me\e[27mn\e[27mv\e[27mr\e[27mc\e[?2004l\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 12
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1655
+    content: "\e[7mdirenv allow\e[27m"
+  - delay: 475
+    content: "\e[12D\e[27md\e[27mi\e[27mr\e[27me\e[27mn\e[27mv\e[27m \e[27ma\e[27ml\e[27ml\e[27mo\e[27mw\e[?2004l\r\r\n"
+  - delay: 11
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 69
+    content: "\e[mdirenv: loading ~/perfect-elixir/.envrc\r\n\e[mdirenv: using flake\r\n"
+  - delay: 119
+    content: "\r\e[0m\e[K"
+  - delay: 50
+    content: "\revaluating derivation 'path:/Users/cloud/perfect-elixir#devShells.x86_64-darwin\e[0m\e[K"
+  - delay: 200
+    content: "\revaluating derivation 'path:/Users/cloud/perfect-elixir#devShells.x86_64-darwin\e[0m\e[K"
+  - delay: 52
+    content: "\revaluating derivation 'path:/Users/cloud/perfect-elixir#devShells.x86_64-darwin\e[0m\e[K"
+  - delay: 50
+    content: "\r[\e[32;1m0\e[0m/1 built] \e[0m\e[K"
+  - delay: 469
+    content: "\r\e[0m\e[K\r\e[K"
+  - delay: 70
+    content: "direnv: export +AR +AS +CC +CONFIG_SHELL +CXX +HOST_PATH +IN_NIX_SHELL +LD +LD_DYLD_PATH +MACOSX_DEPLOYMENT_TARGET +NIX_BINTOOLS +NIX_BINTOOLS_WRAPPER_TARGET_HOST_x86_64_apple_darwin +NIX_BUILD_CORES +NIX_BUILD_TOP +NIX_CC +NIX_CC_WRAPPER_TARGET_HOST_x86_64_apple_darwin +NIX_CFLAGS_COMPILE +NIX_DONT_SET_RPATH +NIX_DONT_SET_RPATH_FOR_BUILD +NIX_ENFORCE_NO_NATIVE +NIX_HARDENING_ENABLE +NIX_IGNORE_LD_THROUGH_GCC +NIX_LDFLAGS +NIX_NO_SELF_RPATH +NIX_STORE +NM +PATH_LOCALE +RANLIB +SIZE +SOURCE_DATE_EPOCH +STRINGS +STRIP +TEMP +TEMPDIR +TMP +ZERO_AR_DATE +__darwinAllowLocalNetworking +__impureHostDeps +__propagatedImpureHostDeps +__propagatedSandboxProfile +__sandboxProfile +__structuredAttrs +buildInputs +buildPhase +builder +cmakeFlags +configureFlags +depsBuildBuild +depsBuildBuildPropagated +depsBuildTarget +depsBuildTargetPropagated +depsHostHost +depsHostHostPropagated +depsTargetTarget +depsTargetTargetPropagated +doCheck +doInstallCheck +dontAddDisableDepTrack +mesonFlags +name +nativeBuildInputs +out +outputs +patches +phases +preferLocalBuild +propagatedBuildInputs +propagatedNativeBuildInputs +shell +shellHook +stdenv +strictDeps +system ~PATH ~TMPDIR ~XDG_DATA_DIRS\r\n"
+  - delay: 10
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 465
+    content: w
+  - delay: 9
+    content: "\bwh"
+  - delay: 42
+    content: i
+  - delay: 79
+    content: c
+  - delay: 70
+    content: h
+  - delay: 32
+    content: ' '
+  - delay: 60
+    content: e
+  - delay: 48
+    content: r
+  - delay: 66
+    content: l
+  - delay: 175
+    content: "\e[?2004l\r\r\n/nix/store/49qw7cw30wszrfn3sa23qnlskyvbnbhi-erlang-26.2.2/bin/erl\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 10
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 600
+    content: w
+  - delay: 97
+    content: "\bwh"
+  - delay: 64
+    content: i
+  - delay: 79
+    content: c
+  - delay: 64
+    content: h
+  - delay: 98
+    content: ' '
+  - delay: 80
+    content: e
+  - delay: 80
+    content: l
+  - delay: 81
+    content: i
+  - delay: 93
+    content: x
+  - delay: 99
+    content: i
+  - delay: 79
+    content: r
+  - delay: 81
+    content: "\e[?2004l\r\r\n/nix/store/rr6immch9mp8dphv1jvgxym35za4b7jy-elixir-1.16.1/bin/elixir\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 10
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 284
+    content: w
+  - delay: 112
+    content: "\bwh"
+  - delay: 48
+    content: i
+  - delay: 97
+    content: c
+  - delay: 80
+    content: h
+  - delay: 97
+    content: ' '
+  - delay: 90
+    content: p
+  - delay: 80
+    content: s
+  - delay: 77
+    content: q
+  - delay: 130
+    content: l
+  - delay: 144
+    content: "\e[?2004l\r\r\n/nix/store/v5ym92k3kss1af7n1788653vis1d6qsc-postgresql-15.5/bin/psql\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r"
+  - delay: 10
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[?2004l\r\r\n"
