@@ -1,9 +1,5 @@
 #!/bin/zsh
-
 eval "$(pkgx --shellcode)"
 # ^^ integrates `pkgx` during this script execution
-
 env +cli.github.com
-# ^^ add any dependencies here
-
-gh --version
+gh --help

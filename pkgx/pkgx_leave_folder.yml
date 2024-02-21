@@ -1,9 +1,9 @@
 config:
-  command: /bin/zsh
-  cwd: /Users/cloud/Projects/perfect-elixir
+  command: zsh
+  cwd: /Users/cloud/perfect-elixir
   env:
     recording: true
-  cols: 80
+  cols: 79
   rows: 20
   repeat: 0
   quality: 100
@@ -15,6 +15,14 @@ config:
     style:
       backgroundColor: black
       padding: 12px
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
   cursorStyle: block
   fontFamily: Monaco, Lucida Console, Ubuntu Mono, Monospace
   fontSize: 12
@@ -41,83 +49,87 @@ config:
     brightCyan: '#b1c6ca'
     brightWhite: '#f9f9f4'
 records:
-  - delay: 3000
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 2800
     content: c
-  - delay: 47
+  - delay: 49
     content: "\bcd"
-  - delay: 80
+  - delay: 49
     content: ' '
-  - delay: 96
+  - delay: 49
     content: .
-  - delay: 161
+  - delay: 49
     content: .
-  - delay: 719
+  - delay: 500
     content: "\e[?2004l\r\r\n\e[38;5;63menv\e[39m -erlang.org=26.2.1 -elixir-lang.org=1.16.0 -postgresql.org=15.2.0\r\n"
-  - delay: 1044
-    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 828
+  - delay: 200
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1800
     content: w
-  - delay: 15
+  - delay: 49
     content: "\bwh"
-  - delay: 98
+  - delay: 49
     content: i
-  - delay: 62
+  - delay: 49
     content: c
-  - delay: 113
+  - delay: 49
     content: h
-  - delay: 48
+  - delay: 49
     content: ' '
-  - delay: 399
+  - delay: 49
     content: e
-  - delay: 31
+  - delay: 49
+    content: r
+  - delay: 32
+    content: l
+  - delay: 177
+    content: "\e[?2004l\r\r\nerl not found\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1800
+    content: c
+  - delay: 49
+    content: "\bcd"
+  - delay: 49
+    content: ' '
+  - delay: 49
+    content: p
+  - delay: 49
+    content: e
+  - delay: 49
+    content: r
+  - delay: 49
+    content: f
+  - delay: 90
+    content: "ect-elixir\e[1m/\e[0m"
+  - delay: 300
+    content: "\b\e[0m \b\e[?2004l\r\r\n"
+  - delay: 600
+    content: "\e[1K\e[0Gresolving graph…"
+  - delay: 14
+    content: "\e[1K\e[0G"
+  - delay: 18
+    content: "\e[38;5;63menv\e[39m +erlang.org=26.2.1 +elixir-lang.org=1.16.0 +postgresql.org=15.2.0\r\n"
+  - delay: 5
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1800
+    content: w
+  - delay: 49
+    content: "\bwh"
+  - delay: 49
+    content: i
+  - delay: 49
+    content: c
+  - delay: 49
+    content: h
+  - delay: 49
+    content: ' '
+  - delay: 49
+    content: e
+  - delay: 49
     content: r
   - delay: 49
     content: l
-  - delay: 176
-    content: "\e[?2004l\r\r\nerl not found\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 1375
-    content: c
-  - delay: 114
-    content: "\bcd"
-  - delay: 207
-    content: ' '
-  - delay: 1103
-    content: p
-  - delay: 64
-    content: e
-  - delay: 48
-    content: r
   - delay: 177
-    content: "fect-elixir\e[1m/\e[0m"
-  - delay: 480
-    content: "\b\e[0m \b\e[?2004l\r\r\n"
-  - delay: 1027
-    content: "\e[1K\e[0Gresolving graph…"
-  - delay: 16
-    content: "\e[1K\e[0G"
-  - delay: 16
-    content: "\e[38;5;63menv\e[39m +erlang.org=26.2.1 +elixir-lang.org=1.16.0 +postgresql.org=15.2.0\r\n"
-  - delay: 5
-    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 839
-    content: w
-  - delay: 81
-    content: "\bwh"
-  - delay: 62
-    content: i
-  - delay: 112
-    content: c
-  - delay: 82
-    content: h
-  - delay: 81
-    content: ' '
-  - delay: 191
-    content: e
-  - delay: 96
-    content: r
-  - delay: 159
-    content: l
-  - delay: 193
-    content: "\e[?2004l\r\r\n/Users/cloud/.pkgx/erlang.org/v26.2.1/bin/erl\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 3000
+    content: "\e[?2004l\r\r\n/Users/cloud/.pkgx/erlang.org/v26.2.1/bin/erl\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
     content: "\e[?2004l\r\r\n"
