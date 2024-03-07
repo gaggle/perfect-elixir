@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo "This script should be sourced, not executed directly"
+    exit 1
+fi
+
+set +euo pipefail
+
+command -v brew &>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+command -v pkgx &>/dev/null || brew install pkgxdev/made/pkgx
+command -v dev &>/dev/null || eval "$(pkgx integrate)"
+command -v erl &>/dev/null || dev
+
+echo "Setup complete."
