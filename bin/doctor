@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+source "$(dirname "$0")/.shhelpers"
+
+if [[ "${BASH_SOURCE[0]}", == "${0}" ]]; then
+    echo "This script must be sourced, not executed directly"
+    exit 1
+fi
+
+set +euo pipefail
+
+section "System dependencies"
+check "Checking for Homebrew" "command -v brew &>/dev/null" "/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'"
+check "Checking for pkgx" "command -v pkgx &>/dev/null" "brew install pkgxdev/made/pkgx"
+#command -v dev &>/dev/null || eval "$(pkgx integrate)"
+#command -v erl &>/dev/null || dev
+
+cecho -bB --green "\n✅ System is healthy & ready"
