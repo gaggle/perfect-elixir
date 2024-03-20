@@ -8,6 +8,9 @@ defmodule PluggedCowboy.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      # Connect  Plug.Cowboy plug handler
+      {Plug.Cowboy, plug: PluggedCowboy.MyPlug, scheme: :http,
+        options: [port: 8080]}
       # Starts a worker by calling: PluggedCowboy.Worker.start_link(arg)
       # {PluggedCowboy.Worker, arg}
     ]
