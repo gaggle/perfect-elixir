@@ -8,6 +8,7 @@ defmodule BanditExample.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Bandit, plug: BanditExample.MyPlug, port: 8080}
       # Starts a worker by calling: BanditExample.Worker.start_link(arg)
       # {BanditExample.Worker, arg}
     ]
