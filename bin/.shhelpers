@@ -5,6 +5,70 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   exit 1
 fi
 
+cecho() {
+  local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param=""
+
+  cecho_usage() {
+    cecho "cecho: echo text with " -b --cyan "color" " and " -b -u "style" " options"
+    cecho "\nUsage: cecho [options] <text>"
+    cecho "\nExample: cecho --red -b \"Hello World\""
+    cecho -u "\nTEXT STYLES"
+    cecho "  -b, --bold       " -b "Bold or increased intensity"
+    cecho "  -f, --faint      " -f "Faint, decreased intensity, or dim"
+    cecho "  -i, --italic     " -i "Italic"
+    cecho "  -u, --underline  " -u "Underline"
+    cecho -u "\nCOLORS"
+    local color padding
+    for color in black red green yellow blue magenta cyan white; do
+      padding=$(printf '%*s' $((12 - ${#color})) "")
+      cecho "  --$color $(_padding $color, 12) " --$color "$color color $(_padding "$color" 8) (" --$color -B "bright" ")"
+    done
+    cecho "  -B, --bright   Bright color variant"
+    cecho -u "\nOTHER"
+    cecho "  -n              Do not output the trailing newline"
+    cecho "  -h, --help      Show this help and exit"
+  }
+
+  declare -A codes=(["--black"]="30" ["--red"]="31" ["--green"]="32" ["--yellow"]="33" ["--blue"]="34" ["--magenta"]="35" ["--cyan"]="36" ["--white"]="37" ["-b"]="1" ["--bold"]="1" ["-f"]="2" ["--faint"]="2" ["-i"]="3" ["--italic"]="3" ["-u"]="4" ["--underline"]="4" ["-n"]="" ["-B"]="")
+
+  apply_styles() {
+    for style in "${styles[@]}"; do
+      output+="\033[$([[ "$is_bright" == true && "$style" =~ ^3[0-7]$ ]] && echo "9${style: -1}" || echo "$style")m"
+    done
+    styles=()
+  }
+
+  while (($#)); do
+    param="$1"
+    shift
+    if [[ "$param" == "--help" ]]; then
+      cecho_usage
+      return 0
+    elif [[ "$param" == "-B" ]]; then
+      is_bright=true
+    elif [[ "$param" == "-n" ]]; then
+      suffix=""
+    elif [[ "$param" =~ ^-[a-zA-Z]{2,}$ ]]; then # Detect bundled short options
+      for ((i = 1; i < ${#param}; i++)); do
+        char="-${param:$i:1}"
+        if [[ "$char" == "-B" ]]; then
+          is_bright=true
+        elif [[ "$char" == "-n" ]]; then
+          suffix=""
+        elif [[ "${codes[$char]+_}" ]]; then
+          styles+=("${codes[$char]}")
+        else echo "Unknown option: $char" >&2; fi
+      done
+    elif [[ "${codes[$param]+_}" ]]; then
+      styles+=("${codes[$param]}")
+    else
+      [[ "${#styles[@]}" -ne 0 ]] && apply_styles
+      output+="$param$reset"
+    fi
+  done
+  echo -en "${output}${suffix}"
+}
+
 _padding() {
   local input="$1" total_length="$2"
   local input_length="${#input}"

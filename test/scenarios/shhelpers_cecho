@@ -1,0 +1,71 @@
+#!/usr/bin/env -S pkgx +pip@24 python@3
+
+import os
+import subprocess
+import sys
+
+try:
+    import pexpect
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pexpect"])
+    import pexpect
+
+BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../bin'))
+PROMPT = '$ '
+
+child = pexpect.spawn("/bin/zsh -f", env={"PS1": PROMPT}, timeout=5)
+child.logfile_read = sys.stdout.buffer
+try:
+    child.expect_exact(PROMPT)
+
+    child.sendline(f"source {BIN_DIR}/.shhelpers")
+    child.expect_exact(PROMPT)
+
+    # Test: Styles
+    child.sendline('cecho "Test: " -b "bold " -f "faint " -i "italic " -u "underline"')
+    child.expect('Test:.*bold.*faint.*italic.*underline')
+    child.expect_exact(PROMPT)
+
+    # Test: Colors
+    child.sendline('cecho "Test Colors: " --black "black " --red "red " --green "green " --yellow "yellow " --blue "blue " --magenta "magenta " --cyan "cyan " --white "white"')
+    child.expect('Test Colors:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
+    child.expect_exact(PROMPT)
+
+    # Test: Bright Colors
+    child.sendline('cecho "Test Brights: " -B --black "black " -B --red "red " -B --green "green " -B --yellow "yellow " -B --blue "blue " -B --magenta "magenta " -B --cyan "cyan " -B --white "white"')
+    child.expect('Test Brights:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
+    child.expect_exact(PROMPT)
+
+    # Test: Bundled args
+    child.sendline('cecho -bi "Test: Bundled " -Bu "args"')
+    child.expect('Test: Bundled.*args')
+    child.expect_exact(PROMPT)
+
+    # Test: Multiple styles & colors & reset
+    child.sendline('cecho "Test: " --green "Green " -u "Underlined" " and " -b "Bold"')
+    child.expect('Test:.*Green.*Underlined.*and.*Bold')
+    child.expect_exact(PROMPT)
+
+    # Test: Combining multiple styles and colors without explicit segment separators
+    child.sendline('cecho --blue "Test: Blue, " --yellow "Yellow, " "and " --green "Green Text"')
+    child.expect(r'Test: Blue,.*Yellow,.*and.*Green Text')
+    child.expect_exact(PROMPT)
+
+    # Test: No newline at the end
+    child.sendline('cecho -n --cyan "Test: Cyan No New"; echo "line"')
+    child.expect(r'Test: Cyan No New.*line')
+    child.expect_exact(PROMPT)
+
+    # Test: Help message
+    child.sendline('cecho --help')
+    child.expect_exact('Usage:')
+    child.expect_exact(PROMPT)
+
+    child.sendline("exit")
+    child.expect(pexpect.EOF)
+except (pexpect.exceptions.TIMEOUT, pexpect.exceptions.EOF) as e:
+    print(str(e))
+    child.close(force=True)
+else:
+    child.close()
+sys.exit(child.exitstatus)
