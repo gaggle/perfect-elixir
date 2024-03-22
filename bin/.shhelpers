@@ -1,0 +1,349 @@
+#!/usr/bin/env bash
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  echo "This script must be sourced, not executed directly"
+  exit 1
+fi
+
+cecho() {
+  set -euo pipefail
+  local color=""
+  local prefix=""
+  local reset=""
+  local style=""
+  local suffix="\n"
+  local is_bright=false
+  local is_color=true
+
+  cecho_usage() {
+    echo "Usage:"
+    echo "  cecho [-bfiunB] [--<color>] [-h | --help]  text"
+    echo ""
+    echo "TEXT STYLES"
+    echo "  -b, --bold       Bold or increased intensity"
+    echo "  -f, --faint      Faint, decreased intensity, or dim"
+    echo "  -i, --italic     Italic"
+    echo "  -u, --underline  Underline"
+    echo ""
+    echo "COLORS"
+    echo "  -B, --bright    Bright color variant"
+    echo "  --black         Black color"
+    echo "  --red           Red color"
+    echo "  --green         Green color"
+    echo "  --yellow        Yellow color"
+    echo "  --blue          Blue color"
+    echo "  --magenta       Magenta color"
+    echo "  --cyan          Cyan color"
+    echo "  --white         White color"
+    echo ""
+    echo "OTHER"
+    echo "  -n              Do not output the trailing newline"
+    echo "  -h, --help      Show this help and exit"
+    echo ""
+  }
+
+  # Check if terminal supports colors
+  if [ -t 1 ]; then
+    reset="\033[0m"
+  else
+    is_color=false
+  fi
+
+  while (($#)); do
+    case "$1" in
+    -[bfuiBn]*)
+      for ((i = 1; i < ${#1}; i++)); do
+        local current_character=${1:$i:1}
+        case "$current_character" in
+        b) style="${style};1" ;;
+        f) style="${style};2" ;;
+        i) style="${style};3" ;;
+        u) style="${style};4" ;;
+        B) is_bright=true ;;
+        n) suffix="" ;;
+        *)
+          cecho_usage
+          return 1
+          ;;
+        esac
+      done
+      shift
+      ;;
+    --bold)
+      style="${style};1"
+      shift
+      ;;
+    --faint)
+      style="${style};2"
+      shift
+      ;;
+    --italic)
+      style="${style};3"
+      shift
+      ;;
+    --underline)
+      style="${style};4"
+      if [[ $is_color == 'false' ]]; then
+        prefix="*"
+      fi
+      shift
+      ;;
+    --bright)
+      is_bright=true
+      shift
+      ;;
+    --black)
+      color="30"
+      shift
+      ;;
+    --red)
+      color="31"
+      shift
+      ;;
+    --green)
+      color="32"
+      shift
+      ;;
+    --yellow)
+      color="33"
+      shift
+      ;;
+    --blue)
+      color="34"
+      shift
+      ;;
+    --magenta)
+      color="35"
+      shift
+      ;;
+    --cyan)
+      color="36"
+      shift
+      ;;
+    --white)
+      color="37"
+      shift
+      ;;
+    -h | --help)
+      cecho_usage
+      return 0
+      ;;
+    *) break ;;
+    esac
+  done
+
+  if [[ $is_color == 'true' ]]; then
+    [[ $is_bright == 'true' ]] && color="9${color: -1}"
+    echo -en "\033[${style};${color}m${*:-""}${reset}${suffix}"
+  else
+    echo -en "${prefix}${*:-""}${suffix}"
+  fi
+}
+
+clipboard() {
+  set -euo pipefail
+
+  clipboard_usage() {
+    echo "Usage:"
+    echo "  clipboard [-h | --help] ???"
+  }
+
+  while (($#)); do
+    case "$1" in
+    -h | --help)
+      clipboard_usage
+      return 0
+      ;;
+    *) break ;;
+    esac
+  done
+
+  if command -v pbcopy >/dev/null; then
+    echo -n "$@" | pbcopy
+  else
+    cecho --yellow -fn "Warn: Clipboard command not available, tried to copy: "
+    cecho --yellow -b "$@"
+    return
+  fi
+}
+
+section() {
+  set -euo pipefail
+
+  section_usage() {
+    echo "Usage:"
+    echo "  section \"DESCRIPTION\""
+    echo ""
+    echo "Outputs underlined section header"
+    echo ""
+    echo "DESCRIPTION: Brief statement of the step being performed"
+  }
+
+  while (($#)); do
+    case "$1" in
+    -h | --help)
+      section_usage
+      return 0
+      ;;
+    *) break ;;
+    esac
+  done
+
+  cecho -Bbu "\n$1"
+}
+
+step() {
+  set -euo pipefail
+
+  local command=""
+  local command_output
+  local description=""
+  local with_output=0
+
+  step_usage() {
+    echo "Usage:"
+    echo "  step \"DESCRIPTION\" \"COMMAND\""
+    echo ""
+    echo "Performs a step described by DESCRIPTION by executing COMMAND."
+    echo "If the step passes, 'OK' is shown. If the step fails, 'FAILED' is shown,"
+    echo "along with the output of the command."
+    echo ""
+    echo "DESCRIPTION: Brief statement of the step being performed"
+    echo "COMMAND: The command that will be executed in the step"
+  }
+
+  while (("$#")); do
+    case "$1" in
+    -o | --with-output)
+      with_output=1
+      shift
+      ;;
+    -* | --*)
+      echo "Error: Unsupported flag $1" >&2
+      return 1
+      ;;
+    *)
+      if [[ -z $description ]]; then
+        description=$1
+      else
+        command=$1
+      fi
+      shift
+      ;;
+    esac
+  done
+
+  if [[ -z $description ]] || [[ -z $command ]]; then
+    step_usage
+    return 1
+  fi
+
+  _capture_shell_state
+  set +e
+  if ((with_output)); then
+    echo "• ${description} "
+    eval "${command}"
+    local command_exit_code=$?
+  else
+    echo -n "• ${description} "
+    command_output=$(eval "${command} 2>&1")
+    local command_exit_code=$?
+  fi
+  _restore_shell_state
+
+  if [[ ${command_exit_code} -eq 0 ]]; then
+    cecho --green -bB "OK"
+    return 0
+  else
+    cecho --red -b "FAILED"
+    cecho --red -n "> Executed: "
+    cecho -b --red "${command}"
+    [[ -z $command_output ]] || cecho --red "${command_output}"
+  fi
+
+  return ${command_exit_code}
+}
+
+check() {
+  set -euo pipefail
+
+  local description=$1
+  local command=$2
+  local remedy=$3
+
+  check_usage() {
+    echo "Usage:"
+    echo "  check \"DESCRIPTION\" \"COMMAND\" \"REMEDY\""
+    echo ""
+    echo "Performs a check described by DESCRIPTION by executing COMMAND."
+    echo "If the check passes, 'OK' is shown. If the check fails, 'FAILED' is shown,"
+    echo "along with the output of the command and a proposed REMEDY."
+    echo ""
+    echo "DESCRIPTION: Brief statement of the check being performed"
+    echo "COMMAND: The command that will be executed in the check"
+    echo "REMEDY: The suggested command to run if the check fails"
+  }
+
+  while (($#)); do
+    case "$1" in
+    -h | --help)
+      check_usage
+      return 0
+      ;;
+    *) break ;;
+    esac
+  done
+
+  if [[ $# -lt 3 ]]; then
+    cecho --red "Error: Missing arguments"
+    check_usage
+    return 1
+  fi
+
+  cecho -n -f "• ${description} "
+
+  _capture_shell_state
+  set +e
+  command_output=$(eval "${command} 2>&1")
+  local command_exit_code=$?
+  _restore_shell_state
+
+  if [[ ${command_exit_code} -eq 0 ]]; then
+    cecho --green -bB "OK"
+    return 0
+  else
+    cecho --red -b "FAILED"
+    cecho --red -n "> Executed: "
+    cecho -b --red "${command}"
+    [[ -z $command_output ]] || cecho --red "${command_output}"
+    cecho ""
+    cecho --yellow -n "Suggested remedy: "
+    cecho --yellow -b "${remedy}"
+    clipboard "${remedy}"
+    cecho --yellow "(Copied to clipboard)"
+    return ${command_exit_code}
+  fi
+}
+
+_debug_log() {
+  set -euo pipefail
+
+  if [[ ${DEBUG:-false} == "true" ]]; then
+    echo "DEBUG: $1"
+  fi
+}
+
+_capture_shell_state() {
+  set -euo pipefail
+
+  CAPTURED_SHELL_FLAGS=$-
+}
+
+_restore_shell_state() {
+  set -euo pipefail
+
+  if [[ $CAPTURED_SHELL_FLAGS == *e* ]]; then set -e; fi
+  if [[ $CAPTURED_SHELL_FLAGS == *u* ]]; then set -u; fi
+  if [[ $CAPTURED_SHELL_FLAGS == *x* ]]; then set -x; fi
+  if [[ $CAPTURED_SHELL_FLAGS == *o* ]]; then set -o pipefail; fi
+}
