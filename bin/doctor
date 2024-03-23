@@ -1,18 +1,47 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 source "$(dirname "$0")/.shhelpers"
 
-if [[ "${BASH_SOURCE[0]}", == "${0}" ]]; then
-    echo "This script must be sourced, not executed directly"
-    exit 1
-fi
+show_other_scripts() {
+  section "Getting Started Intro"
+  cecho --white "Here are the available scripts you can use for our development environment"
+  cecho --white ""
 
-set +euo pipefail
+  SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 
-section "System dependencies"
-check "Checking for Homebrew" "command -v brew &>/dev/null" "/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)'"
-check "Checking for pkgx" "command -v pkgx &>/dev/null" "brew install pkgxdev/made/pkgx"
-#command -v dev &>/dev/null || eval "$(pkgx integrate)"
-#command -v erl &>/dev/null || dev
+  # Iterate over all the executable files in the directory
+  find "$SCRIPT_DIR" -maxdepth 1 -type f -perm -u+x -not -name $(basename $0) -not -name ".*" | while read script; do
+    cecho --white -n "$ "; cecho -bBu --green "./$(dirname "$0")/$(basename "$script") --help"
+    cecho --white "$("$script" --help)"
+    cecho --white
+  done
+}
+
+usage() {
+  echo "Usage:"
+  echo "  section \"DESCRIPTION\""
+  echo "..."
+}
+
+while (($#)); do
+  case "$1" in
+  -h | --help)
+    usage
+    exit 0 ;;
+  *) break ;;
+  esac
+done
+
+section 'System Dependencies'
+check 'Checking for Homebrew' 'command -v brew' '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+check 'Checking for pkgx' 'command -v pkgx' 'brew install pkgxdev/made/pkgx'
+check 'Checking pkgx dependencies are available' 'which erl && which elixir' 'dev'
+
+# From here we have access to system dependencies and pkgx ecosystem
+
+section 'Project Dependencies'
+step "..." "true"
 
 cecho -bB --green "\n✅ System is healthy & ready"
+show_other_scripts
