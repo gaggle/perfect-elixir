@@ -1,0 +1,128 @@
+#!/bin/bash
+
+is_ci() {
+  [ "${CI:-0}" != 0 ] && [ "${CI:-0}" != false ]
+}
+
+is_debug() {
+  [ "${RUNNER_DEBUG:-0}" != 0 ] || [ "${DEBUG:-0}" != 0 ] && [ "${DEBUG:-0}" != false ]
+}
+
+abspath() {
+  # Turn a relative path into an absolute path
+  # (GitHub Runners do not always have `realpath`)
+  [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
+local_install_path() {
+  echo "$BIN_DIR/setup-environment"
+}
+
+run_local_setup_environment() {
+  echo "weeeee"
+  set -euo pipefail
+
+  # This mimics `curl -fsS https://… | sh`
+  cat "$BIN_DIR/setup-environment" | sh
+}
+
+debug_log() {
+  set -euo pipefail
+
+  if [ "${RUNNER_DEBUG:-0}" = "1" ] || [ "${DEBUG:-false}" = true ]; then
+    echo "$1" | while IFS= read -r line; do
+      echo "##[debug]$line"
+    done
+  fi
+}
+
+log_content() {
+  set -euo pipefail
+
+  local content="$1"
+  local label="${2:-}"1
+
+  if [[ -n "$label" ]]; then
+    # Replace the beginning of each line with two spaces
+    local indented_content="${content//$'\n'/$'\n'  }"
+    printf "%s:\n  %s\n" "$label" "$indented_content"
+  else
+    echo "$content"
+  fi
+}
+
+log_group() {
+  set -euo pipefail
+
+  title=$1
+  content=$2
+
+  if is_ci; then
+    echo "::group::$title"
+    echo "$content"
+    echo ::endgroup::
+  else
+    echo "> $title"
+  fi
+}
+
+create_tmp_dir() {
+  tmpdir=$(mktemp -d)
+  echo "$tmpdir"
+}
+
+exit() {
+  echo -e "\nExiting scenario: $(basename $0)"
+  log_group "List $(pwd)" "$(find . -type f -exec ls -d {} \;)"
+}
+
+precondition() {
+  local command=${1}
+  local command_exit_code=""
+  local command_output=""
+  local expected_status=${2:-0}
+
+  cecho -n "Testing precondition: "
+  cecho -b "${command}"
+
+  set +e
+  sh -c "${command}"; command_exit_code=$?
+  set -e
+
+  debug_log "Ran precondition, exit code: ${command_exit_code}"
+
+  if [[ ${command_exit_code} -eq ${expected_status} ]]; then
+    cecho --green -nbB "OK"
+    cecho -n ", returned "
+    cecho --green -b "${command_exit_code}"
+  else
+    cecho --red -b "PRECONDITION FAILED"
+    cecho --red -n "> Executed: "
+    cecho --red -bn "\"${command}\""
+    cecho --red -n ", returned "
+    cecho --red -bn "${command_exit_code}"
+    cecho --red -n " expected "
+    cecho --red -b "${expected_status}"
+    cecho --red "${command_output}"
+    return 1
+  fi
+}
+
+BIN_DIR=$(cd "$(dirname "$0")/../../bin" && pwd)
+source "$BIN_DIR/.shhelpers"
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  echo "This script must be sourced, not executed directly"
+  exit 1
+fi
+
+if ! is_ci && ! is_debug; then
+  echo "This scenario is being run outside CI which can cause changes to the host machine (Run with DEBUG=true to override)"
+  return 1
+fi
+
+trap 'exit' EXIT
+
+echo "Running scenario: $(basename $0)"
+log_group "Env" "$(env)"
+cd "$(create_tmp_dir)" && echo "Stepped into $(pwd)"
