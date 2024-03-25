@@ -1,0 +1,130 @@
+#!/bin/sh
+
+set -e
+if test -n "$VERBOSE" -o -n "$GITHUB_ACTIONS" -a -n "$RUNNER_DEBUG"; then
+  set -x
+fi
+
+########################################################################### formatting
+
+if [ -t 1 ]; then
+  tty_escape() { printf "\033[%sm" "$1"; }
+else
+  tty_escape() { :; }
+fi
+
+_tty_mkbold() { tty_escape "1;$1"; }
+_tty_red="$(_tty_mkbold 31)"
+_tty_green="$(_tty_mkbold 32)"
+_tty_bold="$(_tty_mkbold 39)"
+_tty_reset="$(tty_escape 0)"
+_tty_underline="$(tty_escape "4;39")"
+
+########################################################################### utils
+
+_is_ci() {
+  [ -n "$CI" ] && [ "$CI" != 0 ]
+}
+
+_confirm() {
+  msg="${1:-Ok to proceed?}"
+
+  while true; do
+    printf "%s%s%s [%sy%s/%sn%s]: " "$_tty_bold" "$msg" "$_tty_reset" "$_tty_green" "$_tty_reset" "$_tty_red" "$_tty_reset"
+    read -r reply
+    case $reply in
+    [Yy]*) return 0 ;;
+    [Nn]*) return 1 ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+  done
+}
+
+_condition() {
+  description=$1
+  command=$2
+  command_output=""
+
+  set +e
+  printf "• %s " "$description"
+  command_output=$(eval "${command}" 2>&1)
+  command_exit_code=$?
+  set -e
+
+  if [ $command_exit_code -eq 1 ]; then
+    printf "%sYES%s\n" "$_tty_green" "$_tty_reset"
+  else
+    printf "%sNO%s\n" "$_tty_red" "$_tty_reset"
+    if [ "$DEBUG" = "true" ]; then
+      printf "> Executed: %s%s%s (returned %s%s%s" "$_tty_red" "$command" "$_tty_reset" "$_tty_red" "$command_exit_code" "$_tty_reset"
+      printf "%s\n" "$command_output"
+    fi
+  fi
+
+  return $command_exit_code
+}
+
+_explain() {
+  headline_length=$(printf "%s" "$1" | wc -m)
+  printf "%s%s%s\n" "$_tty_bold" "$1" "$_tty_reset"
+  printf '%*s\n' "${headline_length}" '' | tr ' ' '─'
+  printf "%s\n\n" "$2"
+}
+
+########################################################################### actions
+
+_explain_pkgx() {
+  _explain "pkgx is not installed" "$(
+    cat <<EOS
+${_tty_bold}pkgx${_tty_reset} is the package manager that handles system dependencies, and it is not currently installed.
+
+The installation is simple, and does not require sudo or other forms of elevated permissions.
+
+Read more about pkgx on ${_tty_underline}https://pkgx.sh${_tty_reset}
+EOS
+  )"
+}
+
+_should_install_pkgx() {
+  if [ ! -f /usr/local/bin/pkgx ]; then
+    # Pkgx not installed, so yes install
+    return 0
+  elif _pkgx_is_old >/dev/null 2>&1; then
+    # Yes install
+    return 0
+  else
+    # Up-to-date pkgx exists, nothing to install
+    return 1
+  fi
+}
+
+_install_pkgx() {
+  curl -fsS https://pkgx.sh | sh
+}
+
+_pkgx_is_old() {
+  v="$(/usr/local/bin/pkgx --version || echo pkgx 0)"
+  /usr/local/bin/pkgx --silent semverator gt \
+    "$(curl -Ssf https://pkgx.sh/VERSION)" \
+    "$(echo "$v" | awk '{print $2}')"
+}
+
+########################################################################### logic
+
+cat <<EOS
+This script sets up your machine for our development environment,
+prompting along the way for any changes it needs to do.
+
+EOS
+
+if _condition "Checking pkgx…" "_should_install_pkgx"; then
+  printf "\n"
+  _explain_pkgx
+
+  if _confirm "Install pkgx?"; then
+    _install_pkgx
+  else
+    echo "Declined pkgx installation. Exiting."
+    exit 0
+  fi
+fi
