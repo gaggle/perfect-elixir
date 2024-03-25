@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+source "$(dirname "$0")/.init"
+
+precondition "which pkgx" "1"
+
+section "Invoke the script"
+expect <<EOF
+spawn $(local_install_path)
+expect "Install pkgx?"
+send -- "y\r"
+expect eof
+EOF
+
+section "Asserts"
+precondition "which pkgx" "0"
