@@ -1,0 +1,25 @@
+name: ci for setup-environment
+
+on:
+  push:
+    branches: [ "**" ] # this triggers only on branch commits, which prevents triggering off of tag-only commits
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}
+
+jobs:
+  success-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-14, macos-13, macos-12 ]
+        scenario:
+          - ok-from-scratch
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.scenario }} (on ${{ matrix.os }})
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run test
+        run: |
+          ./test/setup-environment-scenarios/${{ matrix.scenario }}
