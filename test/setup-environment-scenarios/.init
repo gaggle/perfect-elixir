@@ -139,7 +139,7 @@ if ! is_ci && ! is_debug; then
   return 1
 fi
 
-trap 'exit' EXIT
+#trap 'exit' EXIT
 
 echo "Running scenario: $(basename $0)"
 log_group "Env" "$(env)"
