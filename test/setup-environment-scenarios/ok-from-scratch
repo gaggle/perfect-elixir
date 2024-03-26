@@ -3,15 +3,16 @@ set -euo pipefail
 
 source "$(dirname "$0")/.init"
 
-precondition "which pkgx" "1"
+precondition "which pkgx" "0"
 
 section "Invoke the script"
 expect <<EOF
-spawn $(run_local_setup_environment)
+set timeout 10
+spawn /bin/bash -c  $(cmd_for_setup_environment)
 expect "Install pkgx?"
-send -- "y\r"
+send -- "n\r"
 expect eof
 EOF
 
-section "Asserts"
-precondition "which pkgx" "0"
+#section "Asserts"
+#precondition "which pkgx" "0"

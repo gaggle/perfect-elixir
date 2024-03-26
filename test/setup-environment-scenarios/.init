@@ -14,16 +14,34 @@ abspath() {
   [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
 }
 
+relpath() {
+    # The target file or directory path
+    TARGET_PATH="$1"
+
+    # The current working directory
+    CURRENT_DIR=$(pwd)
+
+    # Compute the relative path
+    if [[ "$TARGET_PATH" = "$CURRENT_DIR"* ]]; then
+        # Remove the current directory from the target path and trim leading slashes
+        RELATIVE_PATH="${TARGET_PATH#$CURRENT_DIR}"
+        RELATIVE_PATH="${RELATIVE_PATH#/}"
+    else
+        # If the path is outside the current directory, just return it as is
+        RELATIVE_PATH="$TARGET_PATH"
+    fi
+
+    # Output the relative path
+    echo "$RELATIVE_PATH"
+}
+
 local_install_path() {
   echo "$BIN_DIR/setup-environment"
 }
 
-run_local_setup_environment() {
-  echo "weeeee"
-  set -euo pipefail
-
+cmd_for_setup_environment() {
   # This mimics `curl -fsS https://… | sh`
-  cat "$BIN_DIR/setup-environment" | sh
+  echo "cat \"$BIN_DIR/setup-environment\" | sh"
 }
 
 debug_log() {
