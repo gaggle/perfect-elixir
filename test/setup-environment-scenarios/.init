@@ -40,8 +40,9 @@ local_install_path() {
 }
 
 cmd_for_setup_environment() {
-  # This mimics `curl -fsS https://… | sh`
-  echo "cat \"$BIN_DIR/setup-environment\" | sh"
+  # This mimics `sh -c "$(curl -fsS https://…)"`
+  cmd="cat $BIN_DIR/setup-environment"
+  echo "sh -c \"\$($cmd)\""
 }
 
 debug_log() {

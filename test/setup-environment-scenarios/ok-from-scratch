@@ -5,14 +5,18 @@ source "$(dirname "$0")/.init"
 
 precondition "which pkgx" "1"
 
-section "Invoke the script"
-expect -d <<EOF
-set timeout 60
-spawn /bin/bash -c  $(cmd_for_setup_environment)
+section "Invoking the script"
+expect <<EOF
+set timeout 10
+spawn /bin/zsh
+expect "% "
+send -- "/bin/bash -c \"\$\(cat /Users/gaggle/Projects/perfect-elixir/bin/setup-environment\)\"\r"
 expect "Install pkgx?"
 send -- "n\r"
+expect "% "
+send -- "exit\r"
 expect eof
 EOF
 
-#section "Asserts"
-#precondition "which pkgx" "0"
+section "Asserts"
+precondition "which pkgx" "0"
