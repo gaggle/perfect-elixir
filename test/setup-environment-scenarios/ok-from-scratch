@@ -6,14 +6,16 @@ source "$(dirname "$0")/.init"
 precondition "which pkgx" "1"
 
 section "Invoking the script"
+cmd=$(expect_send_cmd_for_setup_environment)
+cecho -ifB --white "via: ${cmd}"
 expect <<EOF
-set timeout 10
+set timeout 1
 spawn /bin/zsh
 expect "% "
-send -- "/bin/bash -c \"\$\(cat /Users/gaggle/Projects/perfect-elixir/bin/setup-environment\)\"\r"
-expect "Install pkgx?"
-send -- "n\r"
+
+send -- "$cmd\r"
 expect "% "
+
 send -- "exit\r"
 expect eof
 EOF
