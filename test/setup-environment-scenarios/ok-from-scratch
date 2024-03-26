@@ -9,11 +9,14 @@ section "Invoking the script"
 cmd=$(expect_send_cmd_for_setup_environment)
 cecho -ifB --white "via: ${cmd}"
 expect <<EOF
-set timeout 1
+set timeout 10
 spawn /bin/zsh
 expect "% "
 
 send -- "$cmd\r"
+expect "% "
+
+send -- "y\r"
 expect "% "
 
 send -- "exit\r"
