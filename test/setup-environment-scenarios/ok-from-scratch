@@ -3,25 +3,26 @@ set -euo pipefail
 
 source "$(dirname "$0")/.init"
 
-precondition "which pkgx" "1"
+#precondition "which pkgx" "1"
 
 section "Invoking the script"
 #cmd=$(expect_send_cmd_for_setup_environment)
 #cecho -ifB --white "via: ${cmd}"
-#expect <<EOF
-#set timeout 10
-#spawn /bin/zsh
-#expect "% "
-#
-#send -- "source \r"
-#expect "% "
-#
+
+expect <<EOF
+set timeout 10
+spawn /bin/zsh
+expect "% "
+
+send -- "source <(curl -fsSL https://raw.githubusercontent.com/gaggle/perfect-elixir/perfect-elixir-3-development-workflows-%26-processes/bin/setup-environment)\r"
+expect "% "
+
 #send -- "y\r"
 #expect "% "
-#
-#send -- "exit\r"
-#expect eof
-#EOF
-#
+
+send -- "exit\r"
+expect eof
+EOF
+
 #section "Asserts"
 #precondition "which pkgx" "0"
