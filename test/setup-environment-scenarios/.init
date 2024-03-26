@@ -40,9 +40,11 @@ local_install_path() {
 }
 
 cmd_for_setup_environment() {
-  # This mimics `sh -c "$(curl -fsS https://…)"`
-  cmd="cat $BIN_DIR/setup-environment"
-  echo "sh -c \"\$($cmd)\""
+  # This mimics `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+  fake_curl="cat $BIN_DIR/setup-environment"
+  cmd_substitution="\$($fake_curl)"
+  quoted="\"$cmd_substitution\""
+  echo "/bin/bash -c $quoted"
 }
 
 debug_log() {
