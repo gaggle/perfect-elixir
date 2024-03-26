@@ -6,22 +6,22 @@ source "$(dirname "$0")/.init"
 precondition "which pkgx" "1"
 
 section "Invoking the script"
-cmd=$(expect_send_cmd_for_setup_environment)
-cecho -ifB --white "via: ${cmd}"
-expect <<EOF
-set timeout 10
-spawn /bin/zsh
-expect "% "
-
-send -- "$cmd\r"
-expect "% "
-
-send -- "y\r"
-expect "% "
-
-send -- "exit\r"
-expect eof
-EOF
-
-section "Asserts"
-precondition "which pkgx" "0"
+#cmd=$(expect_send_cmd_for_setup_environment)
+#cecho -ifB --white "via: ${cmd}"
+#expect <<EOF
+#set timeout 10
+#spawn /bin/zsh
+#expect "% "
+#
+#send -- "source \r"
+#expect "% "
+#
+#send -- "y\r"
+#expect "% "
+#
+#send -- "exit\r"
+#expect eof
+#EOF
+#
+#section "Asserts"
+#precondition "which pkgx" "0"

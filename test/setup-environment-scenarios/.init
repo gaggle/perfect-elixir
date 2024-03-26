@@ -41,6 +41,7 @@ local_install_path() {
 
 expect_send_cmd_for_setup_environment() {
   # This mimics `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+  # This mimics `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/gaggle/perfect-elixir/perfect-elixir-3-development-workflows-%26-processes/bin/setup-environment)"`
   fake_curl="cat $BIN_DIR/setup-environment"
   cmd_substitution="\\\$($fake_curl)"
   printf "/bin/bash -c \\\\\"$cmd_substitution\\\\\""
