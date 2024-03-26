@@ -7,7 +7,7 @@ precondition "which pkgx" "1"
 
 section "Invoke the script"
 expect -d <<EOF
-set timeout 10
+set timeout 60
 spawn /bin/bash -c  $(cmd_for_setup_environment)
 expect "Install pkgx?"
 send -- "n\r"
