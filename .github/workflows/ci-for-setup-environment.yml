@@ -17,6 +17,7 @@ jobs:
         scenario:
           - no-to-proceed
           - pkgx-is-not-installed
+          - pkgx-is-not-shell-integrated
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.scenario }} (on ${{ matrix.os }})
     steps:
