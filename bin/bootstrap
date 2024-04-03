@@ -105,8 +105,6 @@ explain_install_pkgx() {
     cat <<EOS
 You need to install ${tty_bold}pkgx${tty_reset}. Run this script again afterwards.
 
-It is the package manager that handles system dependencies, and it is not currently installed.
-
 It can be installed in various ways, depending on your preferences:
 • Via ${tty_bold}Homebrew${tty_reset}:
     ${tty_bold}brew install pkgxdev/made/pkgx${tty_reset}
@@ -115,6 +113,8 @@ It can be installed in various ways, depending on your preferences:
     ${tty_bold}curl -Ssf https://pkgx.sh | sh${tty_reset}
 
 For other ways to install see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/run-anywhere/terminals${tty_reset}
+
+${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies, and it is not currently installed.
 
 The installation is simple, and via Homebrew it does not require sudo or other forms of elevated permissions.
 
