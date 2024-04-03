@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [ macos-14, macos-13 ]
         scenario:
-          - no-to-install-pkgx
+          - no-to-proceed
           - ok-from-scratch
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.scenario }} (on ${{ matrix.os }})

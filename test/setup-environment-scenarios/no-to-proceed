@@ -16,21 +16,15 @@ PROMPT = '$ '
 child = pexpect.spawn("/bin/zsh -f", env={
     "PS1": PROMPT,
     "fake_should_install_pkgx": "0",
-    "fake_install_pkgx": "0"
 }, timeout=5)
 child.logfile = sys.stdout.buffer
 try:
     child.expect_exact(PROMPT)
 
-    child.sendline(f"source {BIN_DIR}/setup-environment.sh")
+    child.sendline(f"source {BIN_DIR}/bootstrap")
     child.expect_exact("Ok to proceed?")
-    child.sendline("y")
-    child.expect_exact("Install pkgx?")
     child.sendline("n")
-
     child.expect_exact(PROMPT)
-    child.sendline("echo marker")
-    child.expect_exact("marker")
     child.sendline("exit")
     child.expect(pexpect.EOF)
 except (pexpect.exceptions.TIMEOUT, pexpect.exceptions.EOF) as e:

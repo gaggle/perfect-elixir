@@ -6,15 +6,15 @@ fi
 
 about_script() {
   cat <<EOS
-This script sets up your machine for our development environment,
-prompting along the way for any changes it needs to do.
+This script bootstraps our development environment,
+prompting along the way for any changes that needs to be done.
 EOS
 }
 
 must_be_sourced_msg() {
   explain "❌ script must be sourced: \`source <script>\`" "$(
     cat <<EOS
-This script cannot be executed directly, as it relies on your actual shell session to configure dependencies correctly.
+This script cannot be executed directly, as it relies on your actual shell session to test for dependencies and configurations.
 
 Run it as ${tty_bold}\`source <script>\`${tty_reset} instead, and follow the prompts.
 EOS
@@ -22,8 +22,6 @@ EOS
   explain "About script" "$(about_script)"
   return 1
 }
-
-########################################################################### formatting
 
 if [ -t 1 ]; then
   tty_escape() { printf "\033[%sm" "$1"; }
@@ -103,20 +101,22 @@ return_fake() {
 ########################################################################### actions
 
 explain_pkgx() {
-  explain "pkgx is not installed" "$(
+  explain "User action required: Install pkgx" "$(
     cat <<EOS
-${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies for us, and it is not currently installed.
+You need to install ${tty_bold}pkgx${tty_reset}. Run this script again afterwards.
 
-This script can auto-install it, but you can choose to install it in other ways too:
+It is the package manager that handles system dependencies, and it is not currently installed.
+
+It can be installed in various ways, depending on your preferences:
 • Via ${tty_bold}Homebrew${tty_reset}:
     ${tty_bold}brew install pkgxdev/made/pkgx${tty_reset}
 
 • Via ${tty_bold}cURL${tty_reset}:
-    ${tty_bold}curl -Ssf https://pkgx.sh | sh{tty_reset}
+    ${tty_bold}curl -Ssf https://pkgx.sh | sh${tty_reset}
 
 For other ways to install see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/run-anywhere/terminals${tty_reset}
 
-The installation is simple, and the Homebrew installation does not require sudo or other forms of elevated permissions.
+The installation is simple, and via Homebrew it does not require sudo or other forms of elevated permissions.
 
 Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}
 EOS
@@ -127,7 +127,7 @@ should_install_pkgx() {
   if fake should_install_pkgx; then
     return_fake should_install_pkgx
   else
-    if [ ! -f /usr/local/bin/pkgx ]; then
+    if ! which pkgx >/dev/null; then
       # Pkgx not installed, so yes install
       return 0
     elif pkgx_is_old >/dev/null 2>&1; then
@@ -140,18 +140,9 @@ should_install_pkgx() {
   fi
 }
 
-install_pkgx() {
-  if fake install_pkgx; then
-    echo "Fake install_pkgx"
-    return_fake install_pkgx
-  else
-    curl -fsS https://pkgx.sh | sh
-  fi
-}
-
 pkgx_is_old() {
-  v="$(/usr/local/bin/pkgx --version || echo pkgx 0)"
-  /usr/local/bin/pkgx --silent semverator gt \
+  v="$(pkgx --version || echo pkgx 0)"
+  pkgx --silent semverator gt \
     "$(curl -Ssf https://pkgx.sh/VERSION)" \
     "$(echo "$v" | awk '{print $2}')"
 }
@@ -163,17 +154,20 @@ main() {
   printf "\n"
   if confirm "Ok to proceed?"; then
     if condition "Checking pkgx" "should_install_pkgx"; then
-      printf "\n"
+      printf "• pkgx is not installed %sx%s\n\n" "$tty_red" "$tty_reset"
       explain_pkgx
-
-      if confirm "Install pkgx via cURL?"; then
-        #install_pkgx
-      else
-        return 0
-      fi
+      return 0
     else
-      printf "• pkgx is already installed %s✓%s\n" "$tty_green" "$tty_reset"
+      printf "• pkgx is installed %s✓%s\n\n" "$tty_green" "$tty_reset"
     fi
+
+    explain "Good to go" "$(
+      cat <<EOS
+Bootstrapping is done: ${tty_bold}\`pkgx\`${tty_reset} is available.
+
+Run ${tty_bold}\`bin/doctor\`${tty_reset} to finish onboarding.
+EOS
+    )"
   else
     return 0
   fi

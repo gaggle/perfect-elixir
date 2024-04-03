@@ -9,37 +9,21 @@ concurrency:
   group: ${{ github.ref }}-e2e
 
 env:
-  E2E_URL: https://raw.githubusercontent.com/gaggle/perfect-elixir/perfect-elixir-3-development-workflows-%26-processes/bin/setup-environment.sh
+  E2E_URL: https://raw.githubusercontent.com/gaggle/perfect-elixir/perfect-elixir-3-development-workflows-%26-processes/bin/bootstrap
   NONINTERACTIVE: true
 
 jobs:
-  zsh:
+  ok-from-scratch:
     strategy:
       fail-fast: false
       matrix:
         os: [ macos-14, macos-13 ]
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.os }}
+    name: ok-from-scratch (${{ matrix.os }})
     steps:
-      - name: Pre-installation check
-        run: >
+      - run: >
           zsh -l -c '
-          if command -v pkgx; then 
-            echo "pkgx already installed"; exit 1; 
-          fi
-          '
-      - name: Installation
-        run: >
-          zsh -l -c '
-          curl -fsSL $E2E_URL > /tmp/setup.sh && source /tmp/setup.sh; rm /tmp/setup.sh;
-          if ! command -v pkgx; then
-            echo "pkgx is not available after installation"; exit 1;
-          fi
-          '
-      - name: Post-installation check
-        run: >
-          zsh -l -c '
-          if ! command -v pkgx; then
-            echo "pkgx not globally available"; exit 1;
-          fi
+          curl -fsSL $E2E_URL > /tmp/setup.sh && source /tmp/setup.sh > output.txt;
+          cat output.txt;
+          grep -q "User action required: Install pkgx" output.txt && exit 0 || exit 1;
           '
