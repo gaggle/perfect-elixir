@@ -105,11 +105,20 @@ return_fake() {
 explain_pkgx() {
   explain "pkgx is not installed" "$(
     cat <<EOS
-${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies, and it is not currently installed.
+${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies for us, and it is not currently installed.
 
-The installation is simple, and does not require sudo or other forms of elevated permissions.
+This script can auto-install it, but you can choose to install it in other ways too:
+• Via ${tty_bold}Homebrew${tty_reset}:
+    ${tty_bold}brew install pkgxdev/made/pkgx${tty_reset}
 
-Read more about pkgx on ${tty_underline}https://pkgx.sh${tty_reset}
+• Via ${tty_bold}cURL${tty_reset}:
+    ${tty_bold}curl -Ssf https://pkgx.sh | sh{tty_reset}
+
+For other ways to install see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/run-anywhere/terminals${tty_reset}
+
+The installation is simple, and the Homebrew installation does not require sudo or other forms of elevated permissions.
+
+Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}
 EOS
   )"
 }
@@ -157,8 +166,8 @@ main() {
       printf "\n"
       explain_pkgx
 
-      if confirm "Install pkgx?"; then
-        install_pkgx
+      if confirm "Install pkgx via cURL?"; then
+        #install_pkgx
       else
         return 0
       fi
