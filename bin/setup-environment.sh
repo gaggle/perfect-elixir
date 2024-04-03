@@ -4,6 +4,25 @@ if test -n "$VERBOSE" -o -n "$GITHUB_ACTIONS" -a -n "$RUNNER_DEBUG"; then
   set -x
 fi
 
+about_script() {
+  cat <<EOS
+This script sets up your machine for our development environment,
+prompting along the way for any changes it needs to do.
+EOS
+}
+
+must_be_sourced_msg() {
+  explain "❌ script must be sourced: \`source <script>\`" "$(
+    cat <<EOS
+This script cannot be executed directly, as it relies on your actual shell session to configure dependencies correctly.
+
+Run it as ${tty_bold}\`source <script>\`${tty_reset} instead, and follow the prompts.
+EOS
+  )"
+  explain "About script" "$(about_script)"
+  return 1
+}
+
 ########################################################################### formatting
 
 if [ -t 1 ]; then
@@ -131,10 +150,8 @@ pkgx_is_old() {
 ########################################################################### logic
 
 main() {
-  cat <<EOS
-  This script sets up your machine for our development environment,
-  prompting along the way for any changes it needs to do.
-EOS
+  about_script
+  printf "\n"
   if confirm "Ok to proceed?"; then
     if condition "Checking pkgx" "should_install_pkgx"; then
       printf "\n"
@@ -151,4 +168,15 @@ EOS
   fi
 }
 
-main
+# https://stackoverflow.com/a/28776166/884080
+(
+  [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
+  [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
+  [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
+) && sourced=1 || sourced=0
+
+if [ "$sourced" = "1" ]; then
+  main
+else
+  must_be_sourced_msg
+fi
