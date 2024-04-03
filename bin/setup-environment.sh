@@ -162,6 +162,8 @@ main() {
       else
         return 0
       fi
+    else
+      printf "• pkgx is already installed %s✓%s\n" "$tty_green" "$tty_reset"
     fi
   else
     return 0
