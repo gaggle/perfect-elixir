@@ -27,3 +27,25 @@ jobs:
           cat output.txt;
           grep -q "User action required: Install pkgx" output.txt && exit 0 || exit 1;
           '
+  pkgx-already-installed:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-14, macos-13 ]
+    runs-on: ${{ matrix.os }}
+    name: pkgx-already-installed (${{ matrix.os }})
+    steps:
+      - run: >
+          zsh -l -c '
+          echo ::group::Install pkgx;
+          brew install pkgxdev/made/pkgx;
+          echo ::endgroup::;
+          
+          echo ::group::Integrate pkgx;
+          eval "$(pkgx integrate)";
+          echo ::endgroup::;
+          
+          curl -fsSL $E2E_URL > /tmp/setup.sh && source /tmp/setup.sh > output.txt;
+          cat output.txt;
+          grep -q "Good to go" output.txt && exit 0 || exit 1;
+          '
