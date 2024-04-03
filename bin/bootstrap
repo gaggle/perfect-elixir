@@ -147,6 +147,40 @@ pkgx_is_old() {
     "$(echo "$v" | awk '{print $2}')"
 }
 
+explain_integrate_pkgx() {
+  explain "User action required: Activate pkgx shell integration" "$(
+    cat <<EOS
+You need to activate ${tty_bold}pkgx shell integration${tty_reset}. Run this script again afterwards.
+
+• Run this command: ${tty_bold}eval "\$(pkgx integrate)"${tty_reset}
+
+To first see what integrate will do, do a dry run:
+  ${tty_bold}pkgx integrate --dry-run${tty_reset}
+
+Shell integration is required to create "${tty_bold}temporary, isolated package environments${tty_reset}", which is what powers our development environment.
+
+For more information about shell integration see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${tty_reset}
+
+
+Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}
+EOS
+  )"
+}
+
+should_integrate_pkgx() {
+  if fake should_integrate_pkgx; then
+    return_fake should_integrate_pkgx
+  else
+    if ! which dev >/dev/null || ! which env >/dev/null; then
+      # pkgx shell integration commands are not present, so yes integrate
+      return 0
+    else
+      # shell integration commands exists, nothing more to do
+      return 1
+    fi
+  fi
+}
+
 ########################################################################### logic
 
 main() {
@@ -159,6 +193,14 @@ main() {
       return 0
     else
       printf "• pkgx is installed %s✓%s\n\n" "$tty_green" "$tty_reset"
+    fi
+
+    if condition "Checking pkgx shell integration" "should_integrate_pkgx"; then
+      printf "• pkgx is not shell integrated %sx%s\n\n" "$tty_red" "$tty_reset"
+      explain_integrate_pkgx
+      return 0
+    else
+      printf "• pkgx shell integration is activated %s✓%s\n\n" "$tty_green" "$tty_reset"
     fi
 
     explain "Good to go" "$(
