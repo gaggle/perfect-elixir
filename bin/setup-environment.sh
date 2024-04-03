@@ -21,14 +21,9 @@ tty_underline="$(tty_escape "4;39")"
 
 ########################################################################### utils
 
-is_ci() {
-  [ -n "$CI" ] && [ "$CI" != 0 ]
-}
-
 confirm() {
   msg="${1:-Ok to proceed?}"
 
-  # Always print the message
   printf "%s%s%s [%sy%s/%sn%s]: " "$tty_bold" "$msg" "$tty_reset" "$tty_green" "$tty_reset" "$tty_red" "$tty_reset"
 
   if [ "$NONINTERACTIVE" = "true" ]; then
@@ -44,24 +39,6 @@ confirm() {
     *) echo "Please answer Y or N" ;;
     esac
   done
-}
-
-getc() {
-  save_state="$(/bin/stty -g)"
-  /bin/stty raw -echo
-  IFS='' read -r -n 1 -d '' "$@"
-  /bin/stty "${save_state}"
-}
-
-wait_for_user() {
-  echo
-  echo "Press ${tty_bold}RETURN${tty_reset}/${tty_bold}ENTER${tty_reset} to continue or any other key to abort:"
-  getc c
-  # we test for \r and \n because some stuff does \r instead
-  if ! [[ "${c}" == $'\r' || "${c}" == $'\n' ]]
-  then
-    return 1
-  fi
 }
 
 condition() {
@@ -89,20 +66,6 @@ explain() {
   printf "%s\n\n" "$2"
 }
 
-########################################################################### actions
-
-explain_pkgx() {
-  explain "pkgx is not installed" "$(
-    cat <<EOS
-${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies, and it is not currently installed.
-
-The installation is simple, and does not require sudo or other forms of elevated permissions.
-
-Read more about pkgx on ${tty_underline}https://pkgx.sh${tty_reset}
-EOS
-  )"
-}
-
 fake() {
   eval "val=\"\$fake_$1\""
   if [ -z "$val" ]; then
@@ -118,6 +81,20 @@ return_fake() {
   return "$resolved"
 }
 
+########################################################################### actions
+
+explain_pkgx() {
+  explain "pkgx is not installed" "$(
+    cat <<EOS
+${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies, and it is not currently installed.
+
+The installation is simple, and does not require sudo or other forms of elevated permissions.
+
+Read more about pkgx on ${tty_underline}https://pkgx.sh${tty_reset}
+EOS
+  )"
+}
+
 should_install_pkgx() {
   if fake should_install_pkgx; then
     return_fake should_install_pkgx
@@ -125,7 +102,7 @@ should_install_pkgx() {
     if [ ! -f /usr/local/bin/pkgx ]; then
       # Pkgx not installed, so yes install
       return 0
-    elif _pkgx_is_old >/dev/null 2>&1; then
+    elif pkgx_is_old >/dev/null 2>&1; then
       # Yes install
       return 0
     else
