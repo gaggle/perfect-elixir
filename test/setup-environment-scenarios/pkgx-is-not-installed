@@ -15,7 +15,7 @@ PROMPT = '$ '
 
 child = pexpect.spawn("/bin/zsh -f", env={
     "PS1": PROMPT,
-    "fake_should_install_pkgx": "0"
+    "fake_should_install_pkgx": "0",
 }, timeout=5)
 child.logfile = sys.stdout.buffer
 try:

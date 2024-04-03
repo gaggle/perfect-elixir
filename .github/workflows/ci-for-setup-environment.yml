@@ -16,7 +16,7 @@ jobs:
         os: [ macos-14, macos-13 ]
         scenario:
           - no-to-proceed
-          - ok-from-scratch
+          - pkgx-is-not-installed
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.scenario }} (on ${{ matrix.os }})
     steps:
