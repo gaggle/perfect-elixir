@@ -100,7 +100,7 @@ return_fake() {
 
 ########################################################################### actions
 
-explain_pkgx() {
+explain_install_pkgx() {
   explain "User action required: Install pkgx" "$(
     cat <<EOS
 You need to install ${tty_bold}pkgx${tty_reset}. Run this script again afterwards.
@@ -155,7 +155,7 @@ main() {
   if confirm "Ok to proceed?"; then
     if condition "Checking pkgx" "should_install_pkgx"; then
       printf "• pkgx is not installed %sx%s\n\n" "$tty_red" "$tty_reset"
-      explain_pkgx
+      explain_install_pkgx
       return 0
     else
       printf "• pkgx is installed %s✓%s\n\n" "$tty_green" "$tty_reset"
