@@ -259,7 +259,7 @@ main() {
     else
       printf "• Repository is available %s✓%s\n" "$tty_green" "$tty_reset"
     fi
-
+    printf "\n"
     explain "Good to go" "$(
       cat <<EOS
 Bootstrapping is done: ${tty_bold}\`pkgx\`${tty_reset} is available.
