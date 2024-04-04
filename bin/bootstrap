@@ -161,6 +161,7 @@ Shell integration is required to create "${tty_bold}temporary, isolated package 
 
 For more information about shell integration see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${tty_reset}
 
+Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}.
 
 Run this script again after shell integration has been activated.
 EOS
