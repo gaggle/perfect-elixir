@@ -117,6 +117,8 @@ For other ways to install see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/r
 ${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies, and it is not currently installed. The installation is simple, and via Homebrew it does not require sudo or other forms of elevated permissions.
 
 Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}
+
+Run this script again after pkgx has been installed.
 EOS
   )"
 }
@@ -160,7 +162,7 @@ Shell integration is required to create "${tty_bold}temporary, isolated package 
 For more information about shell integration see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${tty_reset}
 
 
-Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}
+Run this script again after shell integration has been activated.
 EOS
   )"
 }
