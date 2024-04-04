@@ -262,7 +262,10 @@ main() {
     printf "\n"
     explain "Good to go" "$(
       cat <<EOS
-Bootstrapping is done: ${tty_bold}\`pkgx\`${tty_reset} is available.
+Bootstrapping is done:
+${tty_green}✓${tty_reset} ${tty_bold}\`pkgx\`${tty_reset} is installed
+${tty_green}✓${tty_reset} Its ${tty_bold}shell integration${tty_reset} is active
+${tty_green}✓${tty_reset} The ${tty_bold}repository${tty_reset} is cloned and ready
 
 Run ${tty_bold}\`bin/doctor\`${tty_reset} to finish onboarding.
 EOS
