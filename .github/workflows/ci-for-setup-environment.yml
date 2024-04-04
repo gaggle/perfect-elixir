@@ -21,6 +21,7 @@ jobs:
       - id: scenarios
         run: |
           scenarios=$(ls test/setup-environment-scenarios | jq -Rsc 'split("\n")[:-1]')
+          echo "scenarios=$scenarios"
           echo "scenarios=$scenarios" >> $GITHUB_OUTPUT
 
   scenario:
