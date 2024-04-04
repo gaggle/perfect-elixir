@@ -166,9 +166,10 @@ There are two primary ways to clone the repository:
 
 Either command creates a new directory named '${tty_bold}perfect-elixir${tty_reset}'.
 
-• After cloning the repository, navigate into it with:
+• After cloning the repository, run these commands:
 
-    ${tty_bold}cd perfect-elixir${tty_reset}
+    $ ${tty_bold}cd perfect-elixir${tty_reset}
+    $ ${tty_bold}git checkout -b "perfect-elixir-3-development-workflows-&-processes"${tty_reset}
 
 You can learn more about cloning with ${tty_bold}SSH${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls${tty_reset}, or cloning with ${tty_bold}HTTPS${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls${tty_reset}.
 
