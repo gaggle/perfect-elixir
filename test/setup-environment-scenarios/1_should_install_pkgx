@@ -15,8 +15,7 @@ PROMPT = '$ '
 
 child = pexpect.spawn("/bin/zsh -f", env={
     "PS1": PROMPT,
-    "fake_should_install_pkgx": "1",
-    "fake_should_integrate_pkgx": "0",
+    "fake_should_install_pkgx": "0",
 }, timeout=5)
 child.logfile = sys.stdout.buffer
 try:
@@ -25,8 +24,8 @@ try:
     child.sendline(f"source {BIN_DIR}/bootstrap")
     child.expect_exact("Ok to proceed?")
     child.sendline("y")
-    child.expect("pkgx is installed")
-    child.expect("pkgx is not shell integrated")
+    child.expect("pkgx is not installed")
+    child.expect("User action required: Install pkgx")
     child.expect_exact(PROMPT)
     child.sendline("exit")
     child.expect(pexpect.EOF)

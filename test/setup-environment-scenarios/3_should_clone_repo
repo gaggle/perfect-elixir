@@ -15,7 +15,9 @@ PROMPT = '$ '
 
 child = pexpect.spawn("/bin/zsh -f", env={
     "PS1": PROMPT,
-    "fake_should_install_pkgx": "0",
+    "fake_should_install_pkgx": "1",
+    "fake_should_integrate_pkgx": "1",
+    "fake_should_clone_repo": "0",
 }, timeout=5)
 child.logfile = sys.stdout.buffer
 try:
@@ -24,7 +26,10 @@ try:
     child.sendline(f"source {BIN_DIR}/bootstrap")
     child.expect_exact("Ok to proceed?")
     child.sendline("y")
-    child.expect("pkgx is not installed")
+    child.expect("pkgx is installed")
+    child.expect("Shell integration is active")
+    child.expect("Repository is not available")
+    child.expect("User action required: Clone gaggle/perfect-elixir repository")
     child.expect_exact(PROMPT)
     child.sendline("exit")
     child.expect(pexpect.EOF)

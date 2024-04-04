@@ -1,0 +1,43 @@
+#!/usr/bin/env -S pkgx +pip@24 python@3
+
+import os
+import subprocess
+import sys
+
+try:
+    import pexpect
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pexpect"])
+    import pexpect
+
+BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../bin'))
+PROMPT = '$ '
+
+child = pexpect.spawn("/bin/zsh -f", env={
+    "PS1": PROMPT,
+    "fake_should_install_pkgx": "1",
+    "fake_should_integrate_pkgx": "1",
+    "fake_should_clone_repo": "1",
+    "fake_should_activate_dev": "0",
+}, timeout=5)
+child.logfile = sys.stdout.buffer
+try:
+    child.expect_exact(PROMPT)
+
+    child.sendline(f"source {BIN_DIR}/bootstrap")
+    child.expect_exact("Ok to proceed?")
+    child.sendline("y")
+    child.expect("pkgx is installed")
+    child.expect("Shell integration is active")
+    child.expect("Repository is available")
+    child.expect("Dependencies are not available")
+    child.expect("User action required: Activate developer environment")
+    child.expect_exact(PROMPT)
+    child.sendline("exit")
+    child.expect(pexpect.EOF)
+except (pexpect.exceptions.TIMEOUT, pexpect.exceptions.EOF) as e:
+    print(str(e))
+    child.close(force=True)
+else:
+    child.close()
+sys.exit(child.exitstatus)
