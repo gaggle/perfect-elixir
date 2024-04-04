@@ -179,6 +179,54 @@ should_integrate_pkgx() {
   fi
 }
 
+explain_clone_repo() {
+  explain "User action required: Clone gaggle/perfect-elixir repository" "$(
+    cat <<EOS
+You need to clone the ${tty_bold}gaggle/perfect-elixir${tty_reset} repository. Run this script again afterwards.
+
+There are two primary ways to clone the repository:
+
+• Using ${tty_bold}SSH${tty_reset}:
+
+    ${tty_bold}git clone git@github.com:gaggle/perfect-elixir.git${tty_reset}
+
+• Using ${tty_bold}HTTPS${tty_reset}:
+
+    ${tty_bold}git clone https://github.com/gaggle/perfect-elixir.git${tty_reset}
+
+You can learn more about cloning with ${tty_bold}SSH${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls${tty_reset}
+And cloning with ${tty_bold}HTTPS${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls${tty_reset}
+
+Either command creates a new directory named '${tty_bold}perfect-elixir${tty_reset}'.
+After cloning the repository, navigate into it with:
+
+    ${tty_bold}cd perfect-elixir${tty_reset}
+
+Run this script again after cloning the repository.
+EOS
+  )"
+}
+
+should_clone_repo() {
+  if fake should_clone_repo; then
+    return_fake should_clone_repo
+  else
+    if [ ! -d ".git" ]; then
+      # Not a git repository; clone it.
+      return 0
+    else
+      remote_url="$(git config --get remote.origin.url)"
+      if [ "$remote_url" != "git@github.com:gaggle/perfect-elixir.git" ] && [ "$remote_url" != "https://github.com/gaggle/perfect-elixir.git" ]; then
+        # Remote URL doesn't match; clone it.
+        return 0
+      else
+        # The repository is the expected one, nothing more to do.
+        return 1
+      fi
+    fi
+  fi
+}
+
 ########################################################################### logic
 
 main() {
@@ -199,6 +247,14 @@ main() {
       return 0
     else
       printf "• pkgx shell integration is activated %s✓%s\n" "$tty_green" "$tty_reset"
+    fi
+
+    if condition "Checking for repository" "should_clone_repo"; then
+      printf "• Repository is not available %sx%s\n\n" "$tty_red" "$tty_reset"
+      explain_clone_repo
+      return 0
+    else
+      printf "• Repository is available %s✓%s\n" "$tty_green" "$tty_reset"
     fi
 
     explain "Good to go" "$(
