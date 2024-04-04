@@ -2,3 +2,4 @@ dependencies:
   erlang.org: =26.2.2
   elixir-lang.org: =1.16.1
   postgresql.org: =15.2.0
+  gnu.org/bash: =5.1.16
