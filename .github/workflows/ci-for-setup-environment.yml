@@ -8,6 +8,9 @@ on:
 concurrency:
   group: ${{ github.ref }}
 
+env:
+  scenarios-dir: test/setup-environment-scenarios
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -16,11 +19,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: test/setup-environment-scenarios
+          sparse-checkout: | 
+            ${{ env.scenarios-dir }}
 
       - id: scenarios
         run: |
-          scenarios=$(ls test/setup-environment-scenarios | jq -Rsc 'split("\n")[:-1]')
+          scenarios=$(ls ${{ env.scenarios-dir }} | jq -Rsc 'split("\n")[:-1]')
           echo "scenarios=$scenarios"
           echo "scenarios=$scenarios" >> $GITHUB_OUTPUT
 
@@ -38,4 +42,4 @@ jobs:
       - uses: pkgxdev/dev@v0
       - name: Run test
         run: |
-          ./test/setup-environment-scenarios/${{ matrix.scenario }}
+          ./${{ env.scenarios-dir }}/${{ matrix.scenario }}
