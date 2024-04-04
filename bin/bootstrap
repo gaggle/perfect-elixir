@@ -103,22 +103,110 @@ return_fake() {
 explain_install_pkgx() {
   explain "User action required: Install pkgx" "$(
     cat <<EOS
-You need to install ${tty_bold}pkgx${tty_reset}. Run this script again afterwards.
+You need to install ${tty_bold}pkgx${tty_reset}. Source this script again afterwards.
 
-It can be installed in various ways, depending on your preferences:
+${tty_bold}pkgx${tty_reset} can be installed in various ways, depending on your preferences:
+
 • Via ${tty_bold}Homebrew${tty_reset}:
-    ${tty_bold}brew install pkgxdev/made/pkgx${tty_reset}
+    $ ${tty_bold}brew install pkgxdev/made/pkgx${tty_reset}
 
 • Via ${tty_bold}cURL${tty_reset}:
-    ${tty_bold}curl -Ssf https://pkgx.sh | sh${tty_reset}
+    $ ${tty_bold}curl -Ssf https://pkgx.sh | sh${tty_reset}
 
 For other ways to install see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/run-anywhere/terminals${tty_reset}
 
-${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies, and it is not currently installed. The installation is simple, and via Homebrew it does not require sudo or other forms of elevated permissions.
+${tty_bold}pkgx${tty_reset} is the package manager that handles system dependencies, and it is not currently installed. The installation is simple, and via Homebrew does not require sudo or other forms of elevated permissions.
 
 Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}
 
-Run this script again after pkgx has been installed.
+Source this script again after pkgx has been installed.
+EOS
+  )"
+}
+
+explain_integrate_pkgx() {
+  explain "User action required: Activate pkgx shell integration" "$(
+    cat <<EOS
+You need to activate ${tty_bold}pkgx shell integration${tty_reset}. Source this script again afterwards.
+
+• Run this command:
+
+    $ ${tty_bold}eval "\$(pkgx integrate)"${tty_reset}
+
+• Or, if you would like to first inspect what ${tty_bold}integrate${tty_reset} will do, run as dry run:
+
+    $ ${tty_bold}pkgx integrate --dry-run${tty_reset}
+
+Shell integration is required to create "${tty_bold}temporary, isolated package environments${tty_reset}", which is what powers our development environment.
+
+For more information about shell integration see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${tty_reset}
+
+Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}.
+
+Source this script again after shell integration has been activated.
+EOS
+  )"
+}
+
+
+explain_clone_repo() {
+  explain "User action required: Clone gaggle/perfect-elixir repository" "$(
+    cat <<EOS
+You need to clone the ${tty_bold}gaggle/perfect-elixir${tty_reset} GitHub repository. Source this script again afterwards.
+
+There are two primary ways to clone the repository:
+
+• Using ${tty_bold}SSH${tty_reset}:
+
+    $ ${tty_bold}git clone git@github.com:gaggle/perfect-elixir.git${tty_reset}
+
+• Using ${tty_bold}HTTPS${tty_reset}:
+
+    $ ${tty_bold}git clone https://github.com/gaggle/perfect-elixir.git${tty_reset}
+
+Either command creates a new directory named '${tty_bold}perfect-elixir${tty_reset}'.
+
+• After cloning the repository, navigate into it with:
+
+    ${tty_bold}cd perfect-elixir${tty_reset}
+
+You can learn more about cloning with ${tty_bold}SSH${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls${tty_reset}, or cloning with ${tty_bold}HTTPS${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls${tty_reset}.
+
+Source this script again after cloning the repository.
+EOS
+  )"
+}
+
+explain_activate_dev() {
+  explain "User action required: Activate developer environment" "$(
+    cat <<EOS
+You should run ${tty_bold}dev${tty_reset}, which is the pkgx tool to utilize developer environments. Source this script again afterwards.
+
+• Run this command:
+
+    $ ${tty_bold}dev${tty_reset}
+
+${tty_bold}dev${tty_reset} only needs to be run once, from then on the folder will be under pkgx supervision and dependencies will be managed automatically.
+
+You can learn more about ${tty_bold}dev${tty_reset} and its usage from the official documentation: ${tty_bold}${tty_underline}https://docs.pkgx.sh/using-dev/dev${tty_reset}
+
+Source this script again after activating developer environment.
+EOS
+  )"
+}
+
+explain_good_to_go() {
+  explain "Good to go" "$(
+    cat <<EOS
+Bootstrapping is done:
+${tty_green}✓${tty_reset} ${tty_bold}pkgx${tty_reset} is installed
+${tty_green}✓${tty_reset} Its ${tty_bold}shell integration${tty_reset} is active
+${tty_green}✓${tty_reset} The ${tty_bold}repository${tty_reset} is cloned and ready
+${tty_green}✓${tty_reset} All ${tty_bold}system dependencies${tty_reset} are available
+
+• Run this command to finish onboarding:
+
+    $ ${tty_bold}bin/doctor${tty_reset}
 EOS
   )"
 }
@@ -147,26 +235,7 @@ pkgx_is_old() {
     "$(echo "$v" | awk '{print $2}')"
 }
 
-explain_integrate_pkgx() {
-  explain "User action required: Activate pkgx shell integration" "$(
-    cat <<EOS
-You need to activate ${tty_bold}pkgx shell integration${tty_reset}. Run this script again afterwards.
 
-• Run this command: ${tty_bold}eval "\$(pkgx integrate)"${tty_reset}
-
-To first see what integrate will do, do a dry run:
-  ${tty_bold}pkgx integrate --dry-run${tty_reset}
-
-Shell integration is required to create "${tty_bold}temporary, isolated package environments${tty_reset}", which is what powers our development environment.
-
-For more information about shell integration see: ${tty_bold}${tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${tty_reset}
-
-Read more about pkgx on ${tty_bold}${tty_underline}https://pkgx.sh${tty_reset}.
-
-Run this script again after shell integration has been activated.
-EOS
-  )"
-}
 
 should_integrate_pkgx() {
   if fake should_integrate_pkgx; then
@@ -180,34 +249,6 @@ should_integrate_pkgx() {
       return 1
     fi
   fi
-}
-
-explain_clone_repo() {
-  explain "User action required: Clone gaggle/perfect-elixir repository" "$(
-    cat <<EOS
-You need to clone the ${tty_bold}gaggle/perfect-elixir${tty_reset} repository. Run this script again afterwards.
-
-There are two primary ways to clone the repository:
-
-• Using ${tty_bold}SSH${tty_reset}:
-
-    ${tty_bold}git clone git@github.com:gaggle/perfect-elixir.git${tty_reset}
-
-• Using ${tty_bold}HTTPS${tty_reset}:
-
-    ${tty_bold}git clone https://github.com/gaggle/perfect-elixir.git${tty_reset}
-
-You can learn more about cloning with ${tty_bold}SSH${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls${tty_reset}
-And cloning with ${tty_bold}HTTPS${tty_reset} here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls${tty_reset}
-
-Either command creates a new directory named '${tty_bold}perfect-elixir${tty_reset}'.
-After cloning the repository, navigate into it with:
-
-    ${tty_bold}cd perfect-elixir${tty_reset}
-
-Run this script again after cloning the repository.
-EOS
-  )"
 }
 
 should_clone_repo() {
@@ -229,6 +270,21 @@ should_clone_repo() {
     fi
   fi
 }
+
+should_activate_dev() {
+   if fake should_activate_dev; then
+     return_fake should_activate_dev
+   else
+     for cmd in erl elixir psql; do
+       if ! command -v $cmd >/dev/null; then
+         # One of the commands is not installed, so yes, install it.
+         return 0
+       fi
+     done
+     # All commands are installed, so no need to install anything.
+     return 1
+   fi
+ }
 
 ########################################################################### logic
 
@@ -259,17 +315,17 @@ main() {
     else
       printf "• Repository is available %s✓%s\n" "$tty_green" "$tty_reset"
     fi
-    printf "\n"
-    explain "Good to go" "$(
-      cat <<EOS
-Bootstrapping is done:
-${tty_green}✓${tty_reset} ${tty_bold}\`pkgx\`${tty_reset} is installed
-${tty_green}✓${tty_reset} Its ${tty_bold}shell integration${tty_reset} is active
-${tty_green}✓${tty_reset} The ${tty_bold}repository${tty_reset} is cloned and ready
 
-Run ${tty_bold}\`bin/doctor\`${tty_reset} to finish onboarding.
-EOS
-    )"
+    if condition "Checking for dependencies" "should_activate_dev"; then
+      printf "• Dependencies are not available %sx%s\n\n" "$tty_red" "$tty_reset"
+      explain_activate_dev
+      return 0
+    else
+      printf "• Dependencies are available %s✓%s\n" "$tty_green" "$tty_reset"
+    fi
+
+    printf "\n"
+    explain_good_to_go
   else
     return 0
   fi
