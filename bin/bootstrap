@@ -249,7 +249,7 @@ main() {
       explain_integrate_pkgx
       return 0
     else
-      printf "• pkgx shell integration is activated %s✓%s\n" "$tty_green" "$tty_reset"
+      printf "• Shell integration is active %s✓%s\n" "$tty_green" "$tty_reset"
     fi
 
     if condition "Checking for repository" "should_clone_repo"; then
