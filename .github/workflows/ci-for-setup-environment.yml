@@ -9,15 +9,27 @@ concurrency:
   group: ${{ github.ref }}
 
 jobs:
-  success-test:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      scenarios: ${{ steps.scenarios.outputs.scenarios }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: test/setup-environment-scenarios
+
+      - id: scenarios
+        run: |
+          scenarios=$(ls test/setup-environment-scenarios | jq -Rsc 'split("\n")[:-1]')
+          echo "scenarios=$scenarios" >> $GITHUB_OUTPUT
+
+  scenario:
+    needs: prepare
     strategy:
       fail-fast: false
       matrix:
         os: [ macos-14, macos-13 ]
-        scenario:
-          - no-to-proceed
-          - pkgx-is-not-installed
-          - pkgx-is-not-shell-integrated
+        scenario: ${{ fromJson(needs.prepare.outputs.scenarios) }}
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.scenario }} (on ${{ matrix.os }})
     steps:
