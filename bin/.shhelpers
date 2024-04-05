@@ -125,6 +125,84 @@ section() {
   cecho -Bbu "\n$1"
 }
 
+step() {
+  set -euo pipefail
+
+  local command="" command_exit_code command_output="" description="" with_output=0
+
+  step_usage() {
+    echo "step [--with-output] \"DESCRIPTION\" \"COMMAND\""
+    echo ""
+    echo "Performs a step described by DESCRIPTION by executing COMMAND."
+    echo "--with-output causes command output to be displayed as command runs, otherwise output is only shown if the command exits non-zero"
+    echo "DEBUG=true forces command output to always be shown"
+  }
+
+  while (("$#")); do
+    case "$1" in
+    -o | --with-output)
+      with_output=1
+      shift
+      ;;
+    -* | --*)
+      echo "Error: Unsupported flag $1" >&2
+      step_usage
+      return 1
+      ;;
+    *)
+      if [[ -z $description ]]; then
+        description=$1
+      else
+        command=$1
+      fi
+      shift
+      ;;
+    esac
+  done
+
+  if [[ -z $description ]] || [[ -z $command ]]; then
+    step_usage
+    return 1
+  fi
+
+  if ((with_output)); then
+    cecho -f ">"
+    set +e
+    eval "${command}"
+    command_exit_code=$?
+    set -e
+  else
+    cecho -n "• ${description}"
+    set +e
+    command_output=$(eval "${command} 2>&1")
+    command_exit_code=$?
+    set -e
+  fi
+
+  if ((with_output)); then
+    if [[ ${command_exit_code} -eq 0 ]]; then
+      cecho "• ${description}" --green -bB " ✓"
+      debug_log "> Executed: ${command}"
+    else
+      cecho "• ${description}" --red -bB " x"
+      cecho --red "> Executed: " --red -b "${command}"
+      debug_log "Done with '${description}', exited $command_exit_code"
+    fi
+  else
+    if [[ ${command_exit_code} -eq 0 ]]; then
+      cecho --green -bB " ✓"
+      debug_log "> Executed: ${command}"
+      debug_log "${command_output}"
+    else
+      cecho --red -bB " x"
+      cecho --red "> Executed: " --red -b "${command}"
+      cecho --red "${command_output}"
+      debug_log "Done with '${description}', exited $command_exit_code"
+    fi
+  fi
+  return ${command_exit_code}
+}
+
 debug_log() {
   set -euo pipefail
 
