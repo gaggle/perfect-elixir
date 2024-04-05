@@ -1,8 +1,11 @@
-name: e2e
+name: e2e-bootstrap
 
 on:
   push:
     branches: [ "**" ] # this triggers only on branch commits, which prevents triggering off of tag-only commits
+    paths:
+      - .github/workflows/e2e-bootstrap.yml
+      - bin/bootstrap
   workflow_dispatch:
 
 concurrency:
@@ -25,7 +28,7 @@ jobs:
           zsh -l -c '
           set -e;
           
-          curl -fsSL $E2E_URL > /tmp/setup.sh && source /tmp/setup.sh > 1_should_install_pkgx.txt;
+          curl -fsSL $E2E_URL > /tmp/bootstrap && source /tmp/bootstrap > 1_should_install_pkgx.txt;
           echo ::group::cat 1_should_install_pkgx.txt;
           cat 1_should_install_pkgx.txt;
           echo ::endgroup::;
@@ -35,7 +38,7 @@ jobs:
           brew install pkgxdev/made/pkgx;
           echo ::endgroup::;
 
-          source /tmp/setup.sh > 2_should_integrate_pkgx.txt;
+          source /tmp/bootstrap > 2_should_integrate_pkgx.txt;
           echo ::group::cat 2_should_integrate_pkgx.txt;
           cat 2_should_integrate_pkgx.txt;
           echo ::endgroup::;
@@ -45,7 +48,7 @@ jobs:
           eval "$(pkgx integrate)";
           echo ::endgroup::;
 
-          source /tmp/setup.sh > 3_should_clone_repo.txt;
+          source /tmp/bootstrap > 3_should_clone_repo.txt;
           echo ::group::cat 3_should_clone_repo.txt;
           cat 3_should_clone_repo.txt;
           echo ::endgroup::;
@@ -57,7 +60,7 @@ jobs:
           git checkout "perfect-elixir-3-development-workflows-&-processes";
           echo ::endgroup::;
 
-          source /tmp/setup.sh > 4_should_activate_dev.txt;
+          source /tmp/bootstrap > 4_should_activate_dev.txt;
           echo ::group::cat 4_should_activate_dev.txt;
           cat 4_should_activate_dev.txt;
           echo ::endgroup::;
@@ -67,7 +70,7 @@ jobs:
           dev;
           echo ::endgroup::;
 
-          source /tmp/setup.sh > 5_good_to_go.txt;
+          source /tmp/bootstrap > 5_good_to_go.txt;
           echo ::group::cat 5_good_to_go.txt;
           cat 5_good_to_go.txt;
           echo ::endgroup::;
