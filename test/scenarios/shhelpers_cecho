@@ -10,14 +10,8 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pexpect"])
     import pexpect
 
-BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../bin'))
-PROMPT = '$ '
 
-child = pexpect.spawn("/bin/zsh -f", env={"PS1": PROMPT}, timeout=5)
-child.logfile_read = sys.stdout.buffer
-try:
-    child.expect_exact(PROMPT)
-
+def test(child):
     child.sendline(f"source {BIN_DIR}/.shhelpers")
     child.expect_exact(PROMPT)
 
@@ -27,13 +21,13 @@ try:
     child.expect_exact(PROMPT)
 
     # Test: Colors
-    child.sendline('cecho "Test Colors: " --black "black " --red "red " --green "green " --yellow "yellow " --blue "blue " --magenta "magenta " --cyan "cyan " --white "white"')
-    child.expect('Test Colors:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
+    child.sendline('cecho "Test: " --black "black " --red "red " --green "green " --yellow "yellow " --blue "blue " --magenta "magenta " --cyan "cyan " --white "white"')
+    child.expect('Test:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
     child.expect_exact(PROMPT)
 
     # Test: Bright Colors
-    child.sendline('cecho "Test Brights: " -B --black "black " -B --red "red " -B --green "green " -B --yellow "yellow " -B --blue "blue " -B --magenta "magenta " -B --cyan "cyan " -B --white "white"')
-    child.expect('Test Brights:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
+    child.sendline('cecho "Test: " -B --black "black " -B --red "red " -B --green "green " -B --yellow "yellow " -B --blue "blue " -B --magenta "magenta " -B --cyan "cyan " -B --white "white"')
+    child.expect('Test:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
     child.expect_exact(PROMPT)
 
     # Test: Bundled args
@@ -63,17 +57,34 @@ try:
     child.sendline('cecho --white ""')
     child.expect_exact('')
     child.expect_exact(PROMPT)
+    child.sendline('cecho -b "<" "" -b ">"')
+    child.expect(r'<.*>')
+    child.expect_exact(PROMPT)
+    child.sendline('cecho -b "<" --white "" -b ">"')
+    child.expect(r'<.*>')
+    child.expect_exact(PROMPT)
 
     # Test: Help message
     child.sendline('cecho --help')
     child.expect_exact('Usage:')
     child.expect_exact(PROMPT)
 
-    child.sendline("exit")
-    child.expect(pexpect.EOF)
+
+BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../bin'))
+PROMPT = '$ '
+
+zsh_child = pexpect.spawn("/bin/zsh -f", env={"PS1": PROMPT}, timeout=5)
+zsh_child.logfile_read = sys.stdout.buffer
+try:
+    zsh_child.sendline("echo $ZSH_VERSION")
+    zsh_child.expect_exact(PROMPT)
+    test(zsh_child)
+    zsh_child.sendline("exit")
+    zsh_child.expect(pexpect.EOF)
 except (pexpect.exceptions.TIMEOUT, pexpect.exceptions.EOF) as e:
     print(str(e))
-    child.close(force=True)
+    zsh_child.close(force=True)
 else:
-    child.close()
-sys.exit(child.exitstatus)
+    zsh_child.close()
+
+if zsh_child.exitstatus: sys.exit(zsh_child.exitstatus)
