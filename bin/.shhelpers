@@ -118,6 +118,19 @@ clipboard() {
   fi
 }
 
+section() {
+  set -euo pipefail
+  cecho -Bbu "\n$1"
+}
+
+debug_log() {
+  set -euo pipefail
+
+  if [[ ${DEBUG:-false} == "true" ]]; then
+    cecho -f "DEBUG: " "$1"
+  fi
+}
+
 _padding() {
   local input="$1" total_length="$2"
   local input_length="${#input}"
