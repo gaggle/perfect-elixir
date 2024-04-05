@@ -6,7 +6,12 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 fi
 
 cecho() {
-  local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param=""
+  local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param="" color_enabled=true
+
+  if [ ! -t 1 ]; then
+    color_enabled=false
+    reset=""
+  fi
 
   cecho_usage() {
     cecho "cecho: echo text with " -b --cyan "color" " and " -bu "style"
@@ -33,7 +38,9 @@ cecho() {
 
   apply_styles() {
     for style in "${styles[@]}"; do
-      output+="\033[$([[ "$is_bright" == true && "$style" =~ ^3[0-7]$ ]] && echo "9${style: -1}" || echo "$style")m"
+      if [[ "$color_enabled" == true ]]; then
+        output+="\033[$([[ "$is_bright" == true && "$style" =~ ^3[0-7]$ ]] && echo "9${style: -1}" || echo "$style")m"
+      fi
     done
     styles=()
   }
