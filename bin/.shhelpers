@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  echo "This script must be sourced, not executed directly"
+  exit 1
+fi
+
+_padding() {
+  local input="$1" total_length="$2"
+  local input_length="${#input}"
+  local padding_length=$((total_length - input_length))
+  printf '%*s' "$padding_length"
+}
+
+_pad() {
+  local padding=$(_padding "$1" "$2")
+  echo -n "$1$padding"
+}
+
+_leftpad() {
+  local padding=$(_padding "$1" "$2")
+  echo -n "$padding$1"
+}
