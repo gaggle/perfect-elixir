@@ -26,7 +26,7 @@ cecho() {
     local color padding
     for color in black red green yellow blue magenta cyan white; do
       padding=$(printf '%*s' $((12 - ${#color})) "")
-      cecho "  --$color $(_padding $color, 12) " --$color "$color color $(_padding "$color" 8) (" --$color -B "bright" ")"
+      cecho "  --$color $(_padding "$color", 12) " --$color "$color color $(_padding "$color" 8) (" --$color -B "bright" ")"
     done
     cecho "  -B, --bright   Bright color variant"
     cecho -u "\nOTHER"
