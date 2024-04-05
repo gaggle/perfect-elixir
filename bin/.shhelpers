@@ -57,7 +57,10 @@ cecho() {
           suffix=""
         elif [[ "${codes[$char]+_}" ]]; then
           styles+=("${codes[$char]}")
-        else echo "Unknown option: $char" >&2; fi
+        else
+          echo "Unknown option: $char" >&2
+          exit 1
+        fi
       done
     elif [[ -n "$param" && "${codes[$param]+_}" ]]; then
       styles+=("${codes[$param]}")
