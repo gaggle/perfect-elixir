@@ -9,7 +9,7 @@ cecho() {
   local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param=""
 
   cecho_usage() {
-    cecho "cecho: echo text with " -b --cyan "color" " and " -b -u "style" " options"
+    cecho "cecho: echo text with " -b --cyan "color" " and " -bu "style"
     cecho "\nUsage: cecho [options] <text>"
     cecho "\nExample: cecho --red -b \"Hello World\""
     cecho -u "\nTEXT STYLES"
@@ -25,8 +25,8 @@ cecho() {
     done
     cecho "  -B, --bright   Bright color variant"
     cecho -u "\nOTHER"
-    cecho "  -n              Do not output the trailing newline"
-    cecho "  -h, --help      Show this help and exit"
+    cecho "  -n             Do not output the trailing newline"
+    cecho "  -h, --help     Show this help and exit"
   }
 
   declare -A codes=(["--black"]="30" ["--red"]="31" ["--green"]="32" ["--yellow"]="33" ["--blue"]="34" ["--magenta"]="35" ["--cyan"]="36" ["--white"]="37" ["-b"]="1" ["--bold"]="1" ["-f"]="2" ["--faint"]="2" ["-i"]="3" ["--italic"]="3" ["-u"]="4" ["--underline"]="4" ["-n"]="" ["-B"]="")
@@ -84,19 +84,19 @@ clipboard() {
 
   while (($#)); do
     case "$1" in
-      -h | --help)
-        clipboard_usage
-        return 0
-        ;;
-      *) break ;;
+    -h | --help)
+      clipboard_usage
+      return 0
+      ;;
+    *) break ;;
     esac
   done
 
   local input
-  if read -t 0; then  # checking if there is any data on STDIN
-    input=$(cat)  # if yes, read it
+  if read -t 0; then # checking if there is any data on STDIN
+    input=$(cat)     # if yes, read it
   else
-    input="$@"  # else, use arguments as input
+    input="$@" # else, use arguments as input
   fi
 
   if command -v pbcopy >/dev/null; then
