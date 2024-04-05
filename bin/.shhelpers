@@ -69,6 +69,45 @@ cecho() {
   echo -en "${output}${suffix}"
 }
 
+clipboard() {
+  set -euo pipefail
+
+  clipboard_usage() {
+    cecho -b "clipboard" ": copy text to clipboard"
+    cecho "\nUsage: clipboard [options] <text>"
+    cecho -u "\nEXAMPLES"
+    cecho "  $ clipboard foo"
+    cecho "  $ echo foo | clipboard"
+    cecho -u "\nOPTIONS"
+    cecho "  -h, --help      Show this help and exit"
+  }
+
+  while (($#)); do
+    case "$1" in
+      -h | --help)
+        clipboard_usage
+        return 0
+        ;;
+      *) break ;;
+    esac
+  done
+
+  local input
+  if read -t 0; then  # checking if there is any data on STDIN
+    input=$(cat)  # if yes, read it
+  else
+    input="$@"  # else, use arguments as input
+  fi
+
+  if command -v pbcopy >/dev/null; then
+    echo -n "$input" | pbcopy
+  else
+    cecho --yellow -fn "Warn: Clipboard command not available, tried to copy: "
+    cecho --yellow -b "$input"
+    return
+  fi
+}
+
 _padding() {
   local input="$1" total_length="$2"
   local input_length="${#input}"
