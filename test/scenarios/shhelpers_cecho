@@ -56,6 +56,14 @@ try:
     child.expect(r'Test: Cyan No New.*line')
     child.expect_exact(PROMPT)
 
+    # Test: Empty string
+    child.sendline('cecho ""')
+    child.expect_exact('')
+    child.expect_exact(PROMPT)
+    child.sendline('cecho --white ""')
+    child.expect_exact('')
+    child.expect_exact(PROMPT)
+
     # Test: Help message
     child.sendline('cecho --help')
     child.expect_exact('Usage:')
