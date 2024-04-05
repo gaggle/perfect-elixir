@@ -1,4 +1,4 @@
-name: ci for setup-environment
+name: ci
 
 on:
   push:
@@ -9,7 +9,7 @@ concurrency:
   group: ${{ github.ref }}
 
 env:
-  scenarios-dir: test/setup-environment-scenarios
+  scenarios-dir: test/scenarios
 
 jobs:
   prepare:
