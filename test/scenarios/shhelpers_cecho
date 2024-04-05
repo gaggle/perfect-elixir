@@ -10,7 +10,6 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "pexpect"])
     import pexpect
 
-
 def test(child):
     child.sendline(f"source {BIN_DIR}/.shhelpers")
     child.expect_exact(PROMPT)
@@ -69,7 +68,6 @@ def test(child):
     child.expect_exact('Usage:')
     child.expect_exact(PROMPT)
 
-
 BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../bin'))
 PROMPT = '$ '
 
@@ -88,3 +86,22 @@ else:
     zsh_child.close()
 
 if zsh_child.exitstatus: sys.exit(zsh_child.exitstatus)
+
+bash_child = pexpect.spawn("/bin/zsh", env={"PS1": PROMPT}, timeout=5)
+bash_child.logfile_read = sys.stdout.buffer
+try:
+    bash_child.sendline("pkgx bash --noprofile --norc")
+    bash_child.sendline(f'export PS1="{PROMPT}"')
+    bash_child.sendline("echo $BASH_VERSION")
+    bash_child.expect_exact(PROMPT)
+    test(bash_child)
+    bash_child.sendline("exit")
+    bash_child.sendline("exit")
+    bash_child.expect(pexpect.EOF)
+except (pexpect.exceptions.TIMEOUT, pexpect.exceptions.EOF) as e:
+    print(str(e))
+    bash_child.close(force=True)
+else:
+    bash_child.close()
+
+sys.exit(bash_child.exitstatus)

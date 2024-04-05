@@ -59,7 +59,7 @@ cecho() {
           styles+=("${codes[$char]}")
         else echo "Unknown option: $char" >&2; fi
       done
-    elif [[ "${codes[$param]+_}" ]]; then
+    elif [[ -n "$param" && "${codes[$param]+_}" ]]; then
       styles+=("${codes[$param]}")
     else
       [[ "${#styles[@]}" -ne 0 ]] && apply_styles
