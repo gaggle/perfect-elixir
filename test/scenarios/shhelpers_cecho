@@ -1,107 +1,72 @@
-#!/usr/bin/env -S pkgx +pip@24 python@3
-
-import os
-import subprocess
+#!/usr/bin/env -S pkgx +pip@24 +zsh@5 +bash@5 python@3
 import sys
+import os
 
-try:
-    import pexpect
-except ImportError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "pexpect"])
-    import pexpect
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
-def test(child):
+from test_runner import run_tests_against_shells
+
+
+def test(child, P, BIN_DIR, PROMPT):
     child.sendline(f"source {BIN_DIR}/.shhelpers")
     child.expect_exact(PROMPT)
 
     # Test: Styles
-    child.sendline('cecho "Test: " -b "bold " -f "faint " -i "italic " -u "underline"')
-    child.expect('Test:.*bold.*faint.*italic.*underline')
+    child.sendline('p; cecho "Test: " -b "bold " -f "faint " -i "italic " -u "underline"')
+    child.expect(f'{P} Test:.*bold.*faint.*italic.*underline')
     child.expect_exact(PROMPT)
 
     # Test: Colors
-    child.sendline('cecho "Test: " --black "black " --red "red " --green "green " --yellow "yellow " --blue "blue " --magenta "magenta " --cyan "cyan " --white "white"')
-    child.expect('Test:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
+    child.sendline('p; cecho "Test: " --black "black " --red "red " --green "green " --yellow "yellow " --blue "blue " --magenta "magenta " --cyan "cyan " --white "white"')
+    child.expect(f'{P}.*Test:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
     child.expect_exact(PROMPT)
 
     # Test: Bright Colors
-    child.sendline('cecho "Test: " -B --black "black " -B --red "red " -B --green "green " -B --yellow "yellow " -B --blue "blue " -B --magenta "magenta " -B --cyan "cyan " -B --white "white"')
-    child.expect('Test:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
+    child.sendline('p; cecho "Test: " -B --black "black " -B --red "red " -B --green "green " -B --yellow "yellow " -B --blue "blue " -B --magenta "magenta " -B --cyan "cyan " -B --white "white"')
+    child.expect(f'{P}.*Test:.*black.*red.*green.*yellow.*blue.*magenta.*cyan.*white')
     child.expect_exact(PROMPT)
 
     # Test: Bundled args
-    child.sendline('cecho -bi "Test: Bundled " -Bu "args"')
-    child.expect('Test: Bundled.*args')
+    child.sendline('p; cecho -bi "Test: Bundled " -Bu "args"')
+    child.expect(f'{P}.*Test: Bundled.*args')
     child.expect_exact(PROMPT)
 
     # Test: Multiple styles & colors & reset
-    child.sendline('cecho "Test: " --green "Green " -u "Underlined" " and " -b "Bold"')
-    child.expect('Test:.*Green.*Underlined.*and.*Bold')
+    child.sendline('p; cecho "Test: " --green "Green " -u "Underlined" " and " -b "Bold"')
+    child.expect(f'{P}.*Test:.*Green.*Underlined.*and.*Bold')
     child.expect_exact(PROMPT)
 
     # Test: Combining multiple styles and colors without explicit segment separators
-    child.sendline('cecho --blue "Test: Blue, " --yellow "Yellow, " "and " --green "Green Text"')
-    child.expect(r'Test: Blue,.*Yellow,.*and.*Green Text')
+    child.sendline('p; cecho --blue "Test: Blue, " --yellow "Yellow, " "and " --green "Green Text"')
+    child.expect(f'{P}.*Test: Blue,.*Yellow,.*and.*Green Text')
     child.expect_exact(PROMPT)
 
     # Test: No newline at the end
-    child.sendline('cecho -n --cyan "Test: Cyan No New"; echo "line"')
-    child.expect(r'Test: Cyan No New.*line')
+    child.sendline('p; cecho -n --cyan "Test: Cyan No New"; echo "line"')
+    child.expect(f'{P}.*Test: Cyan No New.*line')
     child.expect_exact(PROMPT)
 
     # Test: Empty string
-    child.sendline('cecho ""')
-    child.expect_exact('')
+    child.sendline('p; cecho ""')
+    child.expect_exact(f'{P} ')
     child.expect_exact(PROMPT)
-    child.sendline('cecho --white ""')
-    child.expect_exact('')
+    child.sendline('p; cecho --white ""')
+    child.expect_exact(f'{P} ')
     child.expect_exact(PROMPT)
-    child.sendline('cecho -b "<" "" -b ">"')
-    child.expect(r'<.*>')
+    child.sendline('p; cecho -b "#" "" -b "#"')
+    child.expect(f'{P}.*#.*#')
     child.expect_exact(PROMPT)
-    child.sendline('cecho -b "<" --white "" -b ">"')
-    child.expect(r'<.*>')
+    child.sendline('p; cecho -b "#" --white "" -b "#"')
+    child.expect(f'{P}.*#.*#')
     child.expect_exact(PROMPT)
 
     # Test: Help message
-    child.sendline('cecho --help')
-    child.expect_exact('Usage:')
+    child.sendline('p; cecho --help')
+    child.expect(f'{P} cecho: echo text with.*color.*and.*style')
     child.expect_exact(PROMPT)
 
-BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../bin'))
-PROMPT = '$ '
 
-zsh_child = pexpect.spawn("/bin/zsh -f", env={"PS1": PROMPT}, timeout=5)
-zsh_child.logfile_read = sys.stdout.buffer
-try:
-    zsh_child.sendline("echo $ZSH_VERSION")
-    zsh_child.expect_exact(PROMPT)
-    test(zsh_child)
-    zsh_child.sendline("exit")
-    zsh_child.expect(pexpect.EOF)
-except (pexpect.exceptions.TIMEOUT, pexpect.exceptions.EOF) as e:
-    print(str(e))
-    zsh_child.close(force=True)
-else:
-    zsh_child.close()
-
-if zsh_child.exitstatus: sys.exit(zsh_child.exitstatus)
-
-bash_child = pexpect.spawn("/bin/zsh", env={"PS1": PROMPT}, timeout=5)
-bash_child.logfile_read = sys.stdout.buffer
-try:
-    bash_child.sendline("pkgx bash --noprofile --norc")
-    bash_child.sendline(f'export PS1="{PROMPT}"')
-    bash_child.sendline("echo $BASH_VERSION")
-    bash_child.expect_exact(PROMPT)
-    test(bash_child)
-    bash_child.sendline("exit")
-    bash_child.sendline("exit")
-    bash_child.expect(pexpect.EOF)
-except (pexpect.exceptions.TIMEOUT, pexpect.exceptions.EOF) as e:
-    print(str(e))
-    bash_child.close(force=True)
-else:
-    bash_child.close()
-
-sys.exit(bash_child.exitstatus)
+if __name__ == "__main__":
+    run_tests_against_shells(test)
