@@ -21,6 +21,6 @@ watch:
 				echo "\n\n"; \
 				old_hash=$$new_hash; \
 			fi; \
-			sleep 0.25; \
+			sleep 0.45; \
 		done; \
 	fi
