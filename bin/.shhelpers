@@ -8,7 +8,9 @@ fi
 cecho() {
   local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param="" color_enabled=true
 
-  if [ ! -t 1 ]; then
+  if [ ! -t 1 ] && [[ ${FORCE_COLOR:-false} != "true" ]]; then
+    # Colors are disabled if STDOUT is not attached to a terminal
+    # *unless* FORCE_COLOR is true then colors are preserved regardless
     color_enabled=false
     reset=""
   fi
