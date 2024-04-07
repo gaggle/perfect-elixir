@@ -9,82 +9,82 @@ if parent_dir not in sys.path:
 from test_runner import run_tests_against_shells
 
 
-def test(child, P, BIN_DIR, PROMPT):
-    child.sendline(f"source {BIN_DIR}/.shhelpers")
-    child.expect_exact(PROMPT)
+def test(child, prefix, bin_dir, prompt):
+    child.sendline(f"source {bin_dir}/.shhelpers")
+    child.expect_exact(prompt)
 
-    child.expect_exact(PROMPT)
+    child.expect_exact(prompt)
 
-    expect_color = lambda command, expect: expect_color_codes(child, command, expect, PROMPT)
+    expect_color = lambda command, expect: expect_color_codes(child, command, expect, prompt)
 
     # Test: Styles
     expect_color(
         'p; cecho "Test: " -b "bold " -f "faint " -i "italic " -u "underline"',
-        f'{P} Test: ^[[0m^[[1mbold ^[[0m^[[2mfaint ^[[0m^[[3mitalic ^[[0m^[[4munderline^[[0m',
+        f'{prefix} Test: ^[[0m^[[1mbold ^[[0m^[[2mfaint ^[[0m^[[3mitalic ^[[0m^[[4munderline^[[0m',
     )
 
     # Test: Colors
     expect_color(
         'p; cecho "Test: " --black "black " --red "red " --green "green " --yellow "yellow " --blue "blue " --magenta "magenta " --cyan "cyan " --white "white"',
-        f'{P} Test: ^[[0m^[[30mblack ^[[0m^[[31mred ^[[0m^[[32mgreen ^[[0m^[[33myellow ^[[0m^[[34mblue ^[[0m^[[35mmagenta ^[[0m^[[36mcyan ^[[0m^[[37mwhite^[[0m',
+        f'{prefix} Test: ^[[0m^[[30mblack ^[[0m^[[31mred ^[[0m^[[32mgreen ^[[0m^[[33myellow ^[[0m^[[34mblue ^[[0m^[[35mmagenta ^[[0m^[[36mcyan ^[[0m^[[37mwhite^[[0m',
     )
 
     # Test: Bright Colors
     expect_color(
         'p; cecho "Test: " -B --black "black " -B --red "red " -B --green "green " -B --yellow "yellow " -B --blue "blue " -B --magenta "magenta " -B --cyan "cyan " -B --white "white"',
-        f'{P} Test: ^[[0m^[[90mblack ^[[0m^[[91mred ^[[0m^[[92mgreen ^[[0m^[[93myellow ^[[0m^[[94mblue ^[[0m^[[95mmagenta ^[[0m^[[96mcyan ^[[0m^[[97mwhite^[[0m',
+        f'{prefix} Test: ^[[0m^[[90mblack ^[[0m^[[91mred ^[[0m^[[92mgreen ^[[0m^[[93myellow ^[[0m^[[94mblue ^[[0m^[[95mmagenta ^[[0m^[[96mcyan ^[[0m^[[97mwhite^[[0m',
     )
 
     # Test: Bundled args
     expect_color(
         'p; cecho -bi "Test: Bundled " -Bu "args"',
-        f'{P} ^[[1m^[[3mTest: Bundled ^[[0m^[[4margs^[[0m'
+        f'{prefix} ^[[1m^[[3mTest: Bundled ^[[0m^[[4margs^[[0m'
     )
 
     # Test: Multiple styles & colors & reset
     expect_color(
         'p; cecho "Test: " --green "Green " -u "Underlined" " and " -b "Bold"',
-        f'{P} Test: ^[[0m^[[32mGreen ^[[0m^[[4mUnderlined^[[0m and ^[[0m^[[1mBold^[[0m'
+        f'{prefix} Test: ^[[0m^[[32mGreen ^[[0m^[[4mUnderlined^[[0m and ^[[0m^[[1mBold^[[0m'
     )
 
     # Test: Combining multiple styles and colors without explicit segment separators
     expect_color(
         'p; cecho --blue "Test: Blue, " --yellow "Yellow, " "and " --green "Green Text"',
-        f'{P} ^[[34mTest: Blue, ^[[0m^[[33mYellow, ^[[0mand ^[[0m^[[32mGreen Text^[[0m'
+        f'{prefix} ^[[34mTest: Blue, ^[[0m^[[33mYellow, ^[[0mand ^[[0m^[[32mGreen Text^[[0m'
     )
 
     # Test: No newline at the end
     expect_color(
         'p; cecho -n --cyan "Test: Cyan No New"; echo "line"',
-        f'{P} ^[[36mTest: Cyan No New^[[0mline'
+        f'{prefix} ^[[36mTest: Cyan No New^[[0mline'
     )
 
     # Test: Empty string
     child.sendline('p; cecho "" | cat -v')
-    child.expect_exact(f'{P} ')
+    child.expect_exact(f'{prefix} ')
     child.sendline('p; cecho --white "" | cat -v')
-    child.expect_exact(f'{P} ')
+    child.expect_exact(f'{prefix} ')
     child.sendline('p; cecho -b "#" "" -b "#" | cat -v')
-    child.expect_exact(f'{P} ^[[1m#^[[0m^[[0m^[[1m#^[[0m')
+    child.expect_exact(f'{prefix} ^[[1m#^[[0m^[[0m^[[1m#^[[0m')
     child.sendline('p; cecho -b "#" --cyan "" -b "#" | cat -v')
-    child.expect_exact(f'{P} ^[[1m#^[[0m^[[36m^[[0m^[[1m#^[[0m')
+    child.expect_exact(f'{prefix} ^[[1m#^[[0m^[[36m^[[0m^[[1m#^[[0m')
 
     # Test: Help message
     child.sendline('export FORCE_COLOR=false; p; cecho --help | cat -v')
-    child.expect_exact(f'{P} cecho: echo text with color and style')
-    child.expect_exact(PROMPT)
+    child.expect_exact(f'{prefix} cecho: echo text with color and style')
+    child.expect_exact(prompt)
 
 
-def expect_color_codes(child, command, expect_exact, PROMPT):
+def expect_color_codes(child, command, expect_exact, prompt):
     """
     Execute command directly, and then again piped through 'cat -v' with FORCE_COLOR=true
     to show color codes and assert the literal color codes against expected.
     """
     child.sendline(f'{command}')
-    child.expect_exact(PROMPT)
+    child.expect_exact(prompt)
     child.sendline(f'FORCE_COLOR=true; ({command}) | cat -v')
     child.expect_exact(expect_exact)
-    child.expect_exact(PROMPT)
+    child.expect_exact(prompt)
 
 
 if __name__ == "__main__":
