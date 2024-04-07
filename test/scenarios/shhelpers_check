@@ -1,0 +1,64 @@
+#!/usr/bin/env -S pkgx +pip@24 +zsh@5 +bash@5 python@3
+import sys
+import os
+
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
+from test_runner import run_tests_against_shells
+
+ASCII_BULLET = 'M-bM-^@M-"'
+
+
+def test(child, prefix, bin_dir, prompt):
+    child.sendline(f"source {bin_dir}/.shhelpers")
+    child.expect_exact(prompt)
+
+    expect_color = lambda command, expect: expect_color_codes(child, command, expect, prompt)
+
+    expect_color('p; check "Simple check" "echo simple; true" "nope"',
+                 [f'{prefix} {ASCII_BULLET} Simple check^[[0m^[[92m^[[1m M-bM-^\M-^S^[[0m'])
+
+    expect_color('p; DEBUG=true check "Simple check w. debug" "echo simple-debug; true" "nope"',
+                 [
+                     f'{prefix} {ASCII_BULLET} Simple check w. debug^[[0m^[[92m^[[1m M-bM-^\M-^S^[[0m',
+                     '^[[2mDEBUG: ^[[0m> Executed: echo simple-debug; true^[[0m',
+                     '^[[2mDEBUG: ^[[0msimple-debug^[[0m'
+                 ])
+
+    expect_color('p; check "Failing check" "echo fails; false" "Good luck"',
+                 [
+                     f'{prefix} {ASCII_BULLET} Failing check^[[0m^[[91m^[[1m x^[[0m',
+                     '^[[31m> Executed: ^[[0m^[[31m^[[1mecho fails; false^[[0m',
+                     '^[[31mfails^[[0m',
+                     '^[[0m',
+                     '^[[33mSuggested remedy: ^[[0m^[[33m^[[1mGood luck^[[0m'
+                 ])
+
+    expect_color('p; DEBUG=true check "Failing check w. debug" "echo fails-debug; false" "Good debug"',
+                 [
+                     f'>> {ASCII_BULLET} Failing check w. debug^[[0m^[[91m^[[1m x^[[0m',
+                     '^[[31m> Executed: ^[[0m^[[31m^[[1mecho fails-debug; false^[[0m',
+                     '^[[31mfails-debug^[[0m',
+                     '^[[2mDEBUG: ^[[0mDone with \'Failing check w. debug\', exited 1^[[0m',
+                     '^[[0m',
+                     '^[[33mSuggested remedy: ^[[0m^[[33m^[[1mGood debug^[[0m'
+                 ])
+
+
+def expect_color_codes(child, command, expect_exacts, prompt):
+    """
+    Execute command directly, and then again piped through 'cat -v' with FORCE_COLOR=true
+    to show color codes and assert the literal color codes against expected.
+    """
+    child.sendline(f'({command}); true', )
+    child.expect_exact(prompt)
+    child.sendline(f'FORCE_COLOR=true; ({command}) | cat -v; true')
+    for expect_exact in expect_exacts:
+        child.expect_exact(expect_exact)
+    child.expect_exact(prompt)
+
+
+if __name__ == "__main__":
+    run_tests_against_shells(test)

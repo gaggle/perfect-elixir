@@ -207,6 +207,72 @@ step() {
   return ${command_exit_code}
 }
 
+check() {
+  set -euo pipefail
+
+  local command="" command_exit_code description="" remedy=""
+
+  check_usage() {
+    echo "check \"DESCRIPTION\" \"COMMAND\" \"REMEDY\""
+    echo ""
+    echo "Performs a check described by DESCRIPTION by executing COMMAND."
+    echo "If the check fails the proposed REMEDY is shown"
+  }
+
+  while (($#)); do
+    case "$1" in
+    -h | --help)
+      check_usage
+      return 0
+      ;;
+    -* | --*)
+      echo "Error: Unsupported flag $1" >&2
+      step_usage
+      return 1
+      ;;
+    *)
+      if [[ -z $description ]]; then
+        description="$1"
+      elif [[ -z $command ]]; then
+        command="$1"
+      else
+        remedy="$1"
+      fi
+      shift
+      ;;
+    esac
+  done
+
+  if [[ -z $description ]] || [[ -z $command ]] || [[ -z $remedy ]]; then
+    step_usage
+    return 1
+  fi
+
+  cecho -n "• ${description}"
+
+  set +e
+  command_output=$(eval "${command} 2>&1")
+  command_exit_code=$?
+  set -e
+
+  if [[ ${command_exit_code} -eq 0 ]]; then
+    cecho --green -bB " ✓"
+    debug_log "> Executed: ${command}"
+    debug_log "${command_output}"
+  else
+    cecho --red -bB " x"
+    cecho --red "> Executed: " --red -b "${command}"
+    cecho --red "${command_output}"
+    debug_log "Done with '${description}', exited ${command_exit_code}"
+    cecho ""
+    cecho --yellow "Suggested remedy: " --yellow -b "${remedy}"
+    cecho --yellow -b "${remedy}"
+    clipboard "${remedy}"
+    cecho --yellow "(Copied to clipboard)"
+  fi
+  return ${command_exit_code}
+}
+
 debug_log() {
   set -euo pipefail
 
