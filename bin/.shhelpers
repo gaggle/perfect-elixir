@@ -6,6 +6,8 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 fi
 
 cecho() {
+  set -euo pipefail
+
   local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param="" color_enabled=true
 
   if [ ! -t 1 ] && [[ ${FORCE_COLOR:-false} != "true" ]]; then
