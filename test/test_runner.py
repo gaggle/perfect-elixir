@@ -10,7 +10,7 @@ except ImportError:
 
 BIN_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../bin"))
 DEBUG = bool(os.getenv("VERBOSE") or (os.getenv("GITHUB_ACTIONS") and os.getenv("RUNNER_DEBUG")))
-PREFIX = "OUTPUT >>"
+PREFIX = ">>"
 PROMPT = "PROMPT $ "
 
 
