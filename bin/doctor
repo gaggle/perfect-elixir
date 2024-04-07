@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/.shhelpers"
+
+usage() {
+  echo "<FILL OUT USAGE>"
+}
+
+while (($#)); do
+  case "$1" in
+  -h | --help)
+    usage
+    exit 0 ;;
+  *) break ;;
+  esac
+done
+
+section "Running checks…"
+check "Checking system dependencies" \
+  "command which pkgx && which erl && which elixir" \
+  "source bin/bootstrap"
+check "Check PostgreSQL server is running" \
+  "pgrep -f bin/postgres" \
+  "bin/db start"
+check "Check PostgreSQL server has required user" \
+  'psql -U postgres -c "\q" > /dev/null 2>&1' \
+  "createuser -d postgres"
+check "Check mix dependencies" \
+  '[ "$(mix deps | grep -Ec "the dependency is not available|dependency is out of date")" -eq 0 ]' \
+  "mix deps.get && mix deps.compile"
+check "Check PostgreSQL database exists" \
+  "psql -U postgres -lqt | cut -d \| -f 1 | grep -qw 'my_app_dev'" \
+  "mix ecto.create"
+
+cecho "\n" -bB --green "✓" --green " System is healthy & ready"
