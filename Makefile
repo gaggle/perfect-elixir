@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test watch clean
 
 test:
 	@for script in test/scenarios/*; do \
@@ -24,3 +24,10 @@ watch:
 			sleep 0.45; \
 		done; \
 	fi
+
+clean:
+	bin/db nuke
+	rm -rf deps
+	rm -rf _build
+	git clean -ndx --exclude=.idea/
+	echo "$$ git clean -dx --exclude=.idea/"
