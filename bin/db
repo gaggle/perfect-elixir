@@ -3,6 +3,10 @@ set -euo pipefail
 
 source "$(dirname "$0")/.shhelpers"
 
+# Absolute path to db folder (this works even if it doesn't exist)
+dir="$(cd "$(dirname "$0")/.." && pwd)/priv/db"
+rel_dir=${dir#$(pwd)/}
+
 usage() {
   cecho "Usage: $(basename "$0") COMMAND [OPTIONS]"
   cecho ""
@@ -14,7 +18,7 @@ usage() {
   cecho "OPTIONS:"
   cecho "  -h, --help  Show this help message and exit"
   cecho ""
-  cecho "This script manages a PostgreSQL database in 'priv/db' directory. It initializes the directory if it isn't already initialized."
+  cecho "This script manages a PostgreSQL database in '${rel_dir}' directory. It initializes the directory if it isn't already initialized."
 }
 
 # Ensure at least one argument is provided
@@ -25,10 +29,6 @@ fi
 
 COMMAND="$1"
 shift
-
-# Absolute path to db folder (this works even if priv/db doesn't exist)
-dir="$(cd "$(dirname "$0")/.." && pwd)/priv/db"
-rel_dir=${dir#$(pwd)/}
 
 case "$COMMAND" in
   start)
