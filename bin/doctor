@@ -4,7 +4,14 @@ set -euo pipefail
 source "$(dirname "$0")/.shhelpers"
 
 usage() {
-  echo "<FILL OUT USAGE>"
+  echo "Usage: $0 [options]"
+  echo ""
+  echo "This script runs a series of checks to ensure your system is in good shape. It'll suggest remedies to fix any deficiencies."
+  echo ""
+  echo "Options:"
+  echo "  -h, --help    Display this help message and exit. No appointment needed!"
+  echo ""
+  echo "Remember, a check-up a day keeps the debuggers away!"
 }
 
 while (($#)); do
