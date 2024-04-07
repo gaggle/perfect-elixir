@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/.shhelpers"
+
+usage() {
+  cecho "Usage: $(basename "$0") COMMAND [OPTIONS]"
+  cecho ""
+  cecho "Commands:"
+  cecho "  start       Start the PostgreSQL server"
+  cecho "  stop        Stop the PostgreSQL server"
+  cecho "  nuke        Forcefully stop and delete database directory (" -b --yellow "DANGEROUS" ")"
+  cecho ""
+  cecho "OPTIONS:"
+  cecho "  -h, --help  Show this help message and exit"
+  cecho ""
+  cecho "This script manages a PostgreSQL database in 'priv/db' directory. It initializes the directory if it isn't already initialized."
+}
+
+# Ensure at least one argument is provided
+if [[ $# -eq 0 ]]; then
+  usage
+  exit 1
+fi
+
+COMMAND="$1"
+shift
+
+# Absolute path to db folder (this works even if priv/db doesn't exist)
+dir="$(cd "$(dirname "$0")/.." && pwd)/priv/db"
+
+case "$COMMAND" in
+  start)
+    if [[ ! -d "$dir" ]]; then
+      mkdir -p "$dir"
+    fi
+
+    if [[ ! -f "$dir/PG_VERSION" ]]; then
+      initdb -D "$dir"
+    fi
+
+    pg_ctl -D "$dir" -l "$dir/logfile" start
+    ;;
+  stop)
+    pg_ctl -D "$dir" stop
+    ;;
+  nuke)
+    cecho -n --yellow "Are you sure you want to completely erase the database directory at " --yellow --bold "$dir" --yellow "? This cannot be undone 🚨"
+    read -p " [y/N] " confirm
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+      echo "Nuking the database… 💥"
+      pg_ctl -D "$dir" stop -m immediate || true # Ignore errors if the server is not running
+      rm -rf "$dir"
+      echo "Database directory has been removed"
+    else
+      echo "Nuke operation aborted"
+    fi
+    ;;
+  -h|--help)
+    usage
+    ;;
+  *)
+    echo "Error: Unknown command '$COMMAND'"
+    usage
+    exit 1
+    ;;
+esac
