@@ -140,6 +140,10 @@ step() {
 
   while (("$#")); do
     case "$1" in
+    -h | --help)
+      check_usage
+      return 0
+      ;;
     -o | --with-output)
       with_output=1
       shift
