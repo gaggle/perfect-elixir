@@ -190,7 +190,7 @@ step() {
     else
       cecho "• ${description}" --red -bB " x"
       cecho --red "> Executed: " --red -b "${command}"
-      debug_log "Done with '${description}', exited $command_exit_code"
+      debug_log "Done with '${description}', exited ${command_exit_code}"
     fi
   else
     if [[ ${command_exit_code} -eq 0 ]]; then
@@ -201,7 +201,7 @@ step() {
       cecho --red -bB " x"
       cecho --red "> Executed: " --red -b "${command}"
       cecho --red "${command_output}"
-      debug_log "Done with '${description}', exited $command_exit_code"
+      debug_log "Done with '${description}', exited ${command_exit_code}"
     fi
   fi
   return ${command_exit_code}
