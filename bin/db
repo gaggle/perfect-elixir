@@ -28,7 +28,7 @@ shift
 
 # Absolute path to db folder (this works even if priv/db doesn't exist)
 dir="$(cd "$(dirname "$0")/.." && pwd)/priv/db"
-rel_dir=$(realpath --relative-to=. "$dir")
+rel_dir=${dir#$(pwd)/}
 
 case "$COMMAND" in
   start)
