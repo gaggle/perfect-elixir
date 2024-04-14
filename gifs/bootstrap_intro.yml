@@ -1,0 +1,119 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud/perfect-elixir
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 79
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 952
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 15621
+    content: "\e[7mcurl -fsSL https://raw.githubusercontent.com/gaggle/perfect-elixir/main/boots\e[7mt\e[7mrap > /tmp/bootstrap && source /tmp/bootstrap\e[27m\e[K"
+  - delay: 1081
+    content: "\e[A\e[44D\e[27mc\e[27mu\e[27mr\e[27ml\e[27m \e[27m-\e[27mf\e[27ms\e[27mS\e[27mL\e[27m \e[27mh\e[27mt\e[27mt\e[27mp\e[27ms\e[27m:\e[27m/\e[27m/\e[27mr\e[27ma\e[27mw\e[27m.\e[27mg\e[27mi\e[27mt\e[27mh\e[27mu\e[27mb\e[27mu\e[27ms\e[27me\e[27mr\e[27mc\e[27mo\e[27mn\e[27mt\e[27me\e[27mn\e[27mt\e[27m.\e[27mc\e[27mo\e[27mm\e[27m/\e[27mg\e[27ma\e[27mg\e[27mg\e[27ml\e[27me\e[27m/\e[27mp\e[27me\e[27mr\e[27mf\e[27me\e[27mc\e[27mt\e[27m-\e[27me\e[27ml\e[27mi\e[27mx\e[27mi\e[27mr\e[27m/\e[27mm\e[27ma\e[27mi\e[27mn\e[27m/\e[27mb\e[27mo\e[27mo\e[27mt\e[27mst\e[27mr\e[27ma\e[27mp\e[27m \e[27m>\e[27m \e[27m/\e[27mt\e[27mm\e[27mp\e[27m/\e[27mb\e[27mo\e[27mo\e[27mt\e[27ms\e[27mt\e[27mr\e[27ma\e[27mp\e[27m \e[27m&\e[27m&\e[27m \e[27ms\e[27mo\e[27mu\e[27mr\e[27mc\e[27me\e[27m \e[27m/\e[27mt\e[27mm\e[27mp\e[27m/\e[27mb\e[27mo\e[27mo\e[27mt\e[27ms\e[27mt\e[27mr\e[27ma\e[27mp\e[?2004l\r\r\n"
+  - delay: 315
+    content: "This script bootstraps the development environment for our project, prompting along the way for any necessary dependencies to install, configurations to change, or tools to activate.\r\n\r\n\e[1;39mOk to proceed?\e[0m [\e[1;32my\e[0m/\e[1;31mn\e[0m]: "
+  - delay: 3746
+    content: "^C\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 432
+    content: e
+  - delay: 238
+    content: "\bex"
+  - delay: 752
+    content: i
+  - delay: 82
+    content: t
+  - delay: 96
+    content: "\e[?2004l\r\r\n"
