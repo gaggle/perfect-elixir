@@ -61,13 +61,5 @@ records:
     content: 'y'
   - delay: 95
     content: "\r\n• Checking for pkgx… \e[1;32m✓\e[0m\r\n• pkgx is not installed \e[1;31mx\e[0m\r\n\r\n\e[4;39m\e[1;39mUser action required: Install pkgx\e[0m\r\n\r\nYou need to install \e[1;39mpkgx\e[0m. Source this script again afterwards.\r\n\r\n\e[1;39mpkgx\e[0m can be installed in various ways, depending on your preferences:\r\n\r\n• Via \e[1;39mHomebrew\e[0m:\r\n    $ \e[1;39mbrew install pkgxdev/made/pkgx\e[0m\r\n\r\n• Via \e[1;39mcURL\e[0m:\r\n    $ \e[1;39mcurl -Ssf https://pkgx.sh | sh\e[0m\r\n\r\nFor other ways to install see: \e[1;39m\e[4;39mhttps://docs.pkgx.sh/run-anywhere/terminals\e[0m\r\n\r\n\e[1;39mpkgx\e[0m is the package manager that handles system dependencies, and it is not currently installed. The installation is simple, and via Homebrew does not require sudo or other forms of elevated permissions.\r\n\r\nRead more about pkgx on \e[1;39m\e[4;39mhttps://pkgx.sh\e[0m\r\n\r\nSource this script again after pkgx has been installed.\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 1240
-    content: e
-  - delay: 176
-    content: "\bex"
-  - delay: 63
-    content: i
-  - delay: 112
-    content: t
-  - delay: 112
+  - delay: 10000
     content: "\e[?2004l\r\r\n"
