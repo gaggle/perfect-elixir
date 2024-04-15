@@ -12,7 +12,7 @@ config:
   env:
     recording: true
   cols: 79
-  rows: 20
+  rows: 10
   repeat: 0
   quality: 100
   frameDelay: auto
