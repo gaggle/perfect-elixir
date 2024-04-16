@@ -176,7 +176,7 @@ There are two primary ways to clone the repository:
 
 Because this script is made for an article the content isn't on ${tty_bold}main${tty_reset}, so after cloning you'll also need to switch branch:
 
-    $ ${tty_bold}git checkout -b "perfect-elixir-3-development-workflows-&-processes"${tty_reset}
+    $ ${tty_bold}git checkout 'perfect-elixir-3-development-workflows-&-processes'${tty_reset}
 
 You can learn more about cloning here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories${tty_reset}.
 
