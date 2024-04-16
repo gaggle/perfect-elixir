@@ -51,13 +51,9 @@ config:
 records:
   - delay: 9
     content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 1900
-    content: "\e[7mcurl -fsSL https://raw.githubusercontent.com/gaggle/perfect-elixir/main/boots\e[7mt\e[7mrap > /tmp/bootstrap && source /tmp/bootstrap\e[27m\e[K"
-  - delay: 970
-    content: "\e[A\e[44D\e[27mc\e[27mu\e[27mr\e[27ml\e[27m \e[27m-\e[27mf\e[27ms\e[27mS\e[27mL\e[27m \e[27mh\e[27mt\e[27mt\e[27mp\e[27ms\e[27m:\e[27m/\e[27m/\e[27mr\e[27ma\e[27mw\e[27m.\e[27mg\e[27mi\e[27mt\e[27mh\e[27mu\e[27mb\e[27mu\e[27ms\e[27me\e[27mr\e[27mc\e[27mo\e[27mn\e[27mt\e[27me\e[27mn\e[27mt\e[27m.\e[27mc\e[27mo\e[27mm\e[27m/\e[27mg\e[27ma\e[27mg\e[27mg\e[27ml\e[27me\e[27m/\e[27mp\e[27me\e[27mr\e[27mf\e[27me\e[27mc\e[27mt\e[27m-\e[27me\e[27ml\e[27mi\e[27mx\e[27mi\e[27mr\e[27m/\e[27mm\e[27ma\e[27mi\e[27mn\e[27m/\e[27mb\e[27mo\e[27mo\e[27mt\e[27mst\e[27mr\e[27ma\e[27mp\e[27m \e[27m>\e[27m \e[27m/\e[27mt\e[27mm\e[27mp\e[27m/\e[27mb\e[27mo\e[27mo\e[27mt\e[27ms\e[27mt\e[27mr\e[27ma\e[27mp\e[27m \e[27m&\e[27m&\e[27m \e[27ms\e[27mo\e[27mu\e[27mr\e[27mc\e[27me\e[27m \e[27m/\e[27mt\e[27mm\e[27mp\e[27m/\e[27mb\e[27mo\e[27mo\e[27mt\e[27ms\e[27mt\e[27mr\e[27ma\e[27mp\e[?2004l\r\r\n"
-  - delay: 252
+  - delay: 30
     content: "This script bootstraps the development environment for our project, prompting along the way for any necessary dependencies to install, configurations to change, or tools to activate.\r\n\r\n\e[1;39mOk to proceed?\e[0m [\e[1;32my\e[0m/\e[1;31mn\e[0m]: "
-  - delay: 1140
+  - delay: 3000
     content: 'y'
   - delay: 95
     content: "\r\n• Checking for pkgx… \e[1;32m✓\e[0m\r\n• pkgx is not installed \e[1;31mx\e[0m\r\n\r\n\e[4;39m\e[1;39mUser action required: Install pkgx\e[0m\r\n\r\nYou need to install \e[1;39mpkgx\e[0m. Source this script again afterwards.\r\n\r\n\e[1;39mpkgx\e[0m can be installed in various ways, depending on your preferences:\r\n\r\n• Via \e[1;39mHomebrew\e[0m:\r\n    $ \e[1;39mbrew install pkgxdev/made/pkgx\e[0m\r\n\r\n• Via \e[1;39mcURL\e[0m:\r\n    $ \e[1;39mcurl -Ssf https://pkgx.sh | sh\e[0m\r\n\r\nFor other ways to install see: \e[1;39m\e[4;39mhttps://docs.pkgx.sh/run-anywhere/terminals\e[0m\r\n\r\n\e[1;39mpkgx\e[0m is the package manager that handles system dependencies, and it is not currently installed. The installation is simple, and via Homebrew does not require sudo or other forms of elevated permissions.\r\n\r\nRead more about pkgx on \e[1;39m\e[4;39mhttps://pkgx.sh\e[0m\r\n\r\nSource this script again after pkgx has been installed.\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
