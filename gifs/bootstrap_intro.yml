@@ -16,7 +16,7 @@ config:
   repeat: 0
   quality: 100
   frameDelay: auto
-  maxIdleTime: 2000
+  maxIdleTime: 10000
   frameBox:
     type: null
     title: null
