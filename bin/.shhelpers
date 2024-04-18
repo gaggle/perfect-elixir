@@ -277,13 +277,11 @@ check() {
   else
     cecho --red -bB " x"
     cecho --red "> Executed: " --red -b "${command}"
-    cecho --red "${command_output}"
+    [ -n "${command_output}" ] && cecho --red "${command_output}"
     debug_log "Done with '${description}', exited ${command_exit_code}"
     cecho ""
     cecho --yellow "Suggested remedy: " --yellow -b "${remedy}"
-    cecho --yellow -b "${remedy}"
-    clipboard "${remedy}"
-    cecho --yellow "(Copied to clipboard)"
+    clipboard "${remedy}" && cecho --yellow "(Copied to clipboard)"
   fi
   return ${command_exit_code}
 }

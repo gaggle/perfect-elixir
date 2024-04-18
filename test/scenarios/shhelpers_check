@@ -46,6 +46,15 @@ def test(child, prefix, bin_dir, prompt):
                      '^[[33mSuggested remedy: ^[[0m^[[33m^[[1mGood debug^[[0m'
                  ])
 
+    expect_color('p; check "Failing silent check" "false" "Good luck"',
+                 [
+                     f'{prefix} {ASCII_BULLET} Failing silent check^[[0m^[[91m^[[1m x^[[0m',
+                     '^[[31m> Executed: ^[[0m^[[31m^[[1mfalse^[[0m',
+                     '^[[0m',
+                     '^[[33mSuggested remedy: ^[[0m^[[33m^[[1mGood luck^[[0m',
+                     '^[[33m(Copied to clipboard)^[[0m'
+                 ])
+
 
 def expect_color_codes(child, command, expect_exacts, prompt):
     """
