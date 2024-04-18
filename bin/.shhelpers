@@ -215,10 +215,19 @@ check() {
   local command="" command_exit_code description="" remedy=""
 
   check_usage() {
-    echo "check \"DESCRIPTION\" \"COMMAND\" \"REMEDY\""
-    echo ""
-    echo "Performs a check described by DESCRIPTION by executing COMMAND."
-    echo "If the check fails the proposed REMEDY is shown"
+    cecho "Usage:"
+    cecho '  check "<DESCRIPTION>" "<COMMAND>" "<REMEDY>"'
+    cecho "\nPerforms a check described by DESCRIPTION by executing COMMAND,"
+    cecho 'if the check fails, the proposed REMEDY is shown and copied to the clipboard.'
+    cecho '\nPlease note DESCRIPTION, COMMAND, and REMEDY should be quoted if you use spaces in them.'
+    cecho '\nExamples:'
+    cecho '  $ check "Can echo?" "echo Hello" "`echo` always works??"'
+    cecho '  • Can echo? ' --green -b '✓'
+    cecho '\n  $ check "Test if file exist" "[ -f foo ]" "touch foo"'
+    cecho '  • Test if file exist ' --red -b 'x'
+    cecho --red '  > Executed: ' --red -b '[ -f foo ]'
+    cecho --yellow '\n  Suggested remedy: ' --yellow -b 'touch foo'
+    cecho --yellow '  (Copied to clipboard)'
   }
 
   while (($#)); do
