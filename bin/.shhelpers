@@ -107,11 +107,15 @@ clipboard() {
   done
 
   local input
-  if read -t 0; then # checking if there is any data on STDIN
-    input=$(cat)     # if yes, read it
+  set +e # `read -t 0` exits non-zero
+  if [ -t 0 ]; then
+    # STDIN is a terminal, likely no data is piped, use arguments as input
+    input="$*"
   else
-    input="$@" # else, use arguments as input
+    # STDIN is not a terminal, attempt to read from it
+    input=$(cat) || true  # Ensure any read errors do not cause script exit
   fi
+  set -e
 
   if command -v pbcopy >/dev/null; then
     echo -n "$input" | pbcopy
