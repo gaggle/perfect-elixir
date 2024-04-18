@@ -12,11 +12,11 @@ config:
   env:
     recording: true
   cols: 79
-  rows: 20
+  rows: 6
   repeat: 0
   quality: 100
   frameDelay: auto
-  maxIdleTime: 2000
+  maxIdleTime: 10000
   frameBox:
     type: null
     title: null
@@ -49,15 +49,9 @@ config:
     brightCyan: '#b1c6ca'
     brightWhite: '#f9f9f4'
 records:
-  - delay: 1643
-    content: "\e[1K\e[0Gresolving graph…"
-  - delay: 23
-    content: "\e[1K\e[0GAssertion failed: pkgx: env is being duped\r\n"
-  - delay: 29
-    content: "\e[38;5;63menv\e[39m +erlang.org=26.2.2 +elixir-lang.org=1.16.1 +postgresql.org=15.2.0 +git-scm.org\r\n"
-  - delay: 11
-    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 3644
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1900
     content: "\e[7mtime ./bash.sh\e[27m"
   - delay: 708
     content: "\e[14D\e[27mt\e[27mi\e[27mm\e[27me\e[27m \e[27m.\e[27m/\e[27mb\e[27ma\e[27ms\e[27mh\e[27m.\e[27ms\e[27mh\e[?2004l\r\r\n"
@@ -67,13 +61,5 @@ records:
     content: "\e[1K\e[0GAssertion failed: pkgx: env is being duped\r\n"
   - delay: 51
     content: "5.2.21(1)-release\r\n./bash.sh  0.55s user 0.19s system 89% cpu 0.834 total\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 1811
-    content: e
-  - delay: 222
-    content: "\bex"
-  - delay: 96
-    content: i
-  - delay: 129
-    content: t
-  - delay: 143
+  - delay: 10000
     content: "\e[?2004l\r\r\n"
