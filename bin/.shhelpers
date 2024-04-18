@@ -70,7 +70,7 @@ cecho() {
           styles+=("${codes[$char]}")
         else
           echo "Unknown option: $char" >&2
-          exit 1
+          return 1
         fi
       done
     elif [[ -n "$param" && "${codes[$param]+_}" ]]; then
