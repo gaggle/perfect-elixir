@@ -137,17 +137,27 @@ step() {
   local command="" command_exit_code command_output="" description="" with_output=0
 
   step_usage() {
-    echo "step [--with-output] \"DESCRIPTION\" \"COMMAND\""
-    echo ""
-    echo "Performs a step described by DESCRIPTION by executing COMMAND."
-    echo "--with-output causes command output to be displayed as command runs, otherwise output is only shown if the command exits non-zero"
-    echo "DEBUG=true forces command output to always be shown"
+    cecho 'Usage:'
+    cecho '  step [--with-output] "<DESCRIPTION>" "<COMMAND>"'
+    cecho '\nPerforms a step described by DESCRIPTION by executing COMMAND.'
+    cecho 'Command output is only shown if command exits non-zero,'
+    cecho 'unless --with-output is passed in which case output is displayed'
+    cecho 'as the command runs.'
+    cecho '\nDEBUG=true forces command output to always be shown after'
+    cecho 'execution.'
+    cecho '\nExamples:'
+    cecho '  $ step "Echo" "echo Hello"'
+    cecho '  • Echo ' --green -b '✓'
+    cecho '\n  $ step "Read file" "cat foo"'
+    cecho '  • Read file ' --red -b 'x'
+    cecho --red '  > Executed: ' --red -b 'cat foo'
+    cecho --red '  cat: foo: No such file or directory'
   }
 
   while (("$#")); do
     case "$1" in
     -h | --help)
-      check_usage
+      step_usage
       return 0
       ;;
     -o | --with-output)
