@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/.shhelpers"
+
+section "Integrating changes…"
+check "Checking active branch is main" '[ "$(git rev-parse --abbrev-ref HEAD)" = "main" ]' "git checkout main"
+step "Pulling latest code" "git pull origin main --rebase"
+step "Installing dependencies" "mix deps.get"
+step "Compiling dependencies" "mix deps.compile"
+
+bin/doctor
