@@ -1,0 +1,145 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud/perfect-elixir/perfect-elixir
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 79
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 10000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 2632
+    content: "\e[1K\e[0Gresolving graph…"
+  - delay: 32
+    content: "\e[1K\e[0GAssertion failed: pkgx: env is being duped\r\n"
+  - delay: 35
+    content: "\e[38;5;63menv\e[39m +erlang.org=26.2.2 +elixir-lang.org=1.16.1 +postgresql.org=15.2.0 +gnu.org/bash=5.1.16 +gnu.org/coreutils=9.1.0 +gnu.org/grep=3.8.0 +git-scm.org\r\n"
+  - delay: 17
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1497
+    content: "\e[7miex -S mix phx.server\e[27m"
+  - delay: 470
+    content: "\e[21D\e[27mi\e[27me\e[27mx\e[27m \e[27m-\e[27mS\e[27m \e[27mm\e[27mi\e[27mx\e[27m \e[27mp\e[27mh\e[27mx\e[27m.\e[27ms\e[27me\e[27mr\e[27mv\e[27me\e[27mr\e[?2004l\r\r\n"
+  - delay: 1815
+    content: "\e[22m[info] Running MyAppWeb.Endpoint with Bandit 1.4.2 at 127.0.0.1:4000 (http)\r\n\e[0m"
+  - delay: 6
+    content: "\e[22m[info] Access MyAppWeb.Endpoint at http://localhost:4000\r\n\e[0m"
+  - delay: 11
+    content: "Erlang/OTP 26 [erts-14.2.2] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [dtrace]\r\n\r\n"
+  - delay: 5
+    content: "[watch] build finished, watching for changes...\r\n"
+  - delay: 18
+    content: "Interactive Elixir (1.16.1) - press Ctrl+C to exit (type h() ENTER for help)\r\n"
+  - delay: 20
+    content: 'iex(1)> '
+  - delay: 568
+    content: "\b\b\b\b\b\b\b\b\e[J\r\niex(1)> \b\b\b\b\b\b\b\b\e[JRebuilding...\r\niex(1)> "
+  - delay: 305
+    content: "\b\b\b\b\b\b\b\b\e[J\r\nDone in 349ms.\r\niex(1)> "
+  - delay: 2446
+    content: "\r\r\n\e[JBREAK: (a)bort (A)bort with dump (c)ontinue (p)roc info (i)nfo\r\r\n       (l)oaded (v)ersion (k)ill (D)b-tables (d)istribution\r\r\n"
+  - delay: 546
+    content: a
+  - delay: 177
+    content: "\r\n"
+  - delay: 8
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 615
+    content: e
+  - delay: 161
+    content: "\bex"
+  - delay: 127
+    content: i
+  - delay: 112
+    content: t
+  - delay: 144
+    content: "\e[?2004l\r\r\n"
