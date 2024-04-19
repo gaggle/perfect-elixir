@@ -12,7 +12,7 @@ config:
   env:
     recording: true
   cols: 79
-  rows: 20
+  rows: 18
   repeat: 0
   quality: 100
   frameDelay: auto
@@ -49,19 +49,13 @@ config:
     brightCyan: '#b1c6ca'
     brightWhite: '#f9f9f4'
 records:
-  - delay: 2632
-    content: "\e[1K\e[0Gresolving graph…"
-  - delay: 32
-    content: "\e[1K\e[0GAssertion failed: pkgx: env is being duped\r\n"
-  - delay: 35
-    content: "\e[38;5;63menv\e[39m +erlang.org=26.2.2 +elixir-lang.org=1.16.1 +postgresql.org=15.2.0 +gnu.org/bash=5.1.16 +gnu.org/coreutils=9.1.0 +gnu.org/grep=3.8.0 +git-scm.org\r\n"
-  - delay: 17
-    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 1497
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1900
     content: "\e[7miex -S mix phx.server\e[27m"
-  - delay: 470
+  - delay: 300
     content: "\e[21D\e[27mi\e[27me\e[27mx\e[27m \e[27m-\e[27mS\e[27m \e[27mm\e[27mi\e[27mx\e[27m \e[27mp\e[27mh\e[27mx\e[27m.\e[27ms\e[27me\e[27mr\e[27mv\e[27me\e[27mr\e[?2004l\r\r\n"
-  - delay: 1815
+  - delay: 900
     content: "\e[22m[info] Running MyAppWeb.Endpoint with Bandit 1.4.2 at 127.0.0.1:4000 (http)\r\n\e[0m"
   - delay: 6
     content: "\e[22m[info] Access MyAppWeb.Endpoint at http://localhost:4000\r\n\e[0m"
@@ -77,21 +71,13 @@ records:
     content: "\b\b\b\b\b\b\b\b\e[J\r\niex(1)> \b\b\b\b\b\b\b\b\e[JRebuilding...\r\niex(1)> "
   - delay: 305
     content: "\b\b\b\b\b\b\b\b\e[J\r\nDone in 349ms.\r\niex(1)> "
-  - delay: 2446
+  - delay: 3000
     content: "\r\r\n\e[JBREAK: (a)bort (A)bort with dump (c)ontinue (p)roc info (i)nfo\r\r\n       (l)oaded (v)ersion (k)ill (D)b-tables (d)istribution\r\r\n"
-  - delay: 546
+  - delay: 600
     content: a
   - delay: 177
     content: "\r\n"
   - delay: 8
     content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 615
-    content: e
-  - delay: 161
-    content: "\bex"
-  - delay: 127
-    content: i
-  - delay: 112
-    content: t
-  - delay: 144
+  - delay: 10000
     content: "\e[?2004l\r\r\n"
