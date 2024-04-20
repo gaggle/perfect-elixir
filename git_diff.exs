@@ -48,8 +48,10 @@ defmodule GitDiffFormatter do
   end
 
   defp bold(str), do: "\e[1m#{str}\e[0m"
+
   defp format_hunk_header(line),
     do: with([_, number] <- Regex.run(@hunk_header, line), do: "L##{number}:")
+
   defp format_new_file_path(line), do: line |> String.replace(@new_path, "")
   defp green(str), do: "\e[32m#{str}\e[0m"
   defp red(str), do: "\e[31m#{str}\e[0m"
