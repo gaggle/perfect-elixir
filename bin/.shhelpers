@@ -186,7 +186,7 @@ step() {
   fi
 
   if ((with_output)); then
-    cecho -f ">"
+    cecho "• ${description}:"
     set +e
     eval "${command}"
     command_exit_code=$?
@@ -201,10 +201,10 @@ step() {
 
   if ((with_output)); then
     if [[ ${command_exit_code} -eq 0 ]]; then
-      cecho "• ${description}" --green -bB " ✓"
+      cecho -f "↳ ${description}" --green -bB " ✓"
       debug_log "> Executed: ${command}"
     else
-      cecho "• ${description}" --red -bB " x"
+      cecho -f "↳ ${description}" --red -bB " x"
       cecho --red "> Executed: " --red -b "${command}"
       debug_log "Done with '${description}', exited ${command_exit_code}"
     fi

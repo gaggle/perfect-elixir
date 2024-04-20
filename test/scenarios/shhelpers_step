@@ -9,7 +9,7 @@ if parent_dir not in sys.path:
 from test_runner import run_tests_against_shells
 
 ASCII_BULLET = 'M-bM-^@M-"'
-
+DOWNWARDS_ARROW_WITH_TIP_RIGHTWARDS = '^[[2mM-bM-^FM-3'
 
 def test(child, prefix, bin_dir, prompt):
     child.sendline(f"source {bin_dir}/.shhelpers")
@@ -44,32 +44,32 @@ def test(child, prefix, bin_dir, prompt):
 
     expect_color('p; step --with-output "Step" "echo with-output; true"',
                  [
-                     '>> ^[[2m>^[[0m',
+                     f'>> {ASCII_BULLET} Step:^[[0m',
                      'with-output',
-                     f'{ASCII_BULLET} Step^[[0m^[[92m^[[1m M-bM-^\M-^S^[[0m'
+                     f'{DOWNWARDS_ARROW_WITH_TIP_RIGHTWARDS} Step^[[0m^[[92m^[[1m M-bM-^\M-^S^[[0m'
                  ])
 
     expect_color('p; DEBUG=true step --with-output "Step" "echo with-output-debug; true"',
                  [
-                     '>> ^[[2m>^[[0m',
+                     f'>> {ASCII_BULLET} Step:^[[0m',
                      'with-output-debug',
-                     f'{ASCII_BULLET} Step^[[0m^[[92m^[[1m M-bM-^\M-^S^[[0m',
+                     f'{DOWNWARDS_ARROW_WITH_TIP_RIGHTWARDS} Step^[[0m^[[92m^[[1m M-bM-^\M-^S^[[0m',
                      '^[[2mDEBUG: ^[[0m> Executed: echo with-output-debug; true^[[0m',
                  ])
 
     expect_color('p; step --with-output "Step" "echo fails-with-output; false"',
                  [
-                     '>> ^[[2m>^[[0m',
+                     f'>> {ASCII_BULLET} Step:^[[0m',
                      'fails-with-output',
-                     f'{ASCII_BULLET} Step^[[0m^[[91m^[[1m x^[[0m',
+                     f'{DOWNWARDS_ARROW_WITH_TIP_RIGHTWARDS} Step^[[0m^[[91m^[[1m x^[[0m',
                      '^[[31m> Executed: ^[[0m^[[31m^[[1mecho fails-with-output; false^[[0m',
                  ])
 
     expect_color('p; DEBUG=true step --with-output "Step" "echo fails-with-output-debug; false"',
                  [
-                     '>> ^[[2m>^[[0m',
+                     f'>> {ASCII_BULLET} Step:^[[0m',
                      'fails-with-output-debug',
-                     f'{ASCII_BULLET} Step^[[0m^[[91m^[[1m x^[[0m',
+                     f'{DOWNWARDS_ARROW_WITH_TIP_RIGHTWARDS} Step^[[0m^[[91m^[[1m x^[[0m',
                      '^[[31m> Executed: ^[[0m^[[31m^[[1mecho fails-with-output-debug; false^[[0m',
                      '^[[2mDEBUG: ^[[0mDone with \'Step\', exited 1^[[0m',
                  ])
