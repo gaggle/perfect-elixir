@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/.shhelpers"
+
+bin/update
+
+section "Checking code…"
+step --with-output "Run tests" "mix test"
+check "Checking files are formatted" "mix format --check-formatted" "mix format"
+step "Pushing changes to main" "git push origin main"
+cecho "\n" -bB --green "✓" --green " Shipped! 🚢💨"
