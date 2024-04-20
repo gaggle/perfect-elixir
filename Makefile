@@ -14,7 +14,7 @@ watch:
 	else \
 		old_hash=""; \
 		while true; do \
-			new_hash=$$(find bin test -type f -exec stat -f "%m%N" {} + | sort | md5); \
+			new_hash=$$(find bin test -type f -exec stat --format='%Y %n' {} + | sort | md5); \
 			if [ "$$new_hash" != "$$old_hash" ]; then \
 				echo "Running $$script..."; \
 				./$$script; \
