@@ -34,7 +34,8 @@ clean:
 
 deploy_bootstrap:
 	git worktree add ../.temp-deploy-bootstrap main
-	cp bin/bootstrap ../.temp-deploy-bootstrap
-	cd ../.temp-deploy-bootstrap && git add bootstrap && git commit -m "Deploy bootstrap script to main branch"
-	git push origin main
+	cp bin/bootstrap ../.temp-deploy-bootstrap/bootstrap
+	cd ../.temp-deploy-bootstrap && git add bootstrap
+	cd ../.temp-deploy-bootstrap && git diff --staged --exit-code || git commit -m "Deploy bootstrap script to main branch"
+	cd ../.temp-deploy-bootstrap && git push origin main
 	git worktree remove ../.temp-deploy-bootstrap
