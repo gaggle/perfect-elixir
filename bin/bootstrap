@@ -160,27 +160,17 @@ EOS
 explain_clone_repo() {
   echo "${tty_underline}${tty_bold}User action required: Clone gaggle/perfect-elixir repository${tty_reset}\n"
   cat <<-EOS
-You need to clone the ${tty_bold}gaggle/perfect-elixir${tty_reset} GitHub repository. Source this script again afterwards.
+You need to clone the ${tty_bold}gaggle/perfect-elixir${tty_reset} GitHub repository and source this script again from within the repository's folder.
 
-There are two primary ways to clone a repository:
+There are many ways to clone and you can choose what works for you. Note you can easily use the ${tty_bold}GitHub CLI${tty_reset} via pkgx:
+    $ ${tty_bold}pkgx gh repo clone gaggle/perfect-elixir{tty_reset}
 
-• Using ${tty_bold}SSH${tty_reset}:
-
-    $ ${tty_bold}git clone git@github.com:gaggle/perfect-elixir.git${tty_reset}
-    $ ${tty_bold}cd perfect-elixir${tty_reset}
-
-• Using ${tty_bold}HTTPS${tty_reset}:
-
-    $ ${tty_bold}git clone https://github.com/gaggle/perfect-elixir.git${tty_reset}
-    $ ${tty_bold}cd perfect-elixir${tty_reset}
-
-Because this script is made for an article the content isn't on ${tty_bold}main${tty_reset}, so after cloning you'll also need to switch branch:
-
+NOTE: Because this script is made for an article you also need check out a specific branch after cloning:
     $ ${tty_bold}git checkout 'perfect-elixir-3-development-workflows-&-processes'${tty_reset}
 
 You can learn more about cloning here: ${tty_bold}${tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories${tty_reset}.
 
-Source this script again after cloning the repository.
+Source this script again after you've cloned the repository and changed directory into it (i.e. \`${tty_bold}$ cd perfect-elixir${tty_reset}\`)
 EOS
 }
 
@@ -206,7 +196,7 @@ explain_good_to_go() {
   cat <<-EOS
 Bootstrapping is done:
 ${tty_green}✓${tty_reset} ${tty_bold}pkgx${tty_reset} is installed
-${tty_green}✓${tty_reset} Its ${tty_bold}shell integration${tty_reset} is active
+${tty_green}✓${tty_reset} pkgx ${tty_bold}shell integration${tty_reset} is active
 ${tty_green}✓${tty_reset} The ${tty_bold}repository${tty_reset} is cloned and ready
 ${tty_green}✓${tty_reset} All ${tty_bold}system dependencies${tty_reset} are available
 
@@ -241,8 +231,6 @@ pkgx_is_old() {
     "$(curl -Ssf https://pkgx.sh/VERSION)" \
     "$(echo "$v" | awk '{print $2}')"
 }
-
-
 
 should_integrate_pkgx() {
   if fake should_integrate_pkgx; then
@@ -315,7 +303,7 @@ main() {
       printf "• Shell integration is active %s✓%s\n" "$tty_green" "$tty_reset"
     fi
 
-    if condition "Checking for repository" "should_clone_repo"; then
+    if condition "Checking repository is cloned" "should_clone_repo"; then
       printf "• Repository is not available %sx%s\n\n" "$tty_red" "$tty_reset"
       explain_clone_repo
       return 0
@@ -323,12 +311,12 @@ main() {
       printf "• Repository is available %s✓%s\n" "$tty_green" "$tty_reset"
     fi
 
-    if condition "Checking for dependencies" "should_activate_dev"; then
-      printf "• Dependencies are not available %sx%s\n\n" "$tty_red" "$tty_reset"
+    if condition "Checking development environment is active" "should_activate_dev"; then
+      printf "• Development environment not active %sx%s\n\n" "$tty_red" "$tty_reset"
       explain_activate_dev
       return 0
     else
-      printf "• Dependencies are available %s✓%s\n" "$tty_green" "$tty_reset"
+      printf "• Development environment is active %s✓%s\n" "$tty_green" "$tty_reset"
     fi
 
     printf "\n"

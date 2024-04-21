@@ -19,7 +19,7 @@ def test(child, prefix, bin_dir, prompt):
     child.expect("pkgx is installed")
     child.expect("Shell integration is active")
     child.expect("Repository is available")
-    child.expect("Dependencies are available")
+    child.expect("Development environment is active")
     child.expect("Good to go")
     child.expect_exact(prompt)
 
