@@ -162,7 +162,7 @@ explain_clone_repo() {
   cat <<-EOS
 You need to clone the ${tty_bold}gaggle/perfect-elixir${tty_reset} GitHub repository. Source this script again afterwards.
 
-There are two primary ways to clone the repository:
+There are two primary ways to clone a repository:
 
 • Using ${tty_bold}SSH${tty_reset}:
 
