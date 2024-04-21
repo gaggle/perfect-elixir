@@ -31,3 +31,10 @@ clean:
 	rm -rf _build
 	git clean -ndx --exclude=.idea/
 	echo "$$ git clean -dx --exclude=.idea/"
+
+deploy_bootstrap:
+	git worktree add ../.temp-deploy-bootstrap main
+	cp bin/bootstrap ../.temp-deploy-bootstrap
+	cd ../.temp-deploy-bootstrap && git add bootstrap && git commit -m "Deploy bootstrap script to main branch"
+	git push origin main
+	git worktree remove ../.temp-deploy-bootstrap
