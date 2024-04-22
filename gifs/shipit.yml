@@ -1,0 +1,379 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud/perfect-elixir/perfect-elixir
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 90
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 10000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 2396
+    content: "\e[1K\e[0Gresolving graph…"
+  - delay: 29
+    content: "\e[1K\e[0GAssertion failed: pkgx: env is being duped\r\n"
+  - delay: 34
+    content: "\e[38;5;63menv\e[39m +erlang.org=26.2.2 +elixir-lang.org=1.16.1 +postgresql.org=15.2.0 +gnu.org/bash=5.1.16 +gnu.org/coreutils=9.1.0 +gnu.org/grep=3.8.0 +git-scm.org\r\n"
+  - delay: 19
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                         \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1867
+    content: "t\bto"
+  - delay: 48
+    content: u
+  - delay: 112
+    content: c
+  - delay: 129
+    content: h
+  - delay: 64
+    content: ' '
+  - delay: 224
+    content: b
+  - delay: 224
+    content: a
+  - delay: 272
+    content: "\b \b"
+  - delay: 145
+    content: "\b \b"
+  - delay: 255
+    content: f
+  - delay: 80
+    content: o
+  - delay: 159
+    content: o
+  - delay: 383
+    content: "\b \b"
+  - delay: 504
+    content: "\b \b"
+  - delay: 83
+    content: "\b \b"
+  - delay: 89
+    content: "\b"
+  - delay: 86
+    content: "\b \b"
+  - delay: 85
+    content: "\b \b"
+  - delay: 83
+    content: "\b \b"
+  - delay: 86
+    content: "\b\bt \b"
+  - delay: 89
+    content: "\b \b"
+  - delay: 160
+    content: e
+  - delay: 65
+    content: "\bec"
+  - delay: 128
+    content: h
+  - delay: 286
+    content: ' '
+  - delay: 240
+    content: "\b"
+  - delay: 146
+    content: o
+  - delay: 128
+    content: ' '
+  - delay: 111
+    content: f
+  - delay: 129
+    content: o
+  - delay: 112
+    content: o
+  - delay: 687
+    content: "\b \b"
+  - delay: 146
+    content: "\b \b"
+  - delay: 108
+    content: "\b \b"
+  - delay: 307
+    content: '"'
+  - delay: 272
+    content: w
+  - delay: 64
+    content: e
+  - delay: 127
+    content: e
+  - delay: 210
+    content: '"'
+  - delay: 750
+    content: ' '
+  - delay: 112
+    content: '>'
+  - delay: 130
+    content: ' '
+  - delay: 446
+    content: f
+  - delay: 96
+    content: o
+  - delay: 160
+    content: o
+  - delay: 70
+    content: "\e[1m \e[0m"
+  - delay: 700
+    content: "\b\e[0m \b\e[?2004l\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                         \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1454
+    content: g
+  - delay: 176
+    content: "\bgi"
+  - delay: 113
+    content: t
+  - delay: 78
+    content: ' '
+  - delay: 146
+    content: c
+  - delay: 47
+    content: o
+  - delay: 543
+    content: m
+  - delay: 1139
+    content: m
+  - delay: 78
+    content: i
+  - delay: 177
+    content: t
+  - delay: 175
+    content: ' '
+  - delay: 737
+    content: '-'
+  - delay: 272
+    content: m
+  - delay: 48
+    content: ' '
+  - delay: 238
+    content: '"'
+  - delay: 258
+    content: U
+  - delay: 271
+    content: p
+  - delay: 15
+    content: d
+  - delay: 36
+    content: a
+  - delay: 140
+    content: t
+  - delay: 82
+    content: e
+  - delay: 30
+    content: ' '
+  - delay: 162
+    content: f
+  - delay: 48
+    content: o
+  - delay: 127
+    content: o
+  - delay: 528
+    content: '"'
+  - delay: 225
+    content: "\e[?2004l\r\r\n"
+  - delay: 37
+    content: "On branch perfect-elixir-3-development-workflows-&-processes\r\nYour branch is up to date with 'origin/perfect-elixir-3-development-workflows-&-processes'.\r\n\r\nChanges not staged for commit:\r\n  (use \"git add <file>...\" to update what will be committed)\r\n  (use \"git restore <file>...\" to discard changes in working directory)\r\n\t\e[31mmodified:   foo\e[m\r\n\r\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                         \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 2056
+    content: g
+  - delay: 368
+    content: "\bgo"
+  - delay: 113
+    content: t
+  - delay: 112
+    content: ' '
+  - delay: 111
+    content: a
+  - delay: 256
+    content: "\b \b"
+  - delay: 127
+    content: "\b"
+  - delay: 113
+    content: "\b \b"
+  - delay: 287
+    content: "\b\bg \b"
+  - delay: 161
+    content: "\bgi"
+  - delay: 80
+    content: t
+  - delay: 352
+    content: ' '
+  - delay: 94
+    content: a
+  - delay: 65
+    content: d
+  - delay: 144
+    content: d
+  - delay: 48
+    content: ' '
+  - delay: 113
+    content: f
+  - delay: 63
+    content: o
+  - delay: 127
+    content: o
+  - delay: 111
+    content: "\e[?2004l\r\r\n"
+  - delay: 30
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                         \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 341
+    content: git add foo
+  - delay: 158
+    content: "\b\b\b\b\b\b\bcommit -m \"Update foo\""
+  - delay: 592
+    content: "\e[?2004l\r\r\n"
+  - delay: 51
+    content: "[perfect-elixir-3-development-workflows-&-processes eec644f] Update foo\r\n Committer: cloud <cloud@macos-14.2.1.shared>\r\nYour name and email address were configured automatically based\r\non your username and hostname. Please check that they are accurate.\r\nYou can suppress this message by setting them explicitly:\r\n\r\n    git config --global user.name \"Your Name\"\r\n    git config --global user.email you@example.com\r\n\r\nAfter doing this, you may fix the identity used for this commit with:\r\n\r\n    git commit --amend --reset-author\r\n\r\n 1 file changed, 1 insertion(+)\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                         \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 4045
+    content: b
+  - delay: 102
+    content: "\bbi"
+  - delay: 49
+    content: 'n'
+  - delay: 336
+    content: /
+  - delay: 385
+    content: "\b \b"
+  - delay: 112
+    content: "\b \b"
+  - delay: 112
+    content: "\b\bb \b"
+  - delay: 143
+    content: "\b \b"
+  - delay: 15579
+    content: "\e[7mbin/shipit\e[27m"
+  - delay: 460
+    content: "\e[10D\e[27mb\e[27mi\e[27mn\e[27m/\e[27ms\e[27mh\e[27mi\e[27mp\e[27mi\e[27mt\e[?2004l\r\r\n"
+  - delay: 36
+    content: "\e[1m\e[4m\r\nIntegrating changes…\e[0m\r\n"
+  - delay: 31
+    content: "• Checking active branch\e[0m"
+  - delay: 5
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Pulling latest code\e[0m"
+  - delay: 527
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Installing dependencies\e[0m"
+  - delay: 1620
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Compiling dependencies\e[0m"
+  - delay: 3091
+    content: "\e[92m\e[1m ✓\e[0m\r\n"
+  - delay: 20
+    content: "\e[1m\e[4m\r\nRunning checks…\e[0m\r\n• Checking system dependencies\e[0m"
+  - delay: 15
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server is running\e[0m"
+  - delay: 40
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server has required user\e[0m"
+  - delay: 20
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check mix hex\e[0m"
+  - delay: 446
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check mix dependencies\e[0m"
+  - delay: 643
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL database exists\e[0m"
+  - delay: 22
+    content: "\e[92m\e[1m ✓\e[0m\r\n"
+  - delay: 5
+    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m System is healthy & ready\e[0m\r\n"
+  - delay: 7
+    content: "\e[1m\e[4m\r\nChecking code…\e[0m\r\n• Run tests:\e[0m\r\n"
+  - delay: 1141
+    content: "\e[32m.\e[0m\e[32m.\e[0m\e[32m.\e[0m\e[32m.\e[0m"
+  - delay: 61
+    content: "\e[32m.\e[0m\r\nFinished in 0.1 seconds (0.05s async, 0.06s sync)\r\n\e[32m5 tests, 0 failures\e[0m\r\n\r\nRandomized with seed 326830\r\n"
+  - delay: 18
+    content: "\e[2m↳ Run tests\e[0m\e[92m\e[1m ✓\e[0m\r\n• Checking files are formatted\e[0m"
+  - delay: 737
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Pushing changes to main\e[0m"
+  - delay: 1142
+    content: "\e[92m\e[1m ✓\e[0m\r\n"
+  - delay: 5
+    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m Shipped! \U0001F6A2\U0001F4A8\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                         \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1658
+    content: e
+  - delay: 136
+    content: "\bex"
+  - delay: 110
+    content: i
+  - delay: 129
+    content: t
+  - delay: 113
+    content: "\e[?2004l\r\r\n"
