@@ -1,7 +1,8 @@
 dependencies:
-  erlang.org: =26.2.2
-  elixir-lang.org: =1.16.1
+  erlang.org: =26.2.4
+  elixir-lang.org: =1.16.2
   postgresql.org: =15.2.0
-  gnu.org/bash: =5.1.16
-  gnu.org/coreutils: =9.1.0
-  gnu.org/grep: =3.8.0
+  github.com/bats-core/bats-core: =1.11.0
+  gnu.org/bash: =5.2.21
+  gnu.org/coreutils: =9.5.0
+  gnu.org/grep: =3.11.0
