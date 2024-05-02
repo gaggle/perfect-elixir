@@ -1,29 +1,39 @@
-.PHONY: test watch clean
+.PHONY: test list-tests watch clean
 
 test:
-	@for script in test/scenarios/*; do \
-		echo "Running $$script..."; \
-		set -e; \
-		./$$script; \
-	done
+	TEST_SHELL=zsh bats --print-output-on-failure test
+	TEST_SHELL=bash bats --print-output-on-failure test
+
+list-tests:
+	@find test -name '*.bats' -print0 | xargs -0 grep -H '^@test "' | sed 's/\(.*\.bats\):@test "\(.*\)" {.*/\1#\2/' | sort
 
 watch:
-	@script=$(script); \
-	if [ -z "$$script" ]; then \
-		echo "Usage: make watch script=SCRIPT_PATH"; \
-	else \
-		old_hash=""; \
-		while true; do \
-			new_hash=$$(find bin test -type f -exec stat --format='%Y %n' {} + | sort | md5); \
-			if [ "$$new_hash" != "$$old_hash" ]; then \
-				echo "Running $$script..."; \
-				./$$script; \
-				echo "\n\n"; \
-				old_hash=$$new_hash; \
+	@echo "Watching for changes… (Press Ctrl-C to stop)"
+	@old_hash=""
+	@while true; do \
+		new_hash=$$(find bin test -type f -exec stat --format='%Y %n' {} + | sort | md5sum); \
+		if [ "$$new_hash" != "$$old_hash" ]; then \
+			echo "Detected changes, re-running…"; \
+			target=$${FILE:-test}; \
+			options=""; \
+			if [ -n "$(TEST)" ]; then \
+				options="-f '$(TEST)'"; \
 			fi; \
-			sleep 0.45; \
-		done; \
-	fi
+			if [ -z "$(TEST_SHELL)" ]; then \
+				echo "Running all shells: bats $$target $$options"; \
+				echo "Running 'zsh'"; \
+				eval "TEST_SHELL=zsh bats $$target $$options"; \
+				echo "Running 'bash'"; \
+				eval "TEST_SHELL=bash bats $$target $$options"; \
+			else \
+				echo "Running '$$TEST_SHELL': bats $$target $$options"; \
+				eval "bats $$target $$options"; \
+			fi; \
+			echo "Waiting for more changes…\n"; \
+			old_hash=$$new_hash; \
+		fi; \
+		sleep 0.45; \
+	done;
 
 clean:
 	bin/db nuke
