@@ -12,34 +12,21 @@ env:
   scenarios-dir: test/scenarios
 
 jobs:
-  prepare:
-    runs-on: ubuntu-latest
-    outputs:
-      scenarios: ${{ steps.scenarios.outputs.scenarios }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          sparse-checkout: | 
-            ${{ env.scenarios-dir }}
-
-      - id: scenarios
-        run: |
-          scenarios=$(ls ${{ env.scenarios-dir }} | jq -Rsc 'split("\n")[:-1]')
-          echo "scenarios=$scenarios"
-          echo "scenarios=$scenarios" >> $GITHUB_OUTPUT
-
-  scenario:
-    needs: prepare
+  tests:
     strategy:
       fail-fast: false
       matrix:
         os: [ macos-14, macos-13 ]
-        scenario: ${{ fromJson(needs.prepare.outputs.scenarios) }}
+        shell: [ bash, zsh ]
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.scenario }} (on ${{ matrix.os }})
+    name: ${{ matrix.shell }} (on ${{ matrix.os }})
     steps:
       - uses: actions/checkout@v4
       - uses: pkgxdev/dev@v0
+      # tty fixes: https://github.com/bats-core/bats-core/blob/master/.github/workflows/tests.yml#L123
       - name: Run test
+        shell: 'unbuffer bash {0}' # work around tty issues
+        env:
+          TERM: linux # fix tput for tty issue work around
         run: |
-          ./${{ env.scenarios-dir }}/${{ matrix.scenario }}
+          bash -c 'TEST_SHELL=${{ matrix.shell }} bats --print-output-on-failure test'
