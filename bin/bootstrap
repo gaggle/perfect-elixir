@@ -4,6 +4,24 @@ if test -n "$VERBOSE" -o -n "$GITHUB_ACTIONS" -a -n "$RUNNER_DEBUG"; then
   set -x
 fi
 
+# Check if the 'call' function is already defined; define it if not
+if ! declare -F call > /dev/null; then
+  call() { "$@"; }
+fi
+
+if [ -t 1 ]; then
+  tty_escape() { printf "\033[%sm" "$1"; }
+else
+  tty_escape() { :; }
+fi
+
+tty_mkbold() { tty_escape "1;$1"; }
+tty_red="$(tty_mkbold 31)"
+tty_green="$(tty_mkbold 32)"
+tty_bold="$(tty_mkbold 39)"
+tty_reset="$(tty_escape 0)"
+tty_underline="$(tty_escape "4;39")"
+
 about_script() {
   cat <<-EOS
 This script bootstraps the development environment for our project, prompting along the way for any necessary dependencies to install, configurations to change, or tools to activate.
@@ -43,19 +61,6 @@ EOS
   return 0
 }
 
-if [ -t 1 ]; then
-  tty_escape() { printf "\033[%sm" "$1"; }
-else
-  tty_escape() { :; }
-fi
-
-tty_mkbold() { tty_escape "1;$1"; }
-tty_red="$(tty_mkbold 31)"
-tty_green="$(tty_mkbold 32)"
-tty_bold="$(tty_mkbold 39)"
-tty_reset="$(tty_escape 0)"
-tty_underline="$(tty_escape "4;39")"
-
 ########################################################################### utils
 
 confirm() {
@@ -94,21 +99,6 @@ condition() {
     printf "%s\n" "$command_output"
   fi
   return $command_exit_code
-}
-
-fake() {
-  eval "val=\"\$fake_$1\""
-  if [ -z "$val" ]; then
-      return 1
-  else
-      return 0
-  fi
-}
-
-return_fake() {
-  indirect="fake_$1"
-  resolved=$(eval echo "\$$indirect")
-  return "$resolved"
 }
 
 ########################################################################### actions
@@ -209,19 +199,15 @@ EOS
 }
 
 should_install_pkgx() {
-  if fake should_install_pkgx; then
-    return_fake should_install_pkgx
+  if ! call which pkgx >/dev/null; then
+    # Pkgx not installed, so yes install
+    return 0
+  elif call pkgx_is_old >/dev/null 2>&1; then
+    # Yes install
+    return 0
   else
-    if ! which pkgx >/dev/null; then
-      # Pkgx not installed, so yes install
-      return 0
-    elif pkgx_is_old >/dev/null 2>&1; then
-      # Yes install
-      return 0
-    else
-      # Up-to-date pkgx exists, nothing to install
-      return 1
-    fi
+    # Up-to-date pkgx exists, nothing to install
+    return 1
   fi
 }
 
@@ -233,52 +219,42 @@ pkgx_is_old() {
 }
 
 should_integrate_pkgx() {
-  if fake should_integrate_pkgx; then
-    return_fake should_integrate_pkgx
+  if ! call which dev >/dev/null || ! call which env >/dev/null; then
+    # pkgx shell integration commands are not present, so yes integrate
+    return 0
   else
-    if ! which dev >/dev/null || ! which env >/dev/null; then
-      # pkgx shell integration commands are not present, so yes integrate
-      return 0
-    else
-      # shell integration commands exists, nothing more to do
-      return 1
-    fi
+    # shell integration commands exists, nothing more to do
+    return 1
   fi
 }
 
 should_clone_repo() {
-  if fake should_clone_repo; then
-    return_fake should_clone_repo
-  else
-    if [ ! -d ".git" ]; then
-      # Not a git repository; clone it.
-      return 0
+  if call is_git_folder; then
+    remote_url="$(call git config --get remote.origin.url)"
+    if [ "$remote_url" = "git@github.com:gaggle/perfect-elixir.git" ] || [ "$remote_url" = "https://github.com/gaggle/perfect-elixir.git" ]; then
+      # The repository is the expected one, nothing more to do.
+      return 1
     else
-      remote_url="$(git config --get remote.origin.url)"
-      if [ "$remote_url" != "git@github.com:gaggle/perfect-elixir.git" ] && [ "$remote_url" != "https://github.com/gaggle/perfect-elixir.git" ]; then
-        # Remote URL doesn't match; clone it.
-        return 0
-      else
-        # The repository is the expected one, nothing more to do.
-        return 1
-      fi
+      # Remote URL doesn't match; clone it.
+      return 0
     fi
+  else
+    # Not a git repository; clone it.
+    return 0
   fi
 }
 
+is_git_folder() { [ -d ".git" ]; }
+
 should_activate_dev() {
-   if fake should_activate_dev; then
-     return_fake should_activate_dev
-   else
-     for cmd in erl elixir psql; do
-       if ! command -v $cmd >/dev/null; then
-         # One of the commands is not installed, so yes, install it.
-         return 0
-       fi
-     done
-     # All commands are installed, so no need to install anything.
-     return 1
-   fi
+   for cmd in erl elixir psql; do
+     if ! call command -v $cmd >/dev/null; then
+       # One of the commands is not installed, so yes, install it.
+       return 0
+     fi
+   done
+   # All commands are installed, so no need to install anything.
+   return 1
  }
 
 ########################################################################### logic
