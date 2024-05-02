@@ -1,0 +1,84 @@
+#!/usr/bin/env expect
+
+proc run_with_shell {shell init_cmd scenario_lines} {
+  puts "\n\033\[1;2mInitializing\033\[0m"
+  ; puts "\033\[2mDEBUG: $shell => $init_cmd\033\[0m"
+  puts "\033\[2m⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\033\[0m"
+  set prompt "PS1=> "
+  spawn env $prompt {*}$shell
+  exp_prompt
+  send "$init_cmd\n"
+  exp_prompt
+
+  puts "\n\033\[1;2mRunning Scenario\033\[0m"
+  ; puts "\033\[2mDEBUG:\n$scenario_lines\033\[0m"
+  puts "\033\[2m⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\033\[0m"
+  eval $scenario_lines
+  puts "\n\033\[2m⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽\033\[0m"
+  puts "\033\[1;2mScenario end\033\[0m\n"
+
+  send "exit\n"
+  exp eof {
+    puts "\033\[1;2mScenario complete\033\[0m"
+  }
+}
+
+proc exp {args} {
+  expect_before {
+    timeout {
+      puts "\n\033\[31mTimeout expecting: \033\[1m$::lastExpectArgs\033\[0m"
+      expect_before clear
+      exit 2
+    }
+    eof {
+      puts "\n\033\[31mEOF expecting: \033\[1m$::lastExpectArgs\033\[0m"
+      exit 1
+    }
+  }
+  set ::lastExpectArgs $args
+  uplevel 1 [list expect {*}$args]
+  expect_before {
+    timeout { puts "timeout"; exit 2 }
+    eof { puts "eof"; exit 1 }
+  }
+}
+
+proc exp_prompt {} {
+  uplevel 1 [list exp -exact "> "]
+}
+
+expect_before {
+  timeout { puts "timeout"; exit 2 }
+  eof { puts "eof"; exit 1 }
+}
+
+proc handle_stdin {channel} {
+    global scenario
+    set data [read $channel]
+    if {[eof $channel]} {
+        close $channel
+    } elseif {[string trim $data] ne ""} {
+        set scenario $data
+    }
+}
+
+set timeout 3
+
+
+set scenario [lindex $argv 0]
+if {$scenario eq ""} {
+  puts "\033\[31mscenario required\033\[0m"
+  puts "Usage: run-expect-scenario <scenario> <shell> [initialization commands]"
+  exit 1
+}
+
+set shell [lindex $argv 1]
+if {$shell eq ""} {
+  puts "\033\[31mshell required\033\[0m"
+  puts "Usage: run-expect-scenario <scenario> <shell> [initialization commands]"
+  exit 1
+}
+
+set init_cmd [lindex $argv 2]
+
+run_with_shell $shell $init_cmd $scenario
