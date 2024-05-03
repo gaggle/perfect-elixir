@@ -14,6 +14,7 @@ concurrency:
 env:
   E2E_URL: https://raw.githubusercontent.com/gaggle/perfect-elixir/perfect-elixir-3-development-workflows-%26-processes/bin/bootstrap
   NONINTERACTIVE: true
+  DEBUG: true
 
 jobs:
   zsh:
@@ -31,8 +32,9 @@ jobs:
           curl -fsSL $E2E_URL > /tmp/bootstrap && source /tmp/bootstrap > 1_should_install_pkgx.txt;
           echo ::group::cat 1_should_install_pkgx.txt;
           cat 1_should_install_pkgx.txt;
+          cat .bootstrap.log;
           echo ::endgroup::;
-          grep -q "User action required: Install pkgx" 1_should_install_pkgx.txt;
+          grep "User action required: Install pkgx" 1_should_install_pkgx.txt;
           
           echo ::group::brew install pkgxdev/made/pkgx;
           brew install pkgxdev/made/pkgx;
@@ -41,8 +43,9 @@ jobs:
           source /tmp/bootstrap > 2_should_integrate_pkgx.txt;
           echo ::group::cat 2_should_integrate_pkgx.txt;
           cat 2_should_integrate_pkgx.txt;
+          cat .bootstrap.log;
           echo ::endgroup::;
-          grep -q "User action required: Activate pkgx shell integration" 2_should_integrate_pkgx.txt;
+          grep "User action required: Activate pkgx shell integration" 2_should_integrate_pkgx.txt;
           
           echo ::group::pkgx integrate;
           eval "$(pkgx integrate)";
@@ -51,8 +54,9 @@ jobs:
           source /tmp/bootstrap > 3_should_clone_repo.txt;
           echo ::group::cat 3_should_clone_repo.txt;
           cat 3_should_clone_repo.txt;
+          cat .bootstrap.log;
           echo ::endgroup::;
-          grep -q "User action required: Clone gaggle/perfect-elixir repository" 3_should_clone_repo.txt;
+          grep "User action required: Clone gaggle/perfect-elixir repository" 3_should_clone_repo.txt;
 
           echo ::group::git clone git@github.com:gaggle/perfect-elixir.git;
           git clone https://github.com/gaggle/perfect-elixir.git;
@@ -63,8 +67,9 @@ jobs:
           source /tmp/bootstrap > 4_should_activate_dev.txt;
           echo ::group::cat 4_should_activate_dev.txt;
           cat 4_should_activate_dev.txt;
+          cat .bootstrap.log;
           echo ::endgroup::;
-          grep -q "User action required: Activate developer environment" 4_should_activate_dev.txt;
+          grep "User action required: Activate developer environment" 4_should_activate_dev.txt;
 
           echo ::group::dev;
           dev;
@@ -73,6 +78,7 @@ jobs:
           source /tmp/bootstrap > 5_good_to_go.txt;
           echo ::group::cat 5_good_to_go.txt;
           cat 5_good_to_go.txt;
+          cat .bootstrap.log;
           echo ::endgroup::;
-          grep -q "Good to go" 5_good_to_go.txt;
+          grep "Good to go" 5_good_to_go.txt;
           '
