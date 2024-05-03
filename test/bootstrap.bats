@@ -34,7 +34,7 @@ exp_prompt
 @test "pkgx is too old" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|0|
+_pkgx_is_old|0|
 ' \ '
 send "source bin/bootstrap\n"
 exp "Ok to proceed?"
@@ -48,7 +48,7 @@ exp_prompt
 @test "pkgx is missing dev integration" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|1|dev not found
 ' \ '
 send "source bin/bootstrap\n"
@@ -63,7 +63,7 @@ exp_prompt
 @test "pkgx is missing env integration" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|1|env not found
 ' \ '
@@ -79,10 +79,10 @@ exp_prompt
 @test "folder is not a repository" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|0|env()
-is_git_folder|1|
+_is_git_folder|1|
 ' \ '
 send "source bin/bootstrap\n"
 exp "Ok to proceed?"
@@ -96,10 +96,10 @@ exp_prompt
 @test "remote is not expected repository" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|0|env()
-is_git_folder|0|
+_is_git_folder|0|
 git config --get remote.origin.url|0|git@foo.git
 ' \ '
 send "source bin/bootstrap\n"
@@ -114,10 +114,10 @@ exp_prompt
 @test "no erl so should activate dev" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|0|env()
-is_git_folder|0|
+_is_git_folder|0|
 git config --get remote.origin.url|0|git@github.com:gaggle/perfect-elixir.git
 command -v erl|1|
 ' \ '
@@ -133,10 +133,10 @@ exp_prompt
 @test "no elixir so should activate dev" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|0|env()
-is_git_folder|0|
+_is_git_folder|0|
 git config --get remote.origin.url|0|git@github.com:gaggle/perfect-elixir.git
 command -v erl|0|bin/erl
 command -v elixir|1|
@@ -153,10 +153,10 @@ exp_prompt
 @test "no psql so should activate dev" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|0|env()
-is_git_folder|0|
+_is_git_folder|0|
 git config --get remote.origin.url|0|git@github.com:gaggle/perfect-elixir.git
 command -v erl|0|bin/erl
 command -v elixir|0|bin/elixir
@@ -174,10 +174,10 @@ exp_prompt
 @test "good to go with git remote" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|0|env()
-is_git_folder|0|
+_is_git_folder|0|
 git config --get remote.origin.url|0|git@github.com:gaggle/perfect-elixir.git
 command -v erl|0|bin/erl
 command -v elixir|0|bin/elixir
@@ -195,10 +195,10 @@ exp_prompt
 @test "good to go with https remote" {
   run_scenario '
 which pkgx|0|/usr/bin/pkgx
-pkgx_is_old|1|
+_pkgx_is_old|1|
 which dev|0|dev()
 which env|0|env()
-is_git_folder|0|
+_is_git_folder|0|
 git config --get remote.origin.url|0|https://github.com/gaggle/perfect-elixir.git
 command -v erl|0|bin/erl
 command -v elixir|0|bin/elixir
