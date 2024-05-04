@@ -22,12 +22,12 @@ watch:
 			if [ -z "$(TEST_SHELL)" ]; then \
 				echo "Running all shells: bats $$target $$options"; \
 				echo "Running 'zsh'"; \
-				eval "TEST_SHELL=zsh bats $$target $$options"; \
+				eval "TEST_SHELL=zsh bats --print-output-on-failure $$target $$options"; \
 				echo "Running 'bash'"; \
-				eval "TEST_SHELL=bash bats $$target $$options"; \
+				eval "TEST_SHELL=bash bats --print-output-on-failure $$target $$options"; \
 			else \
 				echo "Running '$$TEST_SHELL': bats $$target $$options"; \
-				eval "bats $$target $$options"; \
+				eval "bats --print-output-on-failure $$target $$options"; \
 			fi; \
 			echo "Waiting for more changes…\n"; \
 			old_hash=$$new_hash; \
