@@ -9,72 +9,75 @@ setup() {
   esac
 }
 
+ESC="^["
+RESET="${ESC}[0m"
+
 @test "styles" {
   run_scenario color=true \
   'cecho "test " -b "bold " -f "faint " -i "italic " -u "underline"' \
-  'test ^[[0m^[[1mbold ^[[0m^[[2mfaint ^[[0m^[[3mitalic ^[[0m^[[4munderline^[[0m'
+  "test ${RESET}^[[1mbold ${RESET}^[[2mfaint ${RESET}^[[3mitalic ${RESET}^[[4munderline${RESET}"
 }
 
 @test "colors" {
   run_scenario color=true \
   'cecho "test " --black "black " --red "red " --green "green " --yellow "yellow " --blue "blue " --magenta "magenta " --cyan "cyan " --white "white"' \
-  'test ^[[0m^[[30mblack ^[[0m^[[31mred ^[[0m^[[32mgreen ^[[0m^[[33myellow ^[[0m^[[34mblue ^[[0m^[[35mmagenta ^[[0m^[[36mcyan ^[[0m^[[37mwhite^[[0m'
+  "test ${RESET}^[[30mblack ${RESET}^[[31mred ${RESET}^[[32mgreen ${RESET}^[[33myellow ${RESET}^[[34mblue ${RESET}^[[35mmagenta ${RESET}^[[36mcyan ${RESET}^[[37mwhite${RESET}"
 }
 
 @test "bright colors" {
   run_scenario color=true \
   'cecho "test " -B --black "black " -B --red "red " -B --green "green " -B --yellow "yellow " -B --blue "blue " -B --magenta "magenta " -B --cyan "cyan " -B --white "white"' \
-  'test ^[[0m^[[90mblack ^[[0m^[[91mred ^[[0m^[[92mgreen ^[[0m^[[93myellow ^[[0m^[[94mblue ^[[0m^[[95mmagenta ^[[0m^[[96mcyan ^[[0m^[[97mwhite^[[0m'
+  "test ${RESET}^[[90mblack ${RESET}^[[91mred ${RESET}^[[92mgreen ${RESET}^[[93myellow ${RESET}^[[94mblue ${RESET}^[[95mmagenta ${RESET}^[[96mcyan ${RESET}^[[97mwhite${RESET}"
 }
 
 @test "bundled args" {
   run_scenario color=true \
   'cecho "test " -bi "bundled " -Bu "args"' \
-  'test ^[[0m^[[1m^[[3mbundled ^[[0m^[[4margs^[[0m'
+  "test ${RESET}^[[1m^[[3mbundled ${RESET}^[[4margs${RESET}"
 }
 
 @test "multiple styles and colors" {
   run_scenario color=true \
   'cecho "test " --green "green " -u "underlined" " and " -b "bold"' \
-  'test ^[[0m^[[32mgreen ^[[0m^[[4munderlined^[[0m and ^[[0m^[[1mbold^[[0m'
+  "test ${RESET}^[[32mgreen ${RESET}^[[4munderlined${RESET} and ${RESET}^[[1mbold${RESET}"
 }
 
 @test "multiple styles and colors without explicit segment separators" {
   run_scenario color=true \
   'cecho "test " --blue "blue, " --yellow "yellow, " "and " --green "green text"' \
-  'test ^[[0m^[[34mblue, ^[[0m^[[33myellow, ^[[0mand ^[[0m^[[32mgreen text^[[0m'
+  "test ${RESET}^[[34mblue, ${RESET}^[[33myellow, ${RESET}and ${RESET}^[[32mgreen text${RESET}"
 }
 
 @test "no newline at the end" {
   run_scenario color=true \
   'cecho -n "test " --cyan "no new"; echo "line"' \
-  'test ^[[0m^[[36mno new^[[0mline'
+  "test ${RESET}^[[36mno new${RESET}line"
 }
 
 @test "works with empty string regardless of styles, colors, other segments, etc." {
   run_scenario color=true \
   'cecho ""' \
-  '^[[0m'
+  "${RESET}"
 
   run_scenario color=true \
   'cecho --white ""' \
-  '^[[0m'
+  "${RESET}"
 
   run_scenario color=true \
   'cecho -b "#" "" -b "#"' \
-  '^[[1m#^[[0m^[[0m^[[1m#^[[0m'
+  "^[[1m#${RESET}${RESET}^[[1m#${RESET}"
 
   run_scenario color=true \
   'cecho -b "#" --cyan "" -b "#"' \
-  '^[[1m#^[[0m^[[36m^[[0m^[[1m#^[[0m'
+  "^[[1m#${RESET}^[[36m${RESET}^[[1m#${RESET}"
 }
 
 @test "help message" {
   run_scenario color=false \
   'cecho --help' \
-  'cecho: echo text with color and style' \
-  'Usage: cecho [options] <text>' \
-  'Example: cecho --red -b "Hello World"'
+  "cecho: echo text with color and style" \
+  "Usage: cecho [options] <text>" \
+  "Example: cecho --red -b \"Hello World\""
 }
 
 run_scenario() {
