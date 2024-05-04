@@ -2,7 +2,7 @@
 
 proc run_with_shell {shell init_cmd scenario_lines} {
   puts "\n\033\[1;2mInitializing\033\[0m"
-  ; puts "\033\[2mDEBUG: $shell => $init_cmd\033\[0m"
+  #puts "\033\[2mDEBUG: $shell => $init_cmd\033\[0m"
   puts "\033\[2m⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\033\[0m"
   set prompt "PS1=> "
   spawn env $prompt {*}$shell
@@ -11,7 +11,7 @@ proc run_with_shell {shell init_cmd scenario_lines} {
   exp_prompt
 
   puts "\n\033\[1;2mRunning Scenario\033\[0m"
-  ; puts "\033\[2mDEBUG:\n$scenario_lines\033\[0m"
+  #puts "\033\[2mDEBUG:\n$scenario_lines\033\[0m"
   puts "\033\[2m⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺\033\[0m"
   eval $scenario_lines
   puts "\n\033\[2m⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽⎽\033\[0m"
