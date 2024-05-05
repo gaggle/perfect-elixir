@@ -6,8 +6,6 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 fi
 
 cecho() {
-  set -euo pipefail
-
   local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param="" color_enabled=true
 
   if [ ! -t 1 ] && [[ ${FORCE_COLOR:-false} != "true" ]]; then
@@ -84,8 +82,6 @@ cecho() {
 }
 
 clipboard() {
-  set -euo pipefail
-
   clipboard_usage() {
     cecho -b "clipboard" ": copy text to clipboard"
     cecho "\nUsage: clipboard [options] <text>"
@@ -107,15 +103,13 @@ clipboard() {
   done
 
   local input
-  set +e # `read -t 0` exits non-zero
   if [ -t 0 ]; then
     # STDIN is a terminal, likely no data is piped, use arguments as input
     input="$*"
   else
     # STDIN is not a terminal, attempt to read from it
-    input=$(cat) || true  # Ensure any read errors do not cause script exit
+    _with_no_errexit _read_input input
   fi
-  set -e
 
   if command -v pbcopy >/dev/null; then
     echo -n "$input" | pbcopy
@@ -127,13 +121,10 @@ clipboard() {
 }
 
 section() {
-  set -euo pipefail
-  cecho -Bbu "\n$1"
+ cecho -Bbu "\n$1"
 }
 
 step() {
-  set -euo pipefail
-
   local command="" command_exit_code command_output="" description="" with_output=0
 
   step_usage() {
@@ -187,16 +178,12 @@ step() {
 
   if ((with_output)); then
     cecho "• ${description}:"
-    set +e
-    eval "${command}"
+    _with_no_errexit eval "${command}"
     command_exit_code=$?
-    set -e
   else
     cecho -n "• ${description}"
-    set +e
-    command_output=$(eval "${command} 2>&1")
+    command_output=$(_with_no_errexit eval "${command} 2>&1")
     command_exit_code=$?
-    set -e
   fi
 
   if ((with_output)); then
@@ -224,8 +211,6 @@ step() {
 }
 
 check() {
-  set -euo pipefail
-
   local command="" command_exit_code description="" remedy=""
 
   check_usage() {
@@ -277,10 +262,8 @@ check() {
 
   cecho -n "• ${description}"
 
-  set +e
-  command_output=$(eval "${command} 2>&1")
+  command_output=$(_with_no_errexit eval "${command} 2>&1")
   command_exit_code=$?
-  set -e
 
   if [[ ${command_exit_code} -eq 0 ]]; then
     cecho --green -bB " ✓"
@@ -299,8 +282,6 @@ check() {
 }
 
 debug_log() {
-  set -euo pipefail
-
   if [[ ${DEBUG:-false} == "true" ]]; then
     cecho -f "DEBUG: " "$1"
   fi
@@ -322,3 +303,22 @@ _leftpad() {
   local padding=$(_padding "$1" "$2")
   echo -n "$padding$1"
 }
+
+_with_no_errexit() {
+  local errexit_was_set
+  local exit_status_code
+
+  [[ "$(set +o | grep errexit)" =~ on$ ]] && errexit_was_set=1
+
+  set +e
+  "$@"  # Execute the passed command
+  exit_status_code=$?
+
+  [[ "$errexit_was_set" ]] && set -e
+  return $exit_status_code
+}
+
+_read_input() {
+  input=$(cat) || true  # Ensure any read errors do not cause script exit
+}
+
