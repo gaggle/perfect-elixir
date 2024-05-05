@@ -290,8 +290,12 @@ debug_log() {
 _padding() {
   local input="$1" total_length="$2"
   local input_length="${#input}"
-  local padding_length=$((total_length - input_length))
-  printf '%*s' "$padding_length"
+  if (( input_length >= total_length )); then
+    printf ""  # No padding needed
+  else
+    local padding_length=$((total_length - input_length))
+    printf "%*s" "$padding_length"
+  fi
 }
 
 _pad() {
