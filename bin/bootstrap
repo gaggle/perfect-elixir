@@ -12,13 +12,12 @@ _debug() {
 
 # Define _call if 'call' is not already a command
 if ! type call >/dev/null 2>&1; then
-    _call() { "$@"; }
-    _debug "defining new _call function"
+  _call() { "$@"; }
+  _debug "defining new _call function"
 else
-    alias _call='call'
-    _debug "aliasing existing call to _call"
+  alias _call='call'
+  _debug "aliasing existing call to _call"
 fi
-
 
 if [ -t 1 ]; then
   _tty_escape() { printf "\033[%sm" "$1"; }
@@ -258,15 +257,15 @@ _should_clone_repo() {
 _is_git_folder() { [ -d ".git" ]; }
 
 _should_activate_dev() {
-   for cmd in erl elixir psql; do
-     if ! _call command -v $cmd >/dev/null; then
-       _debug "command '$cmd' is not installed; yes activate dev"
-       return 0
-     fi
-   done
-   _debug "all commands are installed; no need to activate dev"
-   return 1
- }
+  for cmd in erl elixir psql; do
+    if ! _call command -v $cmd >/dev/null; then
+      _debug "command '$cmd' is not installed; yes activate dev"
+      return 0
+    fi
+  done
+  _debug "all commands are installed; no need to activate dev"
+  return 1
+}
 
 ########################################################################### logic
 
