@@ -165,7 +165,7 @@ _explain_clone_repo() {
 You need to clone the ${_tty_bold}gaggle/perfect-elixir${_tty_reset} GitHub repository and source this script again from within the repository's folder.
 
 There are many ways to clone and you can choose what works for you. Note you can easily use the ${_tty_bold}GitHub CLI${_tty_reset} via pkgx:
-    $ ${_tty_bold}pkgx gh repo clone gaggle/perfect-elixir{_tty_reset}
+    $ ${_tty_bold}pkgx gh repo clone gaggle/perfect-elixir${_tty_reset}
 
 NOTE: Because this script is made for an article you also need check out a specific branch after cloning:
     $ ${_tty_bold}git checkout 'perfect-elixir-3-development-workflows-&-processes'${_tty_reset}
