@@ -34,7 +34,9 @@ _tty_underline="$(_tty_escape "4;39")"
 
 _about_script() {
   cat <<-EOS
-This script bootstraps the development environment for our project, prompting along the way for any necessary dependencies to install, configurations to change, or tools to activate.
+This script bootstraps our development environment by suggesting what dependencies need to be installed and configured.
+
+To be clear: ${_tty_underline}This script ${_tty_bold}never${_tty_reset}${_tty_underline} changes or affects your system${_tty_reset}, it only ever inspects and makes suggestions.
 EOS
 }
 
