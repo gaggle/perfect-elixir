@@ -60,4 +60,3 @@ run_mocked_scenario() {
   MOCK=$mock test/mcall assert
   rm $mock
 }
-
