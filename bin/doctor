@@ -24,7 +24,7 @@ while (($#)); do
 done
 
 section "Running checks…"
-check "Checking system dependencies" \
+check "Check system dependencies" \
   "command which pkgx && which erl && which elixir" \
   "source bin/bootstrap"
 check "Check PostgreSQL server is running" \
