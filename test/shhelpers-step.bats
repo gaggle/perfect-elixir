@@ -1,13 +1,13 @@
 load run-scenario-helper.bash
 
 @test "simple step" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'step "step" "echo echo; true"' \
   "${ASCII_BULLET} step${RESET}${GREEN_BRIGHT}${BOLD} ${ASCII_CHECKMARK}${RESET}"
 }
 
 @test "simple step w. debug" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'DEBUG=true step "step" "echo echo; true"' \
   "${ASCII_BULLET} step${RESET}${GREEN_BRIGHT}${BOLD} ${ASCII_CHECKMARK}${RESET}" \
   "${FAINT}DEBUG: ${RESET}> Executed: echo echo; true${RESET}" \
@@ -15,13 +15,13 @@ load run-scenario-helper.bash
 }
 
 @test "failing step" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'step "step" "echo echo; false"' \
   "${ASCII_BULLET} step${RESET}${RED_BRIGHT}${BOLD} x${RESET}"
 }
 
 @test "failing step w. debug" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'DEBUG=true step "step" "echo echo; false"' \
   "${ASCII_BULLET} step${RESET}${RED_BRIGHT}${BOLD} x${RESET}" \
   "${RED}> Executed: ${RESET}${RED}${BOLD}echo echo; false${RESET}" \
@@ -30,7 +30,7 @@ load run-scenario-helper.bash
 }
 
 @test "step w. output" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'step --with-output "step" "echo echo; true"' \
   "${ASCII_BULLET} step:${RESET}" \
   "echo" \
@@ -38,7 +38,7 @@ load run-scenario-helper.bash
 }
 
 @test "step w. output & debug" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'DEBUG=true step --with-output "step" "echo echo; true"' \
   "${ASCII_BULLET} step:${RESET}" \
   "echo" \
@@ -47,7 +47,7 @@ load run-scenario-helper.bash
 }
 
 @test "failing step w. output" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'step --with-output "step" "echo echo; false"' \
   "${ASCII_BULLET} step:${RESET}" \
   "echo" \
@@ -55,7 +55,7 @@ load run-scenario-helper.bash
 }
 
 @test "failing step w. output & debug" {
-  run_color_scenario color=true \
+  run_color_scenario color=true 'source bin/.shhelpers' \
   'DEBUG=true step --with-output "step" "echo echo; false"' \
   "${ASCII_BULLET} step:${RESET}" \
   "echo" \

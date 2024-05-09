@@ -24,9 +24,9 @@ GREEN_BRIGHT="${ESC}[92m"
 
 run_color_scenario() {
   local color_flag=${1#*=}
-  local escaped_input=$(sed 's/"/\\"/g' <<< "$2")
-  local expectations=("${@:2}")  # Use array to capture all arguments
-  unset expectations[0]  # Remove the first element which is input
+  local init_cmd=$2
+  local escaped_input=$(sed 's/"/\\"/g' <<< "$3")
+  local expectations=("${@:4}")  # Use array to capture all arguments
 
   local scenario="send \"$escaped_input\n\"
 exp_prompt
@@ -41,7 +41,7 @@ exp -exact \"$escaped_expect\""
   scenario+="
 exp_prompt"
 
-  run test/run-expect-scenario "$scenario" "$shell" "source bin/.shhelpers"
+  run test/run-expect-scenario "$scenario" "$shell" "$init_cmd"
   if [ "$DEBUG" == "true" ]; then
     echo "$output" >&3
   fi
