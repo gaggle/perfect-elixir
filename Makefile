@@ -22,9 +22,12 @@ watch:
 			if [ -z "$(TEST_SHELL)" ]; then \
 				echo "Running all shells: bats $$target $$options"; \
 				echo "Running 'zsh'"; \
-				eval "TEST_SHELL=zsh bats --print-output-on-failure $$target $$options"; \
-				echo "Running 'bash'"; \
-				eval "TEST_SHELL=bash bats --print-output-on-failure $$target $$options"; \
+				if eval "TEST_SHELL=zsh bats --print-output-on-failure $$target $$options"; then \
+					echo "Running 'bash'"; \
+					eval "TEST_SHELL=bash bats --print-output-on-failure $$target $$options"; \
+				else \
+					echo "Zsh tests failed, skipping Bash tests"; \
+				fi; \
 			else \
 				echo "Running '$$TEST_SHELL': bats $$target $$options"; \
 				eval "bats --print-output-on-failure $$target $$options"; \
