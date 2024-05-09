@@ -1,4 +1,4 @@
-load run_scenario_helper.bash
+load run-scenario-helper.bash
 
 @test "no to proceed" {
   run_mocked_scenario '

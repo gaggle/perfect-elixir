@@ -1,4 +1,4 @@
-load run_scenario_helper.bash
+load run-scenario-helper.bash
 
 @test "styles" {
   run_color_scenario color=true \

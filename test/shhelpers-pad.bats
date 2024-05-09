@@ -1,4 +1,4 @@
-load run_scenario_helper.bash
+load run-scenario-helper.bash
 
 s='echo -n ">"'  # start
 e='echo -n "<"'  # end
