@@ -60,3 +60,13 @@ run_mocked_scenario() {
   MOCK=$mock test/mcall assert
   rm $mock
 }
+
+run_scenario() {
+  local scenario=$(cat <<< "$1")
+
+  run test/run-expect-scenario "$scenario" "$shell"
+  if [ "$DEBUG" == "true" ]; then
+    echo "$output" >&3
+  fi
+  [ "$status" -eq 0 ]
+}
