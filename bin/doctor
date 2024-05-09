@@ -27,6 +27,9 @@ section "Running checks…"
 check "Check system dependencies" \
   "command which pkgx && which erl && which elixir" \
   "source bin/bootstrap"
+check "Check developer environment" \
+  "{which stat | grep '.pkgx'}" \
+  "dev off && dev on"
 check "Check PostgreSQL server is running" \
   "pgrep -f bin/postgres" \
   "bin/db start"
