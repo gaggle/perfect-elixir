@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.ref }}-e2e
+  group: ${{ github.ref }}-e2e-bootstrap
 
 env:
   E2E_URL: https://raw.githubusercontent.com/gaggle/perfect-elixir/perfect-elixir-3-development-workflows-%26-processes/bin/bootstrap
