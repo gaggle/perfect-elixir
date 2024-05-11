@@ -1,6 +1,27 @@
 #!/usr/bin/env bash
 
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+declare -A SET_OPTIONS
+_suppress_setopts() {
+  { set -o | grep -qE "^errexit.*on"; } && SET_OPTIONS[errexit]="on" || SET_OPTIONS[errexit]="off"
+  { set -o | grep -qE "^nounset.*on"; } && SET_OPTIONS[nounset]="on" || SET_OPTIONS[nounset]="off"
+  set +eu
+}
+
+_restore_setopts() {
+  [[ ${SET_OPTIONS[errexit]} == "on" ]] && set -e
+  [[ ${SET_OPTIONS[nounset]} == "on" ]] && set -u
+}
+
+_suppress_setopts
+# https://stackoverflow.com/a/28776166/884080
+(
+  [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
+  [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
+  [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
+) && sourced=1 || sourced=0
+_restore_setopts
+
+if [ "$sourced" = "0" ]; then
   echo "This script must be sourced, not executed directly"
   exit 1
 fi
@@ -108,7 +129,7 @@ clipboard() {
     input="$*"
   else
     # STDIN is not a terminal, attempt to read from it
-    _with_no_errexit _read_input input
+    _read_input input
   fi
 
   if command -v pbcopy >/dev/null; then
@@ -178,13 +199,16 @@ step() {
 
   if ((with_output)); then
     cecho "• ${description}:"
-    _with_no_errexit eval "${command}"
+    _suppress_setopts
+    eval "${command}"
     command_exit_code=$?
   else
     cecho -n "• ${description}"
-    command_output=$(_with_no_errexit eval "${command} 2>&1")
+    _suppress_setopts
+    command_output=$(eval "${command} 2>&1")
     command_exit_code=$?
   fi
+  _restore_setopts
 
   if ((with_output)); then
     if [[ ${command_exit_code} -eq 0 ]]; then
@@ -262,8 +286,10 @@ check() {
 
   cecho -n "• ${description}"
 
-  command_output=$(_with_no_errexit eval "${command} 2>&1")
+  _suppress_setopts
+  command_output=$(eval "${command} 2>&1")
   command_exit_code=$?
+  _restore_setopts
 
   if [[ ${command_exit_code} -eq 0 ]]; then
     cecho --green -bB " ✓"
@@ -306,20 +332,6 @@ _pad() {
 _leftpad() {
   local padding=$(_padding "$1" "$2")
   echo -n "$padding$1"
-}
-
-_with_no_errexit() {
-  local errexit_was_set
-  local exit_status_code
-
-  [[ "$(set +o | grep errexit)" =~ on$ ]] && errexit_was_set=1
-
-  set +e
-  "$@"  # Execute the passed command
-  exit_status_code=$?
-
-  [[ "$errexit_was_set" ]] && set -e
-  return $exit_status_code
 }
 
 _read_input() {

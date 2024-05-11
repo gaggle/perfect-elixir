@@ -32,3 +32,11 @@ e='echo -n "<"'  # end
   "$s; _leftpad 'ham' 1; $e" \
   ">ham<"
 }
+
+@test "padding works with errexit & nounset, and they are preserved after running" {
+  run_color_scenario color=true 'source bin/.shhelpers; set -eu' \
+  "$s; _pad 'foo' 4; $e; set -o | grep -E \"errexit.*on|nounset.*on\"" \
+  ">foo <" \
+  "errexit" \
+  "nounset"
+}

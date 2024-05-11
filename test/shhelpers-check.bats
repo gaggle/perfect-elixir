@@ -14,6 +14,14 @@ load run-scenario-helper.bash
   "${FAINT}DEBUG: ${RESET}echo${RESET}"
 }
 
+@test "check works with errexit & nounset, and they are preserved after running" {
+  run_color_scenario color=true 'source bin/.shhelpers; set -eu' \
+  'check "check" "echo echo; true" "n/a"; set -o | grep -E "errexit.*on|nounset.*on"' \
+  "${ASCII_BULLET} check${RESET}${GREEN_BRIGHT}${BOLD} ${ASCII_CHECKMARK}${RESET}" \
+  "errexit" \
+  "nounset"
+}
+
 @test "simple silent check w. debug" {
   run_color_scenario color=true 'source bin/.shhelpers' \
   'DEBUG=true check "check" "true" "n/a"' \

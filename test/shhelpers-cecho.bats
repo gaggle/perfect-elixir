@@ -60,6 +60,14 @@ load run-scenario-helper.bash
   "^[[1m#${RESET}^[[36m${RESET}^[[1m#${RESET}"
 }
 
+@test "cecho works with errexit & nounset, and they are preserved after running" {
+  run_color_scenario color=true 'source bin/.shhelpers; set -eu' \
+  'cecho "test " -b "bold"; set -o | grep -E "errexit.*on|nounset.*on"' \
+  "test ${RESET}^[[1mbold${RESET}" \
+  "errexit" \
+  "nounset"
+}
+
 @test "help message" {
   run_color_scenario color=false 'source bin/.shhelpers' \
   'cecho --help' \
