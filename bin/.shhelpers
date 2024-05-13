@@ -246,12 +246,12 @@ check() {
     cecho '\nPlease note DESCRIPTION, COMMAND, and REMEDY should be quoted'
     cecho 'if you use spaces in them.'
     cecho '\nExamples:'
-    cecho '  $ check "Can echo?" "echo Hello" "`echo` always works??"'
-    cecho '  • Can echo? ' --green -b '✓'
-    cecho '\n  $ check "Test if file exist" "[ -f foo ]" "touch foo"'
-    cecho '  • Test if file exist ' --red -b 'x'
-    cecho --red '  > Executed: ' --red -b '[ -f foo ]'
-    cecho --yellow '\n  Suggested remedy: ' --yellow -b 'touch foo'
+    cecho '  $ check "Description" "true" "n/a"'
+    cecho '  • Description ' --green -b '✓'
+    cecho '\n  $ check "Description" "false" "say oh hi, mark"'
+    cecho '  • Description ' --red -b 'x'
+    cecho --red '  > Executed: ' --red -b 'false'
+    cecho --yellow '\n  Suggested remedy: ' --yellow -b 'say oh hi, mark'
     cecho --yellow '  (Copied to clipboard)'
   }
 
