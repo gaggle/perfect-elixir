@@ -8,11 +8,11 @@ config:
       width: 100px
       opacity: 0.9
   command: zsh
-  cwd: /Users/cloud/perfect-elixir/perfect-elixir
+  cwd: /Users/cloud/perfect-elixir
   env:
     recording: true
-  cols: 79
-  rows: 18
+  cols: 80
+  rows: 13
   repeat: 0
   quality: 100
   frameDelay: auto
@@ -53,31 +53,23 @@ records:
     content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
   - delay: 1900
     content: "\e[7miex -S mix phx.server\e[27m"
-  - delay: 300
+  - delay: 681
     content: "\e[21D\e[27mi\e[27me\e[27mx\e[27m \e[27m-\e[27mS\e[27m \e[27mm\e[27mi\e[27mx\e[27m \e[27mp\e[27mh\e[27mx\e[27m.\e[27ms\e[27me\e[27mr\e[27mv\e[27me\e[27mr\e[?2004l\r\r\n"
-  - delay: 900
+  - delay: 1522
     content: "\e[22m[info] Running MyAppWeb.Endpoint with Bandit 1.4.2 at 127.0.0.1:4000 (http)\r\n\e[0m"
   - delay: 6
     content: "\e[22m[info] Access MyAppWeb.Endpoint at http://localhost:4000\r\n\e[0m"
-  - delay: 11
-    content: "Erlang/OTP 26 [erts-14.2.2] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [dtrace]\r\n\r\n"
-  - delay: 5
+  - delay: 34
     content: "[watch] build finished, watching for changes...\r\n"
-  - delay: 18
-    content: "Interactive Elixir (1.16.1) - press Ctrl+C to exit (type h() ENTER for help)\r\n"
-  - delay: 20
+  - delay: 21
+    content: "Erlang/OTP 26 [erts-14.2.4] [source] [64-bit] [smp:2:2] [ds:2:2:10] [async-threads:1] [dtrace]\r\n\r\n"
+  - delay: 29
+    content: "Interactive Elixir (1.16.2) - press Ctrl+C to exit (type h() ENTER for help)\r\n"
+  - delay: 10
     content: 'iex(1)> '
-  - delay: 568
+  - delay: 516
     content: "\b\b\b\b\b\b\b\b\e[J\r\niex(1)> \b\b\b\b\b\b\b\b\e[JRebuilding...\r\niex(1)> "
-  - delay: 305
+  - delay: 312
     content: "\b\b\b\b\b\b\b\b\e[J\r\nDone in 349ms.\r\niex(1)> "
-  - delay: 3000
-    content: "\r\r\n\e[JBREAK: (a)bort (A)bort with dump (c)ontinue (p)roc info (i)nfo\r\r\n       (l)oaded (v)ersion (k)ill (D)b-tables (d)istribution\r\r\n"
-  - delay: 600
-    content: a
-  - delay: 177
-    content: "\r\n"
-  - delay: 8
-    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
   - delay: 10000
     content: "\e[?2004l\r\r\n"
