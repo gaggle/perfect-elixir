@@ -1,0 +1,93 @@
+config:
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  command: zsh
+  cwd: /Users/cloud/perfect-elixir
+  env:
+    recording: true
+  cols: 80
+  rows: 16
+  repeat: 0
+  quality: 100
+  frameDelay: auto
+  maxIdleTime: 10000
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  cursorStyle: block
+  fontFamily: Monaco, Lucida Console, Ubuntu Mono, Monospace
+  fontSize: 12
+  lineHeight: 1
+  letterSpacing: 0
+  theme:
+    background: transparent
+    foreground: '#afafaf'
+    cursor: '#c7c7c7'
+    black: '#232628'
+    red: '#fc4384'
+    green: '#b3e33b'
+    yellow: '#ffa727'
+    blue: '#75dff2'
+    magenta: '#ae89fe'
+    cyan: '#708387'
+    white: '#d5d5d0'
+    brightBlack: '#626566'
+    brightRed: '#ff7fac'
+    brightGreen: '#c8ed71'
+    brightYellow: '#ebdf86'
+    brightBlue: '#75dff2'
+    brightMagenta: '#ae89fe'
+    brightCyan: '#b1c6ca'
+    brightWhite: '#f9f9f4'
+records:
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1900
+    content: "\e[7mbin/doctor\e[27m"
+  - delay: 400
+    content: "\e[10D\e[27mb\e[27mi\e[27mn\e[27m/\e[27md\e[27mo\e[27mc\e[27mt\e[27mo\e[27mr\e[?2004l\r\r\n"
+  - delay: 66
+    content: "• Check system dependencies\e[0m"
+  - delay: 33
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server is running\e[0m"
+  - delay: 74
+    content: "\e[91m\e[1m x\e[0m\r\n"
+  - delay: 24
+    content: "\e[31m> Executed: \e[0m\e[31m\e[1mpgrep -f bin/postgres\e[0m\r\n\e[0m\r\n"
+  - delay: 11
+    content: "\e[33mSuggested remedy: \e[0m\e[33m\e[1mbin/db start\e[0m\r\n"
+  - delay: 74
+    content: "\e[33m(Copied to clipboard)\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1900
+    content: "\e[7mbin/db start\e[27m"
+  - delay: 284
+    content: "\e[12D\e[27mb\e[27mi\e[27mn\e[27m/\e[27md\e[27mb\e[27m \e[27ms\e[27mt\e[27ma\e[27mr\e[27mt\e[?2004l\r\r\n"
+  - delay: 44
+    content: "• Database started:\e[0m\r\n"
+  - delay: 74
+    content: waiting for server to start....
+  - delay: 108
+    content: " done\r\nserver started\r\n"
+  - delay: 7
+    content: "\e[2m↳ Database started\e[0m\e[92m\e[1m ✓\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1100
+    content: "\e[7mbin/doctor\e[27m"
+  - delay: 300
+    content: "\e[10D\e[27mb\e[27mi\e[27mn\e[27m/\e[27md\e[27mo\e[27mc\e[27mt\e[27mo\e[27mr\e[?2004l\r\r\n"
+  - delay: 34
+    content: "• Check system dependencies\e[0m"
+  - delay: 30
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server is running\e[0m"
+  - delay: 57
+    content: "\e[92m\e[1m ✓\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 10000
+    content: "\e[?2004l\r\r\n"
