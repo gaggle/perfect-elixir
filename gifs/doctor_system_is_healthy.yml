@@ -8,11 +8,11 @@ config:
       width: 100px
       opacity: 0.9
   command: zsh
-  cwd: /Users/cloud/perfect-elixir/perfect-elixir
+  cwd: /Users/cloud/perfect-elixir
   env:
     recording: true
-  cols: 79
-  rows: 12
+  cols: 80
+  rows: 13
   repeat: 0
   quality: 100
   frameDelay: auto
@@ -53,23 +53,25 @@ records:
     content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
   - delay: 1900
     content: "\e[7mbin/doctor\e[27m"
-  - delay: 1013
+  - delay: 392
     content: "\e[10D\e[27mb\e[27mi\e[27mn\e[27m/\e[27md\e[27mo\e[27mc\e[27mt\e[27mo\e[27mr\e[?2004l\r\r\n"
   - delay: 36
-    content: "\e[1m\e[4m\r\nRunning checks…\e[0m\r\n• Checking system dependencies\e[0m"
-  - delay: 35
+    content: "\e[1m\e[4m\r\nRunning checks…\e[0m\r\n• Check system dependencies\e[0m"
+  - delay: 32
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Check developer environment\e[0m"
+  - delay: 32
     content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server is running\e[0m"
-  - delay: 52
+  - delay: 60
     content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server has required user\e[0m"
-  - delay: 28
+  - delay: 41
     content: "\e[92m\e[1m ✓\e[0m\r\n• Check mix hex\e[0m"
-  - delay: 445
+  - delay: 475
     content: "\e[92m\e[1m ✓\e[0m\r\n• Check mix dependencies\e[0m"
-  - delay: 650
+  - delay: 646
     content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL database exists\e[0m"
-  - delay: 21
+  - delay: 40
     content: "\e[92m\e[1m ✓\e[0m\r\n"
-  - delay: 7
-    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m System is healthy & ready\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                              \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 8
+    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m System is healthy & ready\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
   - delay: 10000
     content: "\e[?2004l\r\r\n"
