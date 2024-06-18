@@ -6,5 +6,5 @@ source ~/.zshrc
 ! type mise | grep -q 'mise ()' && echo 'eval "$(mise activate zsh)"' >> "${ZDOTDIR-$HOME}/.zshrc"
 source ~/.zshrc
 mise trust
-mise install
+mise install --yes
 echo "Setup complete."
