@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [ "**" ] # this triggers only on branch commits, which prevents triggering off of tag-only commits
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}
+
+env:
+  scenarios-dir: test/scenarios
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-14, macos-13 ]
+        shell: [ bash, zsh ]
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.shell }} (on ${{ matrix.os }})
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pkgxdev/dev@v0
+      # tty fixes: https://github.com/bats-core/bats-core/blob/master/.github/workflows/tests.yml#L123
+      - name: Run test
+        shell: 'unbuffer bash {0}' # work around tty issues
+        env:
+          TERM: linux # fix tput for tty issue work around
+        run: |
+          bash -c 'TEST_SHELL=${{ matrix.shell }} bats --print-output-on-failure test'

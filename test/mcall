@@ -1,0 +1,211 @@
+#!/usr/bin/env bash
+
+help_msg() {
+  echo "Usage:"
+  echo "  $ export MOCK=\$($0 configure \"foo|0|mocked output\")"
+  echo "  $ source $0   # sourcing without command implies 'define' command"
+  echo "  $ call foo"
+  echo "  mocked output"
+  echo "  $ \$?"
+  echo "  0"
+  echo "  $ $0 assert"
+  echo ""
+  echo "Commands:"
+  echo "  configure  - Configure mock, returning path to that configuration"
+  echo "  define     - Must be sourced. Defines \`call\` function. Reads mock configuration from \$MOCK environment variable"
+  echo "  assert     - Assert all expected calls were made. Reads mock configuration from \$MOCK environment variable"
+  echo "  --help, -h - Show this help message"
+}
+
+log_reset() {
+  echo -n "" > .call.log
+}
+
+log() {
+  echo -e "$@" >> .call.log
+}
+
+error() {
+  echo -e "${tty_red}Error: $@${tty_reset}" >&2
+}
+
+force_exit() {
+  log "Error: $@"
+  error "$@"
+  exit 130
+  kill -s TERM $$
+}
+
+parse_configure_args() {
+  local input_data=()
+
+  # Check if data is being piped or if stdin is not from a terminal
+  if [ ! -t 0 ]; then
+    # Read all piped input into a variable
+    local piped_input
+    piped_input=$(cat)  # Read complete piped input
+    # Check if the input contains semicolons and split accordingly
+    if [[ "$piped_input" == *";"* ]]; then
+        IFS=';' read -ra input_data <<< "$piped_input"
+    else
+        input_data=("$piped_input")
+    fi
+  elif [ "$#" -eq 0 ]; then
+    echo "Error: No input provided" >&2
+    help_msg
+    return 1
+  else
+    # Handle arguments as one string separated by semicolons
+    local all_args="$*"
+    IFS=';' read -ra input_data <<< "$all_args"
+  fi
+
+  printf "%s\n" "${input_data[@]}"
+}
+
+if [ -t 1 ]; then
+  tty_escape() { printf "\033[%sm" "$1"; }
+else
+  tty_escape() { :; }
+fi
+
+tty_red="$(tty_escape 31)"
+tty_green="$(tty_escape 32)"
+tty_reset="$(tty_escape 0)"
+
+# --- COMMANDS
+
+configure() {
+  # Temporary file to hold the list of mock commands
+  local mock_script=$(mktemp "/tmp/mock_commands.XXXXXX")
+
+  # Initialize mock commands from the 'mocks' argument
+  log_reset
+  log "Mocks configured (tracked in: $mock_script):"
+
+  parse_configure_args "$@" | while IFS='|' read -r cmd code output; do
+    if [ -n "$cmd" ] || [ -n "$code" ] || [ -n "$output" ]; then
+      log "  $cmd -> $([ -n "$output" ] && echo -e "$output ")(exit: $code)"
+      echo "$cmd|$code|$output" >> "$mock_script"
+    fi
+  done
+
+  log ""
+  echo "$mock_script"
+}
+
+define() {
+  mock_script=$MOCK
+  if [ ! -f "$mock_script" ]; then
+    error "Cannot define, no mocks specified (MOCK=$MOCK)"
+    help_msg
+    return 1
+  fi
+
+  call() {
+    local command="$1"
+    shift  # Remove the first argument, which is the command
+    local args=("$@")
+    local full_command
+    full_command=$(echo "$command ${args[*]}" | xargs)  # Combine command and arguments, strip extra spaces
+
+    log "Intercepted call: $full_command"
+
+    if [ ! -s "$mock_script" ]; then
+      force_exit "No more commands expected, but got '$full_command'"
+    fi
+
+    local expected_line
+    expected_line=$(head -n 1 "$mock_script")
+    sed -i '' '1d' "$mock_script"  # Remove the first line from the temporary file
+
+    IFS='|' read -r expected_command expected_return expected_output <<< "$expected_line"
+    expected_command=$(echo $expected_command | xargs)
+
+    if [ "$expected_command" = "$full_command" ]; then
+      echo "$expected_output"
+      return $expected_return
+    else
+      force_exit "Expected '$expected_command', but got '$full_command'"
+    fi
+  }
+}
+
+assert() {
+  mock_script=$MOCK
+  if [ ! -f "$mock_script" ]; then
+    error "Cannot assert, no mocks specified (MOCK=$MOCK)"
+    help_msg
+    exit 1
+  fi
+
+  # Check if all mocks were used
+  if [ -s "$mock_script" ]; then
+    error "Not all mocks were used:\n$(cat "$mock_script")"
+    exit 1
+  fi
+
+  echo "${tty_green}All mocks used ✔️ ${tty_reset}"
+}
+
+# --- MAIN
+
+for arg in "$@"; do
+  if [ "$arg" = "--help" ] || [ "$arg" = "-h" ]; then
+    help_msg
+    exit 0
+  fi
+done
+
+# https://stackoverflow.com/a/28776166/884080
+(
+  [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
+  [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
+  [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
+) && sourced=1 || sourced=0
+
+case "$1" in
+  "")
+    if [ "$sourced" -ne 1 ]; then
+      error "no arguments implies 'define' command, but 'define' must be sourced"
+      help_msg
+      exit 1
+    else
+      define "$@"
+    fi
+    ;;
+  configure)
+    shift
+    if [ "$sourced" -ne 0 ]; then
+      error "'configure' must be executed, not sourced"
+      help_msg
+      return 1
+    else
+      configure "$@"
+    fi
+    ;;
+  define)
+    shift
+    if [ "$sourced" -ne 1 ]; then
+      error "'define' must be sourced"
+      help_msg
+      exit 1
+    else
+      define "$@"
+    fi
+    ;;
+  assert)
+    shift
+    if [ "$sourced" -ne 0 ]; then
+      error "'assert' must be executed, not sourced"
+      help_msg
+      return 1
+    else
+      assert "$@"
+    fi
+    ;;
+  *)
+    help_msg
+    exit 0
+    ;;
+esac

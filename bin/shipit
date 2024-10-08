@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/.shhelpers"
+
+bin/update
+
+branch="perfect-elixir-3-development-workflows-&-processes"
+
+section "Checking code…"
+step --with-output "Run tests" "mix test"
+check "Check files are formatted" "mix format --check-formatted" "mix format"
+step "Pushing changes to main" "git push origin \"${branch}\""
+cecho "\n" -bB --green "✓" --green " Shipped! 🚢💨"
