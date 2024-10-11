@@ -49,19 +49,13 @@ config:
     brightCyan: '#b1c6ca'
     brightWhite: '#f9f9f4'
 records:
-  - delay: 555
-    content: "\e[1K\e[0Gresolving graph…"
-  - delay: 59
-    content: "\e[1K\e[0G"
-  - delay: 50
-    content: "\e[38;5;63menv\e[39m +gnu.org/coreutils=9.5.0 +erlang.org=26.2.4 +elixir-lang.org=1.16.2 +postgresql.org=15.2.0 +github.com/bats-core/bats-core=1.11.0 +gnu.org/bash=5.2.21 +gnu.org/grep=3.11.0 +tcl-lang.org/expect=5.45.4 +git-scm.org\r\n"
-  - delay: 15
-    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 11276
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 500
     content: "\e[7mbin/doctor\e[27m"
-  - delay: 1097
+  - delay: 600
     content: "\e[10D\e[27mb\e[27mi\e[27mn\e[27m/\e[27md\e[27mo\e[27mc\e[27mt\e[27mo\e[27mr\e[?2004l\r\r\n"
-  - delay: 98
+  - delay: 600
     content: "• pkgx installed?\e[0m"
   - delay: 22
     content: "\e[92m\e[1m ✓\e[0m\r\n• Developer environment active?\e[0m"
@@ -75,15 +69,15 @@ records:
     content: "\e[33mSuggested remedy: \e[0m\e[33m\e[1mbin/db start\e[0m\r\n"
   - delay: 31
     content: "\e[33m(Copied to clipboard)\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 2692
+  - delay: 800
     content: "\e[7mbin/db start\e[27m"
-  - delay: 1216
+  - delay: 600
     content: "\e[12D\e[27mb\e[27mi\e[27mn\e[27m/\e[27md\e[27mb\e[27m \e[27ms\e[27mt\e[27ma\e[27mr\e[27mt\e[?2004l\r\r\n"
-  - delay: 107
+  - delay: 600
     content: "• Creating /Users/cloud/perfect-elixir/priv/db\e[0m"
   - delay: 24
     content: "\e[92m\e[1m ✓\e[0m\r\n• Initializing database\e[0m"
-  - delay: 2764
+  - delay: 800
     content: "\e[92m\e[1m ✓\e[0m\r\n• Database started:\e[0m\r\n"
   - delay: 182
     content: waiting for server to start....
@@ -91,11 +85,9 @@ records:
     content: " done\r\nserver started\r\n"
   - delay: 11
     content: "\e[2m↳ Database started\e[0m\e[92m\e[1m ✓\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 13897
-    content: "\a[\b[A"
-  - delay: 343
-    content: "\b\bbin/db start"
-  - delay: 2417
+  - delay: 1100
+    content: "\abin/db start"
+  - delay: 300
     content: "\b\b\b\b\b\b\boctor  \b\b"
   - delay: 1855
     content: "\e[?2004l\r\r\n"
@@ -107,13 +99,5 @@ records:
     content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server running?\e[0m"
   - delay: 99
     content: "\e[92m\e[1m ✓\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 2119
-    content: e
-  - delay: 191
-    content: "\bex"
-  - delay: 99
-    content: i
-  - delay: 95
-    content: t
-  - delay: 112
+  - delay: 10000
     content: "\e[?2004l\r\r\n"
