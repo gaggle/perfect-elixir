@@ -10,3 +10,7 @@ check "pkgx installed?" \
 check "Developer environment active?" \
   "which erl && which elixir" \
   "dev"
+
+check "PostgreSQL server running?" \
+  "pgrep -f bin/postgres" \
+  "bin/db start"
