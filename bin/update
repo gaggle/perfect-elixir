@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
 source "$(dirname "$0")/.shhelpers"
-
-branch="perfect-elixir-3-development-workflows-&-processes"
-
-section "Integrating changes…"
-check "Check active branch" "[ \"$(git rev-parse --abbrev-ref HEAD)\" = \"$branch\" ]" "git checkout '${branch}'"
+branch="perfect-elixir-4-development-workflows"
+check "Branch is main?" \
+  "[ \"$(git rev-parse --abbrev-ref HEAD)\" = \"$branch\" ]" \
+  "git checkout '${branch}'"
 step "Pulling latest code" "git pull origin '$branch' --rebase"
-step "Installing dependencies" "mix deps.get"
-step "Compiling dependencies" "mix deps.compile"
-
-bin/doctor
