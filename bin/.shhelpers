@@ -1,106 +1,127 @@
 #!/usr/bin/env bash
 
-declare -A SET_OPTIONS
-_suppress_setopts() {
-  { set -o | grep -qE "^errexit.*on"; } && SET_OPTIONS[errexit]="on" || SET_OPTIONS[errexit]="off"
-  { set -o | grep -qE "^nounset.*on"; } && SET_OPTIONS[nounset]="on" || SET_OPTIONS[nounset]="off"
-  set +eu
-}
+if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
+  _suppress_setopts() {
+    true
+  }
+  _restore_setopts() {
+    true
+  }
+else
+  declare -A SET_OPTIONS
+  _suppress_setopts() {
+    { set -o | grep -qE "^errexit.*on"; } && SET_OPTIONS[errexit]="on" || SET_OPTIONS[errexit]="off"
+    { set -o | grep -qE "^nounset.*on"; } && SET_OPTIONS[nounset]="on" || SET_OPTIONS[nounset]="off"
+    set +eu
+  }
 
-_restore_setopts() {
-  [[ ${SET_OPTIONS[errexit]} == "on" ]] && set -e
-  [[ ${SET_OPTIONS[nounset]} == "on" ]] && set -u
-}
+  _restore_setopts() {
+    [[ ${SET_OPTIONS[errexit]} == "on" ]] && set -e
+    [[ ${SET_OPTIONS[nounset]} == "on" ]] && set -u
+  }
 
-_suppress_setopts
-# https://stackoverflow.com/a/28776166/884080
-(
-  [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
-  [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
-  [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
-) && sourced=1 || sourced=0
-_restore_setopts
+  _suppress_setopts
+  # https://stackoverflow.com/a/28776166/884080
+  (
+    [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
+    [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
+    [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
+  ) && sourced=1 || sourced=0
+  _restore_setopts
+fi
 
 if [ "$sourced" = "0" ]; then
   echo "This script must be sourced, not executed directly"
   exit 1
 fi
 
-cecho() {
-  local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param="" color_enabled=true
+if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
+  true
+else
+  true
+fi
 
-  if [ ! -t 1 ] && [[ ${FORCE_COLOR:-false} != "true" ]]; then
-    # Colors are disabled if STDOUT is not attached to a terminal
-    # *unless* FORCE_COLOR is true then colors are preserved regardless
-    color_enabled=false
-    reset=""
-  fi
-
-  cecho_usage() {
-    cecho "cecho: echo text with " -b --cyan "color" " and " -bu "style"
-    cecho "\nUsage: cecho [options] <text>"
-    cecho "\nExample: cecho --red -b \"Hello World\""
-    cecho -u "\nTEXT STYLES"
-    cecho "  -b, --bold       " -b "Bold or increased intensity"
-    cecho "  -f, --faint      " -f "Faint, decreased intensity, or dim"
-    cecho "  -i, --italic     " -i "Italic"
-    cecho "  -u, --underline  " -u "Underline"
-    cecho -u "\nCOLORS"
-    local color padding
-    for color in black red green yellow blue magenta cyan white; do
-      padding=$(printf '%*s' $((12 - ${#color})) "")
-      cecho "  --$color $(_padding "$color", 12) " --$color "$color color $(_padding "$color" 8) (" --$color -B "bright" ")"
-    done
-    cecho "  -B, --bright   Bright color variant"
-    cecho -u "\nOTHER"
-    cecho "  -n             Do not output the trailing newline"
-    cecho "  -h, --help     Show this help and exit"
+if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
+  cecho() {
+    echo $*
   }
+else
+  cecho() {
+    local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param="" color_enabled=true
 
-  declare -A codes=(["--black"]="30" ["--red"]="31" ["--green"]="32" ["--yellow"]="33" ["--blue"]="34" ["--magenta"]="35" ["--cyan"]="36" ["--white"]="37" ["-b"]="1" ["--bold"]="1" ["-f"]="2" ["--faint"]="2" ["-i"]="3" ["--italic"]="3" ["-u"]="4" ["--underline"]="4" ["-n"]="" ["-B"]="")
+    if [ ! -t 1 ] && [[ ${FORCE_COLOR:-false} != "true" ]]; then
+      # Colors are disabled if STDOUT is not attached to a terminal
+      # *unless* FORCE_COLOR is true then colors are preserved regardless
+      color_enabled=false
+      reset=""
+    fi
 
-  apply_styles() {
-    for style in "${styles[@]}"; do
-      if [[ "$color_enabled" == true ]]; then
-        output+="\033[$([[ "$is_bright" == true && "$style" =~ ^3[0-7]$ ]] && echo "9${style: -1}" || echo "$style")m"
-      fi
-    done
-    styles=()
-  }
+    cecho_usage() {
+      cecho "cecho: echo text with " -b --cyan "color" " and " -bu "style"
+      cecho "\nUsage: cecho [options] <text>"
+      cecho "\nExample: cecho --red -b \"Hello World\""
+      cecho -u "\nTEXT STYLES"
+      cecho "  -b, --bold       " -b "Bold or increased intensity"
+      cecho "  -f, --faint      " -f "Faint, decreased intensity, or dim"
+      cecho "  -i, --italic     " -i "Italic"
+      cecho "  -u, --underline  " -u "Underline"
+      cecho -u "\nCOLORS"
+      local color padding
+      for color in black red green yellow blue magenta cyan white; do
+        padding=$(printf '%*s' $((12 - ${#color})) "")
+        cecho "  --$color $(_padding "$color", 12) " --$color "$color color $(_padding "$color" 8) (" --$color -B "bright" ")"
+      done
+      cecho "  -B, --bright   Bright color variant"
+      cecho -u "\nOTHER"
+      cecho "  -n             Do not output the trailing newline"
+      cecho "  -h, --help     Show this help and exit"
+    }
 
-  while (($#)); do
-    param="$1"
-    shift
-    if [[ "$param" == "--help" ]]; then
-      cecho_usage
-      return 0
-    elif [[ "$param" == "-B" ]]; then
-      is_bright=true
-    elif [[ "$param" == "-n" ]]; then
-      suffix=""
-    elif [[ "$param" =~ ^-[a-zA-Z]{2,}$ ]]; then # Detect bundled short options
-      for ((i = 1; i < ${#param}; i++)); do
-        char="-${param:$i:1}"
-        if [[ "$char" == "-B" ]]; then
-          is_bright=true
-        elif [[ "$char" == "-n" ]]; then
-          suffix=""
-        elif [[ "${codes[$char]+_}" ]]; then
-          styles+=("${codes[$char]}")
-        else
-          echo "Unknown option: $char" >&2
-          return 1
+    declare -A codes=(["--black"]="30" ["--red"]="31" ["--green"]="32" ["--yellow"]="33" ["--blue"]="34" ["--magenta"]="35" ["--cyan"]="36" ["--white"]="37" ["-b"]="1" ["--bold"]="1" ["-f"]="2" ["--faint"]="2" ["-i"]="3" ["--italic"]="3" ["-u"]="4" ["--underline"]="4" ["-n"]="" ["-B"]="")
+
+    apply_styles() {
+      for style in "${styles[@]}"; do
+        if [[ "$color_enabled" == true ]]; then
+          output+="\033[$([[ "$is_bright" == true && "$style" =~ ^3[0-7]$ ]] && echo "9${style: -1}" || echo "$style")m"
         fi
       done
-    elif [[ -n "$param" && "${codes[$param]+_}" ]]; then
-      styles+=("${codes[$param]}")
-    else
-      [[ "${#styles[@]}" -ne 0 ]] && apply_styles
-      output+="$param$reset"
-    fi
-  done
-  echo -en "${output}${suffix}"
-}
+      styles=()
+    }
+
+    while (($#)); do
+      param="$1"
+      shift
+      if [[ "$param" == "--help" ]]; then
+        cecho_usage
+        return 0
+      elif [[ "$param" == "-B" ]]; then
+        is_bright=true
+      elif [[ "$param" == "-n" ]]; then
+        suffix=""
+      elif [[ "$param" =~ ^-[a-zA-Z]{2,}$ ]]; then # Detect bundled short options
+        for ((i = 1; i < ${#param}; i++)); do
+          char="-${param:$i:1}"
+          if [[ "$char" == "-B" ]]; then
+            is_bright=true
+          elif [[ "$char" == "-n" ]]; then
+            suffix=""
+          elif [[ "${codes[$char]+_}" ]]; then
+            styles+=("${codes[$char]}")
+          else
+            echo "Unknown option: $char" >&2
+            return 1
+          fi
+        done
+      elif [[ -n "$param" && "${codes[$param]+_}" ]]; then
+        styles+=("${codes[$param]}")
+      else
+        [[ "${#styles[@]}" -ne 0 ]] && apply_styles
+        output+="$param$reset"
+      fi
+    done
+    echo -en "${output}${suffix}"
+  }
+fi
 
 clipboard() {
   clipboard_usage() {
