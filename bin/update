@@ -6,3 +6,6 @@ check "Branch is main?" \
   "[ \"$(git rev-parse --abbrev-ref HEAD)\" = \"$branch\" ]" \
   "git checkout '${branch}'"
 step "Pulling latest code" "git pull origin '$branch' --rebase"
+step "Getting dependencies" "mix deps.get"
+step "Compiling dependencies" "mix deps.compile"
+"$(dirname "$0")/doctor"
