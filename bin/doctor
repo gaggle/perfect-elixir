@@ -1,58 +1,12 @@
 #!/usr/bin/env bash
-
-# This is a no-dependency initial check to fail early in case Bash is too old,
-# because if it is there'll just be cryptic errors when sourcing .shhelpers.
-if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
-  echo -e "• Check Bash version ✗"
-  echo -e "Suggested remedy: source bin/bootstrap"
-  exit 1
-fi
-
 set -euo pipefail
 
-source "$(dirname "$0")/.shhelpers"
+source "$(dirname "${BASH_SOURCE[0]}")/.shhelpers"
 
-usage() {
-  echo "Usage: $0 [options]"
-  echo ""
-  echo "This script runs a series of checks to ensure your system is in good shape. It'll suggest remedies to fix any deficiencies."
-  echo ""
-  echo "Options:"
-  echo "  -h, --help    Display this help message and exit. No appointment needed!"
-  echo ""
-  echo "Remember, a check-up a day keeps the debuggers away!"
-}
+check "pkgx installed?" \
+  "which pkgx" \
+  "brew install pkgxdev/made/pkgx"
 
-while (($#)); do
-  case "$1" in
-  -h | --help)
-    usage
-    exit 0 ;;
-  *) break ;;
-  esac
-done
-
-section "Running checks…"
-check "Check system dependencies" \
-  "command which pkgx && which erl && which elixir" \
-  "source bin/bootstrap"
-check "Check developer environment" \
-  "which stat | grep '.pkgx'" \
-  "dev off && dev on"
-check "Check PostgreSQL server is running" \
-  "pgrep -f bin/postgres" \
-  "bin/db start"
-check "Check PostgreSQL server has required user" \
-  'psql -U postgres -c "\q" > /dev/null 2>&1' \
-  "createuser -d postgres"
-check "Check mix hex" \
-  "mix archive | grep hex" \
-  "mix local.hex --force"
-check "Check mix dependencies" \
-  '[ "$(mix deps | grep -Ec "the dependency is not available|dependency is out of date")" -eq 0 ]' \
-  "mix deps.get && mix deps.compile"
-check "Check PostgreSQL database exists" \
-  "psql -U postgres -lqt | cut -d \| -f 1 | grep -qw 'my_app_dev'" \
-  "mix ecto.create"
-
-cecho "\n" -bB --green "✓" --green " System is healthy & ready"
+check "Developer environment active?" \
+  "which erl && which elixir" \
+  "dev"
