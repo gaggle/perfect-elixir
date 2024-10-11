@@ -1,0 +1,535 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/cloud/perfect-elixir
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 20
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 10000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: null
+    title: null
+    style:
+      backgroundColor: black
+      padding: 12px
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 1331
+    content: "\e[1K\e[0Gresolving graph…"
+  - delay: 95
+    content: "\e[1K\e[0G"
+  - delay: 51
+    content: "\e[38;5;63menv\e[39m +gnu.org/coreutils=9.5.0 +erlang.org=26.2.4 +elixir-lang.org=1.16.2 +postgresql.org=15.2.0 +github.com/bats-core/bats-core=1.11.0 +gnu.org/bash=5.2.21 +gnu.org/grep=3.11.0 +tcl-lang.org/expect=5.45.4 +git-scm.org\r\n"
+  - delay: 16
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 6688
+    content: "\e[7mbin/doctor\e[27m"
+  - delay: 475
+    content: "\e[10D\e[27mb\e[27mi\e[27mn\e[27m/\e[27md\e[27mo\e[27mc\e[27mt\e[27mo\e[27mr\e[?2004l\r\r\n"
+  - delay: 236
+    content: "\e[1m\e[4m\r\nRunning doctor checks…\e[0m\r\n• pkgx installed?\e[0m"
+  - delay: 26
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Developer environment active?\e[0m"
+  - delay: 27
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server running?\e[0m"
+  - delay: 57
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server has required user?\e[0m"
+  - delay: 461
+    content: "\e[91m\e[1m x\e[0m\r\n"
+  - delay: 5
+    content: "\e[31m> Executed: \e[0m\e[31m\e[1mpsql -U postgres -c \"\\q\" > /dev/null 2>&1\e[0m\r\n\e[0m\r\n"
+  - delay: 9
+    content: "\e[33mSuggested remedy: \e[0m\e[33m\e[1mcreateuser -d postgres\e[0m\r\n"
+  - delay: 44
+    content: "\e[33m(Copied to clipboard)\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1179
+    content: "\e[7mcreateuser -d postgres\e[27m"
+  - delay: 573
+    content: "\e[22D\e[27mc\e[27mr\e[27me\e[27ma\e[27mt\e[27me\e[27mu\e[27ms\e[27me\e[27mr\e[27m \e[27m-\e[27md\e[27m \e[27mp\e[27mo\e[27ms\e[27mt\e[27mg\e[27mr\e[27me\e[27ms\e[?2004l\r\r\n"
+  - delay: 188
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1604
+    content: createuser -d postgres
+  - delay: 336
+    content: "\e[22Dbin/docto\e[2C           \e[12D"
+  - delay: 496
+    content: "\e[?2004l\r\r\n"
+  - delay: 36
+    content: "\e[1m\e[4m\r\nRunning doctor checks…\e[0m\r\n• pkgx installed?\e[0m"
+  - delay: 23
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Developer environment active?\e[0m"
+  - delay: 29
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server running?\e[0m"
+  - delay: 94
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server has required user?\e[0m"
+  - delay: 36
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Hex package manager installed?\e[0m"
+  - delay: 1448
+    content: "\e[91m\e[1m x\e[0m\r\n"
+  - delay: 5
+    content: "\e[31m> Executed: \e[0m\e[31m\e[1mmix archive | grep hex\e[0m\r\n\e[0m\r\n"
+  - delay: 6
+    content: "\e[33mSuggested remedy: \e[0m\e[33m\e[1mmix local.hex --force\e[0m\r\n"
+  - delay: 27
+    content: "\e[33m(Copied to clipboard)\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1217
+    content: "\e[7mmix local.hex --force\e[27m"
+  - delay: 564
+    content: "\e[21D\e[27mm\e[27mi\e[27mx\e[27m \e[27ml\e[27mo\e[27mc\e[27ma\e[27ml\e[27m.\e[27mh\e[27me\e[27mx\e[27m \e[27m-\e[27m-\e[27mf\e[27mo\e[27mr\e[27mc\e[27me\e[?2004l\r\r\n"
+  - delay: 1565
+    content: "\e[32m* creating \e[0m/Users/cloud/.mix/archives/hex-2.1.1\e[0m\r\n"
+  - delay: 11
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 2592
+    content: mix local.hex --force
+  - delay: 104
+    content: "\e[21Dbin/d\e[2Ctor           \e[11D"
+  - delay: 801
+    content: "\e[?2004l\r\r\n"
+  - delay: 37
+    content: "\e[1m\e[4m\r\nRunning doctor checks…\e[0m\r\n• pkgx installed?\e[0m"
+  - delay: 25
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Developer environment active?\e[0m"
+  - delay: 26
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server running?\e[0m"
+  - delay: 106
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server has required user?\e[0m"
+  - delay: 37
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Hex package manager installed?\e[0m"
+  - delay: 456
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Mix dependencies installed & compiled?\e[0m"
+  - delay: 573
+    content: "\e[91m\e[1m x\e[0m\r\n"
+  - delay: 5
+    content: "\e[31m> Executed: \e[0m\e[31m\e[1m[ \"$(mix deps | grep -Ec \"the dependency is not available|dependency is out of date\")\" -eq 0 ]\e[0m\r\n\e[0m\r\n"
+  - delay: 8
+    content: "\e[33mSuggested remedy: \e[0m\e[33m\e[1mmix deps.get && mix deps.compile\e[0m\r\n"
+  - delay: 24
+    content: "\e[33m(Copied to clipboard)\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1434
+    content: "\e[7mmix deps.get && mix deps.compile\e[27m"
+  - delay: 416
+    content: "\e[32D\e[27mm\e[27mi\e[27mx\e[27m \e[27md\e[27me\e[27mp\e[27ms\e[27m.\e[27mg\e[27me\e[27mt\e[27m \e[27m&\e[27m&\e[27m \e[27mm\e[27mi\e[27mx\e[27m \e[27md\e[27me\e[27mp\e[27ms\e[27m.\e[27mc\e[27mo\e[27mm\e[27mp\e[27mi\e[27ml\e[27me\e[?2004l\r\r\n"
+  - delay: 515
+    content: "* Getting heroicons (https://github.com/tailwindlabs/heroicons.git - v2.1.1)\r\n"
+  - delay: 716
+    content: "remote: Enumerating objects: 11690, done.        \r\nremote: Counting objects:   0% (1/3626)        \rremote: Counting objects:   1% (37/3626)        \rremote: Counting objects:   2% (73/3626)        \rremote: Counting objects:   3% (109/3626)        \rremote: Counting objects:   4% (146/3626)        \rremote: Counting objects:   5% (182/3626)        \rremote: Counting objects:   6% (218/3626)        \rremote: Counting objects:   7% (254/3626)        \rremote: Counting objects:   8% (291/3626)        \rremote: Counting objects:   9% (327/3626)        \rremote: Counting objects:  10% (363/3626)        \rremote: Counting objects:  11% (399/3626)        \rremote: Counting objects:  12% (436/3626)        \rremote: Counting objects:  13% (472/3626)        \rremote: Counting objects:  14% (508/3626)        \rremote: Counting objects:  15% (544/3626)        \rremote: Counting objects:  16% (581/3626)        \rremote: Counting objects:  17% (617/3626)        \rremote: Counting objects:  18% (653/3626)        \rremote: Counting objects:  19% (689/3626)        \rremote: Counting objects:  20% (726/3626)        \rremote: Counting objects:  21% (762/3626)        \rremote: Counting objects:  22% (798/3626)        \rremote: Counting objects:  23% (834/3626)        \rremote: Counting objects:  24% (871/3626)        \rremote: Counting objects:  25% (907/3626)        \rremote: Counting objects:  26% (943/3626)        \rremote: Counting objects:  27% (980/3626)        \rremote: Counting objects:  28% (1016/3626)        \rremote: Counting objects:  29% (1052/3626)        \rremote: Counting objects:  30% (1088/3626)        \rremote: Counting objects:  31% (1125/3626)        \rremote: Counting objects:  32% (1161/3626)        \rremote: Counting objects:  33% (1197/3626)        \rremote: Counting objects:  34% (1233/3626)        \rremote: Counting objects:  35% (1270/3626)        \rremote: Counting objects:  36% (1306/3626)        \rremote: Counting objects:  37% (1342/3626)        \rremote: Counting objects:  38% (1378/3626)        \rremote: Counting objects:  39% (1415/3626)        \rremote: Counting objects:  40% (1451/3626)        \rremote: Counting objects:  41% (1487/3626)        \rremote: Counting objects:  42% (1523/3626)        \rremote: Counting objects:  43% (1560/3626)        \rremote: Counting objects:  44% (1596/3626)        \rremote: Counting objects:  45% (1632/3626)        \r"
+  - delay: 17
+    content: "remote: Counting objects:  46% (1668/3626)        \rremote: Counting objects:  47% (1705/3626)        \rremote: Counting objects:  48% (1741/3626)        \rremote: Counting objects:  49% (1777/3626)        \rremote: Counting objects:  50% (1813/3626)        \rremote: Counting objects:  51% (1850/3626)        \rremote: Counting objects:  52% (1886/3626)        \rremote: Counting objects:  53% (1922/3626)        \rremote: Counting objects:  54% (1959/3626)        \rremote: Counting objects:  55% (1995/3626)        \rremote: Counting objects:  56% (2031/3626)        \rremote: Counting objects:  57% (2067/3626)        \rremote: Counting objects:  58% (2104/3626)        \rremote: Counting objects:  59% (2140/3626)        \rremote: Counting objects:  60% (2176/3626)        \rremote: Counting objects:  61% (2212/3626)        \rremote: Counting objects:  62% (2249/3626)        \rremote: Counting objects:  63% (2285/3626)        \rremote: Counting objects:  64% (2321/3626)        \rremote: Counting objects:  65% (2357/3626)        \rremote: Counting objects:  66% (2394/3626)        \rremote: Counting objects:  67% (2430/3626)        \rremote: Counting objects:  68% (2466/3626)        \rremote: Counting objects:  69% (2502/3626)        \rremote: Counting objects:  70% (2539/3626)        \rremote: Counting objects:  71% (2575/3626)        \rremote: Counting objects:  72% (2611/3626)        \rremote: Counting objects:  73% (2647/3626)        \rremote: Counting objects:  74% (2684/3626)        \rremote: Counting objects:  75% (2720/3626)        \rremote: Counting objects:  76% (2756/3626)        \rremote: Counting objects:  77% (2793/3626)        \rremote: Counting objects:  78% (2829/3626)        \rremote: Counting objects:  79% (2865/3626)        \r"
+  - delay: 19
+    content: "remote: Counting objects:  80% (2901/3626)        \rremote: Counting objects:  81% (2938/3626)        \rremote: Counting objects:  82% (2974/3626)        \rremote: Counting objects:  83% (3010/3626)        \rremote: Counting objects:  84% (3046/3626)        \rremote: Counting objects:  85% (3083/3626)        \rremote: Counting objects:  86% (3119/3626)        \rremote: Counting objects:  87% (3155/3626)        \rremote: Counting objects:  88% (3191/3626)        \rremote: Counting objects:  89% (3228/3626)        \rremote: Counting objects:  90% (3264/3626)        \rremote: Counting objects:  91% (3300/3626)        \rremote: Counting objects:  92% (3336/3626)        \rremote: Counting objects:  93% (3373/3626)        \rremote: Counting objects:  94% (3409/3626)        \rremote: Counting objects:  95% (3445/3626)        \rremote: Counting objects:  96% (3481/3626)        \rremote: Counting objects:  97% (3518/3626)        \rremote: Counting objects:  98% (3554/3626)        \rremote: Counting objects:  99% (3590/3626)        \rremote: Counting objects: 100% (3626/3626)        \rremote: Counting objects: 100% (3626/3626), done.        \r\nremote: Compressing objects:   0% (1/1903)        \rremote: Compressing objects:   1% (20/1903)        \rremote: Compressing objects:   2% (39/1903)        \rremote: Compressing objects:   3% (58/1903)        \rremote: Compressing objects:   4% (77/1903)        \r"
+  - delay: 13
+    content: "remote: Compressing objects:   5% (96/1903)        \rremote: Compressing objects:   6% (115/1903)        \rremote: Compressing objects:   7% (134/1903)        \rremote: Compressing objects:   8% (153/1903)        \rremote: Compressing objects:   9% (172/1903)        \rremote: Compressing objects:  10% (191/1903)        \rremote: Compressing objects:  11% (210/1903)        \rremote: Compressing objects:  12% (229/1903)        \rremote: Compressing objects:  13% (248/1903)        \rremote: Compressing objects:  14% (267/1903)        \rremote: Compressing objects:  15% (286/1903)        \rremote: Compressing objects:  16% (305/1903)        \rremote: Compressing objects:  17% (324/1903)        \rremote: Compressing objects:  18% (343/1903)        \rremote: Compressing objects:  19% (362/1903)        \rremote: Compressing objects:  20% (381/1903)        \rremote: Compressing objects:  21% (400/1903)        \rremote: Compressing objects:  22% (419/1903)        \rremote: Compressing objects:  23% (438/1903)        \rremote: Compressing objects:  24% (457/1903)        \r"
+  - delay: 6
+    content: "remote: Compressing objects:  25% (476/1903)        \rremote: Compressing objects:  26% (495/1903)        \rremote: Compressing objects:  27% (514/1903)        \rremote: Compressing objects:  28% (533/1903)        \rremote: Compressing objects:  29% (552/1903)        \rremote: Compressing objects:  30% (571/1903)        \rremote: Compressing objects:  31% (590/1903)        \rremote: Compressing objects:  32% (609/1903)        \rremote: Compressing objects:  33% (628/1903)        \rremote: Compressing objects:  34% (648/1903)        \rremote: Compressing objects:  35% (667/1903)        \rremote: Compressing objects:  36% (686/1903)        \rremote: Compressing objects:  37% (705/1903)        \rremote: Compressing objects:  38% (724/1903)        \rremote: Compressing objects:  39% (743/1903)        \rremote: Compressing objects:  40% (762/1903)        \rremote: Compressing objects:  41% (781/1903)        \rremote: Compressing objects:  42% (800/1903)        \rremote: Compressing objects:  43% (819/1903)        \rremote: Compressing objects:  44% (838/1903)        \rremote: Compressing objects:  45% (857/1903)        \rremote: Compressing objects:  46% (876/1903)        \rremote: Compressing objects:  47% (895/1903)        \rremote: Compressing objects:  48% (914/1903)        \rremote: Compressing objects:  49% (933/1903)        \rremote: Compressing objects:  50% (952/1903)        \rremote: Compressing objects:  51% (971/1903)        \rremote: Compressing objects:  52% (990/1903)        \rremote: Compressing objects:  53% (1009/1903)        \rremote: Compressing objects:  54% (1028/1903)        \rremote: Compressing objects:  55% (1047/1903)        \rremote: Compressing objects:  56% (1066/1903)        \rremote: Compressing objects:  57% (1085/1903)        \rremote: Compressing objects:  58% (1104/1903)        \rremote: Compressing objects:  59% (1123/1903)        \rremote: Compressing objects:  60% (1142/1903)        \rremote: Compressing objects:  61% (1161/1903)        \rremote: Compressing objects:  62% (1180/1903)        \rremote: Compressing objects:  63% (1199/1903)        \rremote: Compressing objects:  64% (1218/1903)        \rremote: Compressing objects:  65% (1237/1903)        \r"
+  - delay: 12
+    content: "remote: Compressing objects:  66% (1256/1903)        \rremote: Compressing objects:  67% (1276/1903)        \rremote: Compressing objects:  68% (1295/1903)        \rremote: Compressing objects:  69% (1314/1903)        \rremote: Compressing objects:  70% (1333/1903)        \rremote: Compressing objects:  71% (1352/1903)        \rremote: Compressing objects:  72% (1371/1903)        \rremote: Compressing objects:  73% (1390/1903)        \rremote: Compressing objects:  74% (1409/1903)        \rremote: Compressing objects:  75% (1428/1903)        \rremote: Compressing objects:  76% (1447/1903)        \rremote: Compressing objects:  77% (1466/1903)        \rremote: Compressing objects:  78% (1485/1903)        \rremote: Compressing objects:  79% (1504/1903)        \rremote: Compressing objects:  80% (1523/1903)        \rremote: Compressing objects:  81% (1542/1903)        \rremote: Compressing objects:  82% (1561/1903)        \rremote: Compressing objects:  83% (1580/1903)        \rremote: Compressing objects:  84% (1599/1903)        \rremote: Compressing objects:  85% (1618/1903)        \r"
+  - delay: 10
+    content: "remote: Compressing objects:  86% (1637/1903)        \rremote: Compressing objects:  87% (1656/1903)        \rremote: Compressing objects:  88% (1675/1903)        \rremote: Compressing objects:  89% (1694/1903)        \rremote: Compressing objects:  90% (1713/1903)        \rremote: Compressing objects:  91% (1732/1903)        \rremote: Compressing objects:  92% (1751/1903)        \rremote: Compressing objects:  93% (1770/1903)        \rremote: Compressing objects:  94% (1789/1903)        \rremote: Compressing objects:  95% (1808/1903)        \rremote: Compressing objects:  96% (1827/1903)        \rremote: Compressing objects:  97% (1846/1903)        \rremote: Compressing objects:  98% (1865/1903)        \rremote: Compressing objects:  99% (1884/1903)        \rremote: Compressing objects: 100% (1903/1903)        \rremote: Compressing objects: 100% (1903/1903), done.        \r\n"
+  - delay: 210
+    content: "remote: Total 11690 (delta 1782), reused 3394 (delta 1697), pack-reused 8064 (from 1)        \r\n"
+  - delay: 2615
+    content: "Resolving Hex dependencies...\r\n"
+  - delay: 443
+    content: "Resolution completed in 0.437s\r\n"
+  - delay: 72
+    content: "Unchanged:\r\n  bandit 1.4.2\r\n  castore 1.0.6\r\n  db_connection 2.6.0\r\n  decimal 2.1.1\r\n  dns_cluster 0.1.3\r\n  ecto 3.11.2\r\n  ecto_sql 3.11.1\r\n  esbuild 0.8.1\r\n  expo 0.5.2\r\n  file_system 1.0.0\r\n  finch 0.18.0\r\n  floki 0.36.1\r\n  gettext 0.24.0\r\n  hpax 0.1.2\r\n  jason 1.4.1\r\n  mime 2.0.5\r\n  mint 1.5.2\r\n  nimble_options 1.1.0\r\n  nimble_pool 1.1.0\r\n  phoenix 1.7.11\r\n  phoenix_ecto 4.5.1\r\n  phoenix_html 4.1.1\r\n  phoenix_live_dashboard 0.8.3\r\n  phoenix_live_reload 1.5.3\r\n  phoenix_live_view 0.20.14\r\n  phoenix_pubsub 2.1.3\r\n  phoenix_template 1.0.4\r\n  plug 1.15.3\r\n  plug_crypto 2.0.0\r\n  postgrex 0.17.5\r\n  swoosh 1.16.3\r\n  tailwind 0.2.2\r\n  telemetry 1.2.1\r\n  telemetry_metrics 0.6.2\r\n  telemetry_poller 1.0.0\r\n  thousand_island 1.3.5\r\n  websock 0.5.3\r\n  websock_adapter 0.5.6\r\n"
+  - delay: 22
+    content: "* Getting phoenix (Hex package)\r\n"
+  - delay: 3533
+    content: "* Getting phoenix_ecto (Hex package)\r\n"
+  - delay: 86
+    content: "* Getting ecto_sql (Hex package)\r\n"
+  - delay: 605
+    content: "* Getting postgrex (Hex package)\r\n"
+  - delay: 761
+    content: "* Getting phoenix_html (Hex package)\r\n"
+  - delay: 103
+    content: "* Getting phoenix_live_reload (Hex package)\r\n"
+  - delay: 90
+    content: "* Getting phoenix_live_view (Hex package)\r\n"
+  - delay: 872
+    content: "* Getting floki (Hex package)\r\n"
+  - delay: 124
+    content: "* Getting phoenix_live_dashboard (Hex package)\r\n"
+  - delay: 102
+    content: "* Getting esbuild (Hex package)\r\n"
+  - delay: 27
+    content: "* Getting tailwind (Hex package)\r\n"
+  - delay: 737
+    content: "* Getting swoosh (Hex package)\r\n"
+  - delay: 1212
+    content: "* Getting finch (Hex package)\r\n"
+  - delay: 201
+    content: "* Getting telemetry_metrics (Hex package)\r\n"
+  - delay: 91
+    content: "* Getting telemetry_poller (Hex package)\r\n"
+  - delay: 381
+    content: "\e[32m* creating \e[0m/Users/cloud/.mix/elixir/1-16/rebar3\e[0m\r\n* Getting gettext (Hex package)\r\n"
+  - delay: 248
+    content: "* Getting jason (Hex package)\r\n"
+  - delay: 108
+    content: "* Getting dns_cluster (Hex package)\r\n"
+  - delay: 45
+    content: "* Getting bandit (Hex package)\r\n"
+  - delay: 630
+    content: "* Getting hpax (Hex package)\r\n"
+  - delay: 84
+    content: "* Getting plug (Hex package)\r\n"
+  - delay: 533
+    content: "* Getting telemetry (Hex package)\r\n"
+  - delay: 99
+    content: "* Getting thousand_island (Hex package)\r\n"
+  - delay: 200
+    content: "* Getting websock (Hex package)\r\n"
+  - delay: 75
+    content: "* Getting mime (Hex package)\r\n"
+  - delay: 53
+    content: "* Getting plug_crypto (Hex package)\r\n"
+  - delay: 70
+    content: "* Getting expo (Hex package)\r\n"
+  - delay: 335
+    content: "* Getting castore (Hex package)\r\n"
+  - delay: 73
+    content: "* Getting mint (Hex package)\r\n"
+  - delay: 303
+    content: "* Getting nimble_options (Hex package)\r\n"
+  - delay: 64
+    content: "* Getting nimble_pool (Hex package)\r\n"
+  - delay: 76
+    content: "* Getting phoenix_template (Hex package)\r\n"
+  - delay: 71
+    content: "* Getting file_system (Hex package)\r\n"
+  - delay: 138
+    content: "* Getting db_connection (Hex package)\r\n"
+  - delay: 152
+    content: "* Getting decimal (Hex package)\r\n"
+  - delay: 96
+    content: "* Getting ecto (Hex package)\r\n"
+  - delay: 550
+    content: "* Getting phoenix_pubsub (Hex package)\r\n"
+  - delay: 24
+    content: "* Getting websock_adapter (Hex package)\r\n"
+  - delay: 14
+    content: "You have added/upgraded packages you could sponsor, run `mix hex.sponsor` to learn more\r\n"
+  - delay: 655
+    content: "\e[22m\r\n22:44:45.728 [info] Compiling file system watcher for Mac...\r\n\e[0m"
+  - delay: 1521
+    content: "\e[22m\r\n22:44:47.251 [info] Done.\r\n\e[0m"
+  - delay: 22
+    content: "==> file_system\r\nCompiling 7 files (.ex)\r\n"
+  - delay: 487
+    content: "Generated file_system app\r\n"
+  - delay: 36
+    content: "==> decimal\r\nCompiling 4 files (.ex)\r\n"
+  - delay: 1212
+    content: "Generated decimal app\r\n"
+  - delay: 30
+    content: "==> mime\r\nCompiling 1 file (.ex)\r\n"
+  - delay: 210
+    content: "Generated mime app\r\n"
+  - delay: 38
+    content: "==> nimble_options\r\nCompiling 3 files (.ex)\r\n"
+  - delay: 655
+    content: "Generated nimble_options app\r\n"
+  - delay: 1084
+    content: "===> Analyzing applications...\r\n"
+  - delay: 59
+    content: "===> Compiling telemetry\r\n"
+  - delay: 472
+    content: "==> telemetry_metrics\r\nCompiling 7 files (.ex)\r\n"
+  - delay: 264
+    content: "Generated telemetry_metrics app\r\n"
+  - delay: 1842
+    content: "===> Analyzing applications...\r\n"
+  - delay: 75
+    content: "===> Compiling telemetry_poller\r\n"
+  - delay: 678
+    content: "==> thousand_island\r\nCompiling 16 files (.ex)\r\n"
+  - delay: 913
+    content: "Generated thousand_island app\r\n"
+  - delay: 46
+    content: "==> jason\r\nCompiling 10 files (.ex)\r\n"
+  - delay: 3535
+    content: "Generated jason app\r\n"
+  - delay: 35
+    content: "==> phoenix_html\r\nCompiling 6 files (.ex)\r\n"
+  - delay: 837
+    content: "Generated phoenix_html app\r\n"
+  - delay: 34
+    content: "==> phoenix_template\r\nCompiling 4 files (.ex)\r\n"
+  - delay: 220
+    content: "Generated phoenix_template app\r\n"
+  - delay: 62
+    content: "==> db_connection\r\nCompiling 15 files (.ex)\r\n"
+  - delay: 1721
+    content: "Generated db_connection app\r\n"
+  - delay: 128
+    content: "==> expo\r\nCompiling 2 files (.erl)\r\n"
+  - delay: 816
+    content: "Compiling 22 files (.ex)\r\n"
+  - delay: 949
+    content: "Generated expo app\r\n"
+  - delay: 40
+    content: "==> phoenix_pubsub\r\nCompiling 11 files (.ex)\r\n"
+  - delay: 1014
+    content: "Generated phoenix_pubsub app\r\n"
+  - delay: 36
+    content: "==> plug_crypto\r\nCompiling 5 files (.ex)\r\n"
+  - delay: 292
+    content: "Generated plug_crypto app\r\n"
+  - delay: 64
+    content: "==> hpax\r\nCompiling 4 files (.ex)\r\n"
+  - delay: 1004
+    content: "Generated hpax app\r\n"
+  - delay: 52
+    content: "==> dns_cluster\r\nCompiling 1 file (.ex)\r\n"
+  - delay: 160
+    content: "Generated dns_cluster app\r\n"
+  - delay: 35
+    content: "==> gettext\r\nCompiling 17 files (.ex)\r\n"
+  - delay: 877
+    content: "Generated gettext app\r\n"
+  - delay: 52
+    content: "==> ecto\r\nCompiling 56 files (.ex)\r\n"
+  - delay: 8684
+    content: "Generated ecto app\r\n"
+  - delay: 41
+    content: "==> plug\r\nCompiling 1 file (.erl)\r\n"
+  - delay: 298
+    content: "Compiling 40 files (.ex)\r\n"
+  - delay: 3689
+    content: "Generated plug app\r\n"
+  - delay: 44
+    content: "==> postgrex\r\nCompiling 68 files (.ex)\r\n"
+  - delay: 9088
+    content: "Generated postgrex app\r\n"
+  - delay: 78
+    content: "==> ecto_sql\r\nCompiling 25 files (.ex)\r\n"
+  - delay: 2529
+    content: "Generated ecto_sql app\r\n"
+  - delay: 41
+    content: "==> nimble_pool\r\nCompiling 2 files (.ex)\r\n"
+  - delay: 438
+    content: "Generated nimble_pool app\r\n"
+  - delay: 69
+    content: "==> castore\r\nCompiling 1 file (.ex)\r\n"
+  - delay: 19
+    content: "Generated castore app\r\n"
+  - delay: 39
+    content: "==> esbuild\r\nCompiling 4 files (.ex)\r\n"
+  - delay: 236
+    content: "Generated esbuild app\r\n"
+  - delay: 46
+    content: "==> tailwind\r\nCompiling 3 files (.ex)\r\n"
+  - delay: 64
+    content: "    \e[33mwarning:\e[0m Logger.warn/1 is deprecated. Use Logger.warning/2 instead\r\n    │\r\n 72 │       Logger.warn(\"\"\"\r\n    │ \e[33m             ~\e[0m\r\n    │\r\n    └─ lib/tailwind.ex:72:14: Tailwind.start/2\r\n\r\n    \e[33mwarning:\e[0m Logger.warn/1 is deprecated. Use Logger.warning/2 instead\r\n    │\r\n 86 │         Logger.warn(\"\"\"\r\n    │ \e[33m               ~\e[0m\r\n    │\r\n    └─ lib/tailwind.ex:86:16: Tailwind.start/2\r\n\r\n"
+  - delay: 195
+    content: "Generated tailwind app\r\n"
+  - delay: 70
+    content: "==> mint\r\nCompiling 1 file (.erl)\r\n"
+  - delay: 210
+    content: "Compiling 19 files (.ex)\r\n"
+  - delay: 449
+    content: "    \e[33mwarning:\e[0m function set_flag/2 is unused\r\n    │\r\n 69 │     defp set_flag(unquote(frame), unquote(flag_name)), do: unquote(flag_value)\r\n    │ \e[33m         ~\e[0m\r\n    │\r\n    └─ lib/mint/http2/frame.ex:69:10: Mint.HTTP2.Frame (module)\r\n\r\n"
+  - delay: 1790
+    content: "Generated mint app\r\n"
+  - delay: 42
+    content: "==> finch\r\nCompiling 14 files (.ex)\r\n"
+  - delay: 1070
+    content: "Generated finch app\r\n"
+  - delay: 69
+    content: "==> websock\r\nCompiling 1 file (.ex)\r\n"
+  - delay: 35
+    content: "Generated websock app\r\n"
+  - delay: 57
+    content: "==> bandit\r\nCompiling 50 files (.ex)\r\n"
+  - delay: 3419
+    content: "Generated bandit app\r\n"
+  - delay: 66
+    content: "==> swoosh\r\nCompiling 49 files (.ex)\r\n"
+  - delay: 2370
+    content: "Generated swoosh app\r\n"
+  - delay: 36
+    content: "==> websock_adapter\r\nCompiling 4 files (.ex)\r\n"
+  - delay: 113
+    content: "Generated websock_adapter app\r\n"
+  - delay: 65
+    content: "==> phoenix\r\nCompiling 71 files (.ex)\r\n"
+  - delay: 5676
+    content: "Generated phoenix app\r\n"
+  - delay: 37
+    content: "==> phoenix_live_reload\r\nCompiling 5 files (.ex)\r\n"
+  - delay: 199
+    content: "Generated phoenix_live_reload app\r\n"
+  - delay: 61
+    content: "==> phoenix_live_view\r\nCompiling 39 files (.ex)\r\n"
+  - delay: 7415
+    content: "Generated phoenix_live_view app\r\n"
+  - delay: 55
+    content: "==> phoenix_live_dashboard\r\nCompiling 36 files (.ex)\r\n"
+  - delay: 4556
+    content: "Generated phoenix_live_dashboard app\r\n"
+  - delay: 37
+    content: "==> phoenix_ecto\r\nCompiling 7 files (.ex)\r\n"
+  - delay: 534
+    content: "Generated phoenix_ecto app\r\n"
+  - delay: 29
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1790
+    content: mix deps.get && mix deps.compile
+  - delay: 169
+    content: "\e[32Dbin/doctor                      \e[22D"
+  - delay: 560
+    content: "\e[?2004l\r\r\n"
+  - delay: 44
+    content: "\e[1m\e[4m\r\nRunning doctor checks…\e[0m\r\n• pkgx installed?\e[0m"
+  - delay: 26
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Developer environment active?\e[0m"
+  - delay: 29
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server running?\e[0m"
+  - delay: 110
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server has required user?\e[0m"
+  - delay: 41
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Hex package manager installed?\e[0m"
+  - delay: 452
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Mix dependencies installed & compiled?\e[0m"
+  - delay: 697
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL database exists?\e[0m"
+  - delay: 218
+    content: "\e[91m\e[1m x\e[0m\r\n"
+  - delay: 5
+    content: "\e[31m> Executed: \e[0m\e[31m\e[1mpsql -U postgres -lqt | cut -d \\| -f 1 | grep -qw 'my_app_dev'\e[0m\r\n\e[0m\r\n"
+  - delay: 7
+    content: "\e[33mSuggested remedy: \e[0m\e[33m\e[1mmix ecto.create\e[0m\r\n"
+  - delay: 31
+    content: "\e[33m(Copied to clipboard)\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1081
+    content: "\e[7mmix ecto.create\e[27m"
+  - delay: 382
+    content: "\e[15D\e[27mm\e[27mi\e[27mx\e[27m \e[27me\e[27mc\e[27mt\e[27mo\e[27m.\e[27mc\e[27mr\e[27me\e[27ma\e[27mt\e[27me\e[?2004l\r\r\n"
+  - delay: 704
+    content: "Compiling 15 files (.ex)\r\n"
+  - delay: 1773
+    content: "Generated my_app app\r\n"
+  - delay: 1012
+    content: "The database for MyApp.Repo has been created\r\n"
+  - delay: 46
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 1322
+    content: mix ecto.create
+  - delay: 101
+    content: "\e[15Dbin/doctor     \b\b\b\b\b"
+  - delay: 576
+    content: "\e[?2004l\r\r\n"
+  - delay: 34
+    content: "\e[1m\e[4m\r\nRunning doctor checks…\e[0m\r\n• pkgx installed?\e[0m"
+  - delay: 23
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Developer environment active?\e[0m"
+  - delay: 30
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server running?\e[0m"
+  - delay: 102
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server has required user?\e[0m"
+  - delay: 31
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Hex package manager installed?\e[0m"
+  - delay: 456
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Mix dependencies installed & compiled?\e[0m"
+  - delay: 640
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL database exists?\e[0m"
+  - delay: 36
+    content: "\e[92m\e[1m ✓\e[0m\r\n"
+  - delay: 7
+    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m All checks passed, system is healthy\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 2221
+    content: e
+  - delay: 131
+    content: "\bex"
+  - delay: 96
+    content: i
+  - delay: 128
+    content: t
+  - delay: 465
+    content: "\e[?2004l\r\r\n"
