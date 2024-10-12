@@ -8,10 +8,10 @@ config:
       width: 100px
       opacity: 0.9
   command: zsh
-  cwd: /Users/cloud/perfect-elixir/perfect-elixir
+  cwd: /Users/cloud/perfect-elixir
   env:
     recording: true
-  cols: 90
+  cols: 80
   rows: 20
   repeat: 0
   quality: 100
@@ -51,51 +51,53 @@ config:
 records:
   - delay: 9
     content: "\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
-  - delay: 1900
+  - delay: 500
     content: "\e[7mbin/shipit\e[27m"
-  - delay: 460
+  - delay: 501
     content: "\e[10D\e[27mb\e[27mi\e[27mn\e[27m/\e[27ms\e[27mh\e[27mi\e[27mp\e[27mi\e[27mt\e[?2004l\r\r\n"
-  - delay: 36
-    content: "\e[1m\e[4m\r\nIntegrating changes…\e[0m\r\n"
-  - delay: 31
-    content: "• Checking active branch\e[0m"
-  - delay: 5
+  - delay: 107
+    content: "• Branch is main?\e[0m"
+  - delay: 16
     content: "\e[92m\e[1m ✓\e[0m\r\n• Pulling latest code\e[0m"
-  - delay: 527
-    content: "\e[92m\e[1m ✓\e[0m\r\n• Installing dependencies\e[0m"
-  - delay: 1620
+  - delay: 590
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Getting dependencies\e[0m"
+  - delay: 1200
     content: "\e[92m\e[1m ✓\e[0m\r\n• Compiling dependencies\e[0m"
-  - delay: 3091
+  - delay: 700
     content: "\e[92m\e[1m ✓\e[0m\r\n"
-  - delay: 20
-    content: "\e[1m\e[4m\r\nRunning checks…\e[0m\r\n• Checking system dependencies\e[0m"
-  - delay: 15
-    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server is running\e[0m"
-  - delay: 40
-    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL server has required user\e[0m"
-  - delay: 20
-    content: "\e[92m\e[1m ✓\e[0m\r\n• Check mix hex\e[0m"
-  - delay: 446
-    content: "\e[92m\e[1m ✓\e[0m\r\n• Check mix dependencies\e[0m"
-  - delay: 643
-    content: "\e[92m\e[1m ✓\e[0m\r\n• Check PostgreSQL database exists\e[0m"
-  - delay: 22
+  - delay: 38
+    content: "\e[1m\e[4m\r\nRunning doctor checks…\e[0m\r\n• pkgx installed?\e[0m"
+  - delay: 26
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Developer environment active?\e[0m"
+  - delay: 28
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server running?\e[0m"
+  - delay: 107
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL server has required user?\e[0m"
+  - delay: 51
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Hex package manager installed?\e[0m"
+  - delay: 453
+    content: "\e[92m\e[1m ✓\e[0m\r\n• Mix dependencies installed & compiled?\e[0m"
+  - delay: 622
+    content: "\e[92m\e[1m ✓\e[0m\r\n• PostgreSQL database exists?\e[0m"
+  - delay: 37
     content: "\e[92m\e[1m ✓\e[0m\r\n"
-  - delay: 5
-    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m System is healthy & ready\e[0m\r\n"
-  - delay: 7
-    content: "\e[1m\e[4m\r\nChecking code…\e[0m\r\n• Run tests:\e[0m\r\n"
-  - delay: 1141
-    content: "\e[32m.\e[0m\e[32m.\e[0m\e[32m.\e[0m\e[32m.\e[0m"
-  - delay: 61
-    content: "\e[32m.\e[0m\r\nFinished in 0.1 seconds (0.05s async, 0.06s sync)\r\n\e[32m5 tests, 0 failures\e[0m\r\n\r\nRandomized with seed 326830\r\n"
-  - delay: 18
-    content: "\e[2m↳ Run tests\e[0m\e[92m\e[1m ✓\e[0m\r\n• Checking files are formatted\e[0m"
-  - delay: 737
+  - delay: 9
+    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m All checks passed, system is healthy\e[0m\r\n• Running tests:\e[0m\r\n"
+  - delay: 1200
+    content: "\e[32m.\e[0m\e[32m.\e[0m"
+  - delay: 23
+    content: "\e[32m.\e[0m\e[32m.\e[0m"
+  - delay: 115
+    content: "\e[32m.\e[0m\r\n"
+  - delay: 6
+    content: "Finished in 0.2 seconds (0.1s async, 0.1s sync)\r\n\e[32m5 tests, 0 failures\e[0m\r\n\r\nRandomized with seed 644851\r\n"
+  - delay: 36
+    content: "\e[2m↳ Running tests\e[0m\e[92m\e[1m ✓\e[0m\r\n• Files formatted?\e[0m"
+  - delay: 800
     content: "\e[92m\e[1m ✓\e[0m\r\n• Pushing changes to main\e[0m"
-  - delay: 1142
-    content: "\e[92m\e[1m ✓\e[0m\r\n"
-  - delay: 5
-    content: "\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m Shipped! 🚢💨\e[0m\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                         \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
+  - delay: 310
+    content: "\e[92m\e[1m ✓\e[0m\r\n\r\n\e[0m\e[1m\e[92m✓\e[0m\e[92m Shipped! 🚢 💨 \e[0m"
+  - delay: 193
+    content: "\e[?2004l\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                               \r \r\r\e[0m\e[27m\e[24m\e[J$ \e[K\e[?2004h"
   - delay: 10000
     content: "\e[?2004l\r\r\n"
