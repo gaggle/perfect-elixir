@@ -1,0 +1,361 @@
+#!/usr/bin/env bash
+
+if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
+  _suppress_setopts() {
+    true
+  }
+  _restore_setopts() {
+    true
+  }
+else
+  declare -A SET_OPTIONS
+  _suppress_setopts() {
+    { set -o | grep -qE "^errexit.*on"; } && SET_OPTIONS[errexit]="on" || SET_OPTIONS[errexit]="off"
+    { set -o | grep -qE "^nounset.*on"; } && SET_OPTIONS[nounset]="on" || SET_OPTIONS[nounset]="off"
+    set +eu
+  }
+
+  _restore_setopts() {
+    [[ ${SET_OPTIONS[errexit]} == "on" ]] && set -e
+    [[ ${SET_OPTIONS[nounset]} == "on" ]] && set -u
+  }
+
+  _suppress_setopts
+  # https://stackoverflow.com/a/28776166/884080
+  (
+    [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
+    [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
+    [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
+  ) && sourced=1 || sourced=0
+  _restore_setopts
+fi
+
+if [ "$sourced" = "0" ]; then
+  echo "This script must be sourced, not executed directly"
+  exit 1
+fi
+
+if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
+  true
+else
+  true
+fi
+
+if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
+  cecho() {
+    echo $*
+  }
+else
+  cecho() {
+    local reset="\033[0m" suffix="\n" styles=() output="" is_bright=false param="" color_enabled=true
+
+    if [ ! -t 1 ] && [[ ${FORCE_COLOR:-false} != "true" ]]; then
+      # Colors are disabled if STDOUT is not attached to a terminal
+      # *unless* FORCE_COLOR is true then colors are preserved regardless
+      color_enabled=false
+      reset=""
+    fi
+
+    cecho_usage() {
+      cecho "cecho: echo text with " -b --cyan "color" " and " -bu "style"
+      cecho "\nUsage: cecho [options] <text>"
+      cecho "\nExample: cecho --red -b \"Hello World\""
+      cecho -u "\nTEXT STYLES"
+      cecho "  -b, --bold       " -b "Bold or increased intensity"
+      cecho "  -f, --faint      " -f "Faint, decreased intensity, or dim"
+      cecho "  -i, --italic     " -i "Italic"
+      cecho "  -u, --underline  " -u "Underline"
+      cecho -u "\nCOLORS"
+      local color padding
+      for color in black red green yellow blue magenta cyan white; do
+        padding=$(printf '%*s' $((12 - ${#color})) "")
+        cecho "  --$color $(_padding "$color", 12) " --$color "$color color $(_padding "$color" 8) (" --$color -B "bright" ")"
+      done
+      cecho "  -B, --bright   Bright color variant"
+      cecho -u "\nOTHER"
+      cecho "  -n             Do not output the trailing newline"
+      cecho "  -h, --help     Show this help and exit"
+    }
+
+    declare -A codes=(["--black"]="30" ["--red"]="31" ["--green"]="32" ["--yellow"]="33" ["--blue"]="34" ["--magenta"]="35" ["--cyan"]="36" ["--white"]="37" ["-b"]="1" ["--bold"]="1" ["-f"]="2" ["--faint"]="2" ["-i"]="3" ["--italic"]="3" ["-u"]="4" ["--underline"]="4" ["-n"]="" ["-B"]="")
+
+    apply_styles() {
+      for style in "${styles[@]}"; do
+        if [[ "$color_enabled" == true ]]; then
+          output+="\033[$([[ "$is_bright" == true && "$style" =~ ^3[0-7]$ ]] && echo "9${style: -1}" || echo "$style")m"
+        fi
+      done
+      styles=()
+    }
+
+    while (($#)); do
+      param="$1"
+      shift
+      if [[ "$param" == "--help" ]]; then
+        cecho_usage
+        return 0
+      elif [[ "$param" == "-B" ]]; then
+        is_bright=true
+      elif [[ "$param" == "-n" ]]; then
+        suffix=""
+      elif [[ "$param" =~ ^-[a-zA-Z]{2,}$ ]]; then # Detect bundled short options
+        for ((i = 1; i < ${#param}; i++)); do
+          char="-${param:$i:1}"
+          if [[ "$char" == "-B" ]]; then
+            is_bright=true
+          elif [[ "$char" == "-n" ]]; then
+            suffix=""
+          elif [[ "${codes[$char]+_}" ]]; then
+            styles+=("${codes[$char]}")
+          else
+            echo "Unknown option: $char" >&2
+            return 1
+          fi
+        done
+      elif [[ -n "$param" && "${codes[$param]+_}" ]]; then
+        styles+=("${codes[$param]}")
+      else
+        [[ "${#styles[@]}" -ne 0 ]] && apply_styles
+        output+="$param$reset"
+      fi
+    done
+    echo -en "${output}${suffix}"
+  }
+fi
+
+clipboard() {
+  clipboard_usage() {
+    cecho -b "clipboard" ": copy text to clipboard"
+    cecho "\nUsage: clipboard [options] <text>"
+    cecho -u "\nEXAMPLES"
+    cecho "  $ clipboard foo"
+    cecho "  $ echo foo | clipboard"
+    cecho -u "\nOPTIONS"
+    cecho "  -h, --help      Show this help and exit"
+  }
+
+  while (($#)); do
+    case "$1" in
+    -h | --help)
+      clipboard_usage
+      return 0
+      ;;
+    *) break ;;
+    esac
+  done
+
+  local input
+  if [ -t 0 ]; then
+    # STDIN is a terminal, likely no data is piped, use arguments as input
+    input="$*"
+  else
+    # STDIN is not a terminal, attempt to read from it
+    _read_input input
+  fi
+
+  if command -v pbcopy >/dev/null; then
+    echo -n "$input" | pbcopy
+  else
+    cecho --yellow -fn "Warn: Clipboard command not available, tried to copy: "
+    cecho --yellow -b "$input"
+    return
+  fi
+}
+
+section() {
+ cecho -Bbu "\n$1"
+}
+
+step() {
+  local command="" command_exit_code command_output="" description="" with_output=0
+
+  step_usage() {
+    cecho 'Usage:'
+    cecho '  step [--with-output] "<DESCRIPTION>" "<COMMAND>"'
+    cecho '\nPerforms a step described by DESCRIPTION by executing COMMAND.'
+    cecho 'Command output is only shown if command exits non-zero,'
+    cecho 'unless --with-output is passed in which case output is displayed'
+    cecho 'as the command runs.'
+    cecho '\nDEBUG=true forces command output to always be shown after'
+    cecho 'execution.'
+    cecho '\nExamples:'
+    cecho '  $ step "Echo" "echo Hello"'
+    cecho '  • Echo ' --green -b '✓'
+    cecho '\n  $ step "Read file" "cat foo"'
+    cecho '  • Read file ' --red -b 'x'
+    cecho --red '  > Executed: ' --red -b 'cat foo'
+    cecho --red '  cat: foo: No such file or directory'
+  }
+
+  while (("$#")); do
+    case "$1" in
+    -h | --help)
+      step_usage
+      return 0
+      ;;
+    -o | --with-output)
+      with_output=1
+      shift
+      ;;
+    -* | --*)
+      echo "Error: Unsupported flag $1" >&2
+      step_usage
+      return 1
+      ;;
+    *)
+      if [[ -z $description ]]; then
+        description=$1
+      else
+        command=$1
+      fi
+      shift
+      ;;
+    esac
+  done
+
+  if [[ -z $description ]] || [[ -z $command ]]; then
+    step_usage
+    return 1
+  fi
+
+  if ((with_output)); then
+    cecho "• ${description}:"
+    _suppress_setopts
+    eval "${command}"
+    command_exit_code=$?
+  else
+    cecho -n "• ${description}"
+    _suppress_setopts
+    command_output=$(eval "${command} 2>&1")
+    command_exit_code=$?
+  fi
+  _restore_setopts
+
+  if ((with_output)); then
+    if [[ ${command_exit_code} -eq 0 ]]; then
+      cecho -f "↳ ${description}" --green -bB " ✓"
+      debug_log "> Executed: ${command}"
+    else
+      cecho -f "↳ ${description}" --red -bB " x"
+      cecho --red "> Executed: " --red -b "${command}"
+      debug_log "Done with '${description}', exited ${command_exit_code}"
+    fi
+  else
+    if [[ ${command_exit_code} -eq 0 ]]; then
+      cecho --green -bB " ✓"
+      debug_log "> Executed: ${command}"
+      debug_log "${command_output}"
+    else
+      cecho --red -bB " x"
+      cecho --red "> Executed: " --red -b "${command}"
+      cecho --red "${command_output}"
+      debug_log "Done with '${description}', exited ${command_exit_code}"
+    fi
+  fi
+  return ${command_exit_code}
+}
+
+check() {
+  local command="" command_exit_code description="" remedy=""
+
+  check_usage() {
+    cecho "Usage:"
+    cecho '  check "<DESCRIPTION>" "<COMMAND>" "<REMEDY>"'
+    cecho "\nPerforms a check described by DESCRIPTION by executing COMMAND,"
+    cecho 'if the check fails, the proposed REMEDY is shown and copied to'
+    cecho 'the clipboard.'
+    cecho '\nPlease note DESCRIPTION, COMMAND, and REMEDY should be quoted'
+    cecho 'if you use spaces in them.'
+    cecho '\nExamples:'
+    cecho '  $ check "Description" "true" "n/a"'
+    cecho '  • Description ' --green -b '✓'
+    cecho '\n  $ check "Description" "false" "say oh hi, mark"'
+    cecho '  • Description ' --red -b 'x'
+    cecho --red '  > Executed: ' --red -b 'false'
+    cecho --yellow '\n  Suggested remedy: ' --yellow -b 'say oh hi, mark'
+    cecho --yellow '  (Copied to clipboard)'
+  }
+
+  while (($#)); do
+    case "$1" in
+    -h | --help)
+      check_usage
+      return 0
+      ;;
+    -* | --*)
+      echo "Error: Unsupported flag $1" >&2
+      step_usage
+      return 1
+      ;;
+    *)
+      if [[ -z $description ]]; then
+        description="$1"
+      elif [[ -z $command ]]; then
+        command="$1"
+      else
+        remedy="$1"
+      fi
+      shift
+      ;;
+    esac
+  done
+
+  if [[ -z $description ]] || [[ -z $command ]] || [[ -z $remedy ]]; then
+    step_usage
+    return 1
+  fi
+
+  cecho -n "• ${description}"
+
+  _suppress_setopts
+  command_output=$(eval "${command} 2>&1")
+  command_exit_code=$?
+  _restore_setopts
+
+  if [[ ${command_exit_code} -eq 0 ]]; then
+    cecho --green -bB " ✓"
+    debug_log "> Executed: ${command}"
+    debug_log "${command_output}"
+  else
+    cecho --red -bB " x"
+    cecho --red "> Executed: " --red -b "${command}"
+    [ -n "${command_output}" ] && cecho --red "${command_output}"
+    debug_log "Done with '${description}', exited ${command_exit_code}"
+    cecho ""
+    cecho --yellow "Suggested remedy: " --yellow -b "${remedy}"
+    clipboard "${remedy}" && cecho --yellow "(Copied to clipboard)"
+  fi
+  return ${command_exit_code}
+}
+
+debug_log() {
+  if [[ ${DEBUG:-false} == "true" ]]; then
+    cecho -f "DEBUG: " "$1"
+  fi
+}
+
+_padding() {
+  local input="$1" total_length="$2"
+  local input_length="${#input}"
+  if (( input_length >= total_length )); then
+    printf ""  # No padding needed
+  else
+    local padding_length=$((total_length - input_length))
+    printf "%*s" "$padding_length"
+  fi
+}
+
+_pad() {
+  local padding=$(_padding "$1" "$2")
+  echo -n "$1$padding"
+}
+
+_leftpad() {
+  local padding=$(_padding "$1" "$2")
+  echo -n "$padding$1"
+}
+
+_read_input() {
+  input=$(cat) || true  # Ensure any read errors do not cause script exit
+}
+
