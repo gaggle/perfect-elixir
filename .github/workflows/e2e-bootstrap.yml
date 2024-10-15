@@ -1,0 +1,66 @@
+# GitHub Actions Workflow: e2e-bootstrap
+
+name: e2e-bootstrap
+
+on:
+  push:
+    branches: [ "**" ] # triggers on branch commits only
+    paths:
+      - .github/workflows/e2e-bootstrap.yml
+      - bin/bootstrap
+      - test_helpers/e2e/*
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}-e2e-bootstrap
+
+env:
+  BOOTSTRAP_URL: https://raw.githubusercontent.com/gaggle/perfect-elixir/refs/heads/perfect-elixir-5-onboarding/bin/bootstrap
+  GH_TOKEN: ${{ github.token }}
+  NONINTERACTIVE: true
+
+jobs:
+  e2e-bootstrap:
+    strategy:
+      fail-fast: false
+      matrix:
+        shell_invoker:
+          - { name: "Native Bash", cmd: "bash --noprofile --norc -c" }
+          - { name: "Latest Bash", cmd: "pkgx bash@5.2.37 --noprofile --norc -c" }
+          - { name: "Native Zsh", cmd: "zsh -l -c" }
+        os:
+          - macos-14
+          - macos-15
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.shell_invoker.name }} (${{ matrix.os }})
+    steps:
+      - name: Checkout Repository to Subfolder
+        uses: actions/checkout@v3
+        with:
+          path: repo
+
+      - uses: pkgxdev/setup@v1
+
+      - name: Run Bootstrap Steps
+        run: |
+          ${{ matrix.shell_invoker.cmd }} '
+          export PATH=$(pwd)/repo/test_helpers/e2e:$PATH
+          
+          curl -fsSL $BOOTSTRAP_URL > /tmp/bootstrap && source bootstrap
+          assert_output "User action required: Activate pkgx shell integration" || exit 1
+          echo "Integrating pkgx"
+          eval "$(pkgx integrate)"
+
+          source bootstrap
+          assert_output "User action required: Clone gaggle/perfect-elixir repository" || exit 1
+          pkgx gh repo clone gaggle/perfect-elixir
+          cd perfect-elixir
+          git checkout perfect-elixir-5-onboarding
+
+          source bootstrap
+          assert_output "User action required: Activate developer environment" || exit 1
+          dev
+
+          source bootstrap
+          assert_output "This system has been bootstrapped and can now hook into our project" || exit 1
+          '
