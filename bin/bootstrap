@@ -1,0 +1,358 @@
+#!/bin/sh
+
+if test -n "$VERBOSE" -o -n "$GITHUB_ACTIONS" -a -n "$RUNNER_DEBUG"; then
+  set -x
+fi
+
+_debug() {
+  if [ "$DEBUG" = "true" ]; then
+    echo "DEBUG: $*" >> .bootstrap.log
+  fi
+}
+
+# Define _call if 'call' is not already a command
+if ! type call >/dev/null 2>&1; then
+  _call() { "$@"; }
+  _debug "defining new _call function"
+else
+  alias _call='call'
+  _debug "aliasing existing call to _call"
+fi
+
+if [ -t 1 ]; then
+  _tty_escape() { printf "\033[%sm" "$1"; }
+else
+  _tty_escape() { :; }
+fi
+
+_tty_mkbold() { _tty_escape "1;$1"; }
+_tty_red="$(_tty_mkbold 31)"
+_tty_green="$(_tty_mkbold 32)"
+_tty_bold="$(_tty_mkbold 39)"
+_tty_reset="$(_tty_escape 0)"
+_tty_underline="$(_tty_escape "4;39")"
+
+_about_script() {
+  cat <<-EOS
+This script bootstraps our development environment by suggesting what dependencies need to be installed and configured.
+
+To be clear: ${_tty_underline}This script ${_tty_bold}never${_tty_reset}${_tty_underline} changes or affects your system${_tty_reset}, it only ever inspects and makes suggestions.
+EOS
+}
+
+_must_be_sourced_msg() {
+  echo "${_tty_underline}${_tty_bold}❌ script must be sourced: \`source bootstrap\`${_tty_reset}\n"
+  cat <<-EOS
+This script cannot be executed directly, as it relies on your actual shell session to test for dependencies and configurations.
+
+Run it as \`${_tty_bold}source bootstrap${_tty_reset}\` instead, then follow the prompts.
+
+EOS
+  echo "${_tty_underline}${_tty_bold}About this script${_tty_reset}\n"
+  _about_script
+  return 1
+}
+
+_help_msg() {
+  _about_script
+  cat <<-EOS
+
+Usage:
+  source bootstrap         Starts the bootstrap process.
+  source bootstrap --help  Displays this help message.
+
+Options:
+  --help, -h              Show help and usage information.
+
+Environmental Variables:
+  VERBOSE                 Enable verbose logging
+  NONINTERACTIVE          Assume 'yes' to any prompts
+
+Make sure to run this script by sourcing it, not executing it directly, to ensure it operates within your current shell session's context.
+EOS
+  return 0
+}
+
+########################################################################### utils
+
+_confirm() {
+  msg="${1:-Ok to proceed?}"
+
+  printf "%s%s%s [%sy%s/%sn%s]: " "$_tty_bold" "$msg" "$_tty_reset" "$_tty_green" "$_tty_reset" "$_tty_red" "$_tty_reset"
+
+  if [ "$NONINTERACTIVE" = "true" ]; then
+    echo "Y (non-interactive)"
+    return 0
+  fi
+
+  while true; do
+    read -r reply
+    case $reply in
+    [Yy]*) return 0 ;;
+    [Nn]*) return 1 ;;
+    *) echo "Please answer Y or N" ;;
+    esac
+  done
+}
+
+_condition() {
+  description=$1
+  command=$2
+  command_output=""
+
+  printf "• %s… " "$description"
+  command_output=$(eval "${command}" 2>&1)
+  command_exit_code=$?
+
+  printf "%s✓%s\n" "$_tty_green" "$_tty_reset"
+
+  if [ "$DEBUG" = "true" ]; then
+    printf "> Executed: %s%s%s (returned %s%s%s)" "$_tty_red" "$command" "$_tty_reset" "$_tty_red" "$command_exit_code" "$_tty_reset"
+    printf "%s\n" "$command_output"
+  fi
+  return $command_exit_code
+}
+
+########################################################################### actions
+
+_explain_install_pkgx() {
+  echo -e "${_tty_underline}${_tty_bold}User action required: Install pkgx${_tty_reset}\n"
+  cat <<-EOS
+You need to install ${_tty_bold}pkgx${_tty_reset}. Source this script again afterwards.
+
+${_tty_bold}pkgx${_tty_reset} can be installed in various ways, depending on your preferences:
+
+• Via ${_tty_bold}Homebrew${_tty_reset}:
+    $ ${_tty_bold}brew install pkgxdev/made/pkgx${_tty_reset}
+
+• Via ${_tty_bold}cURL${_tty_reset}:
+    $ ${_tty_bold}curl -Ssf https://pkgx.sh | sh${_tty_reset}
+
+For other ways to install see: ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/run-anywhere/terminals${_tty_reset}
+
+${_tty_bold}pkgx${_tty_reset} is the package manager that handles system dependencies, and it is not currently installed. The installation is simple, and via Homebrew does not require sudo or other forms of elevated permissions.
+
+Read more about pkgx on ${_tty_bold}${_tty_underline}https://pkgx.sh${_tty_reset}
+
+Source this script again after pkgx has been installed.
+EOS
+}
+
+_explain_integrate_pkgx() {
+  echo -e "${_tty_underline}${_tty_bold}User action required: Activate pkgx shell integration${_tty_reset}\n"
+  cat <<-EOS
+You need to activate ${_tty_bold}pkgx shell integration${_tty_reset}. Source this script again afterwards.
+
+• Run this command:
+
+    $ ${_tty_bold}eval "\$(pkgx integrate)"${_tty_reset}
+
+• You can also inspect what ${_tty_bold}integrate${_tty_reset} will do by running a dry run:
+
+    $ ${_tty_bold}pkgx integrate --dry-run${_tty_reset}
+
+Shell integration is required to create "${_tty_bold}temporary, isolated package environments${_tty_reset}", which is what powers our development environment. Integration writes one line to your ${_tty_bold}.shellrc${_tty_reset}.
+
+For more information about shell integration see: ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${_tty_reset}
+
+Source this script again after shell integration has been activated.
+EOS
+}
+
+_explain_clone_repo() {
+  echo -e "${_tty_underline}${_tty_bold}User action required: Clone gaggle/perfect-elixir repository${_tty_reset}\n"
+  cat <<-EOS
+You need to clone the ${_tty_bold}gaggle/perfect-elixir${_tty_reset} GitHub repository and source this script again from within the repository's folder.
+
+There are many ways to clone and you can choose what works for you. Note you can easily use the ${_tty_bold}GitHub CLI${_tty_reset} via pkgx:
+    $ ${_tty_bold}pkgx gh repo clone gaggle/perfect-elixir${_tty_reset}
+
+NOTE: Because this script is made for an article you also need check out a specific branch after cloning:
+    $ ${_tty_bold}git checkout 'perfect-elixir-3-development-workflows-&-processes'${_tty_reset}
+
+You can learn more about cloning here: ${_tty_bold}${_tty_underline}https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories${_tty_reset}.
+
+Source this script again after you've cloned the repository and changed directory into it (i.e. \`${_tty_bold}$ cd perfect-elixir${_tty_reset}\`)
+EOS
+}
+
+_explain_activate_dev() {
+  echo -e "${_tty_underline}${_tty_bold}User action required: Activate developer environment${_tty_reset}\n"
+  cat <<-EOS
+You should run ${_tty_bold}dev${_tty_reset}, which is the pkgx tool to utilize developer environments. Source this script again afterwards.
+
+• Run this command:
+
+    $ ${_tty_bold}dev${_tty_reset}
+
+${_tty_bold}dev${_tty_reset} only needs to be run once, from then on the folder will be under ${_tty_bold}pkgx${_tty_reset} supervision and dependencies will be managed automatically.
+
+You can learn more about ${_tty_bold}dev${_tty_reset} and its usage here: ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/using-dev/dev${_tty_reset}
+
+Source this script again after activating developer environment.
+EOS
+}
+
+_explain_good_to_go() {
+  echo -e "${_tty_underline}${_tty_bold}Good to go${_tty_reset}\n"
+  cat <<-EOS
+Bootstrapping is done:
+${_tty_green}✓${_tty_reset} ${_tty_bold}pkgx${_tty_reset} is installed
+${_tty_green}✓${_tty_reset} pkgx ${_tty_bold}shell integration${_tty_reset} is active
+${_tty_green}✓${_tty_reset} The ${_tty_bold}repository${_tty_reset} is cloned and ready
+${_tty_green}✓${_tty_reset} All ${_tty_bold}system dependencies${_tty_reset} are available
+
+This system has been bootstrapped and can now hook into our project 🎉
+
+• Run this command to continue onboarding:
+
+    $ ${_tty_bold}bin/doctor${_tty_reset}
+EOS
+}
+
+_should_install_pkgx() {
+  if ! _call which pkgx >/dev/null; then
+    _debug "pkgx not installed; yes install"
+    return 0
+  elif _call _pkgx_is_old >/dev/null 2>&1; then
+    _debug "pkgx is too old; yes install"
+    return 0
+  else
+    _debug "pkgx is up-to-date; nothing to install"
+    return 1
+  fi
+}
+
+_pkgx_is_old() {
+  v="$(pkgx --version || echo pkgx 0)"
+  pkgx --silent semverator gt \
+    "$(curl -Ssf https://pkgx.sh/VERSION)" \
+    "$(echo "$v" | awk '{print $2}')"
+}
+
+_should_integrate_pkgx() {
+  if ! _call command -v dev >/dev/null || ! _call command -v env >/dev/null; then
+    _debug "pkgx shell integration commands are not present; yes integrate"
+    return 0
+  else
+    _debug "pkgx shell integration commands exists; nothing more to do"
+    return 1
+  fi
+}
+
+_should_clone_repo() {
+  if _call _is_git_folder; then
+    remote_url="$(_call git config --get remote.origin.url)"
+    if [ "$remote_url" = "git@github.com:gaggle/perfect-elixir.git" ] || [ "$remote_url" = "https://github.com/gaggle/perfect-elixir.git" ]; then
+      _debug "repository is the expected one; nothing more to do."
+      return 1
+    else
+      _debug "repository remote URL doesn't match; clone it."
+      return 0
+    fi
+  else
+    _debug "not a git repository; clone it."
+    return 0
+  fi
+}
+
+_is_git_folder() { [ -d ".git" ]; }
+
+_should_activate_dev() {
+  for cmd in erl elixir psql; do
+    if ! _call command -v $cmd >/dev/null; then
+      _debug "command '$cmd' is not installed; yes activate dev"
+      return 0
+    fi
+  done
+  _debug "all commands are installed; no need to activate dev"
+  return 1
+}
+
+########################################################################### logic
+
+_main() {
+  _about_script
+  printf "\n"
+  if _confirm "Ok to proceed?"; then
+    if _condition "Checking for pkgx" "_should_install_pkgx"; then
+      printf "• pkgx is not installed %sx%s\n\n" "$_tty_red" "$_tty_reset"
+      _explain_install_pkgx
+      return 0
+    else
+      printf "• pkgx is installed %s✓%s\n" "$_tty_green" "$_tty_reset"
+    fi
+
+    if _condition "Checking pkgx shell integration" "_should_integrate_pkgx"; then
+      printf "• pkgx is not shell integrated %sx%s\n\n" "$_tty_red" "$_tty_reset"
+      _explain_integrate_pkgx
+      return 0
+    else
+      printf "• Shell integration is active %s✓%s\n" "$_tty_green" "$_tty_reset"
+    fi
+
+    if _condition "Checking repository is cloned" "_should_clone_repo"; then
+      printf "• Repository is not available %sx%s\n\n" "$_tty_red" "$_tty_reset"
+      _explain_clone_repo
+      return 0
+    else
+      printf "• Repository is available %s✓%s\n" "$_tty_green" "$_tty_reset"
+    fi
+
+    if _condition "Checking development environment is active" "_should_activate_dev"; then
+      printf "• Development environment not active %sx%s\n\n" "$_tty_red" "$_tty_reset"
+      _explain_activate_dev
+      return 0
+    else
+      printf "• Development environment is active %s✓%s\n" "$_tty_green" "$_tty_reset"
+    fi
+
+    printf "\n"
+    _explain_good_to_go
+  else
+    return 0
+  fi
+}
+
+# https://stackoverflow.com/a/28776166/884080
+(
+  [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
+  [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
+  [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
+) && sourced=1 || sourced=0
+
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  _help_msg
+elif [ "$sourced" = "0" ]; then
+  _must_be_sourced_msg
+else
+  _main
+fi
+
+unset _about_script
+unset _call
+unset _condition
+unset _confirm
+unset _debug
+unset _explain_activate_dev
+unset _explain_clone_repo
+unset _explain_good_to_go
+unset _explain_install_pkgx
+unset _explain_integrate_pkgx
+unset _help_msg
+unset _is_git_folder
+unset _main
+unset _must_be_sourced_msg
+unset _pkgx_is_old
+unset _should_activate_dev
+unset _should_clone_repo
+unset _should_install_pkgx
+unset _should_integrate_pkgx
+unset _tty_bold
+unset _tty_escape
+unset _tty_escape
+unset _tty_green
+unset _tty_mkbold
+unset _tty_red
+unset _tty_reset
+unset _tty_underline
