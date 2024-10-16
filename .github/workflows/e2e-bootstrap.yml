@@ -52,7 +52,7 @@ jobs:
           eval "$(pkgx integrate)"
 
           source bootstrap
-          assert_output "User action required: Clone gaggle/perfect-elixir repository" || exit 1
+          assert_output "User action required: Clone the repository" || exit 1
           pkgx gh repo clone gaggle/perfect-elixir
           cd perfect-elixir
           git checkout perfect-elixir-5-onboarding
@@ -62,5 +62,5 @@ jobs:
           dev
 
           source bootstrap
-          assert_output "This system has been bootstrapped and can now hook into our project" || exit 1
+          assert_output "Onboarding complete!" || exit 1
           '
