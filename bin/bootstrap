@@ -56,11 +56,11 @@ _condition() {
 }
 
 _about_script() {
-  _print_message "🚀 ${_tty_bold}Welcome to the ${_tty_underline}Perfect Elixir${_tty_reset}${_tty_bold} Onboarding Script!${_tty_reset} 🚀
+  _print_message "🚀  ${_tty_bold}Welcome to the ${_tty_underline}Perfect Elixir${_tty_reset}${_tty_bold} Onboarding Script!${_tty_reset} 🚀
 
 This script will help set up your development environment for our project.
 
-🔒 Trust and Transparency:
+🔒  Trust and Transparency:
   - This script ${_tty_bold}NEVER${_tty_reset} makes changes to your system
   - It ${_tty_bold}ONLY${_tty_reset} inspects your environment and makes suggestions"
 }
@@ -75,7 +75,7 @@ Environmental Variables:
 
 _explain_install_pkgx() {
   _print_message "
-📦 pkgx is not installed
+📦  pkgx is not installed
 
 ${_tty_underline}${_tty_bold}User action required: Install pkgx${_tty_reset}
 ${_tty_bold}pkgx${_tty_reset} is our package manager for handling system dependencies. Learn more at https://pkgx.sh.
@@ -88,14 +88,14 @@ Here are quick ways to install it:
 
 Other installation methods at ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/run-anywhere/terminals${_tty_reset}.
 
-ℹ️ pkgx installation is simple, and installing via Homebrew does not require sudo.
+ℹ️  pkgx installation is simple, and installing via Homebrew does not require sudo.
 
 After pkgx has been installed please source this script again."
 }
 
 _explain_integrate_pkgx() {
   _print_message "
-🔧 pkgx shell integration is not active
+🔧  pkgx shell integration is not active
 
 ${_tty_underline}${_tty_bold}User action required: Activate pkgx shell integration${_tty_reset}
 To activate pkgx shell integration, run the following command:
@@ -104,7 +104,7 @@ To activate pkgx shell integration, run the following command:
 
 Integration writes one line to your ${_tty_bold}.shellrc${_tty_reset}, and also activates integration in your current shell session.
 
-ℹ️ For more information about shell integration see: ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${_tty_reset}.
+ℹ️  For more information about shell integration see: ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${_tty_reset}.
 
 After shell integration has been activated please source this script again (there is no need to restart your terminal)."
 }
@@ -126,7 +126,7 @@ After cloning, navigate to the project directory and source this script again."
 
 _explain_activate_dev() {
   _print_message "
-🔧 Development environment is not active
+🔧  Development environment is not active
 
 ${_tty_underline}${_tty_bold}User action required: Activate developer environment${_tty_reset}
 To activate the development environment, run:
@@ -179,7 +179,7 @@ _main() {
 if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
   _help_msg
 elif [ "$sourced" = "0" ]; then
-  _print_message "${_tty_underline}${_tty_bold}❌ script must be sourced: \`source bootstrap\`${_tty_reset}\n"
+  _print_message "${_tty_underline}${_tty_bold}❌  script must be sourced: \`source bootstrap\`${_tty_reset}\n"
 else
   _main
 fi
