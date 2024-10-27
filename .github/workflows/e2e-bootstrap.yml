@@ -8,7 +8,7 @@ on:
     paths:
       - .github/workflows/e2e-bootstrap.yml
       - bin/bootstrap
-      - test_helpers/e2e/*
+      - test_helpers/e2e
   workflow_dispatch:
 
 concurrency:
@@ -44,23 +44,23 @@ jobs:
       - name: Run Bootstrap Steps
         run: |
           ${{ matrix.shell_invoker.cmd }} '
-          export PATH=$(pwd)/repo/test_helpers/e2e:$PATH
+          source $(pwd)/repo/test_helpers/e2e
           
-          curl -fsSL $BOOTSTRAP_URL > /tmp/bootstrap && source bootstrap
-          assert_output "User action required: Activate pkgx shell integration" || exit 1
+          curl -fsSL $BOOTSTRAP_URL > /tmp/bootstrap && source_bootstrap
+          assert_output "User action required: Activate pkgx shell integration"
           echo "Integrating pkgx"
           eval "$(pkgx integrate)"
 
-          source bootstrap
-          assert_output "User action required: Clone the repository" || exit 1
+          source_bootstrap
+          assert_output "User action required: Clone the repository"
           pkgx gh repo clone gaggle/perfect-elixir
           cd perfect-elixir
           git checkout perfect-elixir-5-onboarding
 
-          source bootstrap
-          assert_output "User action required: Activate developer environment" || exit 1
+          source_bootstrap
+          assert_output "User action required: Activate developer environment"
           dev
 
-          source bootstrap
+          source_bootstrap
           assert_output "Onboarding complete!" || exit 1
           '
