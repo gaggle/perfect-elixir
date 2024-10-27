@@ -1,3 +1,0 @@
-echo "---"
-echo "ℹ SOURCING BOOTSTRAP"
-source /tmp/bootstrap > ~/output.txt
