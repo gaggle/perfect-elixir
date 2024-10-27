@@ -1,5 +1,5 @@
 source_bootstrap() {
-  echo "---"
+  echo ""
   echo "SOURCING BOOTSTRAP"
   source /tmp/bootstrap > ~/output.txt
 }
@@ -8,17 +8,45 @@ assert_output() {
   echo -n "Output contains: \"$1\"… "
   if grep -q "$1" ~/output.txt; then
     echo -e "\033[0;32m✔\033[0m"
-    exit_status=0
+    grep_status=0
   else
     echo -e "\033[0;31m✘\033[0m"
-    exit_status=1
+    grep_status=1
   fi
 
   echo "::group::(Output)"
   cat ~/output.txt
   echo "::endgroup::"
 
-  if [ $exit_status -ne 0 ]; then
+  if [ $grep_status -ne 0 ]; then
     exit 1
   fi
+}
+
+do_step() {
+  local step_desc="$1"
+  shift
+  local commands=("$@")
+
+  > ~/output.txt
+  echo -n "Step: ${step_desc}… "
+  for cmd in "${commands[@]}"; do
+    eval "$cmd" >> ~/output.txt 2>&1
+    local cmd_status=$?
+    if [ $cmd_status -ne 0 ]; then
+      echo -e "\033[0;31m✘\033[0m"
+
+      echo "::group::(Output)"
+      cat ~/output.txt
+      echo "::endgroup::"
+
+      exit 1
+    fi
+  done
+
+  echo -e "\033[0;32m✔\033[0m"
+
+  echo "::group::(Output)"
+  cat ~/output.txt
+  echo "::endgroup::"
 }

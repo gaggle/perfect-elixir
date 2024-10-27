@@ -48,18 +48,18 @@ jobs:
           
           curl -fsSL $BOOTSTRAP_URL > /tmp/bootstrap && source_bootstrap
           assert_output "User action required: Activate pkgx shell integration"
-          echo "Integrating pkgx"
-          eval "$(pkgx integrate)"
-
+          do_step "Integrating pkgx" "eval \"\$(pkgx integrate)\""
+          
           source_bootstrap
           assert_output "User action required: Clone the repository"
-          pkgx gh repo clone gaggle/perfect-elixir
-          cd perfect-elixir
-          git checkout perfect-elixir-5-onboarding
+          do_step "Cloning the repo" \
+            "pkgx gh repo clone gaggle/perfect-elixir" \
+            "cd perfect-elixir" \
+            "git checkout perfect-elixir-5-onboarding"
 
           source_bootstrap
           assert_output "User action required: Activate developer environment"
-          dev
+          do_step "Running dev" "dev"
 
           source_bootstrap
           assert_output "Onboarding complete!" || exit 1
