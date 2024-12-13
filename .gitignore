@@ -35,7 +35,6 @@ my_app-*.tar
 npm-debug.log
 /assets/node_modules/
 
-.idea
 priv/db
 .call.log
 .bootstrap.log
