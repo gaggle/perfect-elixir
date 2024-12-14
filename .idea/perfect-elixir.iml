@@ -48,6 +48,8 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/websock_adapter" />
       <excludeFolder url="file://$MODULE_DIR$/_build" />
       <excludeFolder url="file://$MODULE_DIR$/deps" />
+      <excludeFolder url="file://$MODULE_DIR$/priv/db" />
+      <excludeFolder url="file://$MODULE_DIR$/priv/static/assets" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
