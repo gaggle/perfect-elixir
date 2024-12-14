@@ -1,0 +1,185 @@
+#!/bin/sh
+
+[ -n "$VERBOSE" ] || { [ -n "$GITHUB_ACTIONS" ] && [ -n "$RUNNER_DEBUG" ]; } && set -x
+
+if [ -t 1 ]; then
+  _tty_escape() { printf "\033[%sm" "$1"; }
+else
+  _tty_escape() { :; }
+fi
+_tty_red="$(_tty_escape '1;31')"
+_tty_green="$(_tty_escape '1;32')"
+_tty_bold="$(_tty_escape '1;39')"
+_tty_reset="$(_tty_escape '0')"
+_tty_underline="$(_tty_escape '4;39')"
+
+_print_message() {
+  cat <<-EOS
+$1
+EOS
+}
+
+_confirm() {
+  msg="${1:-Ok to proceed?}"
+
+  printf "%s%s%s [%sy%s/%sN%s]: " "$_tty_bold" "$msg" "$_tty_reset" "$_tty_green" "$_tty_reset" "$_tty_red" "$_tty_reset"
+
+  if [ "$NONINTERACTIVE" = "true" ]; then
+    echo "Y (non-interactive)"
+    return 0
+  fi
+
+  while true; do
+    read -r reply
+    case $reply in
+    [Yy]*) return 0 ;;
+    [Nn]*) return 1 ;;
+    "") echo "N" && return 1 ;;
+    *) echo "Please answer Y or N" ;;
+    esac
+  done
+}
+
+_condition() {
+  description=$1
+  check_command=$2
+  action_function=$3
+
+  printf "• %s… " "$description"
+  if eval "$check_command"; then
+    printf "%s✓%s\n" "$_tty_green" "$_tty_reset"
+  else
+    printf "%sx%s\n" "$_tty_red" "$_tty_reset"
+    $action_function
+    return 1
+  fi
+}
+
+_about_script() {
+  _print_message "🚀  ${_tty_bold}Welcome to the ${_tty_underline}Perfect Elixir${_tty_reset}${_tty_bold} Onboarding Script!${_tty_reset} 🚀
+
+This script will help set up your development environment for our project.
+
+🔒  Trust and Transparency:
+  - This script ${_tty_bold}NEVER${_tty_reset} makes changes to your system
+  - It ${_tty_bold}ONLY${_tty_reset} inspects your environment and makes suggestions"
+}
+
+_help_msg() {
+  _print_message "Usage: source bootstrap
+
+Environmental Variables:
+  VERBOSE                 Enable verbose logging
+  NONINTERACTIVE          Assume 'yes' to any prompts"
+}
+
+_explain_install_pkgx() {
+  _print_message "
+📦  pkgx is not installed
+
+${_tty_underline}${_tty_bold}User action required: Install pkgx${_tty_reset}
+${_tty_bold}pkgx${_tty_reset} is our package manager for handling system dependencies. Learn more at https://pkgx.sh.
+
+Here are quick ways to install it:
+1. Via ${_tty_bold}Homebrew${_tty_reset}:
+   $ ${_tty_bold}brew install pkgxdev/made/pkgx${_tty_reset}
+2. Via ${_tty_bold}cURL${_tty_reset}:
+   $ ${_tty_bold}curl -Ssf https://pkgx.sh | sh${_tty_reset}
+
+Other installation methods at ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/run-anywhere/terminals${_tty_reset}.
+
+ℹ️  pkgx installation is simple, and installing via Homebrew does not require sudo.
+
+After pkgx has been installed please source this script again."
+}
+
+_explain_integrate_pkgx() {
+  _print_message "
+🔧  pkgx shell integration is not active
+
+${_tty_underline}${_tty_bold}User action required: Activate pkgx shell integration${_tty_reset}
+To activate pkgx shell integration, run the following command:
+
+  $ eval \"\$(pkgx --shellcode)\"
+
+Integration writes one line to your ${_tty_bold}.shellrc${_tty_reset}, and also activates integration in your current shell session.
+
+ℹ️  For more information about shell integration see: ${_tty_bold}${_tty_underline}https://docs.pkgx.sh/using-pkgx/shell-integration${_tty_reset}.
+
+After shell integration has been activated please source this script again (there is no need to restart your terminal)."
+}
+
+_explain_clone_repo() {
+  _print_message "
+🌿 Repository not found
+
+${_tty_underline}${_tty_bold}User action required: Clone the repository${_tty_reset}
+Please clone the repository using your preferred method:
+
+1. Via ${_tty_bold}GitHub CLI${_tty_reset}:
+   $ ${_tty_bold}pkgx gh repo clone gaggle/perfect-elixir${_tty_reset}
+2. Via ${_tty_bold}SSH${_tty_reset}:
+   $ ${_tty_bold}git clone git@github.com:gaggle/perfect-elixir.git${_tty_reset}
+
+After cloning, navigate to the project directory and source this script again."
+}
+
+_explain_activate_dev() {
+  _print_message "
+🔧  Development environment is not active
+
+${_tty_underline}${_tty_bold}User action required: Activate developer environment${_tty_reset}
+To activate the development environment, run:
+
+  $ ${_tty_bold}dev${_tty_reset}
+
+This will make project-specific versions of dependencies available within the repository.
+
+After activating, please source this script again."
+}
+
+_good_to_go() {
+  _print_message "
+✅  Onboarding complete!
+
+- To start working on the project, run:
+
+    $ ${_tty_bold}bin/doctor${_tty_reset}"
+}
+
+_should_clone_repo() {
+  [ -d ".git" ] && remote_url="$(git config --get remote.origin.url)" || return 1
+  [ -n "$remote_url" ] && {
+    [ "$remote_url" = "git@github.com:gaggle/perfect-elixir.git" ] || [ "$remote_url" = "https://github.com/gaggle/perfect-elixir.git" ]
+  } && return 0
+  return 0
+}
+
+_main() {
+  _about_script
+  printf "\n"
+
+  if _confirm "Ready to proceed?"; then
+    echo ""
+    _condition "Checking for pkgx" "command -v pkgx >/dev/null" "_explain_install_pkgx" || return 0
+    _condition "Checking pkgx shell integration" "command -v dev >/dev/null" "_explain_integrate_pkgx" || return 0
+    _condition "Checking repository is cloned" "_should_clone_repo" "_explain_clone_repo" || return 0
+    _condition "Checking development environment is active" "command -v erl >/dev/null && command -v elixir >/dev/null && command -v psql >/dev/null" "_explain_activate_dev" || return 0
+    _good_to_go
+  fi
+}
+
+# https://stackoverflow.com/a/28776166/884080
+(
+  [[ -n $ZSH_VERSION && $ZSH_EVAL_CONTEXT =~ :file$ ]] ||
+  [[ -n $KSH_VERSION && "$(cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")" != "$(cd -- "$(dirname -- "${.sh.file}")" && pwd -P)/$(basename -- "${.sh.file}")" ]] ||
+  [[ -n $BASH_VERSION ]] && (return 0 2>/dev/null)
+) && sourced=1 || sourced=0
+
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  _help_msg
+elif [ "$sourced" = "0" ]; then
+  _print_message "${_tty_underline}${_tty_bold}❌  script must be sourced: \`source bootstrap\`${_tty_reset}\n"
+else
+  _main
+fi
