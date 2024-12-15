@@ -134,5 +134,6 @@
     <orderEntry type="library" name="mix_test_watch" level="project" />
     <orderEntry type="library" name="mox" level="project" />
     <orderEntry type="library" name="hpack" level="project" />
+    <orderEntry type="library" name="process_tree" level="project" />
   </component>
 </module>

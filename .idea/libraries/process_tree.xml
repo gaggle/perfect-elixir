@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="process_tree" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/process_tree/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/process_tree/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/process_tree/lib" />
+    </SOURCES>
+  </library>
+</component>
