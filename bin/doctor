@@ -4,7 +4,7 @@
 # because if it is there'll just be cryptic errors when sourcing .shhelpers.
 if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
   echo -e "• Check Bash version ✗"
-  echo -e "Suggested remedy: source bin/bootstrap"
+  echo -e "Suggested remedy: dev off && dev || source bin/bootstrap"
   exit 1
 fi
 
@@ -35,7 +35,7 @@ done
 section "Running checks…"
 check "Check system dependencies" \
   "command which pkgx && which erl && which elixir" \
-  "source bin/bootstrap"
+  "dev off && dev || source bin/bootstrap"
 check "Check developer environment" \
   "which stat | grep '.pkgx'" \
   "dev off && dev on"
