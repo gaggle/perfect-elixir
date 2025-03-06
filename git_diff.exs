@@ -6,7 +6,7 @@ defmodule GitDiffFormatter do
 
   I use it by hooking it into an alias:
   ```sh
-    $ alias git-nice-diff="elixir <absolute path to git_diff.exs>"
+    $ alias git-nice-diff="elixir $PWD/git_diff.exs"
     $ git-nice-diff .
   ```
   """
