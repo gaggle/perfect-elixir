@@ -134,5 +134,9 @@
     <orderEntry type="library" name="mix_test_watch" level="project" />
     <orderEntry type="library" name="mox" level="project" />
     <orderEntry type="library" name="hpack" level="project" />
+    <orderEntry type="library" name="mock" level="project" />
+    <orderEntry type="library" name="meck" level="project" />
+    <orderEntry type="library" name="markdown" level="project" />
+    <orderEntry type="library" name="makeup_syntect" level="project" />
   </component>
 </module>
