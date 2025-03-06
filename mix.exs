@@ -58,7 +58,8 @@ defmodule MyApp.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
-      {:mock, "~> 0.3.0", only: :test}
+      {:mock, "~> 0.3.0", only: :test},
+      {:process_tree, "~> 0.1.2"}
     ]
   end
 

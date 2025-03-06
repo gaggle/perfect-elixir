@@ -138,5 +138,6 @@
     <orderEntry type="library" name="meck" level="project" />
     <orderEntry type="library" name="markdown" level="project" />
     <orderEntry type="library" name="makeup_syntect" level="project" />
+    <orderEntry type="library" name="process_tree" level="project" />
   </component>
 </module>
