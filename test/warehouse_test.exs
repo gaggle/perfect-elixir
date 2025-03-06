@@ -1,10 +1,15 @@
 defmodule WarehouseTest do
   use ExUnit.Case, async: false
-  import Mock
+
+  setup do
+    defmodule InventoryStub do
+      def all_products(), do: []
+    end
+
+    Application.put_env(:myapp, :inventory, InventoryStub)
+  end
 
   test "warehouse is empty when inventory has no products" do
-    with_mock Inventory, all_products: fn -> [] end do
-      assert Warehouse.empty?() == true
-    end
+    assert Warehouse.empty?() == true
   end
 end
