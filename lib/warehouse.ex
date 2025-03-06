@@ -1,3 +1,5 @@
 defmodule Warehouse do
-  def empty?(inventory), do: inventory.all_products() == []
+  import InjectorTree, only: [provide: 1]
+
+  def empty?(), do: provide(Inventory).all_products() == []
 end
