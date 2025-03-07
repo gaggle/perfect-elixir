@@ -10,9 +10,3 @@ defmodule RealInventory do
     ["a"]
   end
 end
-
-defmodule FakeInventory do
-  @behaviour Inventory
-  @impl Inventory
-  def all_products(), do: []
-end
