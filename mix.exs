@@ -59,7 +59,8 @@ defmodule MyApp.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
       {:mock, "~> 0.3.0", only: :test},
-      {:process_tree, "~> 0.1.2"}
+      {:process_tree, "~> 0.1.2"},
+      {:mox, "~> 1.2.0"}
     ]
   end
 
