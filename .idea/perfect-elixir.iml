@@ -140,5 +140,7 @@
     <orderEntry type="library" name="makeup_syntect" level="project" />
     <orderEntry type="library" name="process_tree" level="project" />
     <orderEntry type="library" name="nimble_ownership" level="project" />
+    <orderEntry type="library" name="hammox" level="project" />
+    <orderEntry type="library" name="ordinal" level="project" />
   </component>
 </module>
