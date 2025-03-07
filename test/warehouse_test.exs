@@ -1,7 +1,7 @@
 defmodule WarehouseTest do
   use ExUnit.Case, async: true
   import InjectorTree, only: [inject: 2]
-  import Mox
+  import Hammox
 
   test "warehouse is empty when inventory has no products" do
     mock =
