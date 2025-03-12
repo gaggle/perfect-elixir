@@ -142,5 +142,6 @@
     <orderEntry type="library" name="nimble_ownership" level="project" />
     <orderEntry type="library" name="hammox" level="project" />
     <orderEntry type="library" name="ordinal" level="project" />
+    <orderEntry type="library" name="double" level="project" />
   </component>
 </module>

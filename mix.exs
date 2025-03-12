@@ -61,7 +61,8 @@ defmodule MyApp.MixProject do
       {:mock, "~> 0.3.0", only: :test},
       {:process_tree, "~> 0.1.2"},
       {:mox, "~> 1.2.0"},
-      {:hammox, "~> 0.7.0"}
+      {:hammox, "~> 0.7.0"},
+      {:double, "~> 0.8.2"}
     ]
   end
 
