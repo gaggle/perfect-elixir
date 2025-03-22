@@ -1,27 +1,59 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BATS_DEPS="$(realpath --relative-to="$(pwd)" "$(dirname "$0")/../.bats_deps")"
+BATS_DEPS="${BATS_DEPS_DIR:-$(realpath --relative-to="$(pwd)" "$(dirname "$0")/../.bats_deps")}"
+GH=${_GH:-gh}
+TAR=${_TAR:-tar}
 
 usage() {
   echo "Bats manager to download helper libraries"
   echo ""
   echo "Usage:"
-  echo "  batsman <owner/repo> <tag>"
+  echo "  batsman get-release <owner/repo> [tag]"
+  echo "  batsman list"
+  echo ""
+  echo "Options:"
+  echo "  -h, --help    Show this help message"
 }
 
-[[ "$1" == "--help" ]] && { usage; exit 0; }
-[[ "$#" -ne 2 ]] && { usage; exit 1; }
-repo="$1"
-tag="$2"
-destination="$BATS_DEPS/$repo"
-sha=$(gh api "/repos/$repo/commits/$tag" --jq .sha)
+cmd_get_release() {
+  [[ "$#" -lt 1 || "$#" -gt 2 ]] && { usage; exit 1; }
+  repo="$1"
+  tag="${2:-}"
 
-rm -rf "$destination" && mkdir -p "$destination" && cd "$destination"
-gh release download "$tag" -R "$repo" --archive "tar.gz" -O "release.tar.gz"
-tar -xzf "release.tar.gz" --strip-components=1
-rm "release.tar.gz"
+  if [[ -z "$tag" ]]; then
+    tag=$($GH release list -R "$repo" --limit 1 --json tagName --jq '.[0].tagName')
+    [[ -z "$tag" ]] && { echo "No releases in $repo" >&2; exit 1; }
+  fi
 
-version_info="$repo $tag (GitHub release) ${sha:0:8}"
-echo "$version_info" > .bats_version.txt
-echo "$version_info -> $destination"
+  sha=$($GH api "/repos/$repo/commits/$tag" --jq .sha)
+
+  destination="$BATS_DEPS/$repo"
+
+  rm -rf "$destination" && mkdir -p "$destination" && cd "$destination"
+  $GH release download "$tag" -R "$repo" --archive "tar.gz" -O "release.tar.gz"
+  $TAR -xzf "release.tar.gz" --strip-components=1
+  rm "release.tar.gz"
+  version_info="$repo $tag (GitHub release) ${sha:0:8}"
+  echo "$version_info" > .bats_version.txt
+  echo "$version_info -> $destination"
+}
+
+cmd_list() {
+  [[ -d "$BATS_DEPS" ]] || exit 0
+  find "$BATS_DEPS" -mindepth 2 -maxdepth 2 -type d | sort | while read -r dir; do
+    version_file="$dir/.bats_version.txt"
+    if [ -f "$version_file" ]; then
+      cat "$version_file"
+    fi
+  done
+}
+
+[[ "$#" -eq 0 ]] && { usage; exit 1; }
+
+case "$1" in
+  -h|--help) usage; exit 0 ;;
+  get-release) shift; cmd_get_release "$@" ;;
+  list) shift; cmd_list ;;
+  *) usage; exit 1 ;;
+esac

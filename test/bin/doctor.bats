@@ -25,8 +25,10 @@ Archives installed at: /Users/gaggle/.mix/archives'" \
   "deps) echo 'ok'")
 }
 
-stub_ls() {
-  export _LS=$(stub_command_case ls "$@" ".bats_deps/bats-core/bats-assert) echo 'load.bash  README.md'")
+stub_batsman() {
+  export _BATSMAN=$(stub_command_case batsman "$@" "list) echo 'bats-core/bats-assert v2.1.0 (GitHub release) 78fa631d
+  bats-core/bats-support v0.3.0 (GitHub release) 24a72e14
+  grayhemp/bats-mock v1.0-beta.1 (GitHub release) ac1a4475'")
 }
 
 
@@ -36,7 +38,7 @@ setup() {
   stub_pgrep
   stub_psql
   stub_mix
-  stub_ls
+  stub_batsman
 }
 
 @test "displays help message when --help is used" {
@@ -62,7 +64,8 @@ psql -U postgres -c \\q
 mix archive
 mix deps
 psql -U postgres -lqt
-ls .bats_deps/bats-core/bats-assert"
+batsman list
+batsman list"
 }
 
 @test "verifies Elixir is available before running mix" {
@@ -102,8 +105,8 @@ mix setup'
 stub_psql "'\''-U postgres -lqt'\'') echo \"\""
 mix ecto.create'
   'advise download Bats helpers if theyre missing
-stub_ls ".bats_deps/bats-core/bats-assert) exit 1"
-bin/batsman bats-core/bats-assert v2.1.0 && bin/batsman bats-core/bats-support v0.3.0 && bin/batsman grayhemp/bats-mock v1.0-beta.1'
+stub_batsman "list) echo \"\""
+bin/batsman get-release bats-core/bats-assert v2.1.0 && bin/batsman get-release bats-core/bats-support v0.3.0 && bin/batsman get-release grayhemp/bats-mock v1.0-beta.1'
 )
 
 function dyn_test() {
