@@ -50,6 +50,7 @@
       <excludeFolder url="file://$MODULE_DIR$/deps" />
       <excludeFolder url="file://$MODULE_DIR$/priv/db" />
       <excludeFolder url="file://$MODULE_DIR$/priv/static/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/.bats_deps" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

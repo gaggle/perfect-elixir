@@ -36,3 +36,6 @@ npm-debug.log
 /assets/node_modules/
 
 /priv/db
+
+# The directory Bats helper libraries are downloaded to.
+/.bats_deps/
