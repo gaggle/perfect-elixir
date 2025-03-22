@@ -37,8 +37,8 @@ check "Check system dependencies" \
   "command which pkgx && which erl && which elixir" \
   "dev off && dev || source bin/bootstrap"
 check "Check developer environment" \
-  "which stat | grep '.pkgx'" \
-  "dev off && dev on"
+  "which stat | grep -q '.pkgx'" \
+  "dev off && dev"
 check "Check PostgreSQL server is running" \
   "pgrep -f bin/postgres" \
   "bin/db start"
@@ -46,7 +46,7 @@ check "Check PostgreSQL server has required user" \
   'psql -U postgres -c "\q" > /dev/null 2>&1' \
   "createuser -d postgres"
 check "Check mix hex" \
-  "mix archive | grep hex" \
+  "mix archive | grep -q hex" \
   "mix local.hex --force"
 check "Check mix dependencies" \
   '[ "$(mix deps | grep -Ec "the dependency is not available|dependency is out of date")" -eq 0 ]' \
