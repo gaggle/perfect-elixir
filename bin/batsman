@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BATS_DEPS="$(realpath --relative-to="$(pwd)" "$(dirname "$0")/../.bats_deps")"
+
+usage() {
+  echo "Bats manager to download helper libraries"
+  echo ""
+  echo "Usage:"
+  echo "  batsman <owner/repo> <tag>"
+}
+
+[[ "$1" == "--help" ]] && { usage; exit 0; }
+[[ "$#" -ne 2 ]] && { usage; exit 1; }
+repo="$1"
+tag="$2"
+destination="$BATS_DEPS/$repo"
+sha=$(gh api "/repos/$repo/commits/$tag" --jq .sha)
+
+rm -rf "$destination" && mkdir -p "$destination" && cd "$destination"
+gh release download "$tag" -R "$repo" --archive "tar.gz" -O "release.tar.gz"
+tar -xzf "release.tar.gz" --strip-components=1
+rm "release.tar.gz"
+
+version_info="$repo $tag (GitHub release) ${sha:0:8}"
+echo "$version_info" > .bats_version.txt
+echo "$version_info -> $destination"
