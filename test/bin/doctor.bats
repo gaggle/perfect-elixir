@@ -9,3 +9,14 @@ setup() {
   assert_success
   assert_line "Usage: bin/doctor [options]"
 }
+
+@test "advise to reinitialize devenv if pkgx is absent" {
+  stub which "pkgx : exit 1"
+
+  run bin/doctor
+
+  assert_failure
+  assert_line "Suggested remedy: dev off; dev || source bin/bootstrap"
+
+  unstub which
+}
