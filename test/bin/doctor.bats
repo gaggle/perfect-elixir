@@ -1,6 +1,7 @@
 setup() {
   load "$(pwd)/.bats_deps/bats-core/bats-support/load"
   load "$(pwd)/.bats_deps/bats-core/bats-assert/load"
+  load "$(pwd)/.bats_deps/jasonkarns/bats-mock/stub"
 }
 
 @test "displays help message when --help is used" {

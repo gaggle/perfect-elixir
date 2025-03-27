@@ -56,5 +56,5 @@ check "Check PostgreSQL database exists" \
   "mix ecto.create"
 check "Check Bats helpers" \
   "ls .bats_deps/bats-core/bats-assert > /dev/null" \
-  "bin/batsman bats-core/bats-assert v2.1.0 && bin/batsman bats-core/bats-support v0.3.0"
+  "bin/batsman bats-core/bats-assert v2.1.0 && bin/batsman bats-core/bats-support v0.3.0 && bin/batsman jasonkarns/bats-mock v1.2.5"
 cecho "\n" -bB --green "✓" --green " System is healthy & ready"
