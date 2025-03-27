@@ -32,12 +32,15 @@ while (($#)); do
   esac
 done
 
+# Use _WHICH if present with fallback to built-in `which` command
+WHICH=${_WHICH:-which}
+
 section "Running checks…"
 check "Check system dependencies" \
-  "command which pkgx && which erl && which elixir" \
+  "command $WHICH pkgx && $WHICH erl && $WHICH elixir" \
   "dev off; dev || source bin/bootstrap"
 check "Check developer environment" \
-  "which stat | grep -q '.pkgx'" \
+  "$WHICH stat | grep -q '.pkgx'" \
   "dev off; dev"
 check "Check PostgreSQL server is running" \
   "pgrep -f bin/postgres" \
