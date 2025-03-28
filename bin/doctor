@@ -54,5 +54,7 @@ check "Check mix dependencies" \
 check "Check PostgreSQL database exists" \
   "psql -U postgres -lqt | cut -d \| -f 1 | grep -qw 'my_app_dev'" \
   "mix ecto.create"
-
+check "Check Bats helpers" \
+  "ls .bats_deps/bats-core/bats-assert > /dev/null" \
+  "bin/batsman bats-core/bats-assert v2.1.0 && bin/batsman bats-core/bats-support v0.3.0"
 cecho "\n" -bB --green "✓" --green " System is healthy & ready"
