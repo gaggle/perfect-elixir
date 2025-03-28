@@ -32,32 +32,35 @@ while (($#)); do
   esac
 done
 
-# Use _WHICH if present with fallback to built-in `which` command
-WHICH=${_WHICH:-which}
-
 section "Running checks…"
+WHICH=${_WHICH:-which}
 check "Check system dependencies" \
   "command $WHICH pkgx && $WHICH erl && $WHICH elixir" \
   "dev off; dev || source bin/bootstrap"
 check "Check developer environment" \
   "$WHICH stat | grep -q '.pkgx'" \
   "dev off; dev"
+
+PGREP=${_PGREP:-pgrep}
 check "Check PostgreSQL server is running" \
-  "pgrep -f bin/postgres" \
+  "$PGREP -f bin/postgres" \
   "bin/db start"
+PSQL=${_PSQL:-psql}
 check "Check PostgreSQL server has required user" \
-  'psql -U postgres -c "\q" > /dev/null 2>&1' \
+  "$PSQL -U postgres -c \"\\q\" > /dev/null 2>&1" \
   "createuser -d postgres"
+MIX=${_MIX:-mix}
 check "Check mix hex" \
-  "mix archive | grep -q hex" \
+  "$MIX archive | grep -q hex" \
   "mix local.hex --force"
 check "Check mix dependencies" \
-  '[ "$(mix deps | grep -Ec "the dependency is not available|dependency is out of date")" -eq 0 ]' \
+  "[ \"\$($MIX deps | grep -Ec \"the dependency is not available|dependency is out of date\")\" -eq 0 ]" \
   "mix setup"
 check "Check PostgreSQL database exists" \
-  "psql -U postgres -lqt | cut -d \| -f 1 | grep -qw 'my_app_dev'" \
+  "$PSQL -U postgres -lqt | cut -d \| -f 1 | grep -qw 'my_app_dev'" \
   "mix ecto.create"
+LS=${_LS:-ls}
 check "Check Bats helpers" \
-  "ls .bats_deps/bats-core/bats-assert > /dev/null" \
+  "$LS .bats_deps/bats-core/bats-assert > /dev/null" \
   "bin/batsman bats-core/bats-assert v2.1.0 && bin/batsman bats-core/bats-support v0.3.0 && bin/batsman grayhemp/bats-mock v1.0-beta.1"
 cecho "\n" -bB --green "✓" --green " System is healthy & ready"
