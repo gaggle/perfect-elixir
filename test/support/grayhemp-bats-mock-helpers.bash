@@ -25,3 +25,28 @@ esac"
 list_stub_calls() {
   cat "$BATS_TEST_TMPDIR/stub_calls.log" 2>/dev/null || echo ""
 }
+
+assert_stub_call_order() {
+  local expected=("$@");
+  local i=0
+  local log_lines=()
+  mapfile -t log_lines < <(list_stub_calls | sed '/^$/d')
+  # ↑ `sed` drops empty lines, this is so if no expected calls are provided
+  #   AND the call order log is empty, the comparisons below succeeds.
+
+  for line in "${log_lines[@]}"; do
+    if [ "${expected[$i]}" = "$line" ]; then
+      ((i++)) || :
+      # ↑ The `|| :` construct is because the expressions can return 0,
+      #   and that evaluates as false, and if `set -e` is enabled
+      #   that would cause the script to exit. Oh Bash, you rascal ❤️
+      [ "$i" -eq "${#expected[@]}" ] && break
+    fi
+  done
+
+  if [ "$i" -ne "${#expected[@]}" ]; then
+    echo "assert_stub_call_order failed: expected sequence \"${expected[*]}\" not found in call log:" >&2
+    list_stub_calls >&2
+    return 1
+  fi
+}

@@ -71,3 +71,83 @@ foo arg1"
   assert_success
   assert_output ""
 }
+
+@test "assert_stub_call_order succeeds with exact call order match" {
+  stub=$(stub_command foo)
+  run $stub arg1
+  run $stub arg2
+  run $stub arg3
+
+  run assert_stub_call_order "foo arg1" "foo arg2" "foo arg3"
+  assert_success
+}
+
+@test "assert_stub_call_order succeeds with non-consecutive calls that appear in order" {
+  stub=$(stub_command foo)
+  run $stub arg1
+  run $stub arg2
+  run $stub arg3
+  run $stub arg4
+
+  run assert_stub_call_order "foo arg1" "foo arg3"
+  assert_success
+}
+
+@test "assert_stub_call_order succeeds if no calls are expected and the call log is empty" {
+  run assert_stub_call_order
+  assert_success
+}
+
+@test "assert_stub_call_order fails with incorrect call order" {
+  stub=$(stub_command foo)
+  run $stub arg1
+  run $stub arg2
+  run $stub arg3
+
+  run assert_stub_call_order "foo arg2" "foo arg1"
+  assert_failure
+}
+
+@test "assert_stub_call_order fails if expecting missing call" {
+  stub=$(stub_command foo)
+  run $stub arg1
+  run $stub arg2
+
+  run assert_stub_call_order "foo arg1" "foo arg3"
+  assert_failure
+}
+
+@test "assert_stub_call_order fails if calls are expected but log is empty" {
+  run assert_stub_call_order "foo arg1"
+  assert_failure
+}
+
+@test "assert_stub_call_order handles single call" {
+  stub=$(stub_command foo)
+  run $stub arg1
+
+  run assert_stub_call_order "foo arg1"
+  assert_success
+}
+
+@test "assert_stub_call_order handles multiple identical calls" {
+  stub=$(stub_command foo)
+  run $stub arg1
+  run $stub arg1
+  run $stub arg1
+
+  run assert_stub_call_order "foo arg1" "foo arg1" "foo arg1"
+  assert_success
+}
+
+@test "assert_stub_call_order outputs the full call log when it fails" {
+  stub=$(stub_command foo)
+  run $stub arg1
+  run $stub arg2
+
+  run assert_stub_call_order "foo arg2" "foo arg1"
+  assert_failure
+  assert_output 'assert_stub_call_order failed: expected sequence "foo arg2 foo arg1" not found in call log:
+foo arg1
+foo arg2'
+}
