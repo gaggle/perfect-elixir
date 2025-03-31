@@ -35,13 +35,16 @@ while [[ $# -gt 0 ]]; do
 done
 
 BATS=${_BATS:-bats}
-BATS_CMD="$BATS -Tr"
+NPROC=${_NPROC:-nproc}
+
+PROCESSING_UNITS=$(eval "$NPROC")
+BATS_CMD="$BATS -Tr -j $PROCESSING_UNITS"
 
 if [ ${#TEST_PATHS[@]} -gt 0 ]; then
-  echo "Running ${TEST_PATHS[*]}..."
+  echo "Running ${TEST_PATHS[*]} (via $PROCESSING_UNITS parallel jobs)..."
   eval "$BATS_CMD ${TEST_PATHS[*]}"
   exit 0
 fi
 
-echo "Running all tests..."
+echo "Running all tests (via $PROCESSING_UNITS parallel jobs)..."
 eval "$BATS_CMD test"

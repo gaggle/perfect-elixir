@@ -8,3 +8,4 @@ dependencies:
   github.com/bats-core/bats-core: =1.11.1
   cli.github.com: =2.68.1
   gnu.org/tar: =1.35.0
+  gnu.org/parallel: =20250322.0.0

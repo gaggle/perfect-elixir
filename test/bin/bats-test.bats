@@ -1,16 +1,21 @@
 #!/usr/bin/env bats
 
 stub_bats() {
-  export _BATS=$(stub_command_case bats "$@" \
-  "'-Tr test/bin/example.bats') exit 0" \
-  "'-Tr test/bin/example.bats test/bin/example.bats') exit 0" \
-  "'-Tr test') exit 0")
+  export _BATS=$(stub_command_case bats \
+  "'-Tr -j 4 test/bin/example.bats') exit 0" \
+  "'-Tr -j 4 test/bin/example.bats test/bin/example.bats') exit 0" \
+  "'-Tr -j 4 test') exit 0")
+}
+
+stub_nproc() {
+  export _NPROC=$(stub_command_case nproc "*) echo 4")
 }
 
 setup() {
   load "$(pwd)/test/test_helper"
   export TEST_FILE="test/bin/example.bats"
   stub_bats
+  stub_nproc
 }
 
 @test "displays help message when -h or --help is used" {
@@ -32,20 +37,20 @@ setup() {
 @test "runs all tests when no path is provided" {
   run bin/bats-test
   assert_success
-  assert_line "Running all tests..."
-  assert_equal "$(list_stub_calls)" "bats -Tr test"
+  assert_line "Running all tests (via 4 parallel jobs)..."
+  assert_stub_call_order "bats -Tr -j 4 test"
 }
 
 @test "runs specific test file when path is provided" {
-  run bin/bats-test "$TEST_FILE"
-  assert_success
-  assert_line "Running $TEST_FILE..."
-  assert_equal "$(list_stub_calls)" "bats -Tr $TEST_FILE"
+ run bin/bats-test "$TEST_FILE"
+ assert_success
+ assert_line "Running $TEST_FILE (via 4 parallel jobs)..."
+ assert_stub_call_order "bats -Tr -j 4 $TEST_FILE"
 }
 
 @test "runs multiple specified test paths" {
-  run bin/bats-test "$TEST_FILE" "$TEST_FILE"
-  assert_success
-  assert_line "Running $TEST_FILE $TEST_FILE..."
-  assert_equal "$(list_stub_calls)" "bats -Tr $TEST_FILE $TEST_FILE"
+ run bin/bats-test "$TEST_FILE" "$TEST_FILE"
+ assert_success
+ assert_line "Running $TEST_FILE $TEST_FILE (via 4 parallel jobs)..."
+ assert_stub_call_order "bats -Tr -j 4 $TEST_FILE $TEST_FILE"
 }
