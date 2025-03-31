@@ -65,6 +65,11 @@ psql -U postgres -lqt
 ls .bats_deps/bats-core/bats-assert"
 }
 
+@test "verifies Elixir is available before running mix" {
+  run bin/doctor
+  assert_stub_call_order "which elixir" "mix deps"
+}
+
 dyn_test_data=(
   'reinitialize devenv if pkgx is absent
 stub_which "pkgx) exit 1"
