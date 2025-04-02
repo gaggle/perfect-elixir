@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  echo "Run Bats tests"
+  echo ""
+  echo "Usage:"
+  echo "  bats-test [options] [tests]"
+  echo ""
+  echo "Options:"
+  echo "  -h, --help     Show this help message"
+  echo ""
+  echo "Arguments:"
+  echo "  tests          Path to test file or directory (optional)"
+  echo "                 If not provided, runs all tests in test/"
+}
+
+TEST_PATHS=()
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    -*)
+      echo "Unknown option: $1"
+      usage
+      exit 1
+      ;;
+    *)
+      TEST_PATHS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+BATS=${_BATS:-bats}
+BATS_CMD="$BATS -Tr"
+
+if [ ${#TEST_PATHS[@]} -gt 0 ]; then
+  echo "Running ${TEST_PATHS[*]}..."
+  eval "$BATS_CMD ${TEST_PATHS[*]}"
+  exit 0
+fi
+
+echo "Running all tests..."
+eval "$BATS_CMD test"
