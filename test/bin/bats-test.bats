@@ -2,9 +2,10 @@
 
 stub_bats() {
   export _BATS=$(stub_command_case bats \
+  "'-cr test') echo 42" \
+  "'-Tr -j 4 test') exit 0" \
   "'-Tr -j 4 test/bin/example.bats') exit 0" \
-  "'-Tr -j 4 test/bin/example.bats test/bin/example.bats') exit 0" \
-  "'-Tr -j 4 test') exit 0")
+  "'-Tr -j 4 test/bin/example.bats test/bin/example.bats') exit 0")
 }
 
 stub_nproc() {
@@ -13,7 +14,11 @@ stub_nproc() {
 
 setup() {
   load "$(pwd)/test/test_helper"
+
+  mkdir -p "$BATS_TEST_TMPDIR/test/bin"
   export TEST_FILE="test/bin/example.bats"
+  touch "$BATS_TEST_TMPDIR/$TEST_FILE"
+
   stub_bats
   stub_nproc
 }
@@ -35,22 +40,44 @@ setup() {
 }
 
 @test "runs all tests when no path is provided" {
-  run bin/bats-test
+  run bin/bats-test -f
   assert_success
   assert_line "Running all tests (via 4 parallel jobs)..."
   assert_stub_call_order "bats -Tr -j 4 test"
 }
 
 @test "runs specific test file when path is provided" {
- run bin/bats-test "$TEST_FILE"
+ run bin/bats-test -f "$TEST_FILE"
  assert_success
  assert_line "Running $TEST_FILE (via 4 parallel jobs)..."
  assert_stub_call_order "bats -Tr -j 4 $TEST_FILE"
 }
 
 @test "runs multiple specified test paths" {
- run bin/bats-test "$TEST_FILE" "$TEST_FILE"
- assert_success
- assert_line "Running $TEST_FILE $TEST_FILE (via 4 parallel jobs)..."
- assert_stub_call_order "bats -Tr -j 4 $TEST_FILE $TEST_FILE"
+  run bin/bats-test -f "$TEST_FILE" "$TEST_FILE"
+  assert_success
+  assert_line "Running $TEST_FILE $TEST_FILE (via 4 parallel jobs)..."
+  assert_stub_call_order "bats -Tr -j 4 $TEST_FILE $TEST_FILE"
+}
+
+@test "uses checksum to skip tests when nothing has changed" {
+  run bin/bats-test -f
+
+  # Second run should skip tests due to unchanged checksum
+  run bin/bats-test
+  assert_success
+  assert_line "No changes since last test run, skipping 42 tests."
+}
+
+@test "force flag runs tests regardless of checksum" {
+  run bin/bats-test -f
+
+  # Force flag should ignore existing checksum
+  run bin/bats-test -f
+  assert_success
+  assert_line "Running all tests (via 4 parallel jobs)..."
+
+  run bin/bats-test --force
+  assert_success
+  assert_line "Running all tests (via 4 parallel jobs)..."
 }

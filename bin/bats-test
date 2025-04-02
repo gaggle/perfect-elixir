@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CHECKSUM_DIR="${TMPDIR:-/tmp}"
+CHECKSUM_FILE="$CHECKSUM_DIR/perfect-elixir-bats-checksum"
+
 usage() {
   echo "Run Bats tests"
   echo ""
+  echo "This script skips running tests if shell scripts or tests have not changed."
   echo "Usage:"
   echo "  bats-test [options] [tests]"
   echo ""
   echo "Options:"
+  echo "  -f, --force    Force test execution regardless of checksum"
   echo "  -h, --help     Show this help message"
   echo ""
   echo "Arguments:"
@@ -15,9 +21,15 @@ usage() {
   echo "                 If not provided, runs all tests in test/"
 }
 
+# Parse arguments
+FORCE=0
 TEST_PATHS=()
 while [[ $# -gt 0 ]]; do
   case $1 in
+    -f|--force)
+      FORCE=1
+      shift
+      ;;
     -h|--help)
       usage
       exit 0
@@ -46,5 +58,22 @@ if [ ${#TEST_PATHS[@]} -gt 0 ]; then
   exit 0
 fi
 
+relevant_files=$(echo -e "$(find "$SCRIPT_DIR" -type f)
+$(find "test" -type f \( -name "*.bats" -o -name "*.bash" \))" | sort)
+
+file_checksums=$(echo "$relevant_files" | tr '\n' '\0' | xargs -0 sha256sum | sort)
+
+current_checksum=$(echo "$file_checksums" | sha256sum | cut -d' ' -f1)
+
+if [[ $FORCE -eq 0 ]] && [[ -f "$CHECKSUM_FILE" ]]; then
+  stored_checksum=$(cat "$CHECKSUM_FILE")
+  if [[ "$current_checksum" == "$stored_checksum" ]]; then
+    test_count=$($BATS -cr "test")
+    echo "No changes since last test run, skipping ${test_count} tests."
+    exit 0
+  fi
+fi
+
 echo "Running all tests (via $PROCESSING_UNITS parallel jobs)..."
 eval "$BATS_CMD test"
+echo "$current_checksum" > "$CHECKSUM_FILE"
