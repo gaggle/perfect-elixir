@@ -3,7 +3,7 @@ set -euo pipefail
 source "$(dirname "$0")/.shhelpers"
 "$(dirname "$0")/update"
 branch="perfect-elixir-7-test-automating-shell-scripts"
-step --with-output "Running tests" "mix test"
+"$(dirname "$0")/test"
 check "Files formatted?" "mix format --check-formatted" "mix format"
 step "Pushing changes to $branch" "git push origin \"${branch}\""
 cecho "\n" -bB --green "✓ Shipped! 🚢💨"
