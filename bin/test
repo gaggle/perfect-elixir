@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+source "$(dirname "$0")/.shhelpers"
+
+MIX=${_MIX:-mix}
+step --with-output "Running Elixir tests" "$MIX test"
+
+BATS_TEST=${_BATS_TEST:-"$(dirname "$0")/bats-test"}
+step --with-output "Running Shell tests" "$BATS_TEST"
