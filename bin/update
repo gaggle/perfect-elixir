@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+source "$(dirname "$0")/.shhelpers"
+branch="perfect-elixir-7-test-automating-shell-scripts"
+check "Branch is $branch?" \
+  "[ \"$(git rev-parse --abbrev-ref HEAD)\" = \"$branch\" ]" \
+  "git checkout '${branch}'"
+step "Pulling latest code" "git pull origin '$branch' --rebase"
+step "Getting dependencies" "mix deps.get"
+step "Compiling dependencies" "mix deps.compile"
+"$(dirname "$0")/doctor"
