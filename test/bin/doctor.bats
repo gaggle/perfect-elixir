@@ -1,5 +1,4 @@
 # shellcheck disable=SC2120 # <- functions do get called with args, but dynamically
-
 stub_which() {
   export _WHICH=$(stub_command_case which "$@" \
   "pkgx) echo /bin/pkgx" \

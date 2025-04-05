@@ -1,5 +1,3 @@
-#!/usr/bin/env bats
-
 stub_bats() {
   export _BATS=$(stub_command_case bats \
   "'-cr test') echo 42" \
